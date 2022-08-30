@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void GetDamaged(float damage)
+    public void GetDamaged(float damage)
     {
         hp -= damage;
     }
