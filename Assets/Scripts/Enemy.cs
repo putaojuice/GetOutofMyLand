@@ -6,7 +6,6 @@ public class Enemy : MonoBehaviour
 {
 
     private float hp = 3f;
-    public Transform goal;
 
     // Start is called before the first frame update
     void Start()
@@ -28,13 +27,5 @@ public class Enemy : MonoBehaviour
         hp -= damage;
     }
 
-    // Update is called once per frame
-    void onCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.name == "Endpoint"){
-            Destroy(gameObject);
-            return;
-        }
- 
-    }
+
 }

@@ -19,4 +19,14 @@ public class MoveDestination : MonoBehaviour
     {
         
     }
+
+        // Update is called once per frame
+    void onCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.name == goal.name){
+            Destroy(this.gameObject);
+            return;
+        }
+ 
+    }
 }
