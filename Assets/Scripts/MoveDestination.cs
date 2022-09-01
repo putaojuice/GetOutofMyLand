@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class MoveDestination : MonoBehaviour
 {
-
-    public Transform goal;
     // Start is called before the first frame update
     void Start()
     {
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        Transform goal = GameObject.Find("Endpoint").transform; 
         agent.destination = goal.position;
         
     }
@@ -20,13 +19,9 @@ public class MoveDestination : MonoBehaviour
         
     }
 
-        // Update is called once per frame
-    void onCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collider)
     {
-        if(collision.gameObject.name == goal.name){
-            Destroy(this.gameObject);
-            return;
-        }
- 
+        Destroy(gameObject);
     }
+
 }
