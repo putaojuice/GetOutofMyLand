@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
     }
 
 
-    // todo: to be adjusted
+    // todo: to be implemented/integrated
+    // to be trigger after wave (relevant object: start wave button or timer)
     public void AddCard(Card newCard)
     {
         //deck.Add(newCard);
