@@ -18,7 +18,7 @@ public class CameraSystem : MonoBehaviour
     
     private bool dragMovementActive;
     private Vector2 lastMousePosition;
-    private float targetFieldOfView = 50;
+    private float targetFieldOfView = 80;
 
 
     private void Update()

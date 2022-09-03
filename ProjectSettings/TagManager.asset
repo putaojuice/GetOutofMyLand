@@ -6,14 +6,16 @@ TagManager:
   tags:
   - Endpoint
   - Enemy
+  - GridBase
+  - GridFloor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
-  - 
+  - Grid
   - 
   - 
   - 
@@ -40,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1660691345
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
