@@ -51,6 +51,7 @@ public class TurretBase : MonoBehaviour
 
 	private void UpdateBuildStatus()
 	{	
+		Debug.Log("Floor: " + floor.Count + " Obj: " + obj.Count);
         // Check if turret is on top of floor 
 		if (floor.Count >= 1 && obj.Count == 0)
 		{	

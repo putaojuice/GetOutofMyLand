@@ -1,4 +1,6 @@
 using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,16 +9,31 @@ using UnityEngine.UI;
 public class TestTurretBuild : MonoBehaviour
 {   
    [SerializeField] private GameObject tilePreviewPrefab;
+   public Button spawnButton;
    
-    void Start()
+    void Start() 
+    {
+        Button btn = spawnButton.GetComponent<Button>();
+        btn.onClick.AddListener(TaskOnClick);
+    }
+
+    // Update is called once per frame
+    void Update()
     {
 
     }
-    
-    public void OnMouseDown()
+
+    void TaskOnClick()
     {
-        TurretController turretController = GameObject.Find("Platform").GetComponent<TurretController>();
-        turretController.StartBuild(tilePreviewPrefab);
+        StartCoroutine(SpawnTurret());
+    }
+
+    IEnumerator SpawnTurret()
+    {     
+            TurretController turretController = GameObject.Find("Platform").GetComponent<TurretController>();
+            turretController.StartBuild(tilePreviewPrefab);
+            yield return new WaitForSeconds(1f);
+
     }
 
 }

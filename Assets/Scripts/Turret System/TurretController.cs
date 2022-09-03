@@ -94,11 +94,11 @@ public class TurretController : MonoBehaviour
 		int z = Mathf.RoundToInt(position.z);
 		if (previewPrefab.GetComponent<TurretBase>().GetRotateState())
 		{
-			previewPrefab.transform.position = new Vector3(x, 1.5f, z);
+			previewPrefab.transform.position = new Vector3(x, 0.8f, z);
 		}
 		else
 		{
-			previewPrefab.transform.position = new Vector3(x, 1.5f, z);
+			previewPrefab.transform.position = new Vector3(x, 0.8f, z);
 		}
 		
 	}
