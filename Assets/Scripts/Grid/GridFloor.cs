@@ -25,7 +25,7 @@ public class GridFloor : MonoBehaviour
         GenerateGrid();
         rend = GetComponent<MeshRenderer>();
         originalColor = rend.material.color;
-        controller = GameObject.Find("Platform").GetComponent<GridController>();
+        controller = GameObject.Find("GameManager").GetComponent<GridController>();
     }
 
     public void OnMouseEnter()

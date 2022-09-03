@@ -3,34 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.AI.Navigation;
 
-public class TurretController : MonoBehaviour
+public class GridController : MonoBehaviour
 {
+    
 	[SerializeField] private LayerMask layer;
 	[SerializeField] private NavMeshSurface surf;
 
+	private DeckController DeckController;
 	private GameObject previewPrefab;
-	private TurretBase turretBase;
-    private Camera cam;
+	private GridTile gridTile;
 	private bool isBuilding = false;
+	private Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
 		// BuildNavMesh on start up
-		surf = GetComponent<NavMeshSurface>();
 		surf.BuildNavMesh();
-        cam = GameObject.Find("Camera").GetComponent<Camera>();
+		cam = GameObject.Find("Camera").GetComponent<Camera>();
+		DeckController = gameObject.GetComponent<DeckController>();
     }
 
     private void Update()
-	{   
+	{
 		BuildLogic();
 	}
 
 	public void BuildLogic()
-	{   
-
-		if (Input.GetMouseButton(0) && isBuilding && turretBase.GetBuildable())
+	{
+		if (Input.GetMouseButton(0) && isBuilding && gridTile.GetBuildable())
 		{
 			CompleteBuild();
 		}
@@ -44,7 +45,7 @@ public class TurretController : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.R) && isBuilding)
 		{
 			previewPrefab.transform.Rotate(0f, 90f, 0f);
-			previewPrefab.GetComponent<TurretBase>().Rotate();
+			previewPrefab.GetComponent<GridTile>().Rotate();
 		}
 
 		// Calls method GenerateRay in order for player to place the tile
@@ -56,22 +57,25 @@ public class TurretController : MonoBehaviour
 
 	public void StartBuild(GameObject obj)
 	{
-		previewPrefab = Instantiate(obj, new Vector3(0, 1.5f, 0), Quaternion.identity);
-		turretBase = previewPrefab.GetComponent<TurretBase>();
+		previewPrefab = Instantiate(obj, Vector3.zero, Quaternion.identity);
+		gridTile = previewPrefab.GetComponent<GridTile>();
 		isBuilding = true;
+		Debug.Log("here");
 	}
 
 	private void StopBuild()
 	{
 		Destroy(previewPrefab);
 		previewPrefab = null;
-		turretBase = null;
+		gridTile = null;
 		isBuilding = false;
+		DeckController.StopPlayTileCard();
 	}
 
 	private void CompleteBuild()
 	{
-		turretBase.Build();
+		gridTile.Build();
+		DeckController.CompleteTileCard();
 		// update navmesh data in run time
 		surf.UpdateNavMesh(surf.navMeshData);
 		StopBuild();
@@ -92,13 +96,14 @@ public class TurretController : MonoBehaviour
 	{
 		int x = Mathf.RoundToInt(position.x);
 		int z = Mathf.RoundToInt(position.z);
-		if (previewPrefab.GetComponent<TurretBase>().GetRotateState())
+
+		if (previewPrefab.GetComponent<GridTile>().GetRotateState())
 		{
-			previewPrefab.transform.position = new Vector3(x, 0.8f, z);
+			previewPrefab.transform.position = new Vector3(x, 0, z);
 		}
 		else
 		{
-			previewPrefab.transform.position = new Vector3(x, 0.8f, z);
+			previewPrefab.transform.position = new Vector3(x, 0, z);
 		}
 		
 	}

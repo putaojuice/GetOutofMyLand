@@ -4,45 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
-{
-    public List<Card> deck = new List<Card>();
-    public Transform[] cardSlots;
+{   
+    
+    private DeckController DeckController;
     public Transform cardGroup;
 
-    public void ShuffleCard()
-    {
-        System.Random r = new System.Random();
+    public int currentHandSize;
 
-        // Fisher-Yates Shuffle
-        for (int n = deck.Count - 1; n > 0; --n)
-        {
-            int k = r.Next(n + 1);
-            Card temp = deck[n];
-            deck[n] = deck[k];
-            deck[k] = temp;
-        }
+    void Start() {
+        DeckController = GetComponent<DeckController>();
+        DeckController.DrawCard();
     }
 
-    public void DrawCard()
-    {
-        foreach (Card c in deck)
-        {
-            c.gameObject.SetActive(false);
-        }
 
-        for (int i = 0; i < cardSlots.Length; i++)
-        {
-            Card randCard = deck[i];
-
-            randCard.gameObject.SetActive(true);
-            randCard.transform.position = cardSlots[i].position;
-        }
-    }
-
+    // todo: to be adjusted
     public void AddCard(Card newCard)
     {
-        deck.Add(newCard);
-        ShuffleCard();
+        //deck.Add(newCard);
+        //ShuffleCard();
     }
 
     public void CreateNewColourCard()
@@ -59,4 +38,5 @@ public class GameManager : MonoBehaviour
         cardObject.SetActive(false);
         AddCard(cardObject.GetComponent<Card>());
     }
+    //
 }

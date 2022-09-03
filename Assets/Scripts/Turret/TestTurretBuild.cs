@@ -5,13 +5,12 @@ using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 // This is stub for the card system, remove once card system is completed
-public class TestBuild : MonoBehaviour
+public class TestTurretBuild : MonoBehaviour
 {   
    [SerializeField] private GameObject tilePreviewPrefab;
-    public Button spawnButton;
-
+   public Button spawnButton;
+   
     void Start() 
     {
         Button btn = spawnButton.GetComponent<Button>();
@@ -26,13 +25,13 @@ public class TestBuild : MonoBehaviour
 
     void TaskOnClick()
     {
-        StartCoroutine(SpawnTile());
+        StartCoroutine(SpawnTurret());
     }
 
-    IEnumerator SpawnTile()
+    IEnumerator SpawnTurret()
     {     
-            GridController gridController = GameObject.Find("Platform").GetComponent<GridController>();
-            gridController.StartBuild(tilePreviewPrefab);
+            TurretController turretController = GameObject.Find("GameManager").GetComponent<TurretController>();
+            turretController.StartBuild(tilePreviewPrefab);
             yield return new WaitForSeconds(1f);
 
     }
