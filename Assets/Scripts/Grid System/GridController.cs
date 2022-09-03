@@ -31,9 +31,6 @@ public class GridController : MonoBehaviour
 
 	public void BuildLogic()
 	{
-		if (Input.GetMouseButton(0)) {
-			Debug.Log(isBuilding + " " + gridTile.GetBuildable());
-		}
 		if (Input.GetMouseButton(0) && isBuilding && gridTile.GetBuildable())
 		{
 			CompleteBuild();
