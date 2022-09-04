@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     void Start() {
         DeckController = GetComponent<DeckController>();
+        DeckController.ShuffleCard();
         DeckController.DrawCard();
     }
 
