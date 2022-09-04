@@ -60,7 +60,6 @@ public class GridController : MonoBehaviour
 		previewPrefab = Instantiate(obj, Vector3.zero, Quaternion.identity);
 		gridTile = previewPrefab.GetComponent<GridTile>();
 		isBuilding = true;
-		Debug.Log("here");
 	}
 
 	private void StopBuild()
