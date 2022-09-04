@@ -37,14 +37,6 @@ public class Card : MonoBehaviour
             Debug.Log("Error: Please assign type to card!");
         }
     }
-
-    public void SetIndex(int index) {
-        slotIndex = index;
-    }
-
-    public int getIndex() {
-        return slotIndex;
-    }
 }
 
 public enum Type {Tile, Turret};

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DeckController : MonoBehaviour
-{   
-    public List<CardSlot> cardSlots = new List<CardSlot>();
+{
+    public GameObject Hand;
+    public GameObject Deck;
+    public int maxHandSize = 5;
     public List<Card> deck = new List<Card>();
 
     private List<Card> usedCards = new List<Card>();
@@ -31,16 +33,10 @@ public class DeckController : MonoBehaviour
     // or todo: whenever a wave is finished
     public void DrawCard()
     {   
-        for (int i = 0; i < cardSlots.Count; i++) {
-            CardSlot slot = cardSlots[i];
-            if (slot.isOccupied()) {
-                continue;
-            } else {
-                Card firstCard = GetNextCard();
-                slot.AddCard(firstCard);
-                firstCard.SetIndex(i);
-                firstCard.transform.position = slot.gameObject.transform.position;
-            }
+        for (int i = 0; i < maxHandSize; i++) {
+            Card firstCard = GetNextCard();
+            Hand = GameObject.Find("PlayerHand");
+            firstCard.transform.SetParent(Hand.transform);
         }
     }
 
@@ -55,9 +51,12 @@ public class DeckController : MonoBehaviour
     }
 
     public void CompleteCard() {
+        Deck = GameObject.Find("CardDeck");
+        currentCard.transform.SetParent(Deck.transform);
+
         currentCard.gameObject.SetActive(false);
         usedCards.Add(currentCard);
-        cardSlots[currentCard.getIndex()].RemoveCard();
+
         StopPlayCard();
     }
 
