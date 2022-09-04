@@ -68,13 +68,13 @@ public class GridController : MonoBehaviour
 		previewPrefab = null;
 		gridTile = null;
 		isBuilding = false;
-		DeckController.StopPlayTileCard();
+		DeckController.StopPlayCard();
 	}
 
 	private void CompleteBuild()
 	{
 		gridTile.Build();
-		DeckController.CompleteTileCard();
+		DeckController.CompleteCard();
 		// update navmesh data in run time
 		surf.UpdateNavMesh(surf.navMeshData);
 		StopBuild();

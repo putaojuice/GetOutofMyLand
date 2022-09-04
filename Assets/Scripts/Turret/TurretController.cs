@@ -10,6 +10,7 @@ public class TurretController : MonoBehaviour
 
 	private GameObject previewPrefab;
 	private TurretBase turretBase;
+	private DeckController DeckController;
     private Camera cam;
 	private bool isBuilding = false;
 
@@ -19,7 +20,8 @@ public class TurretController : MonoBehaviour
 		// BuildNavMesh on start up
 		surf.BuildNavMesh();
         cam = GameObject.Find("Camera").GetComponent<Camera>();
-    }
+		DeckController = gameObject.GetComponent<DeckController>();
+	}
 
     private void Update()
 	{   
@@ -66,11 +68,13 @@ public class TurretController : MonoBehaviour
 		previewPrefab = null;
 		turretBase = null;
 		isBuilding = false;
+		DeckController.StopPlayCard();
 	}
 
 	private void CompleteBuild()
 	{
 		turretBase.Build();
+		DeckController.CompleteCard();
 		// update navmesh data in run time
 		surf.UpdateNavMesh(surf.navMeshData);
 		StopBuild();

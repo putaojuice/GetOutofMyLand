@@ -50,29 +50,20 @@ public class DeckController : MonoBehaviour
         GridController.StartBuild(prefabPreview);
     }
 
-    public void StopPlayTileCard() {
+    public void StopPlayCard() {
         currentCard = null;
     }
 
-    public void CompleteTileCard() {
+    public void CompleteCard() {
         currentCard.gameObject.SetActive(false);
         usedCards.Add(currentCard);
         cardSlots[currentCard.getIndex()].RemoveCard();
+        StopPlayCard();
     }
 
     public void PlayTurretCard(Card card, GameObject prefabPreview) {
         currentCard = card;
         TurretController.StartBuild(prefabPreview);
-    }
-
-    public void StopPlayTurretCard() {
-        currentCard = null;
-    }
-
-    public void CompleteTurretCard() {
-        currentCard.gameObject.SetActive(false);
-        usedCards.Add(currentCard);
-        cardSlots[currentCard.getIndex()].RemoveCard();
     }
 
 
