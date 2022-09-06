@@ -21,7 +21,10 @@ public class MoveDestination : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        Destroy(gameObject);
+        // Notify the enemy to get damaged and die instantly
+        Enemy enemy = gameObject.GetComponent<Enemy>();
+        enemy.GetDamaged(9999999999);
+        // Destroy(gameObject);
     }
 
 }

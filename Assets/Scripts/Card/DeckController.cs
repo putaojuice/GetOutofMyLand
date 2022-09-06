@@ -13,6 +13,7 @@ public class DeckController : MonoBehaviour
     private GridController GridController;
     private TurretController TurretController;
     private Card currentCard;
+    private int currentHandSize = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,9 @@ public class DeckController : MonoBehaviour
         // All controllers are components of "GameManager"
         GridController = gameObject.GetComponent<GridController>();
         TurretController = gameObject.GetComponent<TurretController>();
+        
+        // subscribing the DrawCard method to the WaveEnd event so that DrawCard will be called once wave ended
+        WaveSpawning.WaveEnded += DrawCard;
     }
 
     // Update is called once per frame
@@ -31,13 +35,19 @@ public class DeckController : MonoBehaviour
 
     // to be triggered at the start of the game
     // or todo: whenever a wave is finished
-    public void DrawCard()
-    {   
-        for (int i = 0; i < maxHandSize; i++) {
+    public void DrawCard() {   
+        for (int i = currentHandSize; i < maxHandSize; i++) {
             Card firstCard = GetNextCard();
             Hand = GameObject.Find("PlayerHand");
             firstCard.transform.SetParent(Hand.transform);
+            Debug.Log("Drawing card: " + i);
+            currentHandSize++;
         }
+
+        // after drawing cards, unsubscribe the DrawCard method from the WaveEnd event to prevent memory leak
+        // TODO handle this in a GameEndManager when player loses
+        WaveSpawning.WaveEnded -= DrawCard;
+        WaveSpawning.WaveEnded += DrawCard;
     }
 
 
@@ -56,6 +66,7 @@ public class DeckController : MonoBehaviour
 
         currentCard.gameObject.SetActive(false);
         usedCards.Add(currentCard);
+        currentHandSize--;
 
         StopPlayCard();
     }

@@ -8,8 +8,11 @@ public class WaveSpawning : MonoBehaviour
     public Transform enemyPrefab;
     public Transform spawnPoint;
     public Button spawnButton;
-    private int waveIndex = 0;
+    private static int waveIndex = 0;
+    public int currentEnemies = waveIndex;
     
+    public delegate void WaveEnd();
+    public static event WaveEnd WaveEnded;
 
     void Start() 
     {
@@ -29,8 +32,9 @@ public class WaveSpawning : MonoBehaviour
     }
 
     IEnumerator SpawnWave()
-    {     
+    {
         waveIndex ++;
+        currentEnemies = waveIndex;
 
         for(int i = 0; i < waveIndex; i ++){
             SpawnEnemy();
@@ -42,5 +46,15 @@ public class WaveSpawning : MonoBehaviour
     void SpawnEnemy()
     {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+    }
+
+    public void EnemyDied() {
+        currentEnemies--;
+
+        // Delegate wave end event when all the enemies died
+        if (currentEnemies == 0 && WaveEnded != null) {
+            Debug.Log("Reached");
+            WaveEnded();
+        }
     }
 }

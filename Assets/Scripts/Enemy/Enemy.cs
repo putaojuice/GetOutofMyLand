@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
+    private static WaveSpawning WaveSpawning;
     private float hp = 3f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        WaveSpawning = GameObject.Find("GameManager").GetComponent<WaveSpawning>();
     }
 
     // Update is called once per frame
@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     {
         if(hp <= 0){
             Destroy(gameObject);
+            UpdateNumOfEnemies();
             return;
         }
     }
@@ -27,5 +28,7 @@ public class Enemy : MonoBehaviour
         hp -= damage;
     }
 
-
+    private void UpdateNumOfEnemies() {
+        WaveSpawning.EnemyDied();
+    }
 }
