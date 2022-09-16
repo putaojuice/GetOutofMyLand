@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public static WaveSpawning WaveSpawning;
+    public float maxHp = 3f;
     public float hp = 3f;
     public float skillCoolDown = 5f;
     public float defence = 0f;
@@ -23,6 +24,13 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             UpdateNumOfEnemies();
             return;
+        }
+    }
+
+    // Creating method for healers to call
+    public void GetHealed(float healPoints){
+        if(hp < maxHp){
+            hp += healPoints;
         }
     }
 

@@ -10,12 +10,12 @@ public class Warrior : Enemy
     [SerializeField]private float chargeSpeed = 3000f;
     [SerializeField]private float skillDuration = 1f;
     [SerializeField]private bool skillToggled = false;
-    [SerializeField]private float acceleration = 0.5f;
 
     // Start is called before the first frame update
     void Start()
     {
         // Setting up the stats for Warriors
+        maxHp = 5f;
         hp = 5f;
         skillCoolDown = 5f;
         defence = 3f;
@@ -61,7 +61,6 @@ public class Warrior : Enemy
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.speed = chargeSpeed;
         skillToggled = true;
-        // to be changed to scheduler
 
     }
 
@@ -70,7 +69,6 @@ public class Warrior : Enemy
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.speed = originalSpeed;
         skillToggled = false;
-        // to be changed to scheduler
     }
 
 }

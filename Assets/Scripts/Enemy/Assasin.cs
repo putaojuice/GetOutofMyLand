@@ -17,6 +17,7 @@ public class Assasin : Enemy
     void Start()
     {
         // Setting up the stats for Warriors
+        maxHp = 3f;
         hp = 3f;
         skillCoolDown = 5f;
         defence = 1f;
@@ -63,13 +64,9 @@ public class Assasin : Enemy
         }
     }
 
-    // Hide Skill will be called
-    // Should we call if once it gets hit?
     public override void UseSkill() {
 
-        // additional changing of material colours during invis
         gameObject.tag = "HiddenEnemy";
-        // rend.material.Lerp(originalMat, hiddenMat, lerp);
         rend.material = hiddenMat;
         skillToggled = true;
 

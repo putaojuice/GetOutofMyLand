@@ -8,7 +8,7 @@ public class WaveSpawning : MonoBehaviour
     public Transform enemyPrefab;
     public Transform spawnPoint;
     public Button spawnButton;
-    private static int waveIndex = 0;
+    private static int waveIndex = 1;
     public int currentEnemies = waveIndex;
     
     public delegate void WaveEnd();
