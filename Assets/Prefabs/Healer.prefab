@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568520728800973159}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -86.73, y: 4.82, z: 10.81}
+  m_LocalPosition: {x: 0, y: 5, z: 10.81}
   m_LocalScale: {x: 1, y: 1, z: 3.0632}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -54,7 +54,7 @@ MonoBehaviour:
   skillCoolDown: 5
   defence: 0
   currRound: 1
-  range: 20
+  range: 10
   numSegments: 128
   line: {fileID: 2713429377373498686}
 --- !u!114 &4481776840944148928
@@ -88,7 +88,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 3
+  m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!120 &2713429377373498686
@@ -142,8 +142,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.22784805
+        time: 0.022472382
+        value: 0.89873123
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -155,8 +155,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.8773585, g: 0.2027857, b: 0.2027857, a: 1}
+      key1: {r: 0.5690335, g: 0.92156863, b: 0.49019608, a: 1}
       key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -179,7 +179,7 @@ LineRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 0
+      m_Mode: 1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -189,7 +189,7 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
-  m_Loop: 0
+  m_Loop: 1
 --- !u!1 &4805798568334730574
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +249,7 @@ Transform:
   m_GameObject: {fileID: 6058375410785955301}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.021514893, y: -0.6852002, z: -0.021793602}
-  m_LocalScale: {x: 1, y: 4.5248823, z: 0.326456}
+  m_LocalScale: {x: 2, y: 4.5248823, z: 0.326456}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1701740818182006075}
@@ -347,7 +347,7 @@ Transform:
   m_GameObject: {fileID: 6766084317502479819}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5315216632771883349}

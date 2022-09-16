@@ -52,7 +52,8 @@ public class WaveSpawning : MonoBehaviour
 
     void SpawnEnemy()
     {
-        int randIndex = Random.Range(0, 3);
+        // int randIndex = Random.Range(0, 3);
+        int randIndex = 2;
         Instantiate(listOfEnemies[randIndex], spawnPoint.position, spawnPoint.rotation);
     }
 

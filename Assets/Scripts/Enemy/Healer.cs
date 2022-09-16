@@ -13,7 +13,8 @@ public class Healer : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        DoRenderer(numSegments, range);
+        // DoRenderer(numSegments, range);
+
 
         maxHp = 3f;
         hp = 3f;
@@ -29,6 +30,9 @@ public class Healer : Enemy
     // Update is called once per frame
     void Update()
     {
+
+        DoRenderer(numSegments, range);
+
         if(hp <= 0){
             Destroy(gameObject);
             UpdateNumOfEnemies();
@@ -56,10 +60,19 @@ public class Healer : Enemy
             float x = xScaled * radius;
             float y = yScaled * radius;
 
-            Vector3 currPosition = new Vector3(x,y,0);
+            Vector3 currPosition = transform.position + new Vector3(x,0,y);
             line.SetPosition(currStep, currPosition);
 
         }
+        // var increment = 10;
+        //  for (int angle = 0; angle < 360; angle = angle + increment)
+        //  {
+        //     var heading = Vector3.forward - transform.position;
+        //     var direction = heading / heading.magnitude;
+        //     var point = transform.position + Quaternion.Euler(0, angle, 0) * Vector3.forward * radius;
+        //     var point2 = transform.position + Quaternion.Euler(0, angle + increment, 0) * Vector3.forward * radius;
+        //     Debug.DrawLine(point, point2, Color.red);
+        //  }
     }
 
     public override void UseSkill() {
