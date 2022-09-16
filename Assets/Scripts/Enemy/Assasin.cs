@@ -20,7 +20,7 @@ public class Assasin : Enemy
         maxHp = 3f;
         hp = 3f;
         skillCoolDown = 5f;
-        defence = 1f;
+        defence = 0f;
 
         // Finding necesary objects
         WaveSpawning = GameObject.Find("GameMaster").GetComponent<WaveSpawning>();

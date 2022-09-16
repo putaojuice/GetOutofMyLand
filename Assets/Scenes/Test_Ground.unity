@@ -1635,7 +1635,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596393cd15e0c4942892e3f6cc1a5168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5924088595254386246, guid: 58fb3895b915a43e8867812e886d5081, type: 3}
+  warriorPrefab: {fileID: 5924088595254386246, guid: 58fb3895b915a43e8867812e886d5081, type: 3}
+  assassinPrefab: {fileID: 4889297037439525151, guid: e7f32496996b649d2bba74fb3074ad5e, type: 3}
+  healerPrefab: {fileID: 5315216632771883349, guid: 27fd06f6d2e89409c82fdc219cda6a0b, type: 3}
   spawnPoint: {fileID: 1076264982}
   spawnButton: {fileID: 64702298}
   currentEnemies: 0

@@ -6,10 +6,15 @@ using UnityEngine.AI;
 public class Healer : Enemy
 {
 
+    [SerializeField] public float range = 20f;
+    [SerializeField] public int numSegments = 128;
+    [SerializeField] LineRenderer line;
+
     // Start is called before the first frame update
     void Start()
     {
-        // Setting up the stats for Warriors
+        DoRenderer(numSegments, range);
+
         maxHp = 3f;
         hp = 3f;
         skillCoolDown = 5f;
@@ -37,6 +42,24 @@ public class Healer : Enemy
 
         // to be changed to scheduler
         skillCoolDown -= Time.deltaTime;
+    }
+
+    public void DoRenderer (int steps, float radius) {
+
+        line.positionCount = steps;
+        for(int currStep = 0; currStep < steps; currStep ++){
+            float circumferenceProgress = (float)currStep/steps;
+            float currRadian = circumferenceProgress * 2 * Mathf.PI;
+            float xScaled = Mathf.Cos(currRadian);
+            float yScaled = Mathf.Sin(currRadian);
+
+            float x = xScaled * radius;
+            float y = yScaled * radius;
+
+            Vector3 currPosition = new Vector3(x,y,0);
+            line.SetPosition(currStep, currPosition);
+
+        }
     }
 
     public override void UseSkill() {

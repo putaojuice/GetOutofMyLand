@@ -5,7 +5,11 @@ using UnityEngine.UI;
 
 public class WaveSpawning : MonoBehaviour
 {
-    public Transform enemyPrefab;
+    public Transform warriorPrefab;
+    public Transform assassinPrefab;
+    public Transform healerPrefab;
+    private List<Transform> listOfEnemies = new List<Transform>();
+
     public Transform spawnPoint;
     public Button spawnButton;
     private static int waveIndex = 1;
@@ -16,6 +20,9 @@ public class WaveSpawning : MonoBehaviour
 
     void Start() 
     {
+        listOfEnemies.Add(warriorPrefab);
+        listOfEnemies.Add(assassinPrefab);
+        listOfEnemies.Add(healerPrefab);
         Button btn = spawnButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
     }
@@ -45,7 +52,8 @@ public class WaveSpawning : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        int randIndex = Random.Range(0, 3);
+        Instantiate(listOfEnemies[randIndex], spawnPoint.position, spawnPoint.rotation);
     }
 
     public void EnemyDied() {
