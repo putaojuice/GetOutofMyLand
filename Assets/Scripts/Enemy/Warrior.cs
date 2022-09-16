@@ -10,6 +10,7 @@ public class Warrior : Enemy
     [SerializeField]private float chargeSpeed = 3000f;
     [SerializeField]private float skillDuration = 1f;
     [SerializeField]private bool skillToggled = false;
+    [SerializeField]private float acceleration = 0.5f;
 
     // Start is called before the first frame update
     void Start()
