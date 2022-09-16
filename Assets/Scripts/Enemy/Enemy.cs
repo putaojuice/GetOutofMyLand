@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private static WaveSpawning WaveSpawning;
-    private float hp = 3f;
+    public static WaveSpawning WaveSpawning;
+    public float hp = 3f;
+    public float skillCoolDown = 5f;
+    public float defence = 0f;
+    public float currRound = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +26,19 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void GetDamaged(float damage)
+    public virtual void GetDamaged(float damage)
     {
-        hp -= damage;
+        if(damage - defence > 0){
+            hp -= damage;
+        }
+
     }
 
-    private void UpdateNumOfEnemies() {
+    public void UpdateNumOfEnemies() {
         WaveSpawning.EnemyDied();
+    }
+
+    public virtual void UseSkill() {
+        return;
     }
 }
