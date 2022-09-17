@@ -8,8 +8,6 @@ public class TurretController : MonoBehaviour
 {
 	[SerializeField] private LayerMask layer;
 	[SerializeField] private NavMeshSurface surf;
-	// agent attached to spawn point to calculate possibility of blocked path
-	[SerializeField] private UnityEngine.AI.NavMeshAgent agent;
 	[SerializeField] private GameObject playerBase;
 
 	private GameObject previewPrefab;
@@ -121,6 +119,12 @@ public class TurretController : MonoBehaviour
 	private void PathCalculation()
     {
         UnityEngine.AI.NavMeshPath path = new UnityEngine.AI.NavMeshPath();
+			// agent attached to spawn point to calculate possibility of blocked path
+	    UnityEngine.AI.NavMeshAgent agent = GameObject.Find("GameManager")
+		.GetComponent<GameManager>()
+		.getCurrentSpawnPoint()
+		.GetComponent<UnityEngine.AI.NavMeshAgent>();
+		
         agent.CalculatePath(playerBase.transform.position, path);
         // Debug.Log(path.status);
 

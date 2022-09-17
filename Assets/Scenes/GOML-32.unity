@@ -503,7 +503,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2147483647
   surf: {fileID: 884211452}
-  agent: {fileID: 0}
   playerBase: {fileID: 325016461}
 --- !u!114 &368124390
 MonoBehaviour:
@@ -554,10 +553,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9c54e64f6d9d74bbbd8875ba108922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardGroup: {fileID: 0}
+  enemyPrefab: {fileID: 5063538835946081632, guid: a9887376b308846f4beb16faf4fd0bf9, type: 3}
   spawnButton: {fileID: 1385811439}
-  enemyPrefab: {fileID: 5063538835946081663, guid: a9887376b308846f4beb16faf4fd0bf9, type: 3}
-  currentEnemies: 1
+  cardGroup: {fileID: 0}
   currentHandSize: 0
 --- !u!4 &368124394
 Transform:

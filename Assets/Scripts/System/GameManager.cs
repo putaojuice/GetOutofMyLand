@@ -65,5 +65,9 @@ public class GameManager : MonoBehaviour
             WaveEnded();
         }
     }
+
+    public GameObject getCurrentSpawnPoint() {
+        return currentSpawnPoint;
+    }
     
 }

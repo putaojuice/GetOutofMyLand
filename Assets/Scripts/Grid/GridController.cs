@@ -113,6 +113,7 @@ public class GridController : MonoBehaviour
     }
 
 	public GameObject[] getCurrentGrid() {
+		updateCurrentGrid();
 		return currentGrid;
 	}
 
