@@ -40,7 +40,6 @@ public class DeckController : MonoBehaviour
             Card firstCard = GetNextCard();
             Hand = GameObject.Find("PlayerHand");
             firstCard.transform.SetParent(Hand.transform);
-            Debug.Log("Drawing card: " + i);
             currentHandSize++;
         }
 
