@@ -81,6 +81,7 @@ public class GridTile : MonoBehaviour
 			ground[i].SetSelectionColor();
 		}
 
+
 		Instantiate(buildPrefab, transform.position, transform.rotation);
 
 		for (int i = 0; i < ground.Count; i++)
