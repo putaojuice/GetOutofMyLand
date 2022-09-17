@@ -21,11 +21,11 @@ public class GridFloor : MonoBehaviour
     
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        controller = GameObject.Find("GameManager").GetComponent<GridController>();
         GenerateGrid();
         rend = GetComponent<MeshRenderer>();
         originalColor = rend.material.color;
-        controller = GameObject.Find("GameManager").GetComponent<GridController>();
     }
 
     public void OnMouseEnter()
@@ -83,8 +83,8 @@ public class GridFloor : MonoBehaviour
 			}
 		}
 
-        GameManager manager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        manager.updateCurrentGrid();
+        controller.updateCurrentGrid();
+
 
     }
 

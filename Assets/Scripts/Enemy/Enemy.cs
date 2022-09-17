@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     private void UpdateNumOfEnemies() {
         if (WaveSpawning == null) {
             GameManager manager = GameObject.Find("GameManager").GetComponent<GameManager>();
-            manager.EnemyDied();
+            manager.UpdateEnemy();
             return;
         }
         WaveSpawning.EnemyDied();
