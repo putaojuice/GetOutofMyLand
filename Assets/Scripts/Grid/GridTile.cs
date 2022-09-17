@@ -63,7 +63,7 @@ public class GridTile : MonoBehaviour
 			buildable = true;
 		}
 		else
-		{	Debug.Log("Floor: " + ground.Count + " Obj: " + obj.Count);
+		{	
 			tileMat.SetColor("_Color", unbuildableColor);
 			buildable = false;
 		}

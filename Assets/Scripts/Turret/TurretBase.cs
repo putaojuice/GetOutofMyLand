@@ -25,7 +25,6 @@ public class TurretBase : MonoBehaviour
 		if (other.CompareTag("GridFloor"))
 		{	
 			GridFloor gridFloor = other.GetComponent<GridFloor>();
-			Debug.Log("Enter: " + gridFloor.gameObject.transform.position);
             floor.Add(gridFloor);
 			UpdateBuildStatus();
 		} else {
@@ -40,7 +39,6 @@ public class TurretBase : MonoBehaviour
 		if (other.CompareTag("GridFloor"))
 		{	
             GridFloor gridFloor = other.GetComponent<GridFloor>();
-			Debug.Log("Exit: " + gridFloor.gameObject.transform.position);
             floor.Remove(gridFloor);
 		} else {
 			obj.Remove(other.gameObject);
