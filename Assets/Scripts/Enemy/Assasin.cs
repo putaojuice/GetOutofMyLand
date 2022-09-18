@@ -17,8 +17,8 @@ public class Assasin : Enemy
     void Start()
     {
         // Setting up the stats for Warriors
-        maxHp = 3f;
-        hp = 3f;
+        maxHp = 30f;
+        hp = maxHp;
         skillCoolDown = 5f;
         defence = 0f;
 
@@ -34,6 +34,11 @@ public class Assasin : Enemy
     // Update is called once per frame
     void Update()
     {
+
+        if(_statusData != null){
+            UpdateStatusEffects();
+        }
+
         if(hp <= 0){
             Destroy(gameObject);
             UpdateNumOfEnemies();

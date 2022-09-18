@@ -13,8 +13,8 @@ public class Healer : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        maxHp = 3f;
-        hp = 3f;
+        maxHp = 30f;
+        hp = maxHp;
         skillCoolDown = 5f;
         defence = 1f;
 
@@ -29,6 +29,10 @@ public class Healer : Enemy
     {
 
         DoRenderer(numSegments, range);
+
+        if(_statusData != null){
+            UpdateStatusEffects();
+        }
 
         if(hp <= 0){
             Destroy(gameObject);

@@ -15,8 +15,8 @@ public class Warrior : Enemy
     void Start()
     {
         // Setting up the stats for Warriors
-        maxHp = 5f;
-        hp = 5f;
+        maxHp = 50f;
+        hp = maxHp;
         skillCoolDown = 5f;
         defence = 3f;
 
@@ -30,6 +30,10 @@ public class Warrior : Enemy
     // Update is called once per frame
     void Update()
     {
+        if(_statusData != null){
+            UpdateStatusEffects();
+        }
+
         if(hp <= 0){
             Destroy(gameObject);
             UpdateNumOfEnemies();

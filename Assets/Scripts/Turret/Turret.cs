@@ -6,13 +6,13 @@ public class Turret : MonoBehaviour
 {
     [Header("Attributes")]
 
-    [SerializeField] private float lerpSpeed = 10f;
+    [SerializeField] public float lerpSpeed = 10f;
     [SerializeField] public float range = 15f;
     [SerializeField] public float firingRate = 2f;
-    [SerializeField] private float fireCountdown = 0f;
+    [SerializeField] public float fireCountdown = 0f;
 
     [Header("Parts")]
-    [SerializeField] private Enemy target;
+    [SerializeField] public Enemy target;
     [SerializeField] public string enemyTag = "Enemy";
     [SerializeField] public Transform rotatingPart;
     [SerializeField] public GameObject bulletPrefab;
@@ -25,7 +25,7 @@ public class Turret : MonoBehaviour
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
-    void UpdateTarget()
+    public void UpdateTarget()
     {
         var enemies = GameObject.FindObjectsOfType<Enemy>();
         float shortestDistance = Mathf.Infinity;
@@ -78,7 +78,7 @@ public class Turret : MonoBehaviour
         fireCountdown -= Time.deltaTime;
     }
 
-    void Shoot()
+    public void Shoot()
     {
         GameObject currBullet = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = currBullet.GetComponent<Bullet>();
@@ -87,11 +87,5 @@ public class Turret : MonoBehaviour
         {
             bullet.Seek(target);
         }
-    }
-
-    void onDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
     }
 }

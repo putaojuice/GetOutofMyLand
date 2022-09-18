@@ -2,19 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class FireBall : Bullet
 {
-    [SerializeField] public Enemy target;
-    [SerializeField] public float speed = 300f;
-    [SerializeField] public float attackPoints = 1f;
 
-    public void Seek(Enemy _target)
-    {
-        target = _target;
-    }
+    [SerializeField] public float burnDamage = 1.0f;
+    [SerializeField] public StatusData _statusData;
+
     // Start is called before the first frame update
     void Start()
     {
+        attackPoints = 2.0f;
+        speed = 30.0f;
         
     }
 
@@ -39,11 +37,13 @@ public class Bullet : MonoBehaviour
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
 
-    public virtual void HitTarget()
+    public override void HitTarget()
     {
         Enemy currEnemy = target.GetComponent<Enemy>();
         currEnemy.GetDamaged(attackPoints);
+        currEnemy.ApplyStatus(_statusData);
         Destroy(this.gameObject);
+
 
     }
 

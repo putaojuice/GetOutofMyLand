@@ -16,8 +16,8 @@ public class Tank : Enemy
     void Start()
     {
         // Setting up the stats for Warriors
-        maxHp = 8f;
-        hp = 8f;
+        maxHp = 80f;
+        hp = maxHp;
         skillCoolDown = 2f;
         defence = 4f;
 
@@ -34,6 +34,10 @@ public class Tank : Enemy
     // Update is called once per frame
     void Update()
     {
+        if(_statusData != null){
+            UpdateStatusEffects();
+        }
+
         if(hp <= 0){
             Destroy(gameObject);
             UpdateNumOfEnemies();
