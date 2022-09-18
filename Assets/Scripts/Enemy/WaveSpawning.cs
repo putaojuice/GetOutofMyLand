@@ -8,6 +8,7 @@ public class WaveSpawning : MonoBehaviour
     public Transform warriorPrefab;
     public Transform assassinPrefab;
     public Transform healerPrefab;
+    public Transform tankPrefab;
     private List<Transform> listOfEnemies = new List<Transform>();
 
     public Transform spawnPoint;
@@ -23,6 +24,7 @@ public class WaveSpawning : MonoBehaviour
         listOfEnemies.Add(warriorPrefab);
         listOfEnemies.Add(assassinPrefab);
         listOfEnemies.Add(healerPrefab);
+        listOfEnemies.Add(tankPrefab);
         Button btn = spawnButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
     }
@@ -52,8 +54,7 @@ public class WaveSpawning : MonoBehaviour
 
     void SpawnEnemy()
     {
-        // int randIndex = Random.Range(0, 3);
-        int randIndex = 2;
+        int randIndex = Random.Range(0, 4);
         Instantiate(listOfEnemies[randIndex], spawnPoint.position, spawnPoint.rotation);
     }
 
