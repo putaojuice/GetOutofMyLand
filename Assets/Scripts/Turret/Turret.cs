@@ -6,17 +6,17 @@ public class Turret : MonoBehaviour
 {
     [Header("Attributes")]
 
-    private float lerpSpeed = 10f;
-    public float range = 15f;
-    public float firingRate = 2f;
-    private float fireCountdown = 0f;
+    [SerializeField] private float lerpSpeed = 10f;
+    [SerializeField] public float range = 15f;
+    [SerializeField] public float firingRate = 2f;
+    [SerializeField] private float fireCountdown = 0f;
 
     [Header("Parts")]
-    private GameObject target;
-    public string enemyTag = "Enemy";
-    public Transform rotatingPart;
-    public GameObject bulletPrefab;
-    public Transform firePoint;
+    [SerializeField] private Enemy target;
+    [SerializeField] public string enemyTag = "Enemy";
+    [SerializeField] public Transform rotatingPart;
+    [SerializeField] public GameObject bulletPrefab;
+    [SerializeField] public Transform firePoint;
 
 
     // Start is called before the first frame update
@@ -27,18 +27,24 @@ public class Turret : MonoBehaviour
 
     void UpdateTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        var enemies = GameObject.FindObjectsOfType<Enemy>();
         float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
+        Enemy nearestEnemy = null;
 
-        foreach(GameObject enemy in enemies)
-        {
+        foreach(Enemy enemy in enemies) {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
             if(distance < shortestDistance)
             {
                 shortestDistance = distance;
                 nearestEnemy = enemy;
-
+            }
+            if(enemy is Tank && distance < range){
+                Tank tank = (Tank) enemy;
+                if(tank.skillToggled){
+                    shortestDistance = distance;
+                    nearestEnemy = tank;
+                    break;
+                }
             }
         }
 

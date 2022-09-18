@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private GameObject target;
+    private Enemy target;
     public float speed = 300f;
     public float attackPoints = 1f;
 
-    public void Seek(GameObject _target)
+    public void Seek(Enemy _target)
     {
         target = _target;
     }

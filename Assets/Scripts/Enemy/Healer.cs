@@ -13,13 +13,10 @@ public class Healer : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        // DoRenderer(numSegments, range);
-
-
         maxHp = 3f;
         hp = 3f;
         skillCoolDown = 5f;
-        defence = 0f;
+        defence = 1f;
 
         // Finding necesary objects
         WaveSpawning = GameObject.Find("GameMaster").GetComponent<WaveSpawning>();
@@ -64,25 +61,14 @@ public class Healer : Enemy
             line.SetPosition(currStep, currPosition);
 
         }
-        // var increment = 10;
-        //  for (int angle = 0; angle < 360; angle = angle + increment)
-        //  {
-        //     var heading = Vector3.forward - transform.position;
-        //     var direction = heading / heading.magnitude;
-        //     var point = transform.position + Quaternion.Euler(0, angle, 0) * Vector3.forward * radius;
-        //     var point2 = transform.position + Quaternion.Euler(0, angle + increment, 0) * Vector3.forward * radius;
-        //     Debug.DrawLine(point, point2, Color.red);
-        //  }
     }
 
     public override void UseSkill() {
-
         var enemies = GameObject.FindObjectsOfType<Enemy>();
         foreach(var enemy in enemies) {
-            if((transform.position - enemy.transform.position).magnitude < 20){
+            if((transform.position - enemy.transform.position).magnitude < range){
                 enemy.GetHealed(1);
             }
         }
-
     }
 }
