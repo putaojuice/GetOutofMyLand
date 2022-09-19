@@ -8,4 +8,5 @@ public class StatusData : ScriptableObject
     [SerializeField] public float DOTPoints;
     [SerializeField] public float statusDuration;
     [SerializeField] public float DOTInterval;
+    [SerializeField] public string StatusType;
 }

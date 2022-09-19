@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBall : Bullet
+public class LightningBall : Bullet
 {
 
     [SerializeField] public float burnDamage = 1.0f;
@@ -11,7 +11,7 @@ public class FireBall : Bullet
     // Start is called before the first frame update
     void Start()
     {
-        attackPoints = 2.0f;
+        attackPoints = 5.0f;
         speed = 30.0f;
         
     }

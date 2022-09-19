@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour, IEffectable
     public StatusData _statusData;
     public float currentStatusDuration = 0.0f;
     public float lastDOTInterval = 0.0f;
+    public float statusCoolDown = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class Enemy : MonoBehaviour, IEffectable
     // Update is called once per frame
     void Update()
     {
-        if(hp <= 0){
+        if(hp <= 0.0f || float.IsNaN(hp)){
             Destroy(gameObject);
             UpdateNumOfEnemies();
             return;
@@ -50,6 +51,11 @@ public class Enemy : MonoBehaviour, IEffectable
 
     }
 
+    public virtual void GetStatusDamaged(float damage)
+    {
+            hp -= damage;
+
+    }
 
     public void UpdateNumOfEnemies() {
         WaveSpawning.EnemyDied();
@@ -59,21 +65,24 @@ public class Enemy : MonoBehaviour, IEffectable
         return;
     }
 
-
     public void ApplyStatus (StatusData _statusData){
-        Debug.Log("BURN BITCH");
-        this._statusData = _statusData;
+        if(this._statusData == null){
+            this._statusData = _statusData;
+        } else {
+            HandleStatus(_statusData);
+        }
+        
     }
 
     public void UndoStatus () {
         currentStatusDuration = 0.0f;
         lastDOTInterval = 0.0f;
+        statusCoolDown = 2.0f;
         this._statusData = null;
     }
 
     public void UpdateStatusEffects (){
         currentStatusDuration += Time.deltaTime;
-
 
         if(currentStatusDuration > _statusData.statusDuration) UndoStatus();
 
@@ -81,9 +90,34 @@ public class Enemy : MonoBehaviour, IEffectable
 
         else if(_statusData.DOTPoints != 0.0f && currentStatusDuration > lastDOTInterval)
         {
-            hp -= _statusData.DOTPoints;
+            GetStatusDamaged(_statusData.DOTPoints);
             lastDOTInterval += _statusData.DOTInterval;
         }
+    }
+
+    public void HandleStatus(StatusData newStatusData) {
+        switch(newStatusData.StatusType) {
+            case "BurningEffect":
+                if(_statusData.StatusType == "LightningEffect"){ // inflict Explosion
+                    Debug.Log("Explosion!");
+                    float damage = (_statusData.statusDuration/_statusData.DOTInterval) * _statusData.DOTPoints;
+                    GetStatusDamaged(damage);
+                    UndoStatus();
+                }
+                break;
+            case "LightningEffect":
+                if(_statusData.StatusType == "BurningEffect"){ // inflict Explosion
+                    Debug.Log("Explosion!");
+                    float damage = (_statusData.statusDuration/_statusData.DOTInterval) * _statusData.DOTPoints;
+                    GetStatusDamaged(damage);
+                    UndoStatus();
+                }
+                break;
+            default:
+                break;
+
+        }
+
 
     }
 }

@@ -34,7 +34,7 @@ public class Warrior : Enemy
             UpdateStatusEffects();
         }
 
-        if(hp <= 0){
+        if(hp <= 0.0f || float.IsNaN(hp)){
             Destroy(gameObject);
             UpdateNumOfEnemies();
             return;
