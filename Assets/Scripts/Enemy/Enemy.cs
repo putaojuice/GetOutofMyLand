@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour, IEffectable
     // Update is called once per frame
     void Update()
     {
-        if(hp <= 0.0f || float.IsNaN(hp)){
+        if(hp <= 0.0f){
             Destroy(gameObject);
             UpdateNumOfEnemies();
             return;
@@ -100,7 +100,7 @@ public class Enemy : MonoBehaviour, IEffectable
             case "BurningEffect":
                 if(_statusData.StatusType == "LightningEffect"){ // inflict Explosion
                     Debug.Log("Explosion!");
-                    float damage = (_statusData.statusDuration/_statusData.DOTInterval) * _statusData.DOTPoints;
+                    float damage = (newStatusData.statusDuration/newStatusData.DOTInterval) * newStatusData.DOTPoints;
                     GetStatusDamaged(damage);
                     UndoStatus();
                 }

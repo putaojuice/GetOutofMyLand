@@ -39,7 +39,7 @@ public class Assasin : Enemy
             UpdateStatusEffects();
         }
 
-        if(hp <= 0.0f || float.IsNaN(hp)){
+        if(hp <= 0.0f){
             Destroy(gameObject);
             UpdateNumOfEnemies();
             return;
