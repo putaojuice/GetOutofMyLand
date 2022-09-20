@@ -10,6 +10,7 @@ public class Card : MonoBehaviour
     public CardEffect cardEffect;
     public GameObject prefabPreview;
     public Type type;
+    public bool isLootCard = false;
 
     private DeckController DeckController;
 
@@ -24,6 +25,11 @@ public class Card : MonoBehaviour
 
     public void UseCard()
     {
+        if (isLootCard)
+        {
+            DeckController.AddCard(this);
+            return;
+        }
         // currentCard.gameObject.SetActive(false);
         if (cardEffect) {
             cardEffect.TriggerEffect();

@@ -9,6 +9,10 @@ public class DeckController : MonoBehaviour
     public int maxHandSize = 5;
     public List<Card> deck = new List<Card>();
 
+    public GameObject LootOverlay;
+    public GameObject LootDisplay;
+    public List<Card> lootDeck = new List<Card>();
+
     private List<Card> usedCards = new List<Card>();
     private GridController GridController;
     private TurretController TurretController;
@@ -23,7 +27,7 @@ public class DeckController : MonoBehaviour
         TurretController = gameObject.GetComponent<TurretController>();
         
         // subscribing the DrawCard method to the WaveEnd event so that DrawCard will be called once wave ended
-        GameManager.WaveEnded += DrawCard;
+        GameManager.WaveEnded += GetRandomLoot;
     }
 
     // Update is called once per frame
@@ -42,11 +46,6 @@ public class DeckController : MonoBehaviour
             firstCard.transform.SetParent(Hand.transform);
             currentHandSize++;
         }
-
-        // after drawing cards, unsubscribe the DrawCard method from the WaveEnd event to prevent memory leak
-        // TODO handle this in a GameEndManager when player loses
-        GameManager.WaveEnded -= DrawCard;
-        GameManager.WaveEnded += DrawCard;
     }
 
 
@@ -109,6 +108,48 @@ public class DeckController : MonoBehaviour
             ShuffleCard();
         }
         
+    }
+
+    public void GetRandomLoot()
+    {
+        LootOverlay.SetActive(true);
+        List<Card> currentLootDeck = new List<Card>(lootDeck);
+        LootDisplay = GameObject.Find("CardDisplay");
+
+        for (int i = 0; i < 3; ++i)
+        {
+            int index = Random.Range(0, currentLootDeck.Count);
+            GameObject newCard = Instantiate(currentLootDeck[index].gameObject);
+            newCard.GetComponent<Card>().isLootCard = true;
+            newCard.transform.SetParent(LootDisplay.transform);
+            newCard.SetActive(true);
+            currentLootDeck.RemoveAt(index);
+        }
+
+        // after displaying loot, unsubscribe the GetRandomLoot method from the WaveEnd event to prevent memory leak
+        // TODO handle this in a GameEndManager when player loses
+        GameManager.WaveEnded -= GetRandomLoot;
+        GameManager.WaveEnded += GetRandomLoot;
+    }
+
+    public void AddCard(Card card)
+    {
+        currentCard = card;
+        currentCard.GetComponent<Card>().isLootCard = false;
+        Deck = GameObject.Find("CardDeck");
+        currentCard.transform.SetParent(Deck.transform);
+        currentCard.gameObject.SetActive(false);
+        usedCards.Add(currentCard);
+
+        foreach (Transform child in LootDisplay.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
+        LootOverlay.SetActive(false);
+        StopPlayCard();
+
+        DrawCard();
     }
 
 }
