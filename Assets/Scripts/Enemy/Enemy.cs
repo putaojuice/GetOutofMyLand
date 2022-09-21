@@ -88,7 +88,7 @@ public class Enemy : MonoBehaviour, IEffectable
 
         if(_statusData == null) return;
 
-        else if(_statusData.DOTPoints != 0.0f && currentStatusDuration > lastDOTInterval)
+        if(_statusData.DOTPoints != 0.0f && currentStatusDuration > lastDOTInterval)
         {
             GetStatusDamaged(_statusData.DOTPoints);
             lastDOTInterval += _statusData.DOTInterval;
@@ -99,7 +99,7 @@ public class Enemy : MonoBehaviour, IEffectable
         switch(newStatusData.StatusType) {
             case "BurningEffect":
                 if(_statusData.StatusType == "LightningEffect"){ // inflict Explosion
-                    Debug.Log("Explosion!");
+                    Debug.Log("PLASMA!");
                     float damage = (newStatusData.statusDuration/newStatusData.DOTInterval) * newStatusData.DOTPoints;
                     GetStatusDamaged(damage);
                     UndoStatus();
@@ -107,12 +107,20 @@ public class Enemy : MonoBehaviour, IEffectable
                 break;
             case "LightningEffect":
                 if(_statusData.StatusType == "BurningEffect"){ // inflict Explosion
-                    Debug.Log("Explosion!");
+                    Debug.Log("PLASMA!");
                     float damage = (_statusData.statusDuration/_statusData.DOTInterval) * _statusData.DOTPoints;
                     GetStatusDamaged(damage);
                     UndoStatus();
                 }
                 break;
+            case "RainEffect":
+                if(_statusData.StatusType == "LightningEffect"){ // inflict Explosion
+                    Debug.Log("Shock!");
+                    // ApplyStatus(shockStatusData);
+                    
+                }
+                break;
+
             default:
                 break;
 

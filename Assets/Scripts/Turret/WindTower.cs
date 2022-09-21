@@ -2,49 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class WindTower : Turret
 {
-    [Header("Attributes")]
 
-    [SerializeField] public float lerpSpeed = 10f;
-    [SerializeField] public float range = 15f;
-    [SerializeField] public float firingRate = 2f;
-    [SerializeField] public float fireCountdown = 0f;
-
-    [Header("Parts")]
-    [SerializeField] public GameObject target;
-    [SerializeField] public string enemyTag = "Enemy";
-    [SerializeField] public Transform rotatingPart;
-    [SerializeField] public GameObject bulletPrefab;
-    [SerializeField] public Transform firePoint;
-
+    [SerializeField] public Vector3 shootDirection;
 
     // Start is called before the first frame update
     void Start()
     {
+        range = 30.0f;
+        firingRate = 0.5f;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
-    public virtual void UpdateTarget()
+    public override void UpdateTarget()
     {
         // var enemies = GameObject.FindObjectsOfType<Enemy>();
         var enemies = GameObject.FindGameObjectsWithTag("Enemy");
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
+        Vector3 finalDirection = Vector3.zero;
 
         foreach(GameObject enemy in enemies) {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
+            
+            Vector3 direction = (transform.position - enemy.transform.position).normalized;
+
             if(distance < shortestDistance)
             {
                 shortestDistance = distance;
                 nearestEnemy = enemy;
+                finalDirection = direction;
+                
             }
+
             Enemy currEnemy = enemy.GetComponent<Enemy>();
+            
             if(currEnemy is Tank && distance < range){
                 Tank tank = (Tank) currEnemy;
                 if(tank.skillToggled){
                     shortestDistance = distance;
                     nearestEnemy = enemy;
+                    finalDirection = direction;
                     break;
                 }
             }
@@ -52,21 +51,21 @@ public class Turret : MonoBehaviour
 
         if(nearestEnemy != null && shortestDistance <= range)
         {
-            target = nearestEnemy;
+            shootDirection = finalDirection;
         } else {
-            target = null;
+            shootDirection = Vector3.zero;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(target == null)
+        if(shootDirection == Vector3.zero)
         {
             return;
         }
 
-        Vector3 dir = target.transform.position - transform.position;
+        Vector3 dir = shootDirection;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(rotatingPart.rotation, lookRotation, Time.deltaTime * lerpSpeed).eulerAngles;
         rotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
@@ -80,14 +79,18 @@ public class Turret : MonoBehaviour
         fireCountdown -= Time.deltaTime;
     }
 
-    public virtual void Shoot()
+    public override void Shoot()
     {
-        GameObject currBullet = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Bullet bullet = currBullet.GetComponent<Bullet>();
+        Debug.Log("Shooting!");
+        Vector3 offset = new Vector3(0,5,0);
+        Vector3 spawnPosition = firePoint.position - offset;
+        GameObject currBullet = (GameObject) Instantiate(bulletPrefab, spawnPosition, firePoint.rotation);
+        WindBullet bullet = currBullet.GetComponent<WindBullet>();
         
         if(bullet != null)
         {
-            bullet.Seek(target);
+            bullet.Seek(shootDirection, range);
         }
     }
 }
+

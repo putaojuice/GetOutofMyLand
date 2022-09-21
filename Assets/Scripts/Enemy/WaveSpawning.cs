@@ -13,7 +13,7 @@ public class WaveSpawning : MonoBehaviour
 
     public Transform spawnPoint;
     public Button spawnButton;
-    private static int waveIndex = 0;
+    private static int waveIndex = 1;
     public int currentEnemies = waveIndex;
     
     public delegate void WaveEnd();
@@ -54,9 +54,9 @@ public class WaveSpawning : MonoBehaviour
 
     void SpawnEnemy()
     {
-        // int randIndex = Random.Range(0, 4);
-        // Instantiate(listOfEnemies[randIndex], spawnPoint.position, spawnPoint.rotation);
-        Instantiate(warriorPrefab, spawnPoint.position, spawnPoint.rotation);
+        int randIndex = Random.Range(0, 3);
+        Instantiate(listOfEnemies[randIndex], spawnPoint.position, spawnPoint.rotation);
+        // Instantiate(assassinPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 
     public void EnemyDied() {

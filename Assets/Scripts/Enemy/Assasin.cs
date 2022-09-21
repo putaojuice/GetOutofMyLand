@@ -8,10 +8,9 @@ public class Assasin : Enemy
     [SerializeField]public Material hiddenMat;
     [SerializeField]private Material originalMat;
     [SerializeField]private float originalSpeed;
-    [SerializeField]private float skillDuration = 2f;
+    [SerializeField]private float skillDuration = 3.0f;
     [SerializeField]private bool skillToggled = false;
     [SerializeField]private Renderer rend;
-    [SerializeField]private float lerp;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +50,7 @@ public class Assasin : Enemy
                 skillDuration -= Time.deltaTime;
             } else {
                 UndoSkill();
-                skillDuration = 2f;
+                skillDuration = 3.0f;
             }
         }
 
@@ -67,6 +66,12 @@ public class Assasin : Enemy
         if(damage - defence > 0){
             hp -= damage;
         }
+    }
+
+    public override void GetStatusDamaged(float damage)
+    {
+            hp -= damage;
+
     }
 
     public override void UseSkill() {

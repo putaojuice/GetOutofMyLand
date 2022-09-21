@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5572273882190842629}
   - component: {fileID: 4889297037439525147}
   - component: {fileID: 5032247084504166976}
+  - component: {fileID: -7432191728317105037}
   m_Layer: 0
   m_Name: Assasin
   m_TagString: Enemy
@@ -113,14 +114,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639838e5fcdcf4824a871f99368e79cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHp: 3
   hp: 3
   skillCoolDown: 5
   defence: 0
   currRound: 1
+  _statusData: {fileID: 0}
+  currentStatusDuration: 0
+  lastDOTInterval: 0
+  statusCoolDown: 0
   hiddenMat: {fileID: 2100000, guid: 008d20ee3b21449e1a9e82a1a8e29660, type: 2}
   originalMat: {fileID: 0}
   originalSpeed: 0
-  skillDuration: 2
+  skillDuration: 10
   skillToggled: 0
   rend: {fileID: 0}
 --- !u!114 &4889297037439525147
@@ -135,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4754c9ae46da4dbb8bd12f6219b6551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goal: {fileID: 0}
 --- !u!195 &5032247084504166976
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -154,6 +161,22 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0.5
+  m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &-7432191728317105037
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4889297037439525146}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
