@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     private GameObject enemyPrefab;
     [SerializeField]
     private Button spawnButton;
+    [SerializeField]
+    private Button wavePauseButton;
 
     private GameObject currentSpawnPoint;
     private DeckController DeckController;
@@ -29,11 +31,15 @@ public class GameManager : MonoBehaviour
         Button btn = spawnButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
         generateSpawnPoint();
+        wavePauseButton.interactable = false;
+
     }
 
     void TaskOnClick()
     {
         StartCoroutine(SpawnWave());
+        spawnButton.interactable = false;
+        wavePauseButton.interactable = true;
     }
 
     public void generateSpawnPoint() {
@@ -56,13 +62,15 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
-
+    
     public void UpdateEnemy() {
         currentEnemies--;
         WaveEnded += generateSpawnPoint;
         // Delegate wave end event when all the enemies died
         if (currentEnemies == 0 && WaveEnded != null) {
             WaveEnded();
+            spawnButton.interactable = true;
+            wavePauseButton.interactable = false;
         }
     }
 
