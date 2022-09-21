@@ -23,7 +23,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    private void Resume()
+    public void Resume()
     {
         pauseMenuUI.SetActive(false);
         if (!gameObject.GetComponent<PauseWaveButton>().WaveIsPaused)
