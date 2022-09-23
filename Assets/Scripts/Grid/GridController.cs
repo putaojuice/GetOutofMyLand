@@ -9,6 +9,7 @@ public class GridController : MonoBehaviour
 	[SerializeField] private LayerMask layer;
 	[SerializeField] private NavMeshSurface surf;
 
+	private GameObject[] currentGrid;
 	private DeckController DeckController;
 	private GameObject previewPrefab;
 	private GridTile gridTile;
@@ -105,6 +106,15 @@ public class GridController : MonoBehaviour
 			previewPrefab.transform.position = new Vector3(x, 0, z);
 		}
 		
+	}
+
+	public void updateCurrentGrid() {
+        currentGrid = GameObject.FindGameObjectsWithTag("GridBase");
+    }
+
+	public GameObject[] getCurrentGrid() {
+		updateCurrentGrid();
+		return currentGrid;
 	}
 
 }

@@ -21,11 +21,11 @@ public class GridFloor : MonoBehaviour
     
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        controller = GameObject.Find("GameManager").GetComponent<GridController>();
         GenerateGrid();
         rend = GetComponent<MeshRenderer>();
         originalColor = rend.material.color;
-        controller = GameObject.Find("GameManager").GetComponent<GridController>();
     }
 
     public void OnMouseEnter()
@@ -68,7 +68,7 @@ public class GridFloor : MonoBehaviour
 			{   
 
                 Vector3 spawnPos = new Vector3(transform.position.x + x +  blockSize / 2,
-                 0, transform.position.z + z + blockSize / 2);
+                 0.4f, transform.position.z + z + blockSize / 2);
 
                 // Smaller overlap box to detect collision
                 // Do not spawn object if occupied
@@ -82,6 +82,9 @@ public class GridFloor : MonoBehaviour
                 block.transform.SetParent(transform);
 			}
 		}
+
+        controller.updateCurrentGrid();
+
 
     }
 
