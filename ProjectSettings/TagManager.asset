@@ -9,6 +9,7 @@ TagManager:
   - GridBase
   - GridFloor
   - HiddenEnemy
+  - Environment
   layers:
   - Default
   - TransparentFX
