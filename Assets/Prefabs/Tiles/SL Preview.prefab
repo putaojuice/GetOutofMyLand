@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTile
       objectReference: {fileID: 0}
+    - target: {fileID: 2771180476473429108, guid: da4e3a3f71353d345913d6ea3ad71091, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3058313417441194018, guid: da4e3a3f71353d345913d6ea3ad71091, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -159,6 +163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTile (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2771180476473429108, guid: da4e3a3f71353d345913d6ea3ad71091, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3058313417441194018, guid: da4e3a3f71353d345913d6ea3ad71091, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -233,6 +241,10 @@ PrefabInstance:
     - target: {fileID: 2771180476473429108, guid: da4e3a3f71353d345913d6ea3ad71091, type: 3}
       propertyPath: m_Name
       value: TestTile (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2771180476473429108, guid: da4e3a3f71353d345913d6ea3ad71091, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3058313417441194018, guid: da4e3a3f71353d345913d6ea3ad71091, type: 3}
       propertyPath: m_RootOrder

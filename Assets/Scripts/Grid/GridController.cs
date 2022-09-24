@@ -110,7 +110,10 @@ public class GridController : MonoBehaviour
 
 	public void updateCurrentGrid() {
 		GameObject[] floors = GameObject.FindGameObjectsWithTag("GridFloor");
+		// Init outfloor list
+		currentOuterFloor = new List<GameObject>();
 		foreach (GameObject go in floors) {
+			// update floor status
 			go.GetComponent<GridFloor>().CheckSurroundingTiles();
 			if (go.GetComponent<GridFloor>().isOuterFloor) {
 				currentOuterFloor.Add(go);
