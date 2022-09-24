@@ -84,7 +84,7 @@ MonoBehaviour:
   target: {fileID: 0}
   enemyTag: Enemy
   rotatingPart: {fileID: 1292184605588119890}
-  bulletPrefab: {fileID: 8220054093227606738, guid: b0e2174f5ea3c4da2b8170b684cc9bc0, type: 3}
+  bulletPrefab: {fileID: 7540285699969234404, guid: 4953e55a0dca90b448def1c114e29a98, type: 3}
   firePoint: {fileID: 186961893558975087}
 --- !u!1001 &1613549188211246777
 PrefabInstance:

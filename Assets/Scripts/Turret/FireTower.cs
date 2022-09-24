@@ -7,7 +7,7 @@ public class FireTower : Turret
     // Start is called before the first frame update
     void Start()
     {
-        range = 15.0f;
+        range = 30.0f;
         firingRate = 0.2f;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7540285699968854692}
   - component: {fileID: 7540285699953534580}
   - component: {fileID: 7540285699953633024}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: FireballTail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4631,7 +4631,7 @@ GameObject:
   - component: {fileID: 7540285699968730678}
   - component: {fileID: 7540285699953597564}
   - component: {fileID: 7540285699953491086}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: FireballProjectiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9417,7 +9417,7 @@ GameObject:
   - component: {fileID: 7540285699968751784}
   - component: {fileID: 7540285699953642216}
   - component: {fileID: 7540285699953477258}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: FireballExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14223,7 +14223,7 @@ GameObject:
   - component: {fileID: 7540285699972224590}
   - component: {fileID: 7540285699962689888}
   - component: {fileID: 7540285699961974268}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: FireballCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14361,7 +14361,8 @@ GameObject:
   - component: {fileID: 7540285699973701932}
   - component: {fileID: 7540285699961947726}
   - component: {fileID: 7540285699961969080}
-  m_Layer: 8
+  - component: {fileID: 698712743052829768}
+  m_Layer: 0
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14685,3 +14686,20 @@ MonoBehaviour:
   ProjectileDestroyParticleSystemsOnCollision:
   - {fileID: 7540285699953534580}
   - {fileID: 7540285699953597564}
+--- !u!114 &698712743052829768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7540285699969234404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0804009a765dd4e3b983ab79e0bcd13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 300
+  attackPoints: 1
+  burnDamage: 1
+  _statusData: {fileID: 11400000, guid: 416ea0a4dc87143eb939081d54be2261, type: 2}

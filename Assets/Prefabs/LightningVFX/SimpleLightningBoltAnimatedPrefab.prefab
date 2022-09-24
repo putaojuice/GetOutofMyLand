@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 430986}
   - component: {fileID: 12080208}
   - component: {fileID: 11413728}
+  - component: {fileID: 8749150647587781599}
   m_Layer: 0
   m_Name: SimpleLightningBoltAnimatedPrefab
   m_TagString: Untagged
@@ -215,9 +216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946c0a34555a28e438f5da3cf715cd1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartObject: {fileID: 156244}
+  StartObject: {fileID: 0}
   StartPosition: {x: 0, y: 0, z: 0}
-  EndObject: {fileID: 103226}
+  EndObject: {fileID: 0}
   EndPosition: {x: 0, y: 0, z: 0}
   Generations: 3
   Duration: 0.03
@@ -226,3 +227,20 @@ MonoBehaviour:
   Rows: 8
   Columns: 1
   AnimationMode: 3
+--- !u!114 &8749150647587781599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d970b22f89fa40edae69d11773b11f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 300
+  attackPoints: 1
+  burnDamage: 1
+  _statusData: {fileID: 11400000, guid: 51503097ca34f4f2eac134d7902b1a9f, type: 2}
