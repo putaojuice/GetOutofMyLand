@@ -70,6 +70,7 @@ public class GridController : MonoBehaviour
 		gridTile = null;
 		isBuilding = false;
 		DeckController.StopPlayCard();
+		surf.UpdateNavMesh(surf.navMeshData);
 	}
 
 	private void CompleteBuild()
@@ -90,6 +91,8 @@ public class GridController : MonoBehaviour
 		{	
 			PositionObj(hit.point);
 		}
+		
+		surf.UpdateNavMesh(surf.navMeshData);
 	}
 
 	private void PositionObj(Vector3 position)
@@ -101,10 +104,7 @@ public class GridController : MonoBehaviour
 		{
 			previewPrefab.transform.position = new Vector3(x, 0, z);
 		}
-		else
-		{
-			previewPrefab.transform.position = new Vector3(x, 0, z);
-		}
+
 		
 	}
 
