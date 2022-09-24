@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5843514483690447795}
   - component: {fileID: 2713429377373498686}
   - component: {fileID: 5441514635319872559}
+  - component: {fileID: 7117603068097990460}
   m_Layer: 0
   m_Name: Healer
   m_TagString: Enemy
@@ -59,6 +60,9 @@ MonoBehaviour:
   currentStatusDuration: 0
   lastDOTInterval: 0
   statusCoolDown: 0
+  originalSpeed: 0
+  freezeEffectData: {fileID: 11400000, guid: 47ba0491509ed4f1697adc6a7745d704, type: 2}
+  shockEffectData: {fileID: 11400000, guid: eb8933d247d6141d8a51c9a4814aae76, type: 2}
   range: 10
   numSegments: 128
   line: {fileID: 2713429377373498686}
@@ -212,6 +216,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &7117603068097990460
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568520728800973159}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.652912}
+  m_Center: {x: 0, y: -5, z: -3.3657615}
 --- !u!1 &4805798568334730574
 GameObject:
   m_ObjectHideFlags: 0

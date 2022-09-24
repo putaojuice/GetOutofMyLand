@@ -45,6 +45,7 @@ public class WindBullet : Bullet
    {
         Enemy currEnemy = collider.gameObject.GetComponent<Enemy>();
         if(currEnemy != null){
+            Debug.Log(currEnemy);
             currEnemy.GetDamaged(attackPoints);
             currEnemy.ApplyStatus(_statusData);
         }

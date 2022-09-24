@@ -123,6 +123,8 @@ MonoBehaviour:
   lastDOTInterval: 0
   statusCoolDown: 0
   originalSpeed: 0
+  freezeEffectData: {fileID: 11400000, guid: 47ba0491509ed4f1697adc6a7745d704, type: 2}
+  shockEffectData: {fileID: 11400000, guid: eb8933d247d6141d8a51c9a4814aae76, type: 2}
   chargeSpeed: 3000
   skillDuration: 1
   skillToggled: 0

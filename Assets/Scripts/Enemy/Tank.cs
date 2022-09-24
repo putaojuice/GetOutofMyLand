@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Tank : Enemy
 {
 
+    [Header("Tank Data")]
     [SerializeField]private float skillDuration = 2.0f;
     [SerializeField]public bool skillToggled = false;
     [SerializeField]private Renderer rend;
@@ -24,7 +25,7 @@ public class Tank : Enemy
         // Finding necesary objects
         WaveSpawning = GameObject.Find("GameMaster").GetComponent<WaveSpawning>();
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        agent.speed = 3.5f;
+        originalSpeed = agent.speed;
 
         rend = GetComponent<Renderer>();
         originalMat = rend.material;
@@ -61,6 +62,7 @@ public class Tank : Enemy
 
         // to be changed to scheduler
         skillCoolDown -= Time.deltaTime;
+        statusCoolDown -= Time.deltaTime;
     }
 
     // Charge Skill will be called

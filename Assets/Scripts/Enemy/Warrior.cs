@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Warrior : Enemy
 {
 
-    [SerializeField]private float originalSpeed;
+    [Header("Warrior Data")]
     [SerializeField]private float chargeSpeed = 3000f;
     [SerializeField]private float skillDuration = 1f;
     [SerializeField]private bool skillToggled = false;
@@ -57,6 +57,7 @@ public class Warrior : Enemy
 
         // to be changed to scheduler
         skillCoolDown -= Time.deltaTime;
+        statusCoolDown -= Time.deltaTime;
     }
 
     // Charge Skill will be called

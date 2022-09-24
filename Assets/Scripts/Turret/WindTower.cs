@@ -81,7 +81,6 @@ public class WindTower : Turret
 
     public override void Shoot()
     {
-        Debug.Log("Shooting!");
         Vector3 offset = new Vector3(0,5,0);
         Vector3 spawnPosition = firePoint.position - offset;
         GameObject currBullet = (GameObject) Instantiate(bulletPrefab, spawnPosition, firePoint.rotation);

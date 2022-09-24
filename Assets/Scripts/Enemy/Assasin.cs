@@ -5,9 +5,9 @@ using UnityEngine.AI;
 
 public class Assasin : Enemy
 {
+    [Header("Assasin Data")]
     [SerializeField]public Material hiddenMat;
     [SerializeField]private Material originalMat;
-    [SerializeField]private float originalSpeed;
     [SerializeField]private float skillDuration = 3.0f;
     [SerializeField]private bool skillToggled = false;
     [SerializeField]private Renderer rend;
@@ -21,12 +21,13 @@ public class Assasin : Enemy
         skillCoolDown = 5f;
         defence = 0f;
 
+        rend = GetComponent<Renderer>();
+        originalMat = rend.material;
+
         // Finding necesary objects
         WaveSpawning = GameObject.Find("GameMaster").GetComponent<WaveSpawning>();
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         originalSpeed = agent.speed;
-        rend = GetComponent<Renderer>();
-        originalMat = rend.material;
 
     }
 
@@ -56,6 +57,7 @@ public class Assasin : Enemy
 
         // to be changed to scheduler
         skillCoolDown -= Time.deltaTime;
+        statusCoolDown -= Time.deltaTime;
     }
 
     public override void GetDamaged(float damage) {

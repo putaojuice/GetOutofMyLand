@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour, IEffectable
 {
+    [Header("Enemy Data")]
     public static WaveSpawning WaveSpawning;
     public float maxHp = 3f;
     public float hp = 3f;
@@ -11,10 +13,14 @@ public class Enemy : MonoBehaviour, IEffectable
     public float defence = 0f;
     public float currRound = 1f;
 
+    [Header("Status Data")]
     public StatusData _statusData;
     public float currentStatusDuration = 0.0f;
     public float lastDOTInterval = 0.0f;
     public float statusCoolDown = 0.0f;
+    public float originalSpeed;
+    [SerializeField] public StatusData freezeEffectData;
+    [SerializeField] public StatusData shockEffectData;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +40,8 @@ public class Enemy : MonoBehaviour, IEffectable
         if(_statusData != null){
             UpdateStatusEffects();
         }
+
+        statusCoolDown -= Time.deltaTime;
     }
 
     // Creating method for healers to call
@@ -66,11 +74,16 @@ public class Enemy : MonoBehaviour, IEffectable
     }
 
     public void ApplyStatus (StatusData _statusData){
-        if(this._statusData == null){
-            this._statusData = _statusData;
-        } else {
-            HandleStatus(_statusData);
+        
+        if(statusCoolDown <= 0.0f){
+            if(this._statusData == null){
+                this._statusData = _statusData;
+            } else {
+                
+                HandleStatus(_statusData);
+            }
         }
+        
         
     }
 
@@ -78,7 +91,18 @@ public class Enemy : MonoBehaviour, IEffectable
         currentStatusDuration = 0.0f;
         lastDOTInterval = 0.0f;
         statusCoolDown = 2.0f;
+        
+        //Used to reset the speed after slow / freeze debuff
+        UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent.speed = originalSpeed;
+
         this._statusData = null;
+    }
+
+    public void ApplyNewStatus(StatusData newStatusData){
+        currentStatusDuration = 0.0f;
+        lastDOTInterval = 0.0f;
+        this._statusData = newStatusData;
     }
 
     public void UpdateStatusEffects (){
@@ -93,11 +117,21 @@ public class Enemy : MonoBehaviour, IEffectable
             GetStatusDamaged(_statusData.DOTPoints);
             lastDOTInterval += _statusData.DOTInterval;
         }
+
+        if(_statusData.slowDebuff != 0.0f){
+            UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+            agent.speed = originalSpeed / _statusData.slowDebuff;
+        }
+
+        if(_statusData.isFreeze){
+            UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+            agent.speed = 0.0f;
+        }
     }
 
     public void HandleStatus(StatusData newStatusData) {
         switch(newStatusData.StatusType) {
-            case "BurningEffect":
+            case "FireEffect":
                 if(_statusData.StatusType == "LightningEffect"){ // inflict Explosion
                     HandlePlasmaStatus(newStatusData);
                 }
@@ -121,19 +155,19 @@ public class Enemy : MonoBehaviour, IEffectable
                     HandleStormStatus();
                 }
 
-                else if(_statusData.StatusType == "BurningEffect"){ // inflict Explosion
+                else if(_statusData.StatusType == "FireEffect"){ // inflict Explosion
                     HandlePlasmaStatus(_statusData);
                 }
                 
                 break;
 
-            case "RainEffect":
+            case "WaterEffect":
 
                 if(_statusData.StatusType == "WindEffect"){
                     HandleFreezeStatus();
                 }
 
-                else if(_statusData.StatusType == "BurningEffect"){
+                else if(_statusData.StatusType == "FireEffect"){
                     HandleSteamStatus();
                 }
 
@@ -144,7 +178,7 @@ public class Enemy : MonoBehaviour, IEffectable
                 break;
 
             case "WindEffect":
-                if(_statusData.StatusType == "BurningEffect"){
+                if(_statusData.StatusType == "FireEffect"){
                     HandleExplosionStatus(_statusData);
                 }
 
@@ -192,10 +226,12 @@ public class Enemy : MonoBehaviour, IEffectable
 
     public void HandleFreezeStatus(){
         Debug.Log("FREEZE!!");
+        ApplyNewStatus(freezeEffectData);
     }
 
     public void HandleShockStatus(){
         Debug.Log("SHOCK!!");
+        ApplyNewStatus(shockEffectData);
     }
 
     public void HandleStormStatus(){

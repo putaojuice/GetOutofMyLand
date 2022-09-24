@@ -6,7 +6,10 @@ using UnityEngine;
 public class StatusData : ScriptableObject
 {
     [SerializeField] public float DOTPoints;
+    [SerializeField] public float slowDebuff;
+    [SerializeField] public bool isFreeze;
     [SerializeField] public float statusDuration;
     [SerializeField] public float DOTInterval;
     [SerializeField] public string StatusType;
+    
 }

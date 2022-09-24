@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Healer : Enemy
 {
 
+    [Header("Healer Data")]
     [SerializeField] public float range = 20f;
     [SerializeField] public int numSegments = 128;
     [SerializeField] LineRenderer line;
@@ -21,6 +22,7 @@ public class Healer : Enemy
         // Finding necesary objects
         WaveSpawning = GameObject.Find("GameMaster").GetComponent<WaveSpawning>();
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        originalSpeed = agent.speed;
 
     }
 
@@ -28,11 +30,11 @@ public class Healer : Enemy
     void Update()
     {
 
-        DoRenderer(numSegments, range);
-
         if(_statusData != null){
             UpdateStatusEffects();
         }
+
+        DoRenderer(numSegments, range);
 
         if(hp <= 0.0f){
             Destroy(gameObject);
@@ -47,6 +49,7 @@ public class Healer : Enemy
 
         // to be changed to scheduler
         skillCoolDown -= Time.deltaTime;
+        statusCoolDown -= Time.deltaTime;
     }
 
     public void DoRenderer (int steps, float radius) {
