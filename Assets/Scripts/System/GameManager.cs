@@ -38,13 +38,13 @@ public class GameManager : MonoBehaviour
 
     public void generateSpawnPoint() {
         // get a random grid object
-        GameObject[] currentGrid = gameObject.GetComponent<GridController>().getCurrentGrid();
-        GameObject randomGrid = currentGrid[Random.Range(0, currentGrid.Length)];
-        GridBase gridBase = randomGrid.GetComponent<GridBase>();
+        List<GameObject> currentGrid = gameObject.GetComponent<GridController>().getCurrentGrid();
+        GameObject randomGrid = currentGrid[Random.Range(0, currentGrid.Count)];
+        GridFloor gridFloor = randomGrid.GetComponent<GridFloor>();
         if (currentSpawnPoint != null) {
             Destroy(currentSpawnPoint);
         }
-        currentSpawnPoint = gridBase.generateSpawnPoint();
+        currentSpawnPoint = gridFloor.generateSpawnPoint();
     }
 
     IEnumerator SpawnWave()
@@ -68,6 +68,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject getCurrentSpawnPoint() {
         return currentSpawnPoint;
+    }
+
+    public void GameOver() {
+        
     }
     
 }

@@ -7,13 +7,14 @@ public class GridFloor : MonoBehaviour
     
     
     [SerializeField] private GameObject blockPrefab;
-
+    [SerializeField] private GameObject spawnPoint;
     
     [Header("Grid Parameters")]
     [SerializeField] private int maxX;
     [SerializeField] private int maxZ;
     [SerializeField] private int blockSize;
 
+    public bool isOuterFloor = true;
     private GridController controller;
     private MeshRenderer rend;
     private bool selected = false;
@@ -26,6 +27,12 @@ public class GridFloor : MonoBehaviour
         GenerateGrid();
         rend = GetComponent<MeshRenderer>();
         originalColor = rend.material.color;
+        StartCoroutine(updateAfterSpawn());
+    }
+
+    IEnumerator updateAfterSpawn() {
+        yield return new WaitForEndOfFrame();
+        controller.updateCurrentGrid();
     }
 
     public void OnMouseEnter()
@@ -41,6 +48,24 @@ public class GridFloor : MonoBehaviour
         SetSelectionColor();
     }
 
+    public void CheckSurroundingTiles() {
+       
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.8f);
+        int count = 0;
+        foreach (Collider collider in colliders)
+        {
+            if (collider.gameObject.tag == "GridFloor" || collider.gameObject.tag == "Environment") {
+                count++;
+            }
+        }
+
+        if (count <= 4) {
+            isOuterFloor = true;
+        } else {
+            isOuterFloor = false;
+        }
+        
+    }
 
     public void SetSelectionColor() 
     {
@@ -62,9 +87,9 @@ public class GridFloor : MonoBehaviour
     void GenerateGrid() 
     {   
         // On each tile, generate grid around it when built
-        for (int x = -maxX; x <= maxX; x++)
+        for (int x = -2; x <= 2; x++)
 		{
-            for (int z = -maxZ; z <= maxZ; z++)
+            for (int z = -2; z <= 2; z++)
 			{   
 
                 Vector3 spawnPos = new Vector3(transform.position.x + x +  blockSize / 2,
@@ -82,11 +107,12 @@ public class GridFloor : MonoBehaviour
                 block.transform.SetParent(transform);
 			}
 		}
-
-        controller.updateCurrentGrid();
-
-
     }
+
+    public GameObject generateSpawnPoint() {
+        return Instantiate(spawnPoint, transform.position, transform.rotation);
+    }
+
 
 
 

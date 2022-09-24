@@ -9,7 +9,7 @@ public class GridController : MonoBehaviour
 	[SerializeField] private LayerMask layer;
 	[SerializeField] private NavMeshSurface surf;
 
-	private GameObject[] currentGrid;
+	private List<GameObject> currentOuterFloor = new List<GameObject>();
 	private DeckController DeckController;
 	private GameObject previewPrefab;
 	private GridTile gridTile;
@@ -109,12 +109,18 @@ public class GridController : MonoBehaviour
 	}
 
 	public void updateCurrentGrid() {
-        currentGrid = GameObject.FindGameObjectsWithTag("GridBase");
+		GameObject[] floors = GameObject.FindGameObjectsWithTag("GridFloor");
+		foreach (GameObject go in floors) {
+			go.GetComponent<GridFloor>().CheckSurroundingTiles();
+			if (go.GetComponent<GridFloor>().isOuterFloor) {
+				currentOuterFloor.Add(go);
+			}
+		}
     }
 
-	public GameObject[] getCurrentGrid() {
+	public List<GameObject> getCurrentGrid() {
 		updateCurrentGrid();
-		return currentGrid;
+		return currentOuterFloor;
 	}
 
 }
