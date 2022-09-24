@@ -99,26 +99,63 @@ public class Enemy : MonoBehaviour, IEffectable
         switch(newStatusData.StatusType) {
             case "BurningEffect":
                 if(_statusData.StatusType == "LightningEffect"){ // inflict Explosion
-                    Debug.Log("PLASMA!");
-                    float damage = (newStatusData.statusDuration/newStatusData.DOTInterval) * newStatusData.DOTPoints;
-                    GetStatusDamaged(damage);
-                    UndoStatus();
+                    HandlePlasmaStatus(newStatusData);
                 }
+
+                else if(_statusData.StatusType == "WaterEffect"){
+                    HandleSteamStatus();
+                }
+
+                else if(_statusData.StatusType == "WindEffect"){
+                    HandleExplosionStatus(newStatusData);
+                }
+
                 break;
+
             case "LightningEffect":
-                if(_statusData.StatusType == "BurningEffect"){ // inflict Explosion
-                    Debug.Log("PLASMA!");
-                    float damage = (_statusData.statusDuration/_statusData.DOTInterval) * _statusData.DOTPoints;
-                    GetStatusDamaged(damage);
-                    UndoStatus();
+                if(_statusData.StatusType == "WaterEffect"){
+                    HandleShockStatus();
                 }
+
+                else if(_statusData.StatusType == "WindEffect"){
+                    HandleStormStatus();
+                }
+
+                else if(_statusData.StatusType == "BurningEffect"){ // inflict Explosion
+                    HandlePlasmaStatus(_statusData);
+                }
+                
                 break;
+
             case "RainEffect":
-                if(_statusData.StatusType == "LightningEffect"){ // inflict Explosion
-                    Debug.Log("Shock!");
-                    // ApplyStatus(shockStatusData);
-                    
+
+                if(_statusData.StatusType == "WindEffect"){
+                    HandleFreezeStatus();
                 }
+
+                else if(_statusData.StatusType == "BurningEffect"){
+                    HandleSteamStatus();
+                }
+
+                else if(_statusData.StatusType == "LightningEffect"){ // inflict Explosion
+                    HandleShockStatus(); 
+                }
+
+                break;
+
+            case "WindEffect":
+                if(_statusData.StatusType == "BurningEffect"){
+                    HandleExplosionStatus(_statusData);
+                }
+
+                else if(_statusData.StatusType == "LightningEffect"){ // inflict Explosion
+                    HandleStormStatus(); 
+                }
+
+                else if(_statusData.StatusType == "WaterEffect"){
+                    HandleFreezeStatus();
+                }
+
                 break;
 
             default:
@@ -127,5 +164,45 @@ public class Enemy : MonoBehaviour, IEffectable
         }
 
 
+    }
+
+    public void HandlePlasmaStatus(StatusData burnStatusData){  //requires the burnstatusdata to calculate the damage points
+        Debug.Log("PLASMA!");
+        float damage = (burnStatusData.statusDuration/burnStatusData.DOTInterval) * burnStatusData.DOTPoints;
+        GetStatusDamaged(damage);
+        UndoStatus();
+    }
+
+    public void HandleExplosionStatus(StatusData burnStatusData){
+        Debug.Log("EXPLOSION!!");
+        float damage = (burnStatusData.statusDuration/burnStatusData.DOTInterval) * (burnStatusData.DOTPoints - 1.0f);
+        GetStatusDamaged(damage);
+        UndoStatus();
+
+        float explosionAOE = 5.0f;
+        var enemies = GameObject.FindObjectsOfType<Enemy>();
+        foreach(var enemy in enemies) {
+            // checks if enemy is not itself and if enemy is within explosionAOE
+            if(transform.position != enemy.transform.position && (transform.position - enemy.transform.position).magnitude < explosionAOE){
+                enemy.GetStatusDamaged(damage);
+            }
+        }
+
+    }
+
+    public void HandleFreezeStatus(){
+        Debug.Log("FREEZE!!");
+    }
+
+    public void HandleShockStatus(){
+        Debug.Log("SHOCK!!");
+    }
+
+    public void HandleStormStatus(){
+        Debug.Log("STORM!!");
+    }
+
+    public void HandleSteamStatus(){
+        Debug.Log("STEAM!!");
     }
 }

@@ -54,9 +54,9 @@ public class WaveSpawning : MonoBehaviour
 
     void SpawnEnemy()
     {
-        int randIndex = Random.Range(0, 3);
-        Instantiate(listOfEnemies[randIndex], spawnPoint.position, spawnPoint.rotation);
-        // Instantiate(assassinPrefab, spawnPoint.position, spawnPoint.rotation);
+        // int randIndex = Random.Range(0, 3);
+        // Instantiate(listOfEnemies[randIndex], spawnPoint.position, spawnPoint.rotation);
+        Instantiate(assassinPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 
     public void EnemyDied() {
