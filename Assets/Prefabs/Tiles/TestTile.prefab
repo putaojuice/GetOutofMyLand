@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -8454991299248349193}
   - component: {fileID: -6484032594352682066}
   - component: {fileID: 46869660634344245}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: TestTile
   m_TagString: GridFloor
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3196648517536708714, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3196648517536708714, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
       propertyPath: m_TagString
@@ -209,7 +209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1092910722396494324, guid: 162d2f8f57192a14ab9278fc56faf57e, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1092910722396494324, guid: 162d2f8f57192a14ab9278fc56faf57e, type: 3}
       propertyPath: m_TagString

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.AI.Navigation;
 
 public class GridFloor : MonoBehaviour
 {   
@@ -93,7 +94,7 @@ public class GridFloor : MonoBehaviour
 			{   
 
                 Vector3 spawnPos = new Vector3(transform.position.x + x +  blockSize / 2,
-                 0.4f, transform.position.z + z + blockSize / 2);
+                 0f, transform.position.z + z + blockSize / 2);
 
                 // Smaller overlap box to detect collision
                 // Do not spawn object if occupied
@@ -110,7 +111,7 @@ public class GridFloor : MonoBehaviour
     }
 
     public GameObject generateSpawnPoint() {
-        return Instantiate(spawnPoint, transform.position, transform.rotation);
+        return Instantiate(spawnPoint, new Vector3(transform.position.x, transform.position.y + 0.6f, transform.position.z), transform.rotation);
     }
 
 
