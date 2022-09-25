@@ -34,4 +34,15 @@ public class FireTower : Turret
         fireCountdown -= Time.deltaTime;
     }
 
+    public override void Shoot()
+    {
+        GameObject currBullet = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = currBullet.GetComponent<Bullet>();
+        
+        if(bullet != null)
+        {
+            bullet.Seek(target);
+        }
+    }
+
 }

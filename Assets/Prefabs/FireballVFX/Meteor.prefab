@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 9617906}
   - component: {fileID: 8206854}
   - component: {fileID: 13509832}
+  - component: {fileID: 5514776499369385178}
   m_Layer: 8
   m_Name: Meteor
   m_TagString: Untagged
@@ -360,3 +361,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5514776499369385178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0804009a765dd4e3b983ab79e0bcd13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 300
+  attackPoints: 1
+  burnDamage: 1
+  _statusData: {fileID: 11400000, guid: 416ea0a4dc87143eb939081d54be2261, type: 2}

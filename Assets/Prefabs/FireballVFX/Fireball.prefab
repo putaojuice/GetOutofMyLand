@@ -14664,8 +14664,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 0}
-  StartTime: 0.25
-  StopTime: 1
+  StartTime: 0
+  StopTime: 3
   Duration: 3
   ForceAmount: 0
   ForceRadius: 0
