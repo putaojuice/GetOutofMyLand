@@ -9,6 +9,7 @@ public class GridController : MonoBehaviour
 	[SerializeField] private LayerMask layer;
 	[SerializeField] private NavMeshSurface surf;
 
+	private List<GameObject> currentOuterFloor = new List<GameObject>();
 	private DeckController DeckController;
 	private GameObject previewPrefab;
 	private GridTile gridTile;
@@ -69,6 +70,7 @@ public class GridController : MonoBehaviour
 		gridTile = null;
 		isBuilding = false;
 		DeckController.StopPlayCard();
+		surf.UpdateNavMesh(surf.navMeshData);
 	}
 
 	private void CompleteBuild()
@@ -89,6 +91,8 @@ public class GridController : MonoBehaviour
 		{	
 			PositionObj(hit.point);
 		}
+		
+		surf.UpdateNavMesh(surf.navMeshData);
 	}
 
 	private void PositionObj(Vector3 position)
@@ -100,11 +104,26 @@ public class GridController : MonoBehaviour
 		{
 			previewPrefab.transform.position = new Vector3(x, 0, z);
 		}
-		else
-		{
-			previewPrefab.transform.position = new Vector3(x, 0, z);
-		}
+
 		
+	}
+
+	public void updateCurrentGrid() {
+		GameObject[] floors = GameObject.FindGameObjectsWithTag("GridFloor");
+		// Init outfloor list
+		currentOuterFloor = new List<GameObject>();
+		foreach (GameObject go in floors) {
+			// update floor status
+			go.GetComponent<GridFloor>().CheckSurroundingTiles();
+			if (go.GetComponent<GridFloor>().isOuterFloor) {
+				currentOuterFloor.Add(go);
+			}
+		}
+    }
+
+	public List<GameObject> getCurrentGrid() {
+		updateCurrentGrid();
+		return currentOuterFloor;
 	}
 
 }

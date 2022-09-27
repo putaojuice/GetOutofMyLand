@@ -64,7 +64,7 @@ public class WaveSpawning : MonoBehaviour
 
         // Delegate wave end event when all the enemies died
         if (currentEnemies == 0 && WaveEnded != null) {
-            Debug.Log("Reached");
+            // Debug.Log("Reached");
             WaveEnded();
         }
     }

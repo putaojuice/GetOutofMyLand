@@ -100,6 +100,11 @@ public class Enemy : MonoBehaviour, IEffectable
     }
 
     public void UpdateNumOfEnemies() {
+        if (WaveSpawning == null) {
+            GameManager manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            manager.UpdateEnemy();
+            return;
+        }
         WaveSpawning.EnemyDied();
     }
 

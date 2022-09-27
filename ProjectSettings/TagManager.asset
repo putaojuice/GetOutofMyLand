@@ -10,6 +10,8 @@ TagManager:
   - GridFloor
   - HiddenEnemy
   - Fire
+  - Environment
+
   layers:
   - Default
   - TransparentFX

@@ -23,7 +23,7 @@ public class DeckController : MonoBehaviour
         TurretController = gameObject.GetComponent<TurretController>();
         
         // subscribing the DrawCard method to the WaveEnd event so that DrawCard will be called once wave ended
-        WaveSpawning.WaveEnded += DrawCard;
+        GameManager.WaveEnded += DrawCard;
     }
 
     // Update is called once per frame
@@ -40,14 +40,13 @@ public class DeckController : MonoBehaviour
             Card firstCard = GetNextCard();
             Hand = GameObject.Find("PlayerHand");
             firstCard.transform.SetParent(Hand.transform);
-            Debug.Log("Drawing card: " + i);
             currentHandSize++;
         }
 
         // after drawing cards, unsubscribe the DrawCard method from the WaveEnd event to prevent memory leak
         // TODO handle this in a GameEndManager when player loses
-        WaveSpawning.WaveEnded -= DrawCard;
-        WaveSpawning.WaveEnded += DrawCard;
+        GameManager.WaveEnded -= DrawCard;
+        GameManager.WaveEnded += DrawCard;
     }
 
 

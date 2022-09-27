@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TurretBase : MonoBehaviour
 {
-    private List<GameObject> obj = new List<GameObject>();
+	private List<GameObject> obj = new List<GameObject>();
 	private List<GridFloor> floor = new List<GridFloor>();
 	[SerializeField] private Material turretMat;
 	[SerializeField] private Color buildableColor;
@@ -26,12 +26,12 @@ public class TurretBase : MonoBehaviour
 		{	
 			GridFloor gridFloor = other.GetComponent<GridFloor>();
             floor.Add(gridFloor);
-            gridFloor.SetSelectionColor();
+			UpdateBuildStatus();
 		} else {
-            obj.Add(other.gameObject);
+			obj.Add(other.gameObject);
+			UpdateBuildStatus();
         }
 
-		UpdateBuildStatus();
 	}
 
 	private void OnTriggerExit(Collider other)
@@ -40,7 +40,6 @@ public class TurretBase : MonoBehaviour
 		{	
             GridFloor gridFloor = other.GetComponent<GridFloor>();
             floor.Remove(gridFloor);
-            gridFloor.SetSelectionColor();
 		} else {
 			obj.Remove(other.gameObject);
 		}
@@ -51,23 +50,31 @@ public class TurretBase : MonoBehaviour
 
 	private void UpdateBuildStatus()
 	{	
-		
+
         // Check if turret is on top of floor 
 		if (floor.Count >= 1 && obj.Count == 0)
 		{	
-			turretMat.SetColor("_Color", buildableColor);
 			buildable = true;
 		}
 		else
 		{	
-			turretMat.SetColor("_Color", unbuildableColor);
 			buildable = false;
 		}
 	}
 
+	public void SetColor(bool isBlockedPath) {
+		buildable = !isBlockedPath;
+		if (buildable) {
+			turretMat.SetColor("_Color", buildableColor);
+		} else {
+			turretMat.SetColor("_Color", unbuildableColor);
+		}
+
+	}
+
 	public bool GetBuildable()
-	{
-		return buildable;
+	{	
+		return floor.Count >= 1 && obj.Count == 0;
 	}
 
 	public void Build()
@@ -90,4 +97,6 @@ public class TurretBase : MonoBehaviour
 	{
 		return rotated;
 	}
+
+
 }

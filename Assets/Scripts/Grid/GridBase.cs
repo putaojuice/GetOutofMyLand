@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GridBase : MonoBehaviour
 {   
+
+
     private GridController gridController;
     private MeshRenderer rend;
     private Color originalColor;
@@ -52,6 +54,7 @@ public class GridBase : MonoBehaviour
         }
 	
     }
+
 
 
 
