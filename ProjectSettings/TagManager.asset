@@ -11,6 +11,7 @@ TagManager:
   - HiddenEnemy
   - Fire
   - Environment
+  - Detector
   layers:
   - Default
   - TransparentFX
