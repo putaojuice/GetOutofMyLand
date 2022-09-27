@@ -27,7 +27,7 @@ public class Tank : Enemy
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         originalSpeed = agent.speed;
 
-        rend = GetComponent<Renderer>();
+        rend = GetComponentInChildren<Renderer>();
         originalMat = rend.material;
 
     }

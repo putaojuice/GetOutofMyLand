@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour, IEffectable
     [SerializeField] public StatusData freezeEffectData;
     [SerializeField] public StatusData shockEffectData;
 
+    [SerializeField] public Material destructionMat;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,7 @@ public class Enemy : MonoBehaviour, IEffectable
     void Update()
     {
         if(hp <= 0.0f){
-            Destroy(gameObject);
+            EnemyDestroy();
             UpdateNumOfEnemies();
             return;
         }
@@ -43,6 +45,38 @@ public class Enemy : MonoBehaviour, IEffectable
 
         statusCoolDown -= Time.deltaTime;
     }
+
+    IEnumerator PlayDissolve(float duration) 
+    {
+        float timeElapsed = 0f;
+
+        // Use either SkinnedMeshRenderer or MeshRenderer depending on the renderer component used in the enemy game object
+        // Most animated enemy assets uses SkinnedMeshRenderer while Unity has preset game objects set to MeshRenderer so take note
+        gameObject.GetComponent<SkinnedMeshRenderer>().material = destructionMat;
+        gameObject.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+
+        while (timeElapsed <= duration)
+        {
+            timeElapsed += Time.deltaTime;
+            // enemyObject.GetComponent<MeshRenderer>().material.SetFloat("_tConstant", Mathf.Lerp(1f, 0f, timeElapsed / duration));
+            gameObject.GetComponent<SkinnedMeshRenderer>().material.SetFloat("_tConstant", Mathf.Lerp(1f, 0f, timeElapsed / duration));
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    private void EnemyDestroy()
+	{
+        // Stop enemy movement
+        gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        if (gameObject != null) {
+            // Play enemy dissolve animation from dissolve shader
+            StartCoroutine(PlayDissolve(1f));
+
+            // Destroy after 1 sec delay
+            Destroy(gameObject, 1.0f);
+
+        }
+	}
 
     // Creating method for healers to call
     public void GetHealed(float healPoints){
