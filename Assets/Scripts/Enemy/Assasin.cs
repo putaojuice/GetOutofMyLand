@@ -21,7 +21,7 @@ public class Assasin : Enemy
         skillCoolDown = 5f;
         defence = 0f;
 
-        rend = GetComponent<Renderer>();
+        rend = GetComponentInChildren<Renderer>();
         originalMat = rend.material;
 
         // Finding necesary objects

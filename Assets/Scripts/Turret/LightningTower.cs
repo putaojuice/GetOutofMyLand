@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DigitalRuby.LightningBolt;
 
 public class LightningTower : Turret
 {
@@ -32,6 +33,20 @@ public class LightningTower : Turret
         }
 
         fireCountdown -= Time.deltaTime;
+    }
+
+    public override void Shoot()
+    {
+        GameObject currBullet = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = currBullet.GetComponent<Bullet>();
+        LightningBoltScript lightning = currBullet.GetComponent<LightningBoltScript>();
+        lightning.StartPosition = firePoint.transform.position;
+        lightning.EndPosition = target.transform.position;
+        
+        if(bullet != null)
+        {
+            bullet.Seek(target);
+        }
     }
 
 }

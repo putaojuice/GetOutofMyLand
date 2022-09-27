@@ -9,6 +9,7 @@ TagManager:
   - GridBase
   - GridFloor
   - HiddenEnemy
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - UI
   - Grid
   - PostProcessing
-  - 
+  - FireLayer
   - 
   - 
   - 

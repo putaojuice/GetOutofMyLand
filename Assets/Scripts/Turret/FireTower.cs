@@ -7,7 +7,7 @@ public class FireTower : Turret
     // Start is called before the first frame update
     void Start()
     {
-        range = 15.0f;
+        range = 30.0f;
         firingRate = 0.2f;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
@@ -32,6 +32,17 @@ public class FireTower : Turret
         }
 
         fireCountdown -= Time.deltaTime;
+    }
+
+    public override void Shoot()
+    {
+        GameObject currBullet = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = currBullet.GetComponent<Bullet>();
+        
+        if(bullet != null)
+        {
+            bullet.Seek(target);
+        }
     }
 
 }
