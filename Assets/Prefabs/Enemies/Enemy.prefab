@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4754c9ae46da4dbb8bd12f6219b6551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goal: {fileID: 0}
 --- !u!114 &4412610548566529825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +148,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b96d43cc497c4feea77d20d996271f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHp: 3
+  hp: 3
+  skillCoolDown: 5
+  defence: 0
+  currRound: 1
+  _statusData: {fileID: 0}
+  currentStatusDuration: 0
+  lastDOTInterval: 0
+  statusCoolDown: 0
+  originalSpeed: 0
+  _freezeStatusData: {fileID: 11400000, guid: 47ba0491509ed4f1697adc6a7745d704, type: 2}
+  _shockStatusData: {fileID: 11400000, guid: eb8933d247d6141d8a51c9a4814aae76, type: 2}
 --- !u!54 &-2375816161229306941
 Rigidbody:
   m_ObjectHideFlags: 0

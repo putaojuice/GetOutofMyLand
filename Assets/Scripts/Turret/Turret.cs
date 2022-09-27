@@ -6,17 +6,17 @@ public class Turret : MonoBehaviour
 {
     [Header("Attributes")]
 
-    private float lerpSpeed = 10f;
-    public float range = 15f;
-    public float firingRate = 2f;
-    private float fireCountdown = 0f;
+    [SerializeField] public float lerpSpeed = 10f;
+    [SerializeField] public float range = 15f;
+    [SerializeField] public float firingRate = 2f;
+    [SerializeField] public float fireCountdown = 0f;
 
     [Header("Parts")]
-    private GameObject target;
-    public string enemyTag = "Enemy";
-    public Transform rotatingPart;
-    public GameObject bulletPrefab;
-    public Transform firePoint;
+    [SerializeField] public GameObject target;
+    [SerializeField] public string enemyTag = "Enemy";
+    [SerializeField] public Transform rotatingPart;
+    [SerializeField] public GameObject bulletPrefab;
+    [SerializeField] public Transform firePoint;
 
 
     // Start is called before the first frame update
@@ -25,20 +25,28 @@ public class Turret : MonoBehaviour
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
-    void UpdateTarget()
+    public virtual void UpdateTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        // var enemies = GameObject.FindObjectsOfType<Enemy>();
+        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
 
-        foreach(GameObject enemy in enemies)
-        {
+        foreach(GameObject enemy in enemies) {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
             if(distance < shortestDistance)
             {
                 shortestDistance = distance;
                 nearestEnemy = enemy;
-
+            }
+            Enemy currEnemy = enemy.GetComponent<Enemy>();
+            if(currEnemy is Tank && distance < range){
+                Tank tank = (Tank) currEnemy;
+                if(tank.skillToggled){
+                    shortestDistance = distance;
+                    nearestEnemy = enemy;
+                    break;
+                }
             }
         }
 
@@ -72,7 +80,7 @@ public class Turret : MonoBehaviour
         fireCountdown -= Time.deltaTime;
     }
 
-    void Shoot()
+    public virtual void Shoot()
     {
         GameObject currBullet = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = currBullet.GetComponent<Bullet>();
@@ -81,11 +89,5 @@ public class Turret : MonoBehaviour
         {
             bullet.Seek(target);
         }
-    }
-
-    void onDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
     }
 }
