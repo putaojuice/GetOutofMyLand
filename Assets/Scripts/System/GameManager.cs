@@ -10,8 +10,13 @@ public class GameManager : MonoBehaviour
     public static event WaveEnd WaveEnded;
     private static int waveIndex = 1;
 
-    [SerializeField]
-    private GameObject enemyPrefab;
+    
+    [SerializeField]public Transform warriorPrefab;
+    [SerializeField]public Transform assassinPrefab;
+    [SerializeField]public Transform healerPrefab;
+    [SerializeField]public Transform tankPrefab;
+    private List<Transform> listOfEnemies = new List<Transform>();
+
     [SerializeField]
     private Button spawnButton;
 
@@ -29,6 +34,11 @@ public class GameManager : MonoBehaviour
         Button btn = spawnButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
         generateSpawnPoint();
+
+        listOfEnemies.Add(warriorPrefab);
+        listOfEnemies.Add(assassinPrefab);
+        listOfEnemies.Add(healerPrefab);
+        listOfEnemies.Add(tankPrefab);
     }
 
     void TaskOnClick()
@@ -52,9 +62,16 @@ public class GameManager : MonoBehaviour
         waveIndex ++;
         currentEnemies = waveIndex;
         for(int i = 0; i < waveIndex; i ++){
-            Instantiate(enemyPrefab, currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
+            SpawnEnemy();
             yield return new WaitForSeconds(1f);
         }
+    }
+
+    void SpawnEnemy()
+    {
+        int randIndex = Random.Range(0, 3);
+        Instantiate(listOfEnemies[randIndex], currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
+
     }
 
     public void UpdateEnemy() {

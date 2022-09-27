@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 5795770743788303379}
   m_LocalRotation: {x: 0, y: 0.006972514, z: 0, w: 0.9999757}
   m_LocalPosition: {x: -103.32956, y: 1.6399999, z: 15.274458}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6333204248786813040}
@@ -164,9 +164,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6333204248786813040}
     m_Modifications:
+    - target: {fileID: 114202, guid: 69b40ef7ee16c834c844b3fa26e0fdda, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135494, guid: 69b40ef7ee16c834c844b3fa26e0fdda, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 160098, guid: 69b40ef7ee16c834c844b3fa26e0fdda, type: 3}
       propertyPath: m_Name
       value: RainPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 160098, guid: 69b40ef7ee16c834c844b3fa26e0fdda, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 177510, guid: 69b40ef7ee16c834c844b3fa26e0fdda, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 191520, guid: 69b40ef7ee16c834c844b3fa26e0fdda, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 470886, guid: 69b40ef7ee16c834c844b3fa26e0fdda, type: 3}
       propertyPath: m_RootOrder
@@ -381,6 +401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterBody
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b050fbc43578f476bacd12cbc1bec965, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b050fbc43578f476bacd12cbc1bec965, type: 3}
 --- !u!4 &6333204249507520278 stripped
@@ -458,6 +482,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 77d69999e00164696ba0dbf67a5262de, type: 3}
       propertyPath: m_Name
       value: WaterHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 77d69999e00164696ba0dbf67a5262de, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77d69999e00164696ba0dbf67a5262de, type: 3}

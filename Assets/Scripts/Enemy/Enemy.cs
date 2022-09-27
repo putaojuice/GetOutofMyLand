@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour, IEffectable
 {
     [Header("Enemy Data")]
-    public static WaveSpawning WaveSpawning;
+    public static GameManager gameManager;
     public float maxHp = 3f;
     public float hp = 3f;
     public float skillCoolDown = 5f;
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour, IEffectable
     // Start is called before the first frame update
     void Start()
     {
-        WaveSpawning = GameObject.Find("GameManager").GetComponent<WaveSpawning>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -100,12 +100,12 @@ public class Enemy : MonoBehaviour, IEffectable
     }
 
     public void UpdateNumOfEnemies() {
-        if (WaveSpawning == null) {
-            GameManager manager = GameObject.Find("GameManager").GetComponent<GameManager>();
-            manager.UpdateEnemy();
-            return;
-        }
-        WaveSpawning.EnemyDied();
+        // if (gameManager == null) {
+        //     GameManager manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //     manager.UpdateEnemy();
+        //     return;
+        // }
+        gameManager.UpdateEnemy();
     }
 
     public virtual void UseSkill() {
