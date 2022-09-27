@@ -165,6 +165,10 @@ PrefabInstance:
       propertyPath: tileSize
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8079022808943513261, guid: fada2d0b2bab5284d890194279cba386, type: 3}
+      propertyPath: buildPrefab
+      value: 
+      objectReference: {fileID: 140184199407784919, guid: a2800843f7fd5a74faf00e5e23db3f49, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fada2d0b2bab5284d890194279cba386, type: 3}
 --- !u!4 &7451675057452010804 stripped

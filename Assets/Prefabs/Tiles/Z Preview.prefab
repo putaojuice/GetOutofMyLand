@@ -63,5 +63,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Z Preview
       objectReference: {fileID: 0}
+    - target: {fileID: 8241181339739975156, guid: 18f8ae6445415bb4297c6a82e1ec24a7, type: 3}
+      propertyPath: buildPrefab
+      value: 
+      objectReference: {fileID: 3294056019052697415, guid: 8297644334ee74b49926e33084ea91ff, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18f8ae6445415bb4297c6a82e1ec24a7, type: 3}
