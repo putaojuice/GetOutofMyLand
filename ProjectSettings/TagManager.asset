@@ -11,17 +11,16 @@ TagManager:
   - HiddenEnemy
   - Fire
   - Environment
-
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Enemy
+  - Grid
   - Water
   - UI
-  - Grid
-  - PostProcessing
-  - FireLayer
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -46,9 +45,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 1660691345
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
