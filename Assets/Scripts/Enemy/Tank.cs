@@ -7,7 +7,7 @@ public class Tank : Enemy
 {
 
     [Header("Tank Data")]
-    [SerializeField]private float skillDuration = 2.0f;
+    [SerializeField]private float skillDuration = 3.0f;
     [SerializeField]public bool skillToggled = false;
     [SerializeField]private Renderer rend;
     [SerializeField]public Material aggroMat;
@@ -16,11 +16,12 @@ public class Tank : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(GameManager.instance.waveIndex);
         // Setting up the stats for Warriors
-        maxHp = 80f;
+        maxHp = 12f * (GameManager.instance.waveIndex + 1) * 0.5f;
         hp = maxHp;
         skillCoolDown = 2f;
-        defence = 4f;
+        defence = 2f;
 
         // Finding necesary objects
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -46,12 +47,12 @@ public class Tank : Enemy
 
         // Skill check
         if(!skillToggled){
-            if(skillCoolDown <= 0) {
+            if(skillCoolDown <= 0f) {
                 UseSkill();
                 skillCoolDown = 4.0f;
             }
         } else {
-            if(skillDuration > 0){
+            if(skillDuration > 0f){
                 skillDuration -= Time.deltaTime;
             } else {
                 UndoSkill();

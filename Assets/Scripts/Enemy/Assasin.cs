@@ -17,9 +17,10 @@ public class Assasin : Enemy
     void Start()
     {
         // Setting up the stats for Warriors
-        maxHp = 30f;
+        Debug.Log(GameManager.instance.waveIndex);
+        maxHp = 5f * (GameManager.instance.waveIndex + 1) * 0.5f;
         hp = maxHp;
-        skillCoolDown = 5f;
+        skillCoolDown = 1.5f;
         defence = 0f;
         rend = GetComponentInChildren<Renderer>();
         originalMat = rend.material;
@@ -46,7 +47,7 @@ public class Assasin : Enemy
 
         // Skill check
         if(skillToggled) {
-            if(skillDuration > 0){
+            if(skillDuration > 0f){
                 skillDuration -= Time.deltaTime;
             } else {
                 UndoSkill();
@@ -60,11 +61,11 @@ public class Assasin : Enemy
     }
 
     public override void GetDamaged(float damage) {
-        if(skillCoolDown <= 0) {
+        if(skillCoolDown <= 0f) {
             UseSkill();
             skillCoolDown = 5f;
         }
-        if(damage - defence > 0){
+        if(damage - defence > 0f){
             hp -= damage;
         }
     }

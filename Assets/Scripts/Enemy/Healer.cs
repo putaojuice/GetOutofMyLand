@@ -7,16 +7,17 @@ public class Healer : Enemy
 {
 
     [Header("Healer Data")]
-    [SerializeField] public float range = 20f;
+    [SerializeField] public float range = 7.5f;
     [SerializeField] public int numSegments = 128;
     [SerializeField] LineRenderer line;
 
     // Start is called before the first frame update
     void Start()
     {
-        maxHp = 30f;
+        Debug.Log(GameManager.instance.waveIndex);
+        maxHp = 5f * (GameManager.instance.waveIndex + 1) * 0.5f;
         hp = maxHp;
-        skillCoolDown = 5f;
+        skillCoolDown = 1.5f;
         defence = 1f;
 
         // Finding necesary objects
@@ -41,7 +42,7 @@ public class Healer : Enemy
             return;
         }
 
-        if(skillCoolDown <= 0 ){
+        if(skillCoolDown <= 0f ){
             UseSkill();
             skillCoolDown = 6f;
         }
@@ -73,7 +74,7 @@ public class Healer : Enemy
         var enemies = GameObject.FindObjectsOfType<Enemy>();
         foreach(var enemy in enemies) {
             if((transform.position - enemy.transform.position).magnitude < range){
-                enemy.GetHealed(1);
+                enemy.GetHealed(2);
             }
         }
     }

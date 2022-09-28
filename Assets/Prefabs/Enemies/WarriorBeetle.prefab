@@ -672,8 +672,8 @@ MonoBehaviour:
   freezeEffectData: {fileID: 11400000, guid: 47ba0491509ed4f1697adc6a7745d704, type: 2}
   shockEffectData: {fileID: 11400000, guid: eb8933d247d6141d8a51c9a4814aae76, type: 2}
   destructionMat: {fileID: 2100000, guid: b74884b5f6bed4f2482d69909f6aee3e, type: 2}
-  chargeSpeed: 3000
-  skillDuration: 1
+  chargeSpeed: 3
+  skillDuration: 0.5
   skillToggled: 0
 --- !u!143 &1567556252654110334
 CharacterController:
@@ -704,7 +704,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 1
-  m_Acceleration: 10000
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0

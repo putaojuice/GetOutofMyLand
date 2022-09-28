@@ -7,18 +7,19 @@ public class Warrior : Enemy
 {
 
     [Header("Warrior Data")]
-    [SerializeField]private float chargeSpeed = 3000f;
-    [SerializeField]private float skillDuration = 1f;
+    [SerializeField]private float chargeSpeed = 3.0f;
+    [SerializeField]private float skillDuration = 0.5f;
     [SerializeField]private bool skillToggled = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(GameManager.instance.waveIndex);
         // Setting up the stats for Warriors
-        maxHp = 50f;
+        maxHp = 8f * (GameManager.instance.waveIndex + 1) * 0.5f;
         hp = maxHp;
-        skillCoolDown = 100f;
-        defence = 3f;
+        skillCoolDown = 1f;
+        defence = 1f;
 
         // Finding necesary objects
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -41,12 +42,12 @@ public class Warrior : Enemy
 
         // Skill check
         if(!skillToggled){
-            if(skillCoolDown <= 0) {
+            if(skillCoolDown <= 0f) {
                 UseSkill();
-                skillCoolDown = 6f;
+                skillCoolDown = 2f;
             }
         } else {
-            if(skillDuration > 0){
+            if(skillDuration > 0f){
                 skillDuration -= Time.deltaTime;
             } else {
                 UndoSkill();

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {   
     public delegate void WaveEnd();
     public static event WaveEnd WaveEnded;
-    private int waveIndex = 0;
+    public int waveIndex = 0;
     
     [SerializeField]public Transform warriorPrefab;
     [SerializeField]public Transform assassinPrefab;
@@ -92,16 +92,18 @@ public class GameManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        int randIndex = Random.Range(0, 3);
-        Instantiate(listOfEnemies[randIndex], currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
-
+        // int randIndex = Random.Range(0, 3);
+        // Instantiate(listOfEnemies[randIndex], currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
+        Instantiate(warriorPrefab, currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
     }
 
     public void UpdateEnemy() {
         currentEnemies--;
+        Debug.Log(currentEnemies);
         WaveEnded += generateSpawnPoint;
         // Delegate wave end event when all the enemies died
-        if (currentEnemies == 0 && WaveEnded != null) {
+        if (currentEnemies <= 0 && WaveEnded != null) {
+            Debug.Log("wave eneded");
             WaveEnded();
             //Music Stuff
             MusicControlScript MusicController = MusicControl.GetComponent<MusicControlScript>();

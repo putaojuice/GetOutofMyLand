@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3e1c27905b5483998f2bc0deba56d1, type: 3}
   m_Name: FireEffect
   m_EditorClassIdentifier: 
-  DOTPoints: 2
+  DOTPoints: 1
   slowDebuff: 0
   isFreeze: 0
   statusDuration: 5

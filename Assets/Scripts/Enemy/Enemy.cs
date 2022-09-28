@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviour, IEffectable
 
     public virtual void GetDamaged(float damage)
     {
-        if(damage - defence > 0){
+        if(damage - defence > 0f){
             hp -= damage;
         }
 
@@ -249,7 +249,7 @@ public class Enemy : MonoBehaviour, IEffectable
 
     public void HandleExplosionStatus(StatusData burnStatusData){
         Debug.Log("EXPLOSION!!");
-        float damage = (burnStatusData.statusDuration/burnStatusData.DOTInterval) * (burnStatusData.DOTPoints - 1.0f);
+        float damage = (burnStatusData.statusDuration/burnStatusData.DOTInterval) * (burnStatusData.DOTPoints);
         GetStatusDamaged(damage);
         UndoStatus();
 

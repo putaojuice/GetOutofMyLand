@@ -9,7 +9,7 @@ public class LightningTower : Turret
     void Start()
     {
         range = 7.5f;
-        firingRate = 0.2f;
+        firingRate = 1f;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 

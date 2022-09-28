@@ -12,7 +12,7 @@ public class FireBall : Bullet
     void Start()
     {
         attackPoints = 2.0f;
-        speed = 10.0f;
+        speed = 5.0f;
         
     }
 
