@@ -9,7 +9,7 @@ public class GridController : MonoBehaviour
 	[SerializeField] private LayerMask layer;
 	[SerializeField] private NavMeshSurface surf;
 	[SerializeField] private Camera cam;
-	
+
 	private List<GameObject> currentOuterFloor = new List<GameObject>();
 	private DeckController DeckController;
 	private GameObject previewPrefab;
@@ -63,9 +63,12 @@ public class GridController : MonoBehaviour
 		isBuilding = true;
 	}
 
-	private void StopBuild()
-	{
-		Destroy(previewPrefab);
+	public void StopBuild()
+	{	
+		if (previewPrefab != null) {
+			Destroy(previewPrefab);
+		}
+		
 		previewPrefab = null;
 		gridTile = null;
 		isBuilding = false;

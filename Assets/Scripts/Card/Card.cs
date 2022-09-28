@@ -25,6 +25,7 @@ public class Card : MonoBehaviour
 
     public void UseCard()
     {   
+        DeckController.disableHand();
         if (DeckController.currentCard != null)
         {
             Debug.Log("block card");

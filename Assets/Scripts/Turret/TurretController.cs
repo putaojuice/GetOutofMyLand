@@ -63,9 +63,12 @@ public class TurretController : MonoBehaviour
 		isBuilding = true;
 	}
 
-	private void StopBuild()
-	{
-		Destroy(previewPrefab);
+	public void StopBuild()
+	{	
+		if (previewPrefab != null) {
+			Destroy(previewPrefab);
+		}
+		
 		previewPrefab = null;
 		turretBase = null;
 		isBuilding = false;

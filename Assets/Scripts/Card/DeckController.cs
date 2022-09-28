@@ -55,6 +55,7 @@ public class DeckController : MonoBehaviour
 
     public void StopPlayCard() {
         currentCard = null;
+        enableHand();
     }
 
     public void CompleteCard() {
@@ -63,7 +64,6 @@ public class DeckController : MonoBehaviour
         currentCard.gameObject.SetActive(false);
         usedCards.Add(currentCard);
         currentHandSize--;
-
         StopPlayCard();
     }
 
