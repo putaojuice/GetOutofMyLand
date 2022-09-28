@@ -54,9 +54,9 @@ public class GridBase : MonoBehaviour
 	
     }
 
-    public GameObject generateSpawnPoint() {
-        return Instantiate(spawnPoint, transform.position, transform.rotation);
-    }
+    // public GameObject generateSpawnPoint() {
+    //     return Instantiate(spawnPoint, transform.position, transform.rotation);
+    // }
 
 
 

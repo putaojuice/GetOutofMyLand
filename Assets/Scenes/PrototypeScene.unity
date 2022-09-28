@@ -172,17 +172,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &231223004 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4656475334368768816, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
-  m_PrefabInstance: {fileID: 459199819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e048374dc8d2374cbe2ea405ca3daca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &285296423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -222,6 +211,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 785756715024745167, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1542271067828382432, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.43000004
@@ -254,6 +247,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3636260451203309593, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4935329285424223920, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.43
@@ -285,6 +282,14 @@ PrefabInstance:
     - target: {fileID: 5705734461460363336, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307240643583808438, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6487801800206579452, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6694077928927640936, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
       propertyPath: m_NavMeshData
@@ -346,6 +351,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1574795947}
+    - target: {fileID: 7861756450907640304, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8216694283499787927, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.43000004
@@ -377,6 +386,10 @@ PrefabInstance:
     - target: {fileID: 8280961435987699031, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8615706855094826810, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6694077928927640950, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
@@ -945,17 +958,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 48.172, y: 28.274, z: 15.589}
---- !u!114 &747218310 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1718711718318351143, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
-  m_PrefabInstance: {fileID: 459199819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e048374dc8d2374cbe2ea405ca3daca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &867678527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1030,17 +1032,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5534063656808487627, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
   m_PrefabInstance: {fileID: 519059871}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1312975077 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4120187410704183317, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
-  m_PrefabInstance: {fileID: 459199819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e048374dc8d2374cbe2ea405ca3daca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1396507878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,17 +1100,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1552333821 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3466438030270561895, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
-  m_PrefabInstance: {fileID: 459199819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e048374dc8d2374cbe2ea405ca3daca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!20 &1574795947 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4038314652278985295, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
@@ -1253,6 +1233,7 @@ MonoBehaviour:
   healerPrefab: {fileID: 5652554327356069852, guid: 87cf9c83b7b4e4d588309280e672e574, type: 3}
   tankPrefab: {fileID: 5899606315313437279, guid: 39d21b1751f724feab671dd05d4bc413, type: 3}
   spawnButton: {fileID: 1858024999}
+  wavePauseButton: {fileID: 0}
   cardGroup: {fileID: 459199821}
   currentHandSize: 0
 --- !u!114 &1755004090
@@ -1304,22 +1285,14 @@ MonoBehaviour:
   Deck: {fileID: 590188042}
   maxHandSize: 5
   deck:
-  - {fileID: 1552333821}
-  - {fileID: 231223004}
-  - {fileID: 747218310}
-  - {fileID: 1312975077}
-  - {fileID: 1762067220}
---- !u!114 &1762067220 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2042230946916491942, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
-  m_PrefabInstance: {fileID: 459199819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e048374dc8d2374cbe2ea405ca3daca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  LootOverlay: {fileID: 0}
+  LootDisplay: {fileID: 0}
+  lootDeck: []
 --- !u!114 &1858024999 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8830969209804090282, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}

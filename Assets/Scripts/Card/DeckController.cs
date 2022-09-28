@@ -28,7 +28,7 @@ public class DeckController : MonoBehaviour
 
         // subscribing the DrawCard method to the WaveEnd event so that DrawCard will be called once wave ended
 
-        WaveSpawning.WaveEnded += GetRandomLoot;
+        GameManager.WaveEnded += GetRandomLoot;
 
     }
 
@@ -131,8 +131,8 @@ public class DeckController : MonoBehaviour
 
         // after displaying loot, unsubscribe the GetRandomLoot method from the WaveEnd event to prevent memory leak
         // TODO handle this in a GameEndManager when player loses
-        WaveSpawning.WaveEnded -= GetRandomLoot;
-        WaveSpawning.WaveEnded += GetRandomLoot;
+        GameManager.WaveEnded -= GetRandomLoot;
+        GameManager.WaveEnded += GetRandomLoot;
     }
 
     public void AddCard(Card card)
