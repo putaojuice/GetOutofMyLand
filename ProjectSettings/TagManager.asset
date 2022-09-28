@@ -11,6 +11,8 @@ TagManager:
   - HiddenEnemy
   - Fire
   - Detector
+  - Environment
+  - GameManager
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - Grid
   - Water
   - UI
-  - 
+  - FireLayer
   - 
   - 
   - 

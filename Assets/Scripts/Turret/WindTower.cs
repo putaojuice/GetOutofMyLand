@@ -10,7 +10,7 @@ public class WindTower : Turret
     // Start is called before the first frame update
     void Start()
     {
-        range = 30.0f;
+        range = 7.5f;
         firingRate = 0.5f;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
@@ -81,8 +81,7 @@ public class WindTower : Turret
 
     public override void Shoot()
     {
-        Vector3 offset = new Vector3(0,5,0);
-        Vector3 spawnPosition = firePoint.position - offset;
+        Vector3 spawnPosition = firePoint.position;
         GameObject currBullet = (GameObject) Instantiate(bulletPrefab, spawnPosition, firePoint.rotation);
         WindBullet bullet = currBullet.GetComponent<WindBullet>();
         

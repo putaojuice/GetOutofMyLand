@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 3366386}
   - component: {fileID: 2332776}
   - component: {fileID: 5448022}
-  - component: {fileID: 11466172}
   - component: {fileID: 9617906}
   - component: {fileID: 8206854}
   - component: {fileID: 13509832}
   - component: {fileID: 5514776499369385178}
+  - component: {fileID: -4516571411054059873}
   m_Layer: 8
   m_Name: Meteor
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 164416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -105,18 +105,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &11466172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 164416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e03644fdf51cfd34f8fdc92879c31a14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!96 &9617906
 TrailRenderer:
   serializedVersion: 2
@@ -374,7 +362,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 300
+  speed: 20
   attackPoints: 1
   burnDamage: 1
   _statusData: {fileID: 11400000, guid: 416ea0a4dc87143eb939081d54be2261, type: 2}
+--- !u!114 &-4516571411054059873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e03644fdf51cfd34f8fdc92879c31a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

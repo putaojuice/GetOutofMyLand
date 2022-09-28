@@ -20,7 +20,7 @@ public class WindBullet : Bullet
     void Start()
     {
         attackPoints = 4.0f;
-        speed = 30.0f;
+        speed = 5.0f;
         origin = transform.position;
         
     }

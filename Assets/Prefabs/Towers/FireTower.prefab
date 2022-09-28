@@ -86,7 +86,7 @@ MonoBehaviour:
   target: {fileID: 0}
   enemyTag: Enemy
   rotatingPart: {fileID: 1292184605588119890}
-  bulletPrefab: {fileID: 7540285699969234404, guid: 4953e55a0dca90b448def1c114e29a98, type: 3}
+  bulletPrefab: {fileID: 164416, guid: 8aeb2c0224fe763499eed3ec0587162b, type: 3}
   firePoint: {fileID: 186961893558975087}
 --- !u!208 &-1715655193056845728
 NavMeshObstacle:

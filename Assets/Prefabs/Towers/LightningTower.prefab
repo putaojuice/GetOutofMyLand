@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerpSpeed: 10
-  range: 15
+  range: 5
   firingRate: 2
   fireCountdown: 0
   target: {fileID: 0}

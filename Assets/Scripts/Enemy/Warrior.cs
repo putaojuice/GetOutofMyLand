@@ -17,7 +17,7 @@ public class Warrior : Enemy
         // Setting up the stats for Warriors
         maxHp = 50f;
         hp = maxHp;
-        skillCoolDown = 5f;
+        skillCoolDown = 100f;
         defence = 3f;
 
         // Finding necesary objects

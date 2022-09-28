@@ -11,7 +11,7 @@ public class WaterTower : Turret
     // Start is called before the first frame update
     void Start()
     {
-        range = 15.0f;
+        range = 1.5f;
         firingRate = 0.2f;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
@@ -33,7 +33,7 @@ public class WaterTower : Turret
     void Update()
     {
 
-        // DoRenderer(128, 20.0f); // to draw range around the tower
+        DoRenderer(128, range); // to draw range around the tower
 
     }
 

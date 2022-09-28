@@ -12,7 +12,7 @@ public class FireBall : Bullet
     void Start()
     {
         attackPoints = 2.0f;
-        speed = 30.0f;
+        speed = 10.0f;
         
     }
 
@@ -43,6 +43,18 @@ public class FireBall : Bullet
         currEnemy.GetDamaged(attackPoints);
         currEnemy.ApplyStatus(_statusData);
         Destroy(this.gameObject);
+
+    }
+
+    public void OnCollisionEnter(Collision col)
+    {
+        // CollisionHandler.HandleCollision(gameObject, col);
+        if(col.gameObject == target){
+            Enemy currEnemy = target.GetComponent<Enemy>();
+            currEnemy.GetDamaged(attackPoints);
+            currEnemy.ApplyStatus(_statusData);
+            Destroy(this.gameObject);
+        }
 
     }
 
