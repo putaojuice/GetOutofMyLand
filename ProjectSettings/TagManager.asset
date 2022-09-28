@@ -10,12 +10,12 @@ TagManager:
   - GridFloor
   - HiddenEnemy
   - Fire
-  - Environment
+  - Detector
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Grid
   - Water
   - UI
   - 

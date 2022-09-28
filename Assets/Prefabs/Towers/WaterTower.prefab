@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5795770743788303378}
   - component: {fileID: 4507485369844437222}
   - component: {fileID: 4507485369844437221}
+  - component: {fileID: -6274350280932613119}
+  - component: {fileID: 3202752408660031418}
   m_Layer: 0
   m_Name: WaterTower
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5795770743788303379}
   m_LocalRotation: {x: 0, y: 0.006972514, z: 0, w: 0.9999757}
-  m_LocalPosition: {x: -103.32956, y: 1.6399999, z: 15.274458}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -157,6 +159,35 @@ MonoBehaviour:
   firePoint: {fileID: 0}
   acidRainStatusEffect: {fileID: 11400000, guid: 389d881b428ee4e8584e5c7733119add, type: 2}
   line: {fileID: 4507485369844437222}
+--- !u!208 &-6274350280932613119
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5795770743788303379}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.885, y: 0.5, z: 0.885}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 1, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!65 &3202752408660031418
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5795770743788303379}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.79559326, y: 1.7115386, z: 0.7090759}
+  m_Center: {x: -0.0026245117, y: 1.352297, z: -0.022331238}
 --- !u!1001 &142407656
 PrefabInstance:
   m_ObjectHideFlags: 0

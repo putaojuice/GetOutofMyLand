@@ -99,7 +99,20 @@ public class GridFloor : MonoBehaviour
                 // Smaller overlap box to detect collision
                 // Do not spawn object if occupied
                 Collider[] colliders = Physics.OverlapBox(spawnPos, new Vector3( blockSize / 2.2f, blockSize / 2.2f,  blockSize / 2.2f), transform.rotation);
-                if (spawnPos == transform.position || colliders.Length != 0) {
+                if (spawnPos == transform.position) {
+                    continue;
+                }
+                bool occupied = false;
+                foreach (Collider collider in colliders) {
+                    if (collider.gameObject.tag == "Detector") {
+                        continue;
+                    } else {
+                        occupied = true;
+                        break;
+                    }
+                    
+                }
+                if (occupied) {
                     continue;
                 }
                 

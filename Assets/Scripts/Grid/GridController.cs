@@ -33,12 +33,12 @@ public class GridController : MonoBehaviour
 	public void BuildLogic()
 	{
 		if (Input.GetMouseButton(0) && isBuilding && gridTile.GetBuildable())
-		{
+		{	
 			CompleteBuild();
 		}
 		
 		if (Input.GetMouseButton(1) && isBuilding)
-		{
+		{	
 			StopBuild();
 		}
 
@@ -91,21 +91,17 @@ public class GridController : MonoBehaviour
 		{	
 			PositionObj(hit.point);
 		}
-		
 		surf.UpdateNavMesh(surf.navMeshData);
+		
 	}
 
 	private void PositionObj(Vector3 position)
 	{
 		int x = Mathf.RoundToInt(position.x);
 		int z = Mathf.RoundToInt(position.z);
+		previewPrefab.transform.position = new Vector3(x, 0, z);
+		surf.UpdateNavMesh(surf.navMeshData);
 
-		if (previewPrefab.GetComponent<GridTile>().GetRotateState())
-		{
-			previewPrefab.transform.position = new Vector3(x, 0, z);
-		}
-
-		
 	}
 
 	public void updateCurrentGrid() {

@@ -41,6 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6515295890651682669}
   - component: {fileID: 3461645343279437410}
+  - component: {fileID: 4461771800250285823}
+  - component: {fileID: -5634615623458464725}
   m_Layer: 0
   m_Name: LightningTower
   m_TagString: Untagged
@@ -56,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6515295890651682670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -107.91269, y: 1.46, z: 2.09}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -86,6 +88,35 @@ MonoBehaviour:
   rotatingPart: {fileID: 6764479666117268207}
   bulletPrefab: {fileID: 178460, guid: 2736bbc2f2c78a949957b0719c2992bd, type: 3}
   firePoint: {fileID: 2206060097970509583}
+--- !u!208 &4461771800250285823
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6515295890651682670}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.885, y: 0.5, z: 0.885}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 1, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!65 &-5634615623458464725
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6515295890651682670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.79559326, y: 1.7115386, z: 0.7090759}
+  m_Center: {x: -0.0026245117, y: 1.352297, z: -0.022331238}
 --- !u!1001 &6515295890838172932
 PrefabInstance:
   m_ObjectHideFlags: 0

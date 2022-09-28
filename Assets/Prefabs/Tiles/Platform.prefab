@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7508081579314745087}
   m_Layer: 0
   m_Name: quadrant2
-  m_TagString: GridFloor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 8091117398765997213}
   m_Layer: 0
   m_Name: quadrant1
-  m_TagString: GridFloor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 799434174744069298}
   m_Layer: 0
   m_Name: cross
-  m_TagString: GridFloor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 6918406671655524737}
   m_Layer: 0
   m_Name: quadrant4
-  m_TagString: GridFloor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 1659263233441594663}
   m_Layer: 0
   m_Name: quadrant3
-  m_TagString: GridFloor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
