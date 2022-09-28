@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
         listOfEnemies.Add(healerPrefab);
         listOfEnemies.Add(tankPrefab);
 
+        waveIndex = 1;
+
     }
 
     void TaskOnClick()

@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5050844384324985088
 RectTransform:
   m_ObjectHideFlags: 0
@@ -94,6 +94,7 @@ MonoBehaviour:
   cardEffect: {fileID: 0}
   prefabPreview: {fileID: 4469003903991582028, guid: fada2d0b2bab5284d890194279cba386, type: 3}
   type: 0
+  isLootCard: 0
 --- !u!114 &2378360656969704480
 MonoBehaviour:
   m_ObjectHideFlags: 0

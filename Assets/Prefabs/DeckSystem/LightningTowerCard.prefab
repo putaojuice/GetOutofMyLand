@@ -92,8 +92,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCard: {fileID: 0}
   cardEffect: {fileID: 0}
-  prefabPreview: {fileID: 7694409982772535358, guid: 09b91da49489feb488740985a206aee1, type: 3}
+  prefabPreview: {fileID: 6848473920206263457, guid: 56c46680725d43945b2674b0f50e68aa, type: 3}
   type: 1
+  isLootCard: 0
 --- !u!114 &4065064699291091205
 MonoBehaviour:
   m_ObjectHideFlags: 0
