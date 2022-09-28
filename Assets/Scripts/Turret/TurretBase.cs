@@ -22,7 +22,7 @@ public class TurretBase : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{	
 
-		if (other.CompareTag("GridFloor"))
+		if (other.gameObject.tag == "GridFloor")
 		{	
 			GridFloor gridFloor = other.GetComponent<GridFloor>();
             floor.Add(gridFloor);
@@ -36,7 +36,7 @@ public class TurretBase : MonoBehaviour
 
 	private void OnTriggerExit(Collider other)
 	{
-		if (other.CompareTag("GridFloor"))
+		if (other.gameObject.tag == "GridFloor")
 		{	
             GridFloor gridFloor = other.GetComponent<GridFloor>();
             floor.Remove(gridFloor);

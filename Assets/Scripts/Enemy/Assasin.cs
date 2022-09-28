@@ -12,6 +12,7 @@ public class Assasin : Enemy
     [SerializeField]private bool skillToggled = false;
     [SerializeField]private Renderer rend;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +21,10 @@ public class Assasin : Enemy
         hp = maxHp;
         skillCoolDown = 5f;
         defence = 0f;
-
         rend = GetComponentInChildren<Renderer>();
         originalMat = rend.material;
 
         // Finding necesary objects
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         originalSpeed = agent.speed;
 

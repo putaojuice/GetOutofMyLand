@@ -21,7 +21,6 @@ public class Warrior : Enemy
         defence = 3f;
 
         // Finding necesary objects
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         originalSpeed = agent.speed;
 

@@ -5043,7 +5043,7 @@ GameObject:
   - component: {fileID: 11403100}
   - component: {fileID: 11460496}
   - component: {fileID: 8265484}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: CampFire
   m_TagString: Fire
   m_Icon: {fileID: 0}

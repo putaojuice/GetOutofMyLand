@@ -21,7 +21,7 @@ public class BaseHealth : MonoBehaviour
     {   
         // Game end condition
         if (Health < 1) {
-            GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();
+            GameManager.instance.GameOver();
             Destroy(gameObject);
         }
     }

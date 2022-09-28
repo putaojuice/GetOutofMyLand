@@ -9,7 +9,6 @@ public class MoveDestination : MonoBehaviour
     void Start()
     {
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        goal = GameObject.Find("Endpoint").transform; 
         agent.destination = goal.position;
         
     }

@@ -5,14 +5,16 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour, IEffectable
 {
+    private GameManager gameManager;
+
     [Header("Enemy Data")]
-    public static GameManager gameManager;
     public float maxHp = 3f;
     public float hp = 3f;
     public float skillCoolDown = 5f;
     public float defence = 0f;
     public float currRound = 1f;
 
+    
     [Header("Status Data")]
     public StatusData _statusData;
     public float currentStatusDuration = 0.0f;
@@ -27,7 +29,6 @@ public class Enemy : MonoBehaviour, IEffectable
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -100,12 +101,8 @@ public class Enemy : MonoBehaviour, IEffectable
     }
 
     public void UpdateNumOfEnemies() {
-        // if (gameManager == null) {
-        //     GameManager manager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        //     manager.UpdateEnemy();
-        //     return;
-        // }
-        gameManager.UpdateEnemy();
+
+        GameManager.instance.UpdateEnemy();
     }
 
     public virtual void UseSkill() {

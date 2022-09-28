@@ -9678,7 +9678,7 @@ GameObject:
   - component: {fileID: 8256478}
   - component: {fileID: 8249964}
   - component: {fileID: 11456544}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Flamestrike
   m_TagString: Untagged
   m_Icon: {fileID: 0}

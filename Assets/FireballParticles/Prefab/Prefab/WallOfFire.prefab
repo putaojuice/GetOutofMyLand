@@ -4892,7 +4892,7 @@ GameObject:
   - component: {fileID: 494314}
   - component: {fileID: 11496392}
   - component: {fileID: 11456478}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: WallOfFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}

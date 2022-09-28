@@ -8,11 +8,9 @@ public class DeckController : MonoBehaviour
     public GameObject Deck;
     public int maxHandSize = 5;
     public List<Card> deck = new List<Card>();
-
     public GameObject LootOverlay;
     public GameObject LootDisplay;
     public List<Card> lootDeck = new List<Card>();
-
     private List<Card> usedCards = new List<Card>();
     private GridController GridController;
     private TurretController TurretController;
@@ -27,7 +25,6 @@ public class DeckController : MonoBehaviour
         TurretController = gameObject.GetComponent<TurretController>();
 
         // subscribing the DrawCard method to the WaveEnd event so that DrawCard will be called once wave ended
-
         GameManager.WaveEnded += GetRandomLoot;
 
     }
@@ -44,7 +41,6 @@ public class DeckController : MonoBehaviour
     public void DrawCard() {   
         for (int i = currentHandSize; i < maxHandSize; i++) {
             Card firstCard = GetNextCard();
-            Hand = GameObject.Find("PlayerHand");
             firstCard.transform.SetParent(Hand.transform);
             currentHandSize++;
         }
@@ -62,7 +58,6 @@ public class DeckController : MonoBehaviour
     }
 
     public void CompleteCard() {
-        Deck = GameObject.Find("CardDeck");
         currentCard.transform.SetParent(Deck.transform);
 
         currentCard.gameObject.SetActive(false);
@@ -117,7 +112,6 @@ public class DeckController : MonoBehaviour
     {
         LootOverlay.SetActive(true);
         List<Card> currentLootDeck = new List<Card>(lootDeck);
-        LootDisplay = GameObject.Find("CardDisplay");
 
         for (int i = 0; i < 3; ++i)
         {
@@ -139,7 +133,6 @@ public class DeckController : MonoBehaviour
     {
         currentCard = card;
         currentCard.GetComponent<Card>().isLootCard = false;
-        Deck = GameObject.Find("CardDeck");
         currentCard.transform.SetParent(Deck.transform);
         currentCard.gameObject.SetActive(false);
         usedCards.Add(currentCard);

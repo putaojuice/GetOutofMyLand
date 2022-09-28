@@ -8,20 +8,20 @@ public class GridController : MonoBehaviour
     
 	[SerializeField] private LayerMask layer;
 	[SerializeField] private NavMeshSurface surf;
-
+	[SerializeField] private Camera cam;
+	
 	private List<GameObject> currentOuterFloor = new List<GameObject>();
 	private DeckController DeckController;
 	private GameObject previewPrefab;
 	private GridTile gridTile;
 	private bool isBuilding = false;
-	private Camera cam;
+	
 
     // Start is called before the first frame update
     void Start()
     {
 		// BuildNavMesh on start up
 		surf.BuildNavMesh();
-		cam = GameObject.Find("Camera").GetComponent<Camera>();
 		DeckController = gameObject.GetComponent<DeckController>();
     }
 

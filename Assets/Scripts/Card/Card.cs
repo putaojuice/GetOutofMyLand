@@ -20,11 +20,11 @@ public class Card : MonoBehaviour
     {
         currentCard = gameObject.GetComponent<Image>();
         gameObject.GetComponent<Button>().onClick.AddListener(UseCard);
-        DeckController = GameObject.Find("GameManager").GetComponent<DeckController>();
+        DeckController = GameManager.instance.gameObject.GetComponent<DeckController>();
     }
 
     public void UseCard()
-    {
+    {   
         if (DeckController.currentCard != null)
         {
             Debug.Log("block card");

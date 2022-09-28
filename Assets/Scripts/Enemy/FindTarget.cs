@@ -10,7 +10,7 @@ using UnityEngine;
 
     // Use this for initialization
     void Start () {
-        gameCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        gameCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
  
     // Update is called once per frame

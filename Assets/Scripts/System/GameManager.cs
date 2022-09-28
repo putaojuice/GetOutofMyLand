@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 // Game managers that handles different controllers
 public class GameManager : MonoBehaviour
 {   
     public delegate void WaveEnd();
     public static event WaveEnd WaveEnded;
-    private static int waveIndex = 1;
+    private int waveIndex = 0;
     
     [SerializeField]public Transform warriorPrefab;
     [SerializeField]public Transform assassinPrefab;
@@ -26,10 +27,17 @@ public class GameManager : MonoBehaviour
 
     private GameObject currentSpawnPoint;
     private DeckController DeckController;
-    private int currentEnemies = waveIndex;
+    private int currentEnemies;
 
     public Transform cardGroup;
     public int currentHandSize;
+
+    public static GameManager instance;
+
+    void Awake() {
+        instance = this;
+        DontDestroyOnLoad(this);
+    }
 
     void Start() {
         DeckController = GetComponent<DeckController>();
@@ -43,9 +51,8 @@ public class GameManager : MonoBehaviour
         listOfEnemies.Add(assassinPrefab);
         listOfEnemies.Add(healerPrefab);
         listOfEnemies.Add(tankPrefab);
-
-        waveIndex = 1;
-
+        waveIndex = 0;
+        currentEnemies = 0;
     }
 
     void TaskOnClick()

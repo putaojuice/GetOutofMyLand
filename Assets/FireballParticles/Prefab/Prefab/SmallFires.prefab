@@ -14705,7 +14705,7 @@ GameObject:
   - component: {fileID: 458676}
   - component: {fileID: 11426332}
   - component: {fileID: 11437672}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SmallFires
   m_TagString: Untagged
   m_Icon: {fileID: 0}

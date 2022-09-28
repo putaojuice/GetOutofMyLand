@@ -9842,7 +9842,7 @@ GameObject:
   - component: {fileID: 486202}
   - component: {fileID: 11471502}
   - component: {fileID: 11469812}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RingOfFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}

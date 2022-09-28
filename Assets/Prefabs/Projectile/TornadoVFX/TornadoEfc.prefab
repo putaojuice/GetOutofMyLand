@@ -4954,7 +4954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 100
+  speed: 2
   attackPoints: 1
   _statusData: {fileID: 11400000, guid: 8b73dab4b48424edf8304fee72a19686, type: 2}
   origin: {x: 0, y: 0, z: 0}

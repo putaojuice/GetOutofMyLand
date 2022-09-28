@@ -4778,7 +4778,7 @@ GameObject:
   m_Component:
   - component: {fileID: 424980}
   - component: {fileID: 11447354}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: MeteorSwarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

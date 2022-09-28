@@ -9,11 +9,11 @@ public class TurretController : MonoBehaviour
 	[SerializeField] private LayerMask layer;
 	[SerializeField] private NavMeshSurface surf;
 	[SerializeField] private GameObject playerBase;
+	[SerializeField] Camera cam;
 
 	private GameObject previewPrefab;
 	private TurretBase turretBase;
 	private DeckController DeckController;
-    private Camera cam;
 	private bool isBuilding = false;
 	private bool isBlockedPath = false;
     // Start is called before the first frame update
@@ -21,7 +21,6 @@ public class TurretController : MonoBehaviour
     {
 		// BuildNavMesh on start up
 		surf.BuildNavMesh();
-        cam = GameObject.Find("Camera").GetComponent<Camera>();
 		DeckController = gameObject.GetComponent<DeckController>();
 	}
 
@@ -34,11 +33,10 @@ public class TurretController : MonoBehaviour
 	{   
 
 		if (Input.GetMouseButton(0) && isBuilding && turretBase.GetBuildable() && !isBlockedPath)
-		{
+		{	
 			CompleteBuild();
 		}
 
-		
 		if (Input.GetMouseButton(1) && isBuilding)
 		{
 			StopBuild();
@@ -80,6 +78,7 @@ public class TurretController : MonoBehaviour
 		DeckController.CompleteCard();
 		// update navmesh data in run time
 		surf.UpdateNavMesh(surf.navMeshData);
+		isBuilding = false;
 		StopBuild();
 	}
 
@@ -113,17 +112,14 @@ public class TurretController : MonoBehaviour
 	{
 		int x = Mathf.RoundToInt(position.x);
 		int z = Mathf.RoundToInt(position.z);
-		previewPrefab.transform.position = position + new Vector3(0f, 0.85f, 0f);
+		previewPrefab.transform.position = position + new Vector3(0f, 0.35f, 0f);
 	}
 
 	private void PathCalculation()
     {
         UnityEngine.AI.NavMeshPath path = new UnityEngine.AI.NavMeshPath();
 			// agent attached to spawn point to calculate possibility of blocked path
-	    UnityEngine.AI.NavMeshAgent agent = GameObject.Find("GameManager")
-		.GetComponent<GameManager>()
-		.getCurrentSpawnPoint()
-		.GetComponent<UnityEngine.AI.NavMeshAgent>();
+	    UnityEngine.AI.NavMeshAgent agent = GameManager.instance.getCurrentSpawnPoint().GetComponent<UnityEngine.AI.NavMeshAgent>();
 		
         agent.CalculatePath(playerBase.transform.position, path);
         // Debug.Log(path.status);

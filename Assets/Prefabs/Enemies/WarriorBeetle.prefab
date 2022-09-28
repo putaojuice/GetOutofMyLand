@@ -599,7 +599,7 @@ Transform:
   m_GameObject: {fileID: 1567556252654110330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -35.46011, y: 0.5, z: -6.8889694}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1570273813397909344}
@@ -656,6 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23af6a4a7abc24dc1a624761b2e6d4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 6956535967038393468, guid: f5c0a1496447b864ba5c92914e9d73cc, type: 3}
   maxHp: 3
   hp: 3
   skillCoolDown: 5
@@ -700,8 +701,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 4.5
-  m_Acceleration: 8
+  m_Speed: 1
+  m_Acceleration: 10000
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -736,7 +737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4754c9ae46da4dbb8bd12f6219b6551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 0}
+  goal: {fileID: 2408335853564092077, guid: a87a20628fba24428ae6796329828910, type: 3}
 --- !u!135 &1036677170
 SphereCollider:
   m_ObjectHideFlags: 0

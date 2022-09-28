@@ -14378,8 +14378,8 @@ Transform:
   m_GameObject: {fileID: 7540285699969234404}
   m_LocalRotation: {x: -0.5988844, y: -0.37594885, z: 0.37594885, w: 0.5988844}
   m_LocalPosition: {x: -82.65929, y: 6.6, z: 72.9075}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7540285699968730678}
   - {fileID: 7540285699968854692}
@@ -14650,7 +14650,7 @@ MonoBehaviour:
   IntensityModifier: 2
   IntensityMaxRange:
     Minimum: 0
-    Maximum: 8
+    Maximum: 4
 --- !u!114 &7540285699961969080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14699,7 +14699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 300
+  speed: 0.5
   attackPoints: 1
   burnDamage: 1
   _statusData: {fileID: 11400000, guid: 416ea0a4dc87143eb939081d54be2261, type: 2}

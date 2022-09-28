@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482f046ede94e4221a5e938f3945c0b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 6956535967038393468, guid: f5c0a1496447b864ba5c92914e9d73cc, type: 3}
   maxHp: 3
   hp: 3
   skillCoolDown: 5
@@ -63,6 +64,7 @@ MonoBehaviour:
   originalSpeed: 0
   freezeEffectData: {fileID: 11400000, guid: 47ba0491509ed4f1697adc6a7745d704, type: 2}
   shockEffectData: {fileID: 11400000, guid: eb8933d247d6141d8a51c9a4814aae76, type: 2}
+  destructionMat: {fileID: 0}
   range: 10
   numSegments: 128
   line: {fileID: 2713429377373498686}
@@ -78,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4754c9ae46da4dbb8bd12f6219b6551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 0}
+  goal: {fileID: 2408335853564092077, guid: a87a20628fba24428ae6796329828910, type: 3}
 --- !u!195 &5843514483690447795
 NavMeshAgent:
   m_ObjectHideFlags: 0
