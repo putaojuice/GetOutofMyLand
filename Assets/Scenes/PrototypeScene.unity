@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 713059682}
-  m_IndirectSpecularColor: {r: 0.28300804, g: 0.60441977, b: 0.9477975, a: 1}
+  m_IndirectSpecularColor: {r: 0.28300822, g: 0.6044199, b: 0.9477975, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -629,6 +629,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1805251896577466378, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1871008656973756643, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_Type
       value: 0
@@ -885,6 +889,11 @@ PrefabInstance:
 --- !u!1 &590188042 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5733026572220078497, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+  m_PrefabInstance: {fileID: 459199819}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &648915430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 542834758137789828, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
   m_PrefabInstance: {fileID: 459199819}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &713059681
@@ -1438,6 +1447,7 @@ MonoBehaviour:
     m_Bits: 2147483647
   surf: {fileID: 1705511786}
   playerBase: {fileID: 1158085605}
+  cam: {fileID: 1574795947}
 --- !u!114 &1755004091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1454,6 +1464,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2147483647
   surf: {fileID: 1705511786}
+  cam: {fileID: 1574795947}
 --- !u!114 &1755004092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1480,7 +1491,7 @@ MonoBehaviour:
   - {fileID: 1059237351}
   - {fileID: 760644386}
   LootOverlay: {fileID: 1393039283}
-  LootDisplay: {fileID: 0}
+  LootDisplay: {fileID: 648915430}
   lootDeck:
   - {fileID: 2747059604024587592, guid: de7e727cbf546ee43a6692a6c04c0fe7, type: 3}
   - {fileID: 2747059604024587592, guid: 10508ff3d0720c143840f8b69c709f8c, type: 3}

@@ -23,7 +23,7 @@ public class MoveDestination : MonoBehaviour
     {
 
         // Notify the enemy to get damaged and die instantly
-        if(collider.gameObject.transform.position == goal.position){
+        if(collider.gameObject.tag == "Endpoint"){
             Enemy enemy = gameObject.GetComponent<Enemy>();
             enemy.GetDamaged(9999999999);
         }

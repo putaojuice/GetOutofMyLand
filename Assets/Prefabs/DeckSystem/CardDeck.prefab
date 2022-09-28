@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6110305536883996421, guid: d2a2367de7dca9c43ba8d7bf9b419c5b, type: 3}
+      propertyPath: type
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2a2367de7dca9c43ba8d7bf9b419c5b, type: 3}
 --- !u!224 &5344737820449065647 stripped
@@ -152,6 +156,10 @@ PrefabInstance:
     - target: {fileID: 178966631810529551, guid: 32ea37b100dee704e9f5df374937cdb8, type: 3}
       propertyPath: m_Name
       value: ZLandCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426253617482406096, guid: 32ea37b100dee704e9f5df374937cdb8, type: 3}
+      propertyPath: type
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6884190006827630001, guid: 32ea37b100dee704e9f5df374937cdb8, type: 3}
       propertyPath: m_Pivot.x
@@ -337,6 +345,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3172219860913172372, guid: e9a14b37cccaae841870e345b5db07c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923277261404680895, guid: e9a14b37cccaae841870e345b5db07c8, type: 3}
+      propertyPath: type
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
