@@ -85,9 +85,9 @@ public class GridFloor : MonoBehaviour
     void GenerateGrid() 
     {   
         // On each tile, generate grid around it when built
-        for (int x = -2; x <= 2; x++)
+        for (int x = -4; x <= 4; x++)
 		{
-            for (int z = -2; z <= 2; z++)
+            for (int z = -4; z <= 4; z++)
 			{   
 
                 Vector3 spawnPos = new Vector3(transform.position.x + x +  blockSize / 2,
