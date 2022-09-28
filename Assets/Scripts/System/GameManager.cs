@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 // Game managers that handles different controllers
 public class GameManager : MonoBehaviour
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]public Transform healerPrefab;
     [SerializeField]public Transform tankPrefab;
     [SerializeField]public GameObject MusicControl;
+    [SerializeField]private GameObject scoreText;
     private List<Transform> listOfEnemies = new List<Transform>();
 
     [SerializeField]
@@ -29,11 +31,13 @@ public class GameManager : MonoBehaviour
     private GameObject currentSpawnPoint;
     private DeckController DeckController;
     private int currentEnemies;
+    private static int enemiesKilled;
 
     public Transform cardGroup;
     public int currentHandSize;
 
     public static GameManager instance;
+
 
     void Awake() {
         instance = this;
@@ -54,6 +58,7 @@ public class GameManager : MonoBehaviour
         listOfEnemies.Add(tankPrefab);
         waveIndex = 0;
         currentEnemies = 0;
+        enemiesKilled = 0;
     }
 
     void TaskOnClick()
@@ -98,7 +103,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateEnemy() {
         currentEnemies--;
-        Debug.Log(currentEnemies);
+        enemiesKilled++;
         WaveEnded += generateSpawnPoint;
         // Delegate wave end event when all the enemies died
         if (currentEnemies <= 0 && WaveEnded != null) {
@@ -119,6 +124,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver() {
+        int enemiesScore = enemiesKilled * (1 + (waveIndex / 50));
+        int landScore = (GameObject.FindGameObjectsWithTag("GridFloor").Length - 45) * (1 + (waveIndex / 50));
+        scoreText.GetComponent<TMP_Text>().text = "Score: " + (enemiesScore + landScore); 
         gameOverUI.SetActive(true);
     }
     
