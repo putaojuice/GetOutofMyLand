@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour, IEffectable
 {
     private GameManager gameManager;
 
+    public AudioSource AudioSource;
+    public float volume=0.5f;
     [Header("Enemy Data")]
     public float maxHp = 3f;
     public float hp = 3f;
@@ -29,6 +31,7 @@ public class Enemy : MonoBehaviour, IEffectable
     // Start is called before the first frame update
     void Start()
     {
+        AudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -71,8 +74,9 @@ public class Enemy : MonoBehaviour, IEffectable
         gameObject.GetComponent<NavMeshAgent>().enabled = false;
         if (gameObject != null) {
             // Play enemy dissolve animation from dissolve shader
-            StartCoroutine(PlayDissolve(1f));
 
+            StartCoroutine(PlayDissolve(1f));
+            AudioSource.Play();
             // Destroy after 1 sec delay
             Destroy(gameObject, 1.0f);
 
