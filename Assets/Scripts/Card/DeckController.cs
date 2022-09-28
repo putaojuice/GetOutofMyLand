@@ -27,7 +27,9 @@ public class DeckController : MonoBehaviour
         TurretController = gameObject.GetComponent<TurretController>();
 
         // subscribing the DrawCard method to the WaveEnd event so that DrawCard will be called once wave ended
+
         WaveSpawning.WaveEnded += GetRandomLoot;
+
     }
 
     // Update is called once per frame
@@ -46,6 +48,7 @@ public class DeckController : MonoBehaviour
             firstCard.transform.SetParent(Hand.transform);
             currentHandSize++;
         }
+
     }
 
 

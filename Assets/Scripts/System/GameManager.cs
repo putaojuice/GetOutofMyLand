@@ -9,13 +9,18 @@ public class GameManager : MonoBehaviour
     public delegate void WaveEnd();
     public static event WaveEnd WaveEnded;
     private static int waveIndex = 1;
+    
+    [SerializeField]public Transform warriorPrefab;
+    [SerializeField]public Transform assassinPrefab;
+    [SerializeField]public Transform healerPrefab;
+    [SerializeField]public Transform tankPrefab;
+    private List<Transform> listOfEnemies = new List<Transform>();
 
-    [SerializeField]
-    private GameObject enemyPrefab;
     [SerializeField]
     private Button spawnButton;
     [SerializeField]
     private Button wavePauseButton;
+
 
     private GameObject currentSpawnPoint;
     private DeckController DeckController;
@@ -32,6 +37,10 @@ public class GameManager : MonoBehaviour
         btn.onClick.AddListener(TaskOnClick);
         generateSpawnPoint();
         wavePauseButton.interactable = false;
+        listOfEnemies.Add(warriorPrefab);
+        listOfEnemies.Add(assassinPrefab);
+        listOfEnemies.Add(healerPrefab);
+        listOfEnemies.Add(tankPrefab);
 
     }
 
@@ -40,17 +49,18 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnWave());
         spawnButton.interactable = false;
         wavePauseButton.interactable = true;
+
     }
 
     public void generateSpawnPoint() {
         // get a random grid object
-        GameObject[] currentGrid = gameObject.GetComponent<GridController>().getCurrentGrid();
-        GameObject randomGrid = currentGrid[Random.Range(0, currentGrid.Length)];
-        GridBase gridBase = randomGrid.GetComponent<GridBase>();
+        List<GameObject> currentGrid = gameObject.GetComponent<GridController>().getCurrentGrid();
+        GameObject randomGrid = currentGrid[Random.Range(0, currentGrid.Count)];
+        GridFloor gridFloor = randomGrid.GetComponent<GridFloor>();
         if (currentSpawnPoint != null) {
             Destroy(currentSpawnPoint);
         }
-        currentSpawnPoint = gridBase.generateSpawnPoint();
+        currentSpawnPoint = gridFloor.generateSpawnPoint();
     }
 
     IEnumerator SpawnWave()
@@ -58,11 +68,18 @@ public class GameManager : MonoBehaviour
         waveIndex ++;
         currentEnemies = waveIndex;
         for(int i = 0; i < waveIndex; i ++){
-            Instantiate(enemyPrefab, currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
+            SpawnEnemy();
             yield return new WaitForSeconds(1f);
         }
     }
-    
+
+    void SpawnEnemy()
+    {
+        int randIndex = Random.Range(0, 3);
+        Instantiate(listOfEnemies[randIndex], currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
+
+    }
+
     public void UpdateEnemy() {
         currentEnemies--;
         WaveEnded += generateSpawnPoint;
@@ -76,6 +93,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject getCurrentSpawnPoint() {
         return currentSpawnPoint;
+    }
+
+    public void GameOver() {
+        
     }
     
 }

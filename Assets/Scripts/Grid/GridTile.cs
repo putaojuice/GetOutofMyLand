@@ -58,15 +58,24 @@ public class GridTile : MonoBehaviour
 	{	
 
 		if (obj.Count == 0 && ground.Count == tileSize)
-		{	
-			tileMat.SetColor("_Color", buildableColor);
-			buildable = true;
+		{
+			
+			UnityEngine.AI.NavMeshPath path = new UnityEngine.AI.NavMeshPath();
+			UnityEngine.AI.NavMeshAgent agent = gameObject.transform.Find("agent").gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
+			GameObject playerBase = GameObject.FindGameObjectWithTag("Endpoint");
+			agent.CalculatePath(playerBase.transform.position, path);
+			if (path.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
+			{
+				tileMat.SetColor("_Color", buildableColor);
+				buildable = true;
+				return;
+			}
+			
 		}
-		else
-		{	
-			tileMat.SetColor("_Color", unbuildableColor);
-			buildable = false;
-		}
+			
+		tileMat.SetColor("_Color", unbuildableColor);
+		buildable = false;
+		
 	}
 
 	public bool GetBuildable()

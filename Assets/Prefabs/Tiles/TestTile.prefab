@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -8454991299248349193}
   - component: {fileID: -6484032594352682066}
   - component: {fileID: 46869660634344245}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: TestTile
   m_TagString: GridFloor
   m_Icon: {fileID: 0}
@@ -91,9 +91,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockPrefab: {fileID: 2732271029395909584, guid: 39c815b79cd65c646911e9a9994a8adb, type: 3}
+  spawnPoint: {fileID: 5220440410661199864, guid: b1f1dcaa7f1d54668a8177fc2cc10c68, type: 3}
   maxX: 1
   maxZ: 1
   blockSize: 1
+  isOuterFloor: 0
 --- !u!65 &46869660634344245
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -136,11 +138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3196648517536708714, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3196648517536708714, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
       propertyPath: m_TagString
-      value: GridFloor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5114996075067899094, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
       propertyPath: m_RootOrder
@@ -207,11 +209,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1092910722396494324, guid: 162d2f8f57192a14ab9278fc56faf57e, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1092910722396494324, guid: 162d2f8f57192a14ab9278fc56faf57e, type: 3}
       propertyPath: m_TagString
-      value: GridFloor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3907522310404650416, guid: 162d2f8f57192a14ab9278fc56faf57e, type: 3}
       propertyPath: m_RootOrder

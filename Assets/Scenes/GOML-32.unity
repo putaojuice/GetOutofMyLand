@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 40804449}
   m_Layer: 0
   m_Name: blocker
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,8 +168,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.2484741, y: 2.6011133, z: 3.328844}
+  m_Center: {x: -0.21072769, y: 0.60524666, z: -0.099422455}
 --- !u!23 &40804450
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -270,6 +270,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 785756715024745167, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1542271067828382432, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.43000004
@@ -288,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2219565223868745177, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
       propertyPath: m_TagString
-      value: GridFloor
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2827740693751145187, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
       propertyPath: m_LocalScale.x
@@ -305,6 +309,10 @@ PrefabInstance:
     - target: {fileID: 2827740693751145187, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636260451203309593, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4935329285424223920, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
       propertyPath: m_LocalScale.x
@@ -337,6 +345,10 @@ PrefabInstance:
     - target: {fileID: 5705734461460363336, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6487801800206579452, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6694077928927640936, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
       propertyPath: m_VoxelSize
@@ -410,6 +422,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 549141713}
+    - target: {fileID: 7861756450907640304, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8216694283499787927, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.43000004
@@ -441,6 +457,10 @@ PrefabInstance:
     - target: {fileID: 8280961435987699031, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8615706855094826810, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6694077928927640950, guid: 27d93f585b5efef4caea67cb08a7bfd6, type: 3}
@@ -1103,7 +1123,7 @@ GameObject:
   - component: {fileID: 1097973308}
   m_Layer: 0
   m_Name: blocker (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1134,8 +1154,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.4880285, y: 2.7643206, z: 3.3335366}
+  m_Center: {x: -0.07176924, y: 0.8821598, z: 0.05417323}
 --- !u!23 &1097973309
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1205,7 +1225,7 @@ GameObject:
   - component: {fileID: 1286070340}
   m_Layer: 0
   m_Name: blocker (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1236,8 +1256,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.7638607, y: 2.5462189, z: 3.6370173}
+  m_Center: {x: 0.00710392, y: 0.34688023, z: -0.14455462}
 --- !u!23 &1286070341
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1657,7 +1677,7 @@ GameObject:
   - component: {fileID: 2095427411}
   m_Layer: 0
   m_Name: blocker (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1688,8 +1708,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.5982485, y: 2.0319533, z: 3.192112}
+  m_Center: {x: -0.010157108, y: 0.51597667, z: -0.019220352}
 --- !u!23 &2095427412
 MeshRenderer:
   m_ObjectHideFlags: 0

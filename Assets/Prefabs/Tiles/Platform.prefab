@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 2313560579525022273}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: GridFloor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,6 +223,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2147483647
   surf: {fileID: 6694077928927640936}
+  playerBase: {fileID: 0}
 --- !u!1 &7861756450907640304
 GameObject:
   m_ObjectHideFlags: 0

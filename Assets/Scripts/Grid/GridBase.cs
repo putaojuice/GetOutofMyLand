@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GridBase : MonoBehaviour
 {   
-    [SerializeField]  
-    private GameObject spawnPoint;
 
     private GridController gridController;
     private MeshRenderer rend;
@@ -59,6 +57,7 @@ public class GridBase : MonoBehaviour
     public GameObject generateSpawnPoint() {
         return Instantiate(spawnPoint, transform.position, transform.rotation);
     }
+
 
 
 
