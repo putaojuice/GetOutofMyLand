@@ -92,9 +92,8 @@ public class GameManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        // int randIndex = Random.Range(0, 3);
-        // Instantiate(listOfEnemies[randIndex], currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
-        Instantiate(warriorPrefab, currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
+        int randIndex = Random.Range(0, 3);
+        Instantiate(listOfEnemies[randIndex], currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
     }
 
     public void UpdateEnemy() {

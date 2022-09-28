@@ -14,7 +14,6 @@ public class Warrior : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(GameManager.instance.waveIndex);
         // Setting up the stats for Warriors
         maxHp = 8f * (GameManager.instance.waveIndex + 1) * 0.5f;
         hp = maxHp;

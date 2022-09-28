@@ -14,7 +14,7 @@ public class Healer : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(GameManager.instance.waveIndex);
+
         maxHp = 5f * (GameManager.instance.waveIndex + 1) * 0.5f;
         hp = maxHp;
         skillCoolDown = 1.5f;

@@ -17,7 +17,6 @@ public class Assasin : Enemy
     void Start()
     {
         // Setting up the stats for Warriors
-        Debug.Log(GameManager.instance.waveIndex);
         maxHp = 5f * (GameManager.instance.waveIndex + 1) * 0.5f;
         hp = maxHp;
         skillCoolDown = 1.5f;
