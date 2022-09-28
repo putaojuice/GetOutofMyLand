@@ -34,14 +34,12 @@ public class PauseWaveButton : MonoBehaviour
     private void Resume()
     {
         Button.image.sprite = PauseWaveImage;
-        Time.timeScale = 1f;
         WaveIsPaused = false;
     }
 
     private void Pause()
     {
         Button.image.sprite = ResumeWaveImage;
-        Time.timeScale = 0f;
         WaveIsPaused = true;
     }
 }

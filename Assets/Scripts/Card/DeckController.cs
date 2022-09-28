@@ -25,9 +25,9 @@ public class DeckController : MonoBehaviour
         // All controllers are components of "GameManager"
         GridController = gameObject.GetComponent<GridController>();
         TurretController = gameObject.GetComponent<TurretController>();
-        
+
         // subscribing the DrawCard method to the WaveEnd event so that DrawCard will be called once wave ended
-        GameManager.WaveEnded += GetRandomLoot;
+        WaveSpawning.WaveEnded += GetRandomLoot;
     }
 
     // Update is called once per frame
@@ -128,8 +128,8 @@ public class DeckController : MonoBehaviour
 
         // after displaying loot, unsubscribe the GetRandomLoot method from the WaveEnd event to prevent memory leak
         // TODO handle this in a GameEndManager when player loses
-        GameManager.WaveEnded -= GetRandomLoot;
-        GameManager.WaveEnded += GetRandomLoot;
+        WaveSpawning.WaveEnded -= GetRandomLoot;
+        WaveSpawning.WaveEnded += GetRandomLoot;
     }
 
     public void AddCard(Card card)

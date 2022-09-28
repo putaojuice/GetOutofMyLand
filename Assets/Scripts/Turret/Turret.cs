@@ -18,11 +18,16 @@ public class Turret : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
+/*  For pause wave function
+ *  [SerializeField]
+ *  private GameObject canvas;
+ */
 
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        /* canvas = GameObject.Find("Canvas (1)"); */
     }
 
     void UpdateTarget()
@@ -63,7 +68,7 @@ public class Turret : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(rotatingPart.rotation, lookRotation, Time.deltaTime * lerpSpeed).eulerAngles;
         rotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
-        if(fireCountdown <= 0f)
+        if(fireCountdown <= 0f) // && !canvas.GetComponent<PauseWaveButton>().WaveIsPaused
         {
             Shoot();
             fireCountdown = 1f/ firingRate;

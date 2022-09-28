@@ -26,10 +26,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        if (!gameObject.GetComponent<PauseWaveButton>().WaveIsPaused)
-        {
-            Time.timeScale = 1f;
-        }
+        Time.timeScale = 1f;
         GameIsPaused = false;
     }
 
