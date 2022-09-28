@@ -148,4 +148,12 @@ public class DeckController : MonoBehaviour
         DrawCard();
     }
 
+    public void disableHand() {
+        Hand.SetActive(false);
+    }
+
+    public void enableHand() {
+        Hand.SetActive(true);
+    }
+
 }

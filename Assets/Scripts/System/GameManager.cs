@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(SpawnWave());
         spawnButton.interactable = false;
+        DeckController.disableHand();
         // wavePauseButton.interactable = true;
 
     }
@@ -98,6 +99,7 @@ public class GameManager : MonoBehaviour
         if (currentEnemies == 0 && WaveEnded != null) {
             WaveEnded();
             spawnButton.interactable = true;
+            DeckController.enableHand();
             // wavePauseButton.interactable = false;
         }
     }
