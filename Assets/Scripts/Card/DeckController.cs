@@ -16,7 +16,7 @@ public class DeckController : MonoBehaviour
     private List<Card> usedCards = new List<Card>();
     private GridController GridController;
     private TurretController TurretController;
-    private Card currentCard;
+    public Card currentCard;
     private int currentHandSize = 0;
 
     // Start is called before the first frame update

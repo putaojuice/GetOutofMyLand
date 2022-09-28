@@ -18,8 +18,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private Button spawnButton;
-    [SerializeField]
-    private Button wavePauseButton;
+    // [SerializeField]
+    // private Button wavePauseButton;
+    [SerializeField] 
+    private GameObject gameOverUI;
 
 
     private GameObject currentSpawnPoint;
@@ -36,7 +38,7 @@ public class GameManager : MonoBehaviour
         Button btn = spawnButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
         generateSpawnPoint();
-        wavePauseButton.interactable = false;
+        // wavePauseButton.interactable = false;
         listOfEnemies.Add(warriorPrefab);
         listOfEnemies.Add(assassinPrefab);
         listOfEnemies.Add(healerPrefab);
@@ -48,7 +50,7 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(SpawnWave());
         spawnButton.interactable = false;
-        wavePauseButton.interactable = true;
+        // wavePauseButton.interactable = true;
 
     }
 
@@ -87,7 +89,7 @@ public class GameManager : MonoBehaviour
         if (currentEnemies == 0 && WaveEnded != null) {
             WaveEnded();
             spawnButton.interactable = true;
-            wavePauseButton.interactable = false;
+            // wavePauseButton.interactable = false;
         }
     }
 
@@ -96,7 +98,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver() {
-        
+        gameOverUI.SetActive(true);
     }
     
 }

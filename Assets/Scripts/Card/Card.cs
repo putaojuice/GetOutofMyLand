@@ -25,6 +25,12 @@ public class Card : MonoBehaviour
 
     public void UseCard()
     {
+        if (DeckController.currentCard != null)
+        {
+            Debug.Log("block card");
+            return;
+        }
+
         if (isLootCard)
         {
             DeckController.AddCard(this);
