@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]public Transform assassinPrefab;
     [SerializeField]public Transform healerPrefab;
     [SerializeField]public Transform tankPrefab;
+    [SerializeField]public GameObject MusicControl;
     private List<Transform> listOfEnemies = new List<Transform>();
 
     [SerializeField]
@@ -62,6 +63,10 @@ public class GameManager : MonoBehaviour
         DeckController.disableHand();
         // wavePauseButton.interactable = true;
 
+        //Music Stuff
+        MusicControlScript MusicController = MusicControl.GetComponent<MusicControlScript>();
+        MusicController.PlayFunky();
+
     }
 
     public void generateSpawnPoint() {
@@ -98,6 +103,10 @@ public class GameManager : MonoBehaviour
         // Delegate wave end event when all the enemies died
         if (currentEnemies == 0 && WaveEnded != null) {
             WaveEnded();
+            //Music Stuff
+            MusicControlScript MusicController = MusicControl.GetComponent<MusicControlScript>();
+            MusicController.PlayAmbient();
+
             spawnButton.interactable = true;
             DeckController.enableHand();
             // wavePauseButton.interactable = false;
