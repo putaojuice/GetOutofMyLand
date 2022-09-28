@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 713059682}
-  m_IndirectSpecularColor: {r: 0.28300822, g: 0.6044199, b: 0.9477975, a: 1}
+  m_IndirectSpecularColor: {r: 0.28300837, g: 0.60441995, b: 0.94779736, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -782,11 +782,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 785445423797092929, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000021454223
+      value: -0.000000015170428
       objectReference: {fileID: 0}
     - target: {fileID: 785445423797092929, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000011481951
+      value: 0.000000008118967
       objectReference: {fileID: 0}
     - target: {fileID: 1093093049020216896, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -830,11 +830,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6034549901478517501, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000021454223
+      value: -0.000000015170428
       objectReference: {fileID: 0}
     - target: {fileID: 6034549901478517501, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000011481951
+      value: 0.000000008118967
       objectReference: {fileID: 0}
     - target: {fileID: 8500851291982029270, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_RootOrder
@@ -981,17 +981,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 48.172, y: 28.274, z: 15.589}
---- !u!114 &851835967 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3626140634504390361, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
-  m_PrefabInstance: {fileID: 459199819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e048374dc8d2374cbe2ea405ca3daca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &827488807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,11 +1026,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.94503844, y: 0.49069864, z: 1.0354733}
   m_Center: {x: 0.011251628, y: -0.037647754, z: 0.017736673}
+--- !u!114 &851835967 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3626140634504390361, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+  m_PrefabInstance: {fileID: 459199819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e048374dc8d2374cbe2ea405ca3daca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &909449121 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5534063656808487627, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
   m_PrefabInstance: {fileID: 519059871}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1009184626 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4868148834904487461, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+  m_PrefabInstance: {fileID: 459199819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e048374dc8d2374cbe2ea405ca3daca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1044237377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,17 +1242,6 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
---- !u!114 &1552333821 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3466438030270561895, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
-  m_PrefabInstance: {fileID: 459199819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e048374dc8d2374cbe2ea405ca3daca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!20 &1574795947 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4038314652278985295, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
@@ -1391,7 +1391,7 @@ MonoBehaviour:
   healerPrefab: {fileID: 5652554327356069852, guid: 87cf9c83b7b4e4d588309280e672e574, type: 3}
   tankPrefab: {fileID: 5899606315313437279, guid: 39d21b1751f724feab671dd05d4bc413, type: 3}
   spawnButton: {fileID: 1858024999}
-  gameOverUI: {fileID: 1331896072}
+  gameOverUI: {fileID: 0}
   cardGroup: {fileID: 459199821}
   currentHandSize: 0
 --- !u!114 &1755004090
@@ -1444,11 +1444,11 @@ MonoBehaviour:
   maxHandSize: 5
   deck:
   - {fileID: 851835967}
-  - {fileID: 977282743}
+  - {fileID: 1009184626}
   - {fileID: 272738080}
   - {fileID: 1621336504}
-  - {fileID: 1116291203}
-  - {fileID: 1370448012}
+  - {fileID: 1790373384}
+  - {fileID: 1312975077}
   - {fileID: 1834203175}
   LootOverlay: {fileID: 1393039283}
   LootDisplay: {fileID: 0}
@@ -1459,6 +1459,17 @@ MonoBehaviour:
   - {fileID: 2564785382289860855, guid: 5b0da66e626a2db42845a93359d91fe3, type: 3}
   - {fileID: 2747059604024587592, guid: 273f1e4845a2b1d4094d0994c8574357, type: 3}
   currentCard: {fileID: 0}
+--- !u!114 &1790373384 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1771974095492433532, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+  m_PrefabInstance: {fileID: 459199819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e048374dc8d2374cbe2ea405ca3daca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1834203175 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2833445151389089041, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
