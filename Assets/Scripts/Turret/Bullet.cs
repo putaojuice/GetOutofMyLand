@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private GameObject target;
-    public float speed = 300f;
-    public float attackPoints = 1f;
+    [SerializeField] public GameObject target;
+    [SerializeField] public float speed = 300f;
+    [SerializeField] public float attackPoints = 1f;
 
-    public void Seek(GameObject _target)
+    public virtual void Seek(GameObject _target)
     {
         target = _target;
     }
@@ -39,7 +39,7 @@ public class Bullet : MonoBehaviour
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
 
-    void HitTarget()
+    public virtual void HitTarget()
     {
         Enemy currEnemy = target.GetComponent<Enemy>();
         currEnemy.GetDamaged(attackPoints);

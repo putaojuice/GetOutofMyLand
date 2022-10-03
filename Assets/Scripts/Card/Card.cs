@@ -10,6 +10,7 @@ public class Card : MonoBehaviour
     public CardEffect cardEffect;
     public GameObject prefabPreview;
     public Type type;
+    public bool isLootCard = false;
 
     private DeckController DeckController;
 
@@ -19,11 +20,23 @@ public class Card : MonoBehaviour
     {
         currentCard = gameObject.GetComponent<Image>();
         gameObject.GetComponent<Button>().onClick.AddListener(UseCard);
-        DeckController = GameObject.Find("GameManager").GetComponent<DeckController>();
+        DeckController = GameManager.instance.gameObject.GetComponent<DeckController>();
     }
 
     public void UseCard()
-    {
+    {   
+        DeckController.disableHand();
+        if (DeckController.currentCard != null)
+        {
+            Debug.Log("block card");
+            return;
+        }
+
+        if (isLootCard)
+        {
+            DeckController.AddCard(this);
+            return;
+        }
         // currentCard.gameObject.SetActive(false);
         if (cardEffect) {
             cardEffect.TriggerEffect();

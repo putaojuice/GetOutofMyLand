@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GridBase : MonoBehaviour
 {   
+
     private GridController gridController;
     private MeshRenderer rend;
     private Color originalColor;
@@ -52,6 +53,11 @@ public class GridBase : MonoBehaviour
         }
 	
     }
+
+    // public GameObject generateSpawnPoint() {
+    //     return Instantiate(spawnPoint, transform.position, transform.rotation);
+    // }
+
 
 
 

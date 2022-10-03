@@ -8,19 +8,20 @@ public class GridController : MonoBehaviour
     
 	[SerializeField] private LayerMask layer;
 	[SerializeField] private NavMeshSurface surf;
+	[SerializeField] private Camera cam;
 
+	private List<GameObject> currentOuterFloor = new List<GameObject>();
 	private DeckController DeckController;
 	private GameObject previewPrefab;
 	private GridTile gridTile;
 	private bool isBuilding = false;
-	private Camera cam;
+	
 
     // Start is called before the first frame update
     void Start()
     {
 		// BuildNavMesh on start up
 		surf.BuildNavMesh();
-		cam = GameObject.Find("Camera").GetComponent<Camera>();
 		DeckController = gameObject.GetComponent<DeckController>();
     }
 
@@ -32,12 +33,12 @@ public class GridController : MonoBehaviour
 	public void BuildLogic()
 	{
 		if (Input.GetMouseButton(0) && isBuilding && gridTile.GetBuildable())
-		{
+		{	
 			CompleteBuild();
 		}
 		
 		if (Input.GetMouseButton(1) && isBuilding)
-		{
+		{	
 			StopBuild();
 		}
 
@@ -62,13 +63,17 @@ public class GridController : MonoBehaviour
 		isBuilding = true;
 	}
 
-	private void StopBuild()
-	{
-		Destroy(previewPrefab);
+	public void StopBuild()
+	{	
+		if (previewPrefab != null) {
+			Destroy(previewPrefab);
+		}
+		
 		previewPrefab = null;
 		gridTile = null;
 		isBuilding = false;
 		DeckController.StopPlayCard();
+		surf.UpdateNavMesh(surf.navMeshData);
 	}
 
 	private void CompleteBuild()
@@ -89,22 +94,35 @@ public class GridController : MonoBehaviour
 		{	
 			PositionObj(hit.point);
 		}
+		surf.UpdateNavMesh(surf.navMeshData);
+		
 	}
 
 	private void PositionObj(Vector3 position)
 	{
 		int x = Mathf.RoundToInt(position.x);
 		int z = Mathf.RoundToInt(position.z);
+		previewPrefab.transform.position = new Vector3(x, 0, z);
+		surf.UpdateNavMesh(surf.navMeshData);
 
-		if (previewPrefab.GetComponent<GridTile>().GetRotateState())
-		{
-			previewPrefab.transform.position = new Vector3(x, 0, z);
+	}
+
+	public void updateCurrentGrid() {
+		GameObject[] floors = GameObject.FindGameObjectsWithTag("GridFloor");
+		// Init outfloor list
+		currentOuterFloor = new List<GameObject>();
+		foreach (GameObject go in floors) {
+			// update floor status
+			go.GetComponent<GridFloor>().CheckSurroundingTiles();
+			if (go.GetComponent<GridFloor>().isOuterFloor) {
+				currentOuterFloor.Add(go);
+			}
 		}
-		else
-		{
-			previewPrefab.transform.position = new Vector3(x, 0, z);
-		}
-		
+    }
+
+	public List<GameObject> getCurrentGrid() {
+		updateCurrentGrid();
+		return currentOuterFloor;
 	}
 
 }

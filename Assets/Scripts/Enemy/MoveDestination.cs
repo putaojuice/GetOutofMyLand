@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MoveDestination : MonoBehaviour
 {
+    [SerializeField] public Transform goal;
     // Start is called before the first frame update
     void Start()
     {
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        Transform goal = GameObject.Find("Endpoint").transform; 
         agent.destination = goal.position;
         
     }
@@ -21,9 +21,13 @@ public class MoveDestination : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+
         // Notify the enemy to get damaged and die instantly
-        Enemy enemy = gameObject.GetComponent<Enemy>();
-        enemy.GetDamaged(9999999999);
+        if(collider.gameObject.tag == "Endpoint"){
+            Enemy enemy = gameObject.GetComponent<Enemy>();
+            enemy.GetDamaged(9999999999);
+        }
+  
         // Destroy(gameObject);
     }
 
