@@ -13,7 +13,7 @@ public class GridFloor : MonoBehaviour
     [Header("Grid Parameters")]
     [SerializeField] private int blockSize;
 
-    public bool isOuterFloor = true;
+    public bool isOuterFloor = false;
     private MeshRenderer rend;
     private bool selected = false;
     private Color originalColor;

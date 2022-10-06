@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretBase : MonoBehaviour
-{
+{	
+	private List<GameObject> detector = new List<GameObject>();
 	private List<GameObject> obj = new List<GameObject>();
-	private List<GridFloor> floor = new List<GridFloor>();
+	private List<GridBase> floor = new List<GridBase>();
 	[SerializeField] private Material turretMat;
+	[SerializeField] private Material turretTileMat;
 	[SerializeField] private Color buildableColor;
 	[SerializeField] private Color unbuildableColor;
 	[SerializeField] private GameObject buildPrefab;
@@ -21,24 +23,26 @@ public class TurretBase : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{	
-
-		if (other.gameObject.tag == "GridFloor")
+		if (other.gameObject.tag == "Detector" && other.GetType() == typeof(CapsuleCollider)) {
+			detector.Add(other.gameObject);
+		} else if (other.gameObject.tag == "GridBase")
 		{	
-			GridFloor gridFloor = other.GetComponent<GridFloor>();
+			GridBase gridFloor = other.GetComponent<GridBase>();
             floor.Add(gridFloor);
-			UpdateBuildStatus();
 		} else {
 			obj.Add(other.gameObject);
-			UpdateBuildStatus();
         }
 
+		UpdateBuildStatus();
 	}
 
 	private void OnTriggerExit(Collider other)
-	{
-		if (other.gameObject.tag == "GridFloor")
+	{	
+		if (other.gameObject.tag == "Detector" && other.GetType() == typeof(CapsuleCollider)) {
+			detector.Remove(other.gameObject);
+		} else if (other.gameObject.tag == "GridBase")
 		{	
-            GridFloor gridFloor = other.GetComponent<GridFloor>();
+            GridBase gridFloor = other.GetComponent<GridBase>();
             floor.Remove(gridFloor);
 		} else {
 			obj.Remove(other.gameObject);
@@ -50,31 +54,25 @@ public class TurretBase : MonoBehaviour
 
 	private void UpdateBuildStatus()
 	{	
-
+		Debug.Log(floor.Count + " " + obj.Count + " " + detector.Count);
         // Check if turret is on top of floor 
-		if (floor.Count >= 1 && obj.Count == 0)
+		if (floor.Count >= 1 && obj.Count == 0 && detector.Count > 0)
 		{	
 			buildable = true;
+			turretMat.SetColor("_Color", buildableColor);
+			turretTileMat.SetColor("_Color", buildableColor);
 		}
 		else
 		{	
 			buildable = false;
-		}
-	}
-
-	public void SetColor(bool isBlockedPath) {
-		buildable = !isBlockedPath;
-		if (buildable) {
-			turretMat.SetColor("_Color", buildableColor);
-		} else {
 			turretMat.SetColor("_Color", unbuildableColor);
+			turretTileMat.SetColor("_Color", unbuildableColor);
 		}
-
 	}
 
 	public bool GetBuildable()
 	{	
-		return floor.Count >= 1 && obj.Count == 0;
+		return buildable;
 	}
 
 	public void Build()

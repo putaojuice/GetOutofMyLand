@@ -15,7 +15,7 @@ public class TurretController : MonoBehaviour
 	private TurretBase turretBase;
 	private DeckController DeckController;
 	private bool isBuilding = false;
-	private bool isBlockedPath = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +32,7 @@ public class TurretController : MonoBehaviour
 	public void BuildLogic()
 	{   
 
-		if (Input.GetMouseButton(0) && isBuilding && turretBase.GetBuildable() && !isBlockedPath)
+		if (Input.GetMouseButton(0) && isBuilding && turretBase.GetBuildable())
 		{	
 			CompleteBuild();
 		}
@@ -92,22 +92,9 @@ public class TurretController : MonoBehaviour
 		RaycastHit hit;
 		if (Physics.Raycast(ray, out hit, layer))
 		{	
-			if (hit.transform.CompareTag("GridFloor"))
-            {
-                GameObject go = hit.transform.gameObject;
-                PositionObj(go.transform.position);
-                previewPrefab.GetComponent<TurretBase>().SetColor(true);
-                PathCalculation();
-				if (isBlockedPath) {
-					 previewPrefab.GetComponent<TurretBase>().SetColor(isBlockedPath);
-				}
-
-            } else {
-                PathCalculation();
-                previewPrefab.GetComponent<TurretBase>().SetColor(false);
-            }
+			GameObject go = hit.transform.gameObject;
+			PositionObj(go.transform.position); 
 		}
-
 		   
 	}
 
@@ -115,27 +102,7 @@ public class TurretController : MonoBehaviour
 	{
 		int x = Mathf.RoundToInt(position.x);
 		int z = Mathf.RoundToInt(position.z);
-		previewPrefab.transform.position = position + new Vector3(0f, 0.35f, 0f);
+		previewPrefab.transform.position = position + new Vector3(0f, 0f, 0f);
 	}
-
-	private void PathCalculation()
-    {
-        UnityEngine.AI.NavMeshPath path = new UnityEngine.AI.NavMeshPath();
-			// agent attached to spawn point to calculate possibility of blocked path
-	    UnityEngine.AI.NavMeshAgent agent = GameManager.instance.getCurrentSpawnPoint().GetComponent<UnityEngine.AI.NavMeshAgent>();
-		
-        agent.CalculatePath(playerBase.transform.position, path);
-        // Debug.Log(path.status);
-
-        if (path.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
-        {
-            isBlockedPath = false;
-        }
-        else 
-        {
-            isBlockedPath = true;
-        }
-
-    }
 
 }
