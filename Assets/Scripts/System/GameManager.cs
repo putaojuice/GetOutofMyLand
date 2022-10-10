@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
         DeckController.DrawCard();
         Button btn = spawnButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
-        generateSpawnPoint();
         // wavePauseButton.interactable = false;
         listOfEnemies.Add(warriorPrefab);
         listOfEnemies.Add(assassinPrefab);
@@ -63,6 +62,7 @@ public class GameManager : MonoBehaviour
 
     void TaskOnClick()
     {
+        generateSpawnPoint();
         StartCoroutine(SpawnWave());
         spawnButton.interactable = false;
         DeckController.disableHand();
