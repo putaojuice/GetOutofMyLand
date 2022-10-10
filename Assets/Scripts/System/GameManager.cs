@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private Button spawnButton;
-    // [SerializeField]
-    // private Button wavePauseButton;
+    [SerializeField]
+    private Button wavePauseButton;
     [SerializeField] 
     private GameObject gameOverUI;
 
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         Button btn = spawnButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
         generateSpawnPoint();
-        // wavePauseButton.interactable = false;
+        wavePauseButton.interactable = false;
         listOfEnemies.Add(warriorPrefab);
         listOfEnemies.Add(assassinPrefab);
         listOfEnemies.Add(healerPrefab);
@@ -65,8 +65,8 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(SpawnWave());
         spawnButton.interactable = false;
-        DeckController.disableHand();
-        // wavePauseButton.interactable = true;
+        //DeckController.disableHand();
+        wavePauseButton.interactable = true;
 
         //Music Stuff
         MusicControlScript MusicController = MusicControl.GetComponent<MusicControlScript>();
@@ -114,8 +114,8 @@ public class GameManager : MonoBehaviour
             MusicController.PlayAmbient();
 
             spawnButton.interactable = true;
-            DeckController.enableHand();
-            // wavePauseButton.interactable = false;
+            //DeckController.enableHand();
+            wavePauseButton.interactable = false;
         }
     }
 
