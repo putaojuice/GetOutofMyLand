@@ -5361,8 +5361,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 0}
   volume: 0.5
-  maxHp: 3
-  hp: 3
+  maxHp: 300
+  hp: 300
   skillCoolDown: 5
   defence: 0
   currRound: 1
@@ -6725,6 +6725,7 @@ GameObject:
   - component: {fileID: 4190287208619134700}
   - component: {fileID: 1553966120912972854}
   - component: {fileID: 3101170386073507242}
+  - component: {fileID: 267814245}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -6749,7 +6750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2}
+  m_AnchoredPosition: {x: -0, y: 2}
   m_SizeDelta: {x: 0, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1553966120912972854
@@ -6790,6 +6791,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &267814245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8737414202014479588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f0c50c8da65d4a16831351fff70a110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 0
+  hp: 0
+  enemy: {fileID: 8630446652980266971}
+  rect: {fileID: 0}
 --- !u!1001 &1681541484
 PrefabInstance:
   m_ObjectHideFlags: 0
