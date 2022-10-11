@@ -21,7 +21,7 @@ public class GridTile : MonoBehaviour
 	}
 
 	private void OnTriggerEnter(Collider other)
-	{	
+	{
 		if (other.gameObject.tag == "Detector" && other.GetType() == typeof(CapsuleCollider)) {
 			detector.Add(other.gameObject);
 		}

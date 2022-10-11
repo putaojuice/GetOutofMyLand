@@ -5,6 +5,8 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
+    [SerializeField]
+    private PauseWaveButton PauseWaveButton;
 
     public GameObject pauseMenuUI;
 
@@ -26,8 +28,12 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
         GameIsPaused = false;
+
+        if (!PauseWaveButton.WaveIsPaused)
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     private void Pause()

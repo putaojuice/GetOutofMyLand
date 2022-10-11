@@ -30,8 +30,8 @@ public class TurretController : MonoBehaviour
 	}
 
 	public void BuildLogic()
-	{   
-
+	{
+		
 		if (Input.GetMouseButton(0) && isBuilding && turretBase.GetBuildable() && !isBlockedPath)
 		{	
 			CompleteBuild();
