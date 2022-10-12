@@ -106,7 +106,7 @@ public class Enemy : MonoBehaviour, IEffectable
 
     public void UpdateNumOfEnemies() {
 
-        GameManager.instance.UpdateEnemy();
+        GameManager.instance.UpdateWaveInfo();
     }
 
     public virtual void UseSkill() {
