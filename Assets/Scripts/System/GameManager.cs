@@ -11,28 +11,16 @@ public class GameManager : MonoBehaviour
     public delegate void WaveEnd();
     public static event WaveEnd WaveEnded;
     public int waveIndex = 0;
-    
-    [SerializeField]public Transform warriorPrefab;
-    [SerializeField]public Transform assassinPrefab;
-    [SerializeField]public Transform healerPrefab;
-    [SerializeField]public Transform tankPrefab;
+
     [SerializeField]public GameObject MusicControl;
     [SerializeField]private GameObject scoreText;
-    private List<Transform> listOfEnemies = new List<Transform>();
-
-    [SerializeField]
-    private Button spawnButton;
+    [SerializeField]private DeckController DeckController;
+    [SerializeField]private EnemyManager EnemyManager;
+    [SerializeField]private Button spawnButton;
     // [SerializeField]
     // private Button wavePauseButton;
     [SerializeField] 
     private GameObject gameOverUI;
-
-
-    private GameObject currentSpawnPoint;
-    private DeckController DeckController;
-    private int currentEnemies;
-    private static int enemiesKilled;
-
     public Transform cardGroup;
     public int currentHandSize;
 
@@ -48,25 +36,21 @@ public class GameManager : MonoBehaviour
         DeckController = GetComponent<DeckController>();
         DeckController.ShuffleCard();
         DeckController.DrawCard();
+
         Button btn = spawnButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
         // wavePauseButton.interactable = false;
-        listOfEnemies.Add(warriorPrefab);
-        listOfEnemies.Add(assassinPrefab);
-        listOfEnemies.Add(healerPrefab);
-        listOfEnemies.Add(tankPrefab);
+
         waveIndex = 0;
-        currentEnemies = 0;
-        enemiesKilled = 0;
+
     }
 
     void TaskOnClick()
-    {
-        generateSpawnPoint();
-        StartCoroutine(SpawnWave());
+    {   
+
+        SpawnEnemy();
         spawnButton.interactable = false;
         DeckController.disableHand();
-        // wavePauseButton.interactable = true;
 
         //Music Stuff
         MusicControlScript MusicController = MusicControl.GetComponent<MusicControlScript>();
@@ -74,40 +58,23 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void generateSpawnPoint() {
+    public void SpawnEnemy() {
         // get a random grid object
-        List<GameObject> currentGrid = gameObject.GetComponent<GridController>().getCurrentGrid();
-        GameObject randomGrid = currentGrid[Random.Range(0, currentGrid.Count)];
-        GridFloor gridFloor = randomGrid.GetComponent<GridFloor>();
-        if (currentSpawnPoint != null) {
-            Destroy(currentSpawnPoint);
-        }
-        currentSpawnPoint = gridFloor.generateSpawnPoint();
+        List<GameObject> spawnPointList = gameObject.GetComponent<GridController>().GetPossibleSpawnPointPosition();
+        waveIndex++;
+        EnemyManager.StartWave(waveIndex, spawnPointList);
     }
 
-    IEnumerator SpawnWave()
-    {
-        waveIndex ++;
-        currentEnemies = waveIndex;
-        for(int i = 0; i < waveIndex; i ++){
-            SpawnEnemy();
-            yield return new WaitForSeconds(1f);
-        }
+    public void GameOver() {
+        int enemiesScore = EnemyManager.GetEnemiesKilled() * (1 + (waveIndex / 50));
+        int landScore = (GameObject.FindGameObjectsWithTag("GridFloor").Length - 45) * (1 + (waveIndex / 50));
+        scoreText.GetComponent<TMP_Text>().text = "Score: " + (enemiesScore + landScore); 
+        gameOverUI.SetActive(true);
     }
 
-    void SpawnEnemy()
-    {
-        int randIndex = Random.Range(0, 3);
-        Instantiate(listOfEnemies[randIndex], currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
-    }
-
-    public void UpdateEnemy() {
-        currentEnemies--;
-        enemiesKilled++;
-        WaveEnded += generateSpawnPoint;
-        // Delegate wave end event when all the enemies died
-        if (currentEnemies <= 0 && WaveEnded != null) {
-            Debug.Log("wave eneded");
+    public void UpdateWaveInfo() {
+         // Delegate wave end event when all the enemies died
+        if (EnemyManager.UpdateEnemy()) {
             WaveEnded();
             //Music Stuff
             MusicControlScript MusicController = MusicControl.GetComponent<MusicControlScript>();
@@ -115,19 +82,7 @@ public class GameManager : MonoBehaviour
 
             spawnButton.interactable = true;
             DeckController.enableHand();
-            // wavePauseButton.interactable = false;
         }
-    }
-
-    public GameObject getCurrentSpawnPoint() {
-        return currentSpawnPoint;
-    }
-
-    public void GameOver() {
-        int enemiesScore = enemiesKilled * (1 + (waveIndex / 50));
-        int landScore = (GameObject.FindGameObjectsWithTag("GridFloor").Length - 45) * (1 + (waveIndex / 50));
-        scoreText.GetComponent<TMP_Text>().text = "Score: " + (enemiesScore + landScore); 
-        gameOverUI.SetActive(true);
     }
     
 }

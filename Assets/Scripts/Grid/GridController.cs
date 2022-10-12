@@ -187,7 +187,7 @@ public class GridController : MonoBehaviour
 
     }
 
-	public List<GameObject> getCurrentGrid() {
+	public List<GameObject> GetPossibleSpawnPointPosition() {
 		if (!initialized) {
 			initializeBoundary();
 		}
