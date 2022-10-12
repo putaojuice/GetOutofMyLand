@@ -50,6 +50,10 @@ public class Enemy : MonoBehaviour, IEffectable
         statusCoolDown -= Time.deltaTime;
     }
 
+    void Spawn() { 
+
+    }
+
     IEnumerator PlayDissolve(float duration) 
     {
         float timeElapsed = 0f;

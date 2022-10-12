@@ -1705,10 +1705,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 616b5fd43e64ef04c8a05707fca24480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyWarrior: {fileID: 1567556252654110330, guid: 3a3c68ef8192a483bbbbc6e370d51f1c, type: 3}
-  enemyAssasin: {fileID: 7767641185132825177, guid: a353c2663ad41440ea536a2db101f278, type: 3}
-  enemyHealer: {fileID: 5648710235057447906, guid: 87cf9c83b7b4e4d588309280e672e574, type: 3}
-  enemyTank: {fileID: 5893580916499492449, guid: 39d21b1751f724feab671dd05d4bc413, type: 3}
+  warriorPrefab: {fileID: 1573089061671121476, guid: 3a3c68ef8192a483bbbbc6e370d51f1c, type: 3}
+  assassinPrefab: {fileID: 7771414917279186535, guid: a353c2663ad41440ea536a2db101f278, type: 3}
+  healerPrefab: {fileID: 5652554327356069852, guid: 87cf9c83b7b4e4d588309280e672e574, type: 3}
+  tankPrefab: {fileID: 5899606315313437279, guid: 39d21b1751f724feab671dd05d4bc413, type: 3}
 --- !u!114 &1790373384 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1771974095492433532, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
