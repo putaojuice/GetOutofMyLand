@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
     void Start() {
         DeckController = GetComponent<DeckController>();
         DeckController.ShuffleCard();
+        DeckController.DrawRandomTowerCard();
+        DeckController.DrawRandomTowerCard();
         DeckController.DrawCard();
         Button btn = spawnButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
