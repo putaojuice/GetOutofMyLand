@@ -16,6 +16,11 @@ public class GridController : MonoBehaviour
 	private GridTile gridTile;
 	private bool isBuilding = false;
 	
+	private bool initialized = false;
+	private float maxNorth = 1f;
+	private float maxSouth = 1f;
+	private float maxEast = 2f;
+	private float maxWest = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -82,6 +87,7 @@ public class GridController : MonoBehaviour
 		DeckController.CompleteCard();
 		// update navmesh data in run time
 		surf.UpdateNavMesh(surf.navMeshData);
+		updateCurrentGrid();
 		StopBuild();
 	}
 
@@ -107,21 +113,98 @@ public class GridController : MonoBehaviour
 
 	}
 
-	public void updateCurrentGrid() {
+	// call once before the start of the game
+	public void initializeBoundary() {
 		GameObject[] floors = GameObject.FindGameObjectsWithTag("GridFloor");
-		// Init outfloor list
-		currentOuterFloor = new List<GameObject>();
 		foreach (GameObject go in floors) {
-			// update floor status
-			go.GetComponent<GridFloor>().CheckSurroundingTiles();
+			if (go.GetComponent<GridFloor>().isTurretFloor) {
+				continue;
+			}
+
 			if (go.GetComponent<GridFloor>().isOuterFloor) {
+				if (go.transform.position.x > maxEast) {
+					maxEast = go.transform.position.x;
+				} 
+
+				if (go.transform.position.x < maxWest) {
+					maxWest = go.transform.position.x;
+				}
+
+				if (go.transform.position.z > maxNorth) {
+					maxNorth = go.transform.position.z;
+				} 
+
+				if (go.transform.position.z < maxSouth) {
+					maxSouth = go.transform.position.z;
+				}
+
 				currentOuterFloor.Add(go);
 			}
 		}
+	}
+
+
+	public void updateCurrentGrid() {
+		GameObject[] floors = GameObject.FindGameObjectsWithTag("GridFloor");
+		// Init outfloor list
+		
+		foreach (GameObject go in floors) {
+			// ignore the floor that has turrets
+			if (go.GetComponent<GridFloor>().isTurretFloor) {
+				continue;
+			}
+
+			if (!go.GetComponent<GridFloor>().isOuterFloor) {
+				if (go.transform.position.x >= maxEast) {
+					maxEast = go.transform.position.x;
+					go.GetComponent<GridFloor>().isOuterFloor = true;
+				} 
+
+				if (go.transform.position.x <= maxWest) {
+					maxWest = go.transform.position.x;
+					go.GetComponent<GridFloor>().isOuterFloor = true;
+				}
+
+				if (go.transform.position.z >= maxNorth) {
+					maxNorth = go.transform.position.z;
+					go.GetComponent<GridFloor>().isOuterFloor = true;
+				} 
+
+				if (go.transform.position.z <= maxSouth) {
+					maxSouth = go.transform.position.z;
+					go.GetComponent<GridFloor>().isOuterFloor = true;
+				}
+
+				if (go.GetComponent<GridFloor>().isOuterFloor) {
+					currentOuterFloor.Add(go);
+				}
+
+			}
+		}
+
+		List<GameObject> newList = new List<GameObject>();
+		foreach (GameObject go in currentOuterFloor) {
+			if (go.GetComponent<GridFloor>().isTurretFloor) {
+				continue;
+			}
+			if (go.transform.position.x < maxEast && go.transform.position.x > maxWest
+			&& go.transform.position.z < maxNorth && go.transform.position.z > maxSouth) {
+				go.GetComponent<GridFloor>().isOuterFloor = false;
+			} else {
+				newList.Add(go);
+			}
+		} 
+
+		currentOuterFloor = newList;
+
     }
 
-	public List<GameObject> getCurrentGrid() {
-		updateCurrentGrid();
+	public List<GameObject> GetPossibleSpawnPointPosition() {
+		if (!initialized) {
+			initializeBoundary();
+			initialized = true;
+		}
+		
 		return currentOuterFloor;
 	}
 

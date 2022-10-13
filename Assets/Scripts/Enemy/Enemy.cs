@@ -85,9 +85,12 @@ public class Enemy : MonoBehaviour, IEffectable
 
     // Creating method for healers to call
     public void GetHealed(float healPoints){
+        gameObject.transform.Find("HealingEffect").gameObject.SetActive(true);
+        gameObject.transform.Find("HealingEffect").GetComponent<ParticleSystem>().Play();
         if(hp < maxHp){
             hp += healPoints;
         }
+
     }
 
     public virtual void GetDamaged(float damage)
@@ -106,7 +109,7 @@ public class Enemy : MonoBehaviour, IEffectable
 
     public void UpdateNumOfEnemies() {
 
-        GameManager.instance.UpdateEnemy();
+        GameManager.instance.UpdateWaveInfo();
     }
 
     public virtual void UseSkill() {
@@ -135,6 +138,8 @@ public class Enemy : MonoBehaviour, IEffectable
         //Used to reset the speed after slow / freeze debuff
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.speed = originalSpeed;
+
+        gameObject.transform.Find("ShockEffect").gameObject.SetActive(false);
 
         this._statusData = null;
     }
@@ -245,6 +250,8 @@ public class Enemy : MonoBehaviour, IEffectable
         float damage = (burnStatusData.statusDuration/burnStatusData.DOTInterval) * burnStatusData.DOTPoints;
         GetStatusDamaged(damage);
         UndoStatus();
+        gameObject.transform.Find("PlasmaEffect").gameObject.SetActive(true);
+        gameObject.transform.Find("PlasmaEffect").GetComponent<ParticleSystem>().Play();
     }
 
     public void HandleExplosionStatus(StatusData burnStatusData){
@@ -262,6 +269,9 @@ public class Enemy : MonoBehaviour, IEffectable
             }
         }
 
+        gameObject.transform.Find("ExplosionEffect").gameObject.SetActive(true);
+        gameObject.transform.Find("ExplosionEffect").GetComponent<ParticleSystem>().Play();
+
     }
 
     public void HandleFreezeStatus(){
@@ -272,6 +282,8 @@ public class Enemy : MonoBehaviour, IEffectable
     public void HandleShockStatus(){
         Debug.Log("SHOCK!!");
         ApplyNewStatus(shockEffectData);
+        gameObject.transform.Find("ShockEffect").gameObject.SetActive(true);
+        gameObject.transform.Find("ShockEffect").GetComponent<ParticleSystem>().Play();
     }
 
     public void HandleStormStatus(){
