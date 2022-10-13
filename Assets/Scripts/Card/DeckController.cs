@@ -170,4 +170,39 @@ public class DeckController : MonoBehaviour
         Hand.SetActive(true);
     }
 
+    public void DrawRandomTowerCard()
+    {
+        List<string> towerArray = new List<string> { "WindTowerCard", "WaterTowerCard", "LightningTowerCard", "FireTowerCard" };
+        System.Random r = new System.Random();
+
+        // Fisher-Yates Shuffle
+        for (int n = towerArray.Count - 1; n > 0; --n)
+        {
+            int k = r.Next(n + 1);
+            string temp = towerArray[n];
+            towerArray[n] = towerArray[k];
+            towerArray[k] = temp;
+        }
+
+        int cardIndex = -1;
+        int towerIndex = 0;
+
+        while (cardIndex == -1 && towerIndex != 4)
+        {
+            cardIndex = deck.FindIndex(gameObject => gameObject.name.Contains(towerArray[towerIndex]));
+            towerIndex++;
+        }
+
+        if (cardIndex == -1 && towerIndex == 4) // zero tower cards in deck bruh
+        {
+            return;
+        }
+
+        Card chosenCard = deck[cardIndex];
+        chosenCard.gameObject.SetActive(true);
+        deck.Remove(chosenCard);
+        chosenCard.transform.SetParent(Hand.transform);
+        currentHandSize++;
+    }
+
 }
