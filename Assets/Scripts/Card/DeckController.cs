@@ -3,19 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DeckController : MonoBehaviour
-{
+{   
+
     public GameObject Hand;
     public GameObject Deck;
     public int maxHandSize = 5;
     public List<Card> deck = new List<Card>();
-    public GameObject LootOverlay;
-    public GameObject LootDisplay;
     public List<Card> lootDeck = new List<Card>();
+
+    private GameObject canvas;
+    private GameObject LootOverlay;
+    private GameObject LootDisplay;
+
     private List<Card> usedCards = new List<Card>();
     private GridController GridController;
     private TurretController TurretController;
     public Card currentCard;
     private int currentHandSize = 0;
+
+    void Awake()
+    {
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -26,13 +35,20 @@ public class DeckController : MonoBehaviour
 
         // subscribing the DrawCard method to the WaveEnd event so that DrawCard will be called once wave ended
         GameManager.WaveEnded += GetRandomLoot;
-
+        canvas = GameObject.FindWithTag("canvas");
+        LootOverlay = canvas.transform.Find("AddCardPanel").gameObject;
+        LootDisplay = LootOverlay.transform.Find("CardDisplay").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void OnDestroy() 
+    {
+        GameManager.WaveEnded -= GetRandomLoot;
     }
 
 
@@ -109,7 +125,7 @@ public class DeckController : MonoBehaviour
     }
 
     public void GetRandomLoot()
-    {
+    {   
         LootOverlay.SetActive(true);
         List<Card> currentLootDeck = new List<Card>(lootDeck);
 
@@ -125,8 +141,6 @@ public class DeckController : MonoBehaviour
 
         // after displaying loot, unsubscribe the GetRandomLoot method from the WaveEnd event to prevent memory leak
         // TODO handle this in a GameEndManager when player loses
-        GameManager.WaveEnded -= GetRandomLoot;
-        GameManager.WaveEnded += GetRandomLoot;
     }
 
     public void AddCard(Card card)

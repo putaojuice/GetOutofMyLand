@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class GridBase : MonoBehaviour
 {   
+    [SerializeField]
+    private MeshRenderer rend;
 
     private GridController gridController;
-    private MeshRenderer rend;
     private Color originalColor;
     private bool selected = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        rend = GetComponent<MeshRenderer>();
         originalColor = rend.material.color;
     }
     

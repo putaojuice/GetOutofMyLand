@@ -580,6 +580,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 542834758137789828, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 660671280474397613, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -762,7 +766,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1630920667026113844, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_Name
-      value: Canvas (1)
+      value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630920667026113844, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+      propertyPath: m_TagString
+      value: canvas
       objectReference: {fileID: 0}
     - target: {fileID: 1630920667816854245, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -782,6 +790,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1805251896577466378, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805251896577466378, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1871008656973756643, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
@@ -843,6 +855,10 @@ PrefabInstance:
     - target: {fileID: 3136294365840232309, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_PreserveAspect
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218738526712208783, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4393521798032388952, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_IsActive
@@ -1070,11 +1086,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5733026572220078497, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
   m_PrefabInstance: {fileID: 459199819}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &648915430 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 542834758137789828, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
-  m_PrefabInstance: {fileID: 459199819}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &713059681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,11 +1253,6 @@ GameObject:
 --- !u!224 &1357462489 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7250120660856437758, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
-  m_PrefabInstance: {fileID: 459199819}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1393039283 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1805251896577466378, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
   m_PrefabInstance: {fileID: 459199819}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1396507878
@@ -1612,12 +1618,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveIndex: 0
-  MusicControl: {fileID: 1713796967}
   scoreText: {fileID: 44738492}
   DeckController: {fileID: 1755004092}
   EnemyManager: {fileID: 1755004093}
   spawnButton: {fileID: 1858024999}
   gameOverUI: {fileID: 1357462488}
+  MusicController: {fileID: 1713796968}
   cardGroup: {fileID: 459199821}
   currentHandSize: 0
 --- !u!114 &1755004090
@@ -1680,8 +1686,6 @@ MonoBehaviour:
   - {fileID: 1218448172}
   - {fileID: 1059237351}
   - {fileID: 760644386}
-  LootOverlay: {fileID: 1393039283}
-  LootDisplay: {fileID: 648915430}
   lootDeck:
   - {fileID: 2747059604024587592, guid: de7e727cbf546ee43a6692a6c04c0fe7, type: 3}
   - {fileID: 2747059604024587592, guid: 10508ff3d0720c143840f8b69c709f8c, type: 3}
@@ -1749,6 +1753,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3943279360445336222, guid: a87a20628fba24428ae6796329828910, type: 3}
+      propertyPath: Health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -3943279360445336222, guid: a87a20628fba24428ae6796329828910, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2408335853564092048, guid: a87a20628fba24428ae6796329828910, type: 3}
       propertyPath: m_Enabled
       value: 1

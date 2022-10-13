@@ -12,37 +12,30 @@ public class GameManager : MonoBehaviour
     public static event WaveEnd WaveEnded;
     public int waveIndex = 0;
 
-    [SerializeField]public GameObject MusicControl;
     [SerializeField]private GameObject scoreText;
     [SerializeField]private DeckController DeckController;
     [SerializeField]private EnemyManager EnemyManager;
     [SerializeField]private Button spawnButton;
     // [SerializeField]
     // private Button wavePauseButton;
-    [SerializeField] 
-    private GameObject gameOverUI;
+    [SerializeField]private GameObject gameOverUI;
+    [SerializeField]private MusicControlScript MusicController;
     public Transform cardGroup;
     public int currentHandSize;
 
     public static GameManager instance;
 
-
     void Awake() {
         instance = this;
-        DontDestroyOnLoad(this);
     }
 
     void Start() {
         DeckController = GetComponent<DeckController>();
         DeckController.ShuffleCard();
         DeckController.DrawCard();
-
-        Button btn = spawnButton.GetComponent<Button>();
-        btn.onClick.AddListener(TaskOnClick);
+        spawnButton.onClick.AddListener(TaskOnClick);
         // wavePauseButton.interactable = false;
-
         waveIndex = 0;
-
     }
 
     void TaskOnClick()
@@ -53,7 +46,6 @@ public class GameManager : MonoBehaviour
         DeckController.disableHand();
 
         //Music Stuff
-        MusicControlScript MusicController = MusicControl.GetComponent<MusicControlScript>();
         MusicController.PlayFunky();
 
     }
@@ -76,10 +68,9 @@ public class GameManager : MonoBehaviour
          // Delegate wave end event when all the enemies died
         if (EnemyManager.UpdateEnemy()) {
             WaveEnded();
+            
             //Music Stuff
-            MusicControlScript MusicController = MusicControl.GetComponent<MusicControlScript>();
             MusicController.PlayAmbient();
-
             spawnButton.interactable = true;
             DeckController.enableHand();
         }

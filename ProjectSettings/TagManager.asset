@@ -13,6 +13,7 @@ TagManager:
   - Detector
   - Environment
   - GameManager
+  - canvas
   layers:
   - Default
   - TransparentFX
