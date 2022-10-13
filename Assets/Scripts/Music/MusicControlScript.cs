@@ -4,25 +4,17 @@ using UnityEngine;
 
 public class MusicControlScript : MonoBehaviour
 {
-    public static MusicControlScript instance;
+
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip ambient;
     [SerializeField] private AudioClip funky;
 
 
-    private void Awake()
+    void Start() 
     {
-        
-        if (instance == null)
-        {
-            instance = this;
-            PlayAmbient();
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else {
-            Destroy(gameObject);
-        }
+        PlayAmbient();
     }
+
 
     public void PlayAmbient() {
         audioSource.clip = ambient;
