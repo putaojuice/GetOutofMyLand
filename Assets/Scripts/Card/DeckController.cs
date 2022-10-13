@@ -165,9 +165,9 @@ public class DeckController : MonoBehaviour
         for (int n = towerArray.Count - 1; n > 0; --n)
         {
             int k = r.Next(n + 1);
-            Card temp = deck[n];
-            deck[n] = deck[k];
-            deck[k] = temp;
+            string temp = towerArray[n];
+            towerArray[n] = towerArray[k];
+            towerArray[k] = temp;
         }
 
         int cardIndex = -1;
