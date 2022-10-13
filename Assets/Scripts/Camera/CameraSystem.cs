@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Cinemachine;
 
 public class CameraSystem : MonoBehaviour
@@ -27,10 +28,12 @@ public class CameraSystem : MonoBehaviour
     }
 
     private void Update()
-    {   
-        HandleCameraTranslation();
-        HandleCameraRotation();
-        HandleCameraZoom();
+    {
+        if (!EventSystem.current.IsPointerOverGameObject()) {
+            HandleCameraTranslation();
+            HandleCameraRotation();
+            HandleCameraZoom();
+        }
     }
 
     // Handle all camera translation
