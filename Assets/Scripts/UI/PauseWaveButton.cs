@@ -14,10 +14,13 @@ public class PauseWaveButton : MonoBehaviour
     [SerializeField]
     private Sprite ResumeWaveImage;
 
+    private float fixedDeltaTime;
+
     void Start()
     {
         Button btn = Button.GetComponent<Button>();
         btn.onClick.AddListener(OnClick);
+        fixedDeltaTime = Time.fixedDeltaTime;
     }
     
     void OnClick ()
@@ -34,12 +37,16 @@ public class PauseWaveButton : MonoBehaviour
     private void Resume()
     {
         Button.image.sprite = PauseWaveImage;
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = fixedDeltaTime;
         WaveIsPaused = false;
     }
 
     private void Pause()
     {
         Button.image.sprite = ResumeWaveImage;
+        Time.timeScale = 0.001f;
+        Time.fixedDeltaTime *= Time.timeScale;
         WaveIsPaused = true;
     }
 }

@@ -16,10 +16,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]private DeckController DeckController;
     [SerializeField]private EnemyManager EnemyManager;
     [SerializeField]private Button spawnButton;
-    // [SerializeField]
-    // private Button wavePauseButton;
+    [SerializeField]
+    private Button wavePauseButton;
     [SerializeField]private GameObject gameOverUI;
     [SerializeField]private MusicControlScript MusicController;
+
     public Transform cardGroup;
     public int currentHandSize;
 
@@ -34,7 +35,8 @@ public class GameManager : MonoBehaviour
         DeckController.ShuffleCard();
         DeckController.DrawCard();
         spawnButton.onClick.AddListener(TaskOnClick);
-        // wavePauseButton.interactable = false;
+        wavePauseButton.interactable = false;
+
         waveIndex = 0;
     }
 
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
         SpawnEnemy();
         spawnButton.interactable = false;
         DeckController.disableHand();
+        wavePauseButton.interactable = true;
 
         //Music Stuff
         MusicController.PlayFunky();
@@ -73,6 +76,7 @@ public class GameManager : MonoBehaviour
             MusicController.PlayAmbient();
             spawnButton.interactable = true;
             DeckController.enableHand();
+            wavePauseButton.interactable = false;
         }
     }
     
