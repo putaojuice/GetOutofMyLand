@@ -188,6 +188,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 5220440410661199864, guid: b1f1dcaa7f1d54668a8177fc2cc10c68, type: 3}
   blockSize: 1
   isOuterFloor: 0
+  isTurretFloor: 1
 --- !u!65 &2191559332185246028
 BoxCollider:
   m_ObjectHideFlags: 0
