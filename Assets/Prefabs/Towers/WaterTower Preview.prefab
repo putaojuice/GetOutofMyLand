@@ -116,6 +116,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 633087435, guid: a8e6a3b8270fe48529936c46bcb5681d, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114714393420748714, guid: a8e6a3b8270fe48529936c46bcb5681d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2578755755378237116, guid: a8e6a3b8270fe48529936c46bcb5681d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -176,9 +184,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterTower Preview
       objectReference: {fileID: 0}
+    - target: {fileID: 8121673431741771173, guid: a8e6a3b8270fe48529936c46bcb5681d, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4507485369844437221, guid: a8e6a3b8270fe48529936c46bcb5681d, type: 3}
     - {fileID: 3202752408660031418, guid: a8e6a3b8270fe48529936c46bcb5681d, type: 3}
+    - {fileID: 5773537828768041476, guid: a8e6a3b8270fe48529936c46bcb5681d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a8e6a3b8270fe48529936c46bcb5681d, type: 3}
 --- !u!4 &2199712050238850740 stripped
 Transform:

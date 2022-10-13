@@ -15,7 +15,7 @@ public class Warrior : Enemy
     void Start()
     {
         // Setting up the stats for Warriors
-        maxHp = 8f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        maxHp = 300f * (GameManager.instance.waveIndex + 1) * 0.5f;
         hp = maxHp;
         skillCoolDown = 1f;
         defence = 1f;
@@ -23,6 +23,7 @@ public class Warrior : Enemy
         // Finding necesary objects
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         originalSpeed = agent.speed;
+        agent.speed = 0.0f;
 
     }
 

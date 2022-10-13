@@ -15,7 +15,7 @@ public class Healer : Enemy
     void Start()
     {
 
-        maxHp = 5f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        maxHp = 500f * (GameManager.instance.waveIndex + 1) * 0.5f;
         hp = maxHp;
         skillCoolDown = 1.5f;
         defence = 1f;
@@ -77,5 +77,7 @@ public class Healer : Enemy
                 enemy.GetHealed(2);
             }
         }
+        gameObject.transform.Find("HealingLight").gameObject.SetActive(true);
+        gameObject.transform.Find("HealingLight").GetComponent<ParticleSystem>().Play();
     }
 }
