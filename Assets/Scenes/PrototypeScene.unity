@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 713059682}
-  m_IndirectSpecularColor: {r: 0.28300804, g: 0.60441977, b: 0.9477975, a: 1}
+  m_IndirectSpecularColor: {r: 0.28300822, g: 0.6044199, b: 0.9477975, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -469,6 +469,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &169478315 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5197047349848009316, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+  m_PrefabInstance: {fileID: 459199819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &223547627 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1718711718318351143, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
@@ -1327,11 +1338,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
---- !u!1 &562341636 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5319399493875075491, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
-  m_PrefabInstance: {fileID: 459199819}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &590188042 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5733026572220078497, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
@@ -1371,12 +1377,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!1 &648915430 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 542834758137789828, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
-  m_PrefabInstance: {fileID: 459199819}
-  m_PrefabAsset: {fileID: 0}
-
 --- !u!1 &713059681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,6 +1570,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1350787710 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7375809037660154882, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+  m_PrefabInstance: {fileID: 459199819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350787704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1357462488 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6754766546821932090, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
@@ -1980,7 +1991,8 @@ MonoBehaviour:
   scoreText: {fileID: 44738492}
   DeckController: {fileID: 1755004092}
   EnemyManager: {fileID: 1755004093}
-  spawnButton: {fileID: 1858024999}
+  spawnButton: {fileID: 169478315}
+  wavePauseButton: {fileID: 1350787710}
   gameOverUI: {fileID: 1357462488}
   MusicController: {fileID: 1713796968}
   cardGroup: {fileID: 459199821}
@@ -2094,46 +2106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e048374dc8d2374cbe2ea405ca3daca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1858024999 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8830969209804090282, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
-  m_PrefabInstance: {fileID: 459199819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562341636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1858025001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562341636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 124337408}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1001 &1920183594
 PrefabInstance:
   m_ObjectHideFlags: 0
