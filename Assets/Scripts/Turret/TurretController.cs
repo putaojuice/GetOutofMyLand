@@ -84,45 +84,12 @@ public class TurretController : MonoBehaviour
 	{
 		//turretBase.Build();
 		Vector3 newTurretPosition = turretBase.BuildAndReturnPosition();
-		UpdateTurretCount(newTurretPosition);
 
 		DeckController.CompleteCard();
 		// update navmesh data in run time
 		surf.UpdateNavMesh(surf.navMeshData);
 		isBuilding = false;
 		StopBuild();
-	}
-
-	private void UpdateTurretCount(Vector3 turretPosition) {
-		float xPos = turretPosition.x;
-		float zPos = turretPosition.z;
-		if (xPos > 0 && zPos > 0)
-		{
-			// turret exists in the top right portion
-			topRightTurretCount += 1;
-			Debug.Log("added one to top right");
-		}
-		else if (xPos < 0 && zPos < 0)
-		{
-			// turret exists in the bot left portion
-			botLeftTurretCount += 1;
-			Debug.Log("added one to bot left");
-
-		}
-		else if (xPos > 0 && zPos < 0)
-		{
-			// turret exists in the bot right portion
-			botRightTurretCount += 1;
-			Debug.Log("added one to bot right");
-
-		}
-		else if (xPos < 0 && zPos > 0)
-		{
-			// turret exists in the top left portion
-			topLeftTurretCount += 1;
-			Debug.Log("added one to top left");
-
-		}
 	}
 
 	public int GetTopRightTurretCount() { 

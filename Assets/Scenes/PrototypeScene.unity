@@ -2373,7 +2373,7 @@ MonoBehaviour:
   enemyAssasin: {fileID: 7767641185132825177, guid: a353c2663ad41440ea536a2db101f278, type: 3}
   enemyHealer: {fileID: 5648710235057447906, guid: 87cf9c83b7b4e4d588309280e672e574, type: 3}
   enemyTank: {fileID: 5893580916499492449, guid: 39d21b1751f724feab671dd05d4bc413, type: 3}
-  scout: {fileID: 1567556252654110330, guid: 7371a03b2596a304b87582788bf521d9, type: 3}
+  scout: {fileID: 1567556252654110330, guid: 9e5484e6c6f524249aa83f235655affd, type: 3}
   behaviorParameters: {fileID: 1755004094}
   turretController: {fileID: 1755004090}
 --- !u!114 &1755004094
@@ -2389,7 +2389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 1
+    VectorObservationSize: 3
     NumStackedVectorObservations: 14
     m_ActionSpec:
       m_NumContinuousActions: 0

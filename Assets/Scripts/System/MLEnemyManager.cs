@@ -25,6 +25,7 @@ public class MLEnemyManager : Agent
 
     private int currentIndex;
     private int numberOfSpawnPoints;
+    private int[] spawnPointTowerCount;
 
     VectorSensorComponent m_TurretSensor;
 
@@ -68,13 +69,7 @@ public class MLEnemyManager : Agent
 
     void SelectRandomSpawnPoint()
     {
-        for (int i = 0; i < numberOfSpawnPoints; i++)
-        {
-            GameObject currentSpawnPoint = spawnPointList[i];
-            Vector3 currentSpawnPointPosition = currentSpawnPoint.transform.position;
-            Vector3 targetPosition = new Vector3(3, 0, 3);
-            Instantiate(scout, currentSpawnPointPosition, currentSpawnPoint.transform.rotation);
-        }
+        Scout();
         GameObject randomGrid = this.spawnPointList[Random.Range(0, spawnPointList.Count)];
         GridFloor gridFloor = randomGrid.GetComponent<GridFloor>();
         if (currentSpawnPoint != null)
@@ -84,15 +79,31 @@ public class MLEnemyManager : Agent
         currentSpawnPoint = gridFloor.generateSpawnPoint();
     }
 
-    void SelectSmartSpawnPoint()
+    void Scout()
     {
-        int[] countsArray = new int[numberOfSpawnPoints];
-        for (int i = 0; i < numberOfSpawnPoints; i++) {
+        int[] countArray = new int[numberOfSpawnPoints];
+        this.spawnPointTowerCount = countArray;
+
+        for (int i = 0; i < numberOfSpawnPoints; i++)
+        {
             GameObject currentSpawnPoint = spawnPointList[i];
-            Vector3 currentSpawnPointPosition = currentSpawnPoint.transform.position;
-            Vector3 targetPosition = new Vector3(3, 0, 3);
-            Instantiate(scout, currentSpawnPointPosition, Quaternion.LookRotation(targetPosition, Vector3.up));
+            GridFloor floor = currentSpawnPoint.GetComponent<GridFloor>();
+            Vector3 currentSpawnPointPosition = new Vector3(floor.transform.position.x, floor.transform.position.y + 0.6f, floor.transform.position.z);
+            scout.GetComponent<Scout>().SpawnAt(currentSpawnPoint, i);
         }
+    }
+
+    public void UpdateSpawnPointTowerCount(int index) {
+        Debug.Log("UPDATED FOR SPAWNPOINT: " + index);
+        
+        if (this.spawnPointTowerCount[index] == 0)
+        {
+            this.spawnPointTowerCount[index] = 1;
+        }
+        else { 
+            this.spawnPointTowerCount[index] += 1; 
+        }
+        Debug.Log("No. of turrets for SpawnPoint @ index " + index + " is " + spawnPointTowerCount[index]);
     }
 
 
@@ -142,7 +153,6 @@ public class MLEnemyManager : Agent
     //ML STUFF
     public override void OnEpisodeBegin()
     {
-        Debug.Log("OnEpisodeBegin CALLED");
 
         // set number of discrete decisions
         ActionSpec actionSpec = this.behaviorParameters.BrainParameters.ActionSpec;
@@ -150,16 +160,10 @@ public class MLEnemyManager : Agent
         branchSizes[0] = numberOfSpawnPoints;
         actionSpec.BranchSizes = branchSizes;
 
-        // set number of observations
-
-
-
-        Debug.Log("End of OnEpisodeBegin()");
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        Debug.Log("CollectObservations() called");
         sensor.AddObservation(transform.localPosition);
         
     }
@@ -168,17 +172,13 @@ public class MLEnemyManager : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        Debug.Log("OnActionReceived() called");
         int chosenSpawnPoint = actions.DiscreteActions[0];
-        Debug.Log("Number of spoint points: " + numberOfSpawnPoints);
-        Debug.Log("chosen this number: " + chosenSpawnPoint);
     }
 
 
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        Debug.Log("Heuristics Called");
         SelectRandomSpawnPoint();
         StartCoroutine(SpawnEnemy());
     }
