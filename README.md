@@ -41,7 +41,7 @@ Tower upgrades? Infinite waves of enemies? Strategise your cards? Get Out of My 
 <i style="color:#7E4E38">Processor:</i> An OK one.<br>
 <i style="color:#7E4E38">Memory:</i> 512 MB RAM.<br>
 <i style="color:#7E4E38">Graphics:</i> Anything that can run Minecraft.<br>
-<i style="color:#7E4E38">Network:</i> Enough to tell your friends that you're now playing CULLinary 2.<br>
+<i style="color:#7E4E38">Network:</i> Enough to tell your friends that you're now playing Get Out of My Land!.<br>
 <i style="color:#7E4E38">Storage:</i> 800 MB available space.<br>
 <i style="color:#7E4E38">Sound Card:</i> If you don't have one, just imagine the sounds of vegetables getting chopped (You can also make some vroom vroom noises with your mouth for extra immersion).<br>
 </td>
@@ -53,7 +53,7 @@ Tower upgrades? Infinite waves of enemies? Strategise your cards? Get Out of My 
 <i style="color:#7E4E38">Processor:</i> The best one.<br>
 <i style="color:#7E4E38">Memory:</i> 1024 GB RAM.<br>
 <i style="color:#7E4E38">Graphics:</i> Anything that can run Minecraft with shaders.<br>
-<i style="color:#7E4E38">Network:</i> Enough to send your friends copies of CULLinary 2.<br>
+<i style="color:#7E4E38">Network:</i> Enough to send your friends copies of Get Out of My Land!.<br>
 <i style="color:#7E4E38">Storage:</i> All the space.<br>
 <i style="color:#7E4E38">Sound Card:</i> Playing in an actual delivery truck.<br>
 
