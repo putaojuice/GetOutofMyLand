@@ -16,7 +16,10 @@ public class TurretController : MonoBehaviour
 	private DeckController DeckController;
 	private bool isBuilding = false;
 
-	private List<GameObject> turretList = new List<GameObject>();
+	private int topRightTurretCount = 0;
+	private int topLeftTurretCount = 0;
+	private int botRightTurretCount = 0;
+	private int botLeftTurretCount = 0;
 
 	// Start is called before the first frame update
 	void Start()
@@ -81,14 +84,64 @@ public class TurretController : MonoBehaviour
 	{
 		//turretBase.Build();
 		Vector3 newTurretPosition = turretBase.BuildAndReturnPosition();
-		GameObject newTurret = turretBase.BuildAndReturnTurret();
-		Debug.Log(newTurretPosition);
-		Debug.Log(newTurret.transform.position);
+		UpdateTurretCount(newTurretPosition);
+
 		DeckController.CompleteCard();
 		// update navmesh data in run time
 		surf.UpdateNavMesh(surf.navMeshData);
 		isBuilding = false;
 		StopBuild();
+	}
+
+	private void UpdateTurretCount(Vector3 turretPosition) {
+		float xPos = turretPosition.x;
+		float zPos = turretPosition.z;
+		if (xPos > 0 && zPos > 0)
+		{
+			// turret exists in the top right portion
+			topRightTurretCount += 1;
+			Debug.Log("added one to top right");
+		}
+		else if (xPos < 0 && zPos < 0)
+		{
+			// turret exists in the bot left portion
+			botLeftTurretCount += 1;
+			Debug.Log("added one to bot left");
+
+		}
+		else if (xPos > 0 && zPos < 0)
+		{
+			// turret exists in the bot right portion
+			botRightTurretCount += 1;
+			Debug.Log("added one to bot right");
+
+		}
+		else if (xPos < 0 && zPos > 0)
+		{
+			// turret exists in the top left portion
+			topLeftTurretCount += 1;
+			Debug.Log("added one to top left");
+
+		}
+	}
+
+	public int GetTopRightTurretCount() { 
+		return topRightTurretCount;
+	}
+
+	public int GetBotRightTurretCount()
+	{ 
+		return botRightTurretCount;
+	}
+
+	public int GetTopLeftTurretCount()
+	{ 
+		return topLeftTurretCount;
+	}
+
+	public int GetBotLeftTurretCount()
+	{ 
+		return botLeftTurretCount;
 	}
 
 	// This method casts a ray from player's mouse to the position on the screen in order for positioning and snapping of tile to work

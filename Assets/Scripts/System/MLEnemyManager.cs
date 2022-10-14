@@ -12,7 +12,9 @@ public class MLEnemyManager : Agent
     [SerializeField] public GameObject enemyAssasin;
     [SerializeField] public GameObject enemyHealer;
     [SerializeField] public GameObject enemyTank;
+    [SerializeField] public GameObject scout;
     [SerializeField] public BehaviorParameters behaviorParameters;
+    [SerializeField] public TurretController turretController;
 
     private List<Transform> listOfEnemies = new List<Transform>();
     private List<GameObject> spawnPointList = new List<GameObject>();
@@ -66,7 +68,13 @@ public class MLEnemyManager : Agent
 
     void SelectRandomSpawnPoint()
     {
-        Debug.Log("Im here");
+        for (int i = 0; i < numberOfSpawnPoints; i++)
+        {
+            GameObject currentSpawnPoint = spawnPointList[i];
+            Vector3 currentSpawnPointPosition = currentSpawnPoint.transform.position;
+            Vector3 targetPosition = new Vector3(3, 0, 3);
+            Instantiate(scout, currentSpawnPointPosition, currentSpawnPoint.transform.rotation);
+        }
         GameObject randomGrid = this.spawnPointList[Random.Range(0, spawnPointList.Count)];
         GridFloor gridFloor = randomGrid.GetComponent<GridFloor>();
         if (currentSpawnPoint != null)
@@ -75,6 +83,19 @@ public class MLEnemyManager : Agent
         }
         currentSpawnPoint = gridFloor.generateSpawnPoint();
     }
+
+    void SelectSmartSpawnPoint()
+    {
+        int[] countsArray = new int[numberOfSpawnPoints];
+        for (int i = 0; i < numberOfSpawnPoints; i++) {
+            GameObject currentSpawnPoint = spawnPointList[i];
+            Vector3 currentSpawnPointPosition = currentSpawnPoint.transform.position;
+            Vector3 targetPosition = new Vector3(3, 0, 3);
+            Instantiate(scout, currentSpawnPointPosition, Quaternion.LookRotation(targetPosition, Vector3.up));
+        }
+    }
+
+
 
 
 

@@ -94,7 +94,8 @@ public class TurretBase : MonoBehaviour
 
 		Instantiate(buildPrefab, transform.position, transform.rotation);
 		Destroy(gameObject);
-		return transform.position;
+		Vector3 worldOffset = new Vector3(3, 0, 3);
+		return transform.position - worldOffset;
 	}
 
 	public GameObject BuildAndReturnTurret()
