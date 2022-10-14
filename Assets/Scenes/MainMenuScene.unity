@@ -668,7 +668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -126, y: -130}
+  m_AnchoredPosition: {x: -141, y: -130}
   m_SizeDelta: {x: 909, y: 96.201}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &71339334
@@ -691,8 +691,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "At the end of the wave, \nyou can choose 1 card (e.g. Wind Tower) to add
-    to your deck"
+  m_text: "At the end of the wave, \nyou can choose 1 card (e.g. Fire Tower) to add
+    to your hand"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
@@ -1807,7 +1807,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 92}
-  m_SizeDelta: {x: 403, y: 247}
+  m_SizeDelta: {x: 288, y: 233}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &182318819
 MonoBehaviour:
@@ -1882,7 +1882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -126, y: -130}
+  m_AnchoredPosition: {x: -137, y: -130}
   m_SizeDelta: {x: 590, y: 96.201}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &219339872
@@ -1905,7 +1905,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click on next wave to start a new wave
+  m_text: 'Click on next wave to start a new wave (top)
+
+
+    Click on the pause
+    button to pause the wave (bottom)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
@@ -2287,7 +2291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -126, y: -130}
+  m_AnchoredPosition: {x: -143, y: -130}
   m_SizeDelta: {x: 1014, y: 96.201}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &298562119
@@ -3326,7 +3330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: START A WAVE
+  m_text: START/PAUSE A WAVE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
@@ -4707,7 +4711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &622784835
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5106,7 +5110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -126, y: -130}
+  m_AnchoredPosition: {x: -141, y: -130}
   m_SizeDelta: {x: 909, y: 96.201}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &651388185
@@ -5129,7 +5133,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The wind tower card is added to your existing deck for the next round
+  m_text: The fire tower card is added to your existing hand for the next round
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
@@ -6854,7 +6858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &868557712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7902,7 +7906,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 92}
-  m_SizeDelta: {x: 300, y: 247}
+  m_SizeDelta: {x: 266, y: 286}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1070068608
 MonoBehaviour:
@@ -7924,7 +7928,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e974b19fbd4144447892b3e8fd395d1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa0338bd8aedb9741b2d628a0a3aaf8e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13080,7 +13084,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 13, y: 92}
-  m_SizeDelta: {x: 1037, y: 257}
+  m_SizeDelta: {x: 815, y: 260}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2137997938
 MonoBehaviour:
