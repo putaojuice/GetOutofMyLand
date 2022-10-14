@@ -22,7 +22,7 @@ public class Scout : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void SpawnAt(GameObject spawnPoint, int input)
@@ -36,14 +36,14 @@ public class Scout : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-       
+
         if (collider.gameObject.tag == "Tower")
         {
             Debug.Log("Scout " + indexAssigned + " detected a tower");
             GameObject tower = collider.gameObject;
             if (!towerList.Contains(tower))
             {
-                
+
                 GameManager gameManager = GameManager.instance;
                 MLEnemyManager enemyManager = gameManager.GetComponent<MLEnemyManager>();
                 enemyManager.UpdateSpawnPointTowerCount(indexAssigned);
