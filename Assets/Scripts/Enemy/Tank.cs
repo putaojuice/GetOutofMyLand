@@ -18,7 +18,7 @@ public class Tank : Enemy
     {
 
         // Setting up the stats for Warriors
-        maxHp = 12f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        maxHp = 1200f * (GameManager.instance.waveIndex + 1) * 0.5f;
         hp = maxHp;
         skillCoolDown = 2f;
         defence = 2f;

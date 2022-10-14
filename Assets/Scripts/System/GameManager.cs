@@ -12,49 +12,57 @@ public class GameManager : MonoBehaviour
     public static event WaveEnd WaveEnded;
     public int waveIndex = 0;
 
-    [SerializeField]public GameObject MusicControl;
     [SerializeField]private GameObject scoreText;
     [SerializeField]private DeckController DeckController;
     [SerializeField]private MLEnemyManager EnemyManager;
     [SerializeField]private Button spawnButton;
-    // [SerializeField]
-    // private Button wavePauseButton;
-    [SerializeField] 
-    private GameObject gameOverUI;
+    [SerializeField]private Button wavePauseButton;
+    [SerializeField]private GameObject gameOverUI;
+    [SerializeField]private MusicControlScript MusicController;
+    [SerializeField]private GameObject CountDownText;
     public Transform cardGroup;
     public int currentHandSize;
 
     public static GameManager instance;
 
-
     void Awake() {
         instance = this;
-        DontDestroyOnLoad(this);
     }
 
     void Start() {
-        DeckController = GetComponent<DeckController>();
         DeckController.ShuffleCard();
+        DeckController.DrawRandomTowerCard();
+        DeckController.DrawRandomTowerCard();
         DeckController.DrawCard();
-
-        Button btn = spawnButton.GetComponent<Button>();
-        btn.onClick.AddListener(TaskOnClick);
-        // wavePauseButton.interactable = false;
-
+        spawnButton.onClick.AddListener(TaskOnClick);
+        wavePauseButton.interactable = false;
         waveIndex = 0;
+    }
 
+    IEnumerator CountDown (int countDown) {
+     int counter = countDown;
+     CountDownText.SetActive(true);
+     MusicController.fadeAudio();
+     MusicController.PlayCountDown();
+     while (counter > 0) {
+         CountDownText.GetComponent<TMP_Text>().text = counter.ToString();
+         yield return new WaitForSeconds (1);
+         counter--;
+     }
+     CountDownText.SetActive(false);
+     SpawnEnemy();
+     spawnButton.interactable = false;
+
+     DeckController.disableHand();
+     wavePauseButton.interactable = true;
+
+     //Music Stuff
+     MusicController.PlayFunky();
     }
 
     void TaskOnClick()
     {   
-
-        SpawnEnemy();
-        spawnButton.interactable = false;
-        DeckController.disableHand();
-
-        //Music Stuff
-        MusicControlScript MusicController = MusicControl.GetComponent<MusicControlScript>();
-        MusicController.PlayFunky();
+        StartCoroutine(CountDown(3));
 
     }
 
@@ -76,12 +84,12 @@ public class GameManager : MonoBehaviour
          // Delegate wave end event when all the enemies died
         if (EnemyManager.UpdateEnemy()) {
             WaveEnded();
+            
             //Music Stuff
-            MusicControlScript MusicController = MusicControl.GetComponent<MusicControlScript>();
             MusicController.PlayAmbient();
-
             spawnButton.interactable = true;
             DeckController.enableHand();
+            wavePauseButton.interactable = false;
         }
     }
     

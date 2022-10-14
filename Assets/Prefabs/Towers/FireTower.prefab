@@ -133,7 +133,7 @@ MonoBehaviour:
   target: {fileID: 0}
   enemyTag: Enemy
   rotatingPart: {fileID: 1292184605588119890}
-  bulletPrefab: {fileID: 164416, guid: 8aeb2c0224fe763499eed3ec0587162b, type: 3}
+  bulletPrefab: {fileID: 5612069337144356243, guid: b05239f157d734f02b3c810b91f7bc7b, type: 3}
   firePoint: {fileID: 186961893558975087}
 --- !u!208 &-1715655193056845728
 NavMeshObstacle:
@@ -260,6 +260,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 5220440410661199864, guid: b1f1dcaa7f1d54668a8177fc2cc10c68, type: 3}
   blockSize: 1
   isOuterFloor: 0
+  isTurretFloor: 1
 --- !u!65 &2214078149504920833
 BoxCollider:
   m_ObjectHideFlags: 0

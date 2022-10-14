@@ -10,10 +10,13 @@ public class GridFloor : MonoBehaviour
     [SerializeField] private GameObject blockPrefab;
     [SerializeField] private GameObject spawnPoint;
     private GridController controller;
+    
     [Header("Grid Parameters")]
     [SerializeField] private int blockSize;
 
     public bool isOuterFloor = false;
+    public bool isTurretFloor = false;
+    
     private MeshRenderer rend;
     private bool selected = false;
     private Color originalColor;
@@ -24,13 +27,7 @@ public class GridFloor : MonoBehaviour
         GenerateGrid();
         rend = GetComponent<MeshRenderer>();
         originalColor = rend.material.color;
-        StartCoroutine(updateAfterSpawn());
         controller = GameManager.instance.gameObject.GetComponent<GridController>();
-    }
-
-    IEnumerator updateAfterSpawn() {
-        yield return new WaitForEndOfFrame();
-        controller.updateCurrentGrid();
     }
 
     public void OnMouseEnter()
@@ -44,25 +41,6 @@ public class GridFloor : MonoBehaviour
 	{
         selected = false;
         SetSelectionColor();
-    }
-
-    public void CheckSurroundingTiles() {
-       
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.84f);
-        int count = 0;
-        foreach (Collider collider in colliders)
-        {   
-            if (collider.gameObject.tag == "GridFloor" || collider.gameObject.tag == "Environment") {
-                count++;
-            }
-        }
-
-        if (count <= 5) {
-            isOuterFloor = true;
-        } else {
-            isOuterFloor = false;
-        }
-        
     }
 
     public void SetSelectionColor() 

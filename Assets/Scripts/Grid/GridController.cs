@@ -19,7 +19,7 @@ public class GridController : MonoBehaviour
 	private bool initialized = false;
 	private float maxNorth = 1f;
 	private float maxSouth = 1f;
-	private float maxEast = 1f;
+	private float maxEast = 2f;
 	private float maxWest = 1f;
 
     // Start is called before the first frame update
@@ -38,7 +38,7 @@ public class GridController : MonoBehaviour
 	public void BuildLogic()
 	{
 		if (Input.GetMouseButton(0) && isBuilding && gridTile.GetBuildable())
-		{	
+		{
 			CompleteBuild();
 		}
 		
@@ -117,6 +117,10 @@ public class GridController : MonoBehaviour
 	public void initializeBoundary() {
 		GameObject[] floors = GameObject.FindGameObjectsWithTag("GridFloor");
 		foreach (GameObject go in floors) {
+			if (go.GetComponent<GridFloor>().isTurretFloor) {
+				continue;
+			}
+
 			if (go.GetComponent<GridFloor>().isOuterFloor) {
 				if (go.transform.position.x > maxEast) {
 					maxEast = go.transform.position.x;
@@ -145,6 +149,11 @@ public class GridController : MonoBehaviour
 		// Init outfloor list
 		
 		foreach (GameObject go in floors) {
+			// ignore the floor that has turrets
+			if (go.GetComponent<GridFloor>().isTurretFloor) {
+				continue;
+			}
+
 			if (!go.GetComponent<GridFloor>().isOuterFloor) {
 				if (go.transform.position.x >= maxEast) {
 					maxEast = go.transform.position.x;
@@ -175,6 +184,9 @@ public class GridController : MonoBehaviour
 
 		List<GameObject> newList = new List<GameObject>();
 		foreach (GameObject go in currentOuterFloor) {
+			if (go.GetComponent<GridFloor>().isTurretFloor) {
+				continue;
+			}
 			if (go.transform.position.x < maxEast && go.transform.position.x > maxWest
 			&& go.transform.position.z < maxNorth && go.transform.position.z > maxSouth) {
 				go.GetComponent<GridFloor>().isOuterFloor = false;
@@ -190,6 +202,7 @@ public class GridController : MonoBehaviour
 	public List<GameObject> GetPossibleSpawnPointPosition() {
 		if (!initialized) {
 			initializeBoundary();
+			initialized = true;
 		}
 		
 		return currentOuterFloor;

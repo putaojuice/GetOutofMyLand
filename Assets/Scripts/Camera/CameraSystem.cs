@@ -19,7 +19,12 @@ public class CameraSystem : MonoBehaviour
     private bool dragMovementActive;
     private Vector2 lastMousePosition;
     private float targetFieldOfView = 80;
+    private float deltaTime;
 
+    private void Start()
+    {
+        deltaTime = Time.deltaTime;
+    }
 
     private void Update()
     {   
@@ -50,7 +55,7 @@ public class CameraSystem : MonoBehaviour
 
         // Compute translate direction & update translate position
         Vector3 moveDir = transform.forward * translateDir.z + transform.right * translateDir.x;
-        transform.position += moveDir * translateSpeed * Time.deltaTime;
+        transform.position += moveDir * translateSpeed * deltaTime;
         
         if (enableEdgeScrolling) {
             HandleEdgeScrolling();
@@ -82,7 +87,7 @@ public class CameraSystem : MonoBehaviour
         }
         
         Vector3 moveDir = transform.forward * translateDir.z + transform.right * translateDir.x;
-        transform.position += moveDir * translateSpeed * Time.deltaTime;
+        transform.position += moveDir * translateSpeed * deltaTime;
     }
 
     // Handle camera translation from Mouse dragging
@@ -107,7 +112,7 @@ public class CameraSystem : MonoBehaviour
         }
 
         Vector3 moveDir = transform.forward * translateDir.z + transform.right * translateDir.x;
-        transform.position += moveDir * translateSpeed * Time.deltaTime;
+        transform.position += moveDir * translateSpeed * deltaTime;
     }
 
     private void HandleCameraZoom() {
@@ -122,7 +127,7 @@ public class CameraSystem : MonoBehaviour
         targetFieldOfView = Mathf.Clamp(targetFieldOfView, zoomDistanceMin, zoomDistanceMax);
 
         // smoothing
-        virtualCam.m_Lens.FieldOfView = Mathf.Lerp(virtualCam.m_Lens.FieldOfView, targetFieldOfView, Time.deltaTime * zoomSpeed); 
+        virtualCam.m_Lens.FieldOfView = Mathf.Lerp(virtualCam.m_Lens.FieldOfView, targetFieldOfView, deltaTime * zoomSpeed); 
     }
 
     // Handle camera rotation
@@ -131,6 +136,6 @@ public class CameraSystem : MonoBehaviour
         if (Input.GetKey(KeyCode.Q)) rotateDir = 1f;
         if (Input.GetKey(KeyCode.E)) rotateDir = -1f;
         // Update camera rotation
-        transform.eulerAngles += new Vector3(0, rotateDir * rotateSpeed * Time.deltaTime, 0);
+        transform.eulerAngles += new Vector3(0, rotateDir * rotateSpeed * deltaTime, 0);
     }
 }
