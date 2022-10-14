@@ -14,7 +14,6 @@ TagManager:
   - Environment
   - GameManager
   - canvas
-  - TileTop
   layers:
   - Default
   - TransparentFX
