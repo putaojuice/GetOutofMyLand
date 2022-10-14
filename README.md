@@ -5,11 +5,11 @@ Developed by Team GOML for NUS CS4350: Game Development Project. Developed with 
 <img src="https://imgur.com/6uMgsWj.png" alt="Get Out of My Land Logo" draggable="false" width="100%">
 <h4 align=center>☁️ Be 🏔️ the 👑 Next King</h4>
 <br><p align=left>
-  Welcome to the zesty world of <strong>CULLinary 2</strong>, where you play as Chef, an aspiring restaurant owner trying to spread joy to the world, one dish at a time. With the onset of the Clownavirus pandemic, Chef has no choice but to close down his restaurant and deliver food to his customers instead. 
+  Welcome to the zesty world of <strong>Get Out of My Land!</strong>, the King of the Sky Kingdom has assigned all his heirs a plot of land and the one that expands the land the most gets the throne. You are an heir to King of the Sky Kingdom, along with 100 of your evil siblings. Do you best to defend your land as your evil siblings attempt to sabotage your progress and destroy your land!
 <br><br>
-Experience the tangy thrill of battling against the clock by making sure your hungry customers get their food on time as you traverse the vibrant world of CULLinary 2 and hunt for the ingredients you need to cook up a storm, using a variety of full-bodied weapons, fiery skills, and earthy power-ups.
+Experience the tangy thrill of battling against the clock by making sure your hungry customers get their food on time as you traverse the vibrant world of CULLinary 2 and hunt for the ingredients you need to cook up a storm, using a variety of full-bodied weapons, fiery skills, and earthy power-ups. (to be updated)
 <br><br>
-Inventory management? Time crunch? Fetch quests? CULLinary 2 has them all.</p>
+Inventory management? Time crunch? Fetch quests? CULLinary 2 has them all. (to be updated)</p>
 <br>
 
 <h4 align=center>Vote for us in 21st STEPS here! 🔥💧⚡</h4>
