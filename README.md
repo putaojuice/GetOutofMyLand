@@ -43,7 +43,7 @@ Tower upgrades? Infinite waves of enemies? Strategise your cards? Get Out of My 
 <i style="color:#7E4E38">Graphics:</i> Anything that can run Minecraft.<br>
 <i style="color:#7E4E38">Network:</i> Enough to tell your friends that you're now playing Get Out of My Land!.<br>
 <i style="color:#7E4E38">Storage:</i> 800 MB available space.<br>
-<i style="color:#7E4E38">Sound Card:</i> If you don't have one, just imagine the sounds of vegetables getting chopped (You can also make some vroom vroom noises with your mouth for extra immersion).<br>
+<i style="color:#7E4E38">Sound Card:</i> If you don't have one, just imagine the sounds of ...<br>
 </td>
 
 <td style="vertical-align:top;padding-left: 25px" width="50%" >
@@ -55,7 +55,7 @@ Tower upgrades? Infinite waves of enemies? Strategise your cards? Get Out of My 
 <i style="color:#7E4E38">Graphics:</i> Anything that can run Minecraft with shaders.<br>
 <i style="color:#7E4E38">Network:</i> Enough to send your friends copies of Get Out of My Land!.<br>
 <i style="color:#7E4E38">Storage:</i> All the space.<br>
-<i style="color:#7E4E38">Sound Card:</i> Playing in an actual delivery truck.<br>
+<i style="color:#7E4E38">Sound Card:</i> If you don't have one, just imagine the sounds of ...<br>
 
 </td>
 </tr>
