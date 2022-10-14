@@ -22,6 +22,8 @@ public class GridController : MonoBehaviour
 	private float maxEast = 2f;
 	private float maxWest = 1f;
 
+	private 
+
     // Start is called before the first frame update
     void Start()
     {

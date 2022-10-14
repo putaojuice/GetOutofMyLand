@@ -16,8 +16,10 @@ public class TurretController : MonoBehaviour
 	private DeckController DeckController;
 	private bool isBuilding = false;
 
-    // Start is called before the first frame update
-    void Start()
+	private List<GameObject> turretList = new List<GameObject>();
+
+	// Start is called before the first frame update
+	void Start()
     {
 		// BuildNavMesh on start up
 		surf.BuildNavMesh();
@@ -77,7 +79,11 @@ public class TurretController : MonoBehaviour
 
 	private void CompleteBuild()
 	{
-		turretBase.Build();
+		//turretBase.Build();
+		Vector3 newTurretPosition = turretBase.BuildAndReturnPosition();
+		GameObject newTurret = turretBase.BuildAndReturnTurret();
+		Debug.Log(newTurretPosition);
+		Debug.Log(newTurret.transform.position);
 		DeckController.CompleteCard();
 		// update navmesh data in run time
 		surf.UpdateNavMesh(surf.navMeshData);

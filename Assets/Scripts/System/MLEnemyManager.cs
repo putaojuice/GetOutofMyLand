@@ -76,6 +76,8 @@ public class MLEnemyManager : Agent
         currentSpawnPoint = gridFloor.generateSpawnPoint();
     }
 
+
+
     IEnumerator SpawnEnemy()
     {
 

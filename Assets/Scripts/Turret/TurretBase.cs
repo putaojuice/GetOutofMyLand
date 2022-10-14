@@ -85,6 +85,30 @@ public class TurretBase : MonoBehaviour
 		Destroy(gameObject);
 	}
 
+	public Vector3 BuildAndReturnPosition()
+	{
+		for (int i = 0; i < floor.Count; i++)
+		{
+			floor[i].SetSelectionColor();
+		}
+
+		Instantiate(buildPrefab, transform.position, transform.rotation);
+		Destroy(gameObject);
+		return transform.position;
+	}
+
+	public GameObject BuildAndReturnTurret()
+	{
+		for (int i = 0; i < floor.Count; i++)
+		{
+			floor[i].SetSelectionColor();
+		}
+
+		Instantiate(buildPrefab, transform.position, transform.rotation);
+		Destroy(gameObject);
+		return buildPrefab;
+	}
+
 	public void Rotate()
 	{
 		rotated = !rotated;
