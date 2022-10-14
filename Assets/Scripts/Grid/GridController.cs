@@ -17,10 +17,10 @@ public class GridController : MonoBehaviour
 	private bool isBuilding = false;
 	
 	private bool initialized = false;
-	private float maxNorth = 1f;
-	private float maxSouth = 1f;
-	private float maxEast = 2f;
-	private float maxWest = 1f;
+	private float maxNorth = 0f;
+	private float maxSouth = 0f;
+	private float maxEast = 0f;
+	private float maxWest = 0f;
 
     // Start is called before the first frame update
     void Start()
