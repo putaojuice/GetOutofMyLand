@@ -10,6 +10,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] public GameObject enemyTank;
 
     private List<Transform> listOfEnemies = new List<Transform>();
+    private List<GameObject> spawnPointList = new List<GameObject>();
     private List<GameObject> listOfEnemyObjects = new List<GameObject>();
     private int currentEnemies;
     private GameObject currentSpawnPoint;
@@ -41,6 +42,18 @@ public class EnemyManager : MonoBehaviour
         StartCoroutine(SpawnEnemy(currentIndex));
     }
 
+    void SelectSpawnPoint(List<GameObject> spawnPositions)
+    {
+        this.spawnPointList = spawnPositions;
+        GameObject randomGrid = spawnPositions[Random.Range(0, spawnPositions.Count)];
+        GridFloor gridFloor = randomGrid.GetComponent<GridFloor>();
+        if (currentSpawnPoint != null)
+        {
+            Destroy(currentSpawnPoint);
+        }
+        currentSpawnPoint = gridFloor.generateSpawnPoint();
+    }
+
     IEnumerator SpawnEnemy(int currentIndex)
     {   
 
@@ -49,22 +62,15 @@ public class EnemyManager : MonoBehaviour
         for(int i = 0; i < currentIndex; i++){
 
             GameObject enemyToSpawn = listOfEnemyObjects[randIndex];
-            Instantiate(enemyToSpawn.transform, currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
+            //Instantiate(enemyToSpawn.transform, tempPosition, currentSpawnPoint.transform.rotation);
+            enemyToSpawn.GetComponent<EnemySpawnAgent>().SpawnAt(currentSpawnPoint);
 
             yield return new WaitForSeconds(1f);
         }
         
     }
-
-    void SelectSpawnPoint(List<GameObject> spawnPositions) 
-    {
-        GameObject randomGrid = spawnPositions[Random.Range(0, spawnPositions.Count)];
-        GridFloor gridFloor = randomGrid.GetComponent<GridFloor>();
-        if (currentSpawnPoint != null) {
-            Destroy(currentSpawnPoint);
-        }
-        currentSpawnPoint = gridFloor.generateSpawnPoint();
-    }
+    
+   
 
     public bool UpdateEnemy() {
         currentEnemies--;

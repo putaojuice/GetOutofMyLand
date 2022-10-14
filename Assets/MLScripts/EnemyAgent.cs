@@ -5,7 +5,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 
-public class MoveToGoalAgent : Agent {
+public class EnemyAgent : Agent {
 
     [SerializeField] private Transform targetTransform;
     [SerializeField] private Material winMaterial;
@@ -13,18 +13,15 @@ public class MoveToGoalAgent : Agent {
     [SerializeField] private MeshRenderer floorMeshRenderer;
     public override void OnEpisodeBegin()
     {
-        Debug.Log("OnEpisodeBegin() called");
         transform.localPosition = Vector3.zero;
     }
     public override void CollectObservations(VectorSensor sensor)
     {
-        Debug.Log("CollectObservations() called");
         sensor.AddObservation(transform.localPosition);
         sensor.AddObservation(targetTransform.localPosition);
     }
     public override void OnActionReceived(ActionBuffers actions)
     {
-        Debug.Log("OnActionReceived() called");
         float moveX = actions.ContinuousActions[0];
         float moveZ = actions.ContinuousActions[1];
 
@@ -34,7 +31,6 @@ public class MoveToGoalAgent : Agent {
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        Debug.Log("Heuristic() called");
         ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
         continuousActions[0] = Input.GetAxisRaw("Horizontal");
         continuousActions[1] = Input.GetAxisRaw("Vertical");

@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]public GameObject MusicControl;
     [SerializeField]private GameObject scoreText;
     [SerializeField]private DeckController DeckController;
-    [SerializeField]private EnemyManager EnemyManager;
+    [SerializeField]private MLEnemyManager EnemyManager;
     [SerializeField]private Button spawnButton;
     // [SerializeField]
     // private Button wavePauseButton;
