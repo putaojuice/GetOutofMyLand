@@ -61,16 +61,21 @@ public class GameManager : MonoBehaviour
     }
 
     void TaskOnClick()
-    {   
+    {
+        // get spawnpointlist
+        List<GameObject> spawnPointList = gameObject.GetComponent<GridController>().GetPossibleSpawnPointPosition();
+        // feed spawnpointlist to enemy manager
+        EnemyManager.LoadSpawnPointList(spawnPointList);
+        // enemy manager scout for optimal spawn point
+        EnemyManager.ScoutSpawnPoints();
+
         StartCoroutine(CountDown(3));
 
     }
 
     public void SpawnEnemy() {
-        // get a random grid object
-        List<GameObject> spawnPointList = gameObject.GetComponent<GridController>().GetPossibleSpawnPointPosition();
         waveIndex++;
-        EnemyManager.StartWave(waveIndex, spawnPointList);
+        EnemyManager.StartWave(waveIndex);
     }
 
     public void GameOver() {

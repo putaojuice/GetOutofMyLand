@@ -55,21 +55,23 @@ public class MLEnemyManager : Agent
 
     }
 
-    public void StartWave(int currentIndex, List<GameObject> spawnPositions)
+    public void StartWave(int currentIndex)
     {
-        Debug.Log("StartWave() CALLED");
-        this.spawnPointList = spawnPositions;
+        Debug.Log("StartWave() CALLED");  
         this.currentIndex = currentIndex;
-        this.numberOfSpawnPoints = spawnPointList.Count;
         RequestDecision();
         Academy.Instance.EnvironmentStep();
-        
+    }
 
+    public void LoadSpawnPointList(List<GameObject> spawnPointList) {
+        this.spawnPointList = spawnPointList;
+        this.numberOfSpawnPoints = spawnPointList.Count;
+        int[] countArray = new int[numberOfSpawnPoints];
+        this.spawnPointTowerCount = countArray;
     }
 
     void SelectRandomSpawnPoint()
     {
-        Scout();
         GameObject randomGrid = this.spawnPointList[Random.Range(0, spawnPointList.Count)];
         GridFloor gridFloor = randomGrid.GetComponent<GridFloor>();
         if (currentSpawnPoint != null)
@@ -79,11 +81,29 @@ public class MLEnemyManager : Agent
         currentSpawnPoint = gridFloor.generateSpawnPoint();
     }
 
-    void Scout()
+    void SelectSmartSpawnPoint()
     {
-        int[] countArray = new int[numberOfSpawnPoints];
-        this.spawnPointTowerCount = countArray;
+        int minCount = 99999;
+        for (int i = 0; i < numberOfSpawnPoints; i++)
+        {
+            if (spawnPointTowerCount[i] < minCount) {
+                Debug.Log("Found better spawnpoint: " + i);
+                minCount = spawnPointTowerCount[i];
+                GameObject spawnPointChosen = spawnPointList[i];
+                GridFloor gridFloor = spawnPointChosen.GetComponent<GridFloor>();
+                if (this.currentSpawnPoint != null)
+                {
+                    Destroy(currentSpawnPoint);
+                }
+                this.currentSpawnPoint = gridFloor.generateSpawnPoint();
+            }
+        }
+    }
 
+
+
+    public void ScoutSpawnPoints()
+    {
         for (int i = 0; i < numberOfSpawnPoints; i++)
         {
             GameObject currentSpawnPoint = spawnPointList[i];
@@ -179,7 +199,7 @@ public class MLEnemyManager : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        SelectRandomSpawnPoint();
+        SelectSmartSpawnPoint();
         StartCoroutine(SpawnEnemy());
     }
 
