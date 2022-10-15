@@ -18,14 +18,14 @@ public class Turret : MonoBehaviour
     [SerializeField] public GameObject bulletPrefab;
     [SerializeField] public Transform firePoint;
 
-/*  For pause wave function
- *  [SerializeField]
- *  private GameObject canvas;
- */
+    /*  For pause wave function
+     *  [SerializeField]
+     *  private GameObject canvas;
+     */
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         /* canvas = GameObject.Find("Canvas (1)"); */
     }

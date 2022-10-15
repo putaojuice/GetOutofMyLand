@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 4507485369844437222}
   - component: {fileID: 4507485369844437221}
   - component: {fileID: -6274350280932613119}
-  - component: {fileID: 5773537828768041476}
+  - component: {fileID: 6545225282677274686}
   m_Layer: 0
   m_Name: WaterTower
   m_TagString: Tower
@@ -369,7 +369,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 1, z: 0}
   m_TimeToStationary: 0.5
---- !u!65 &5773537828768041476
+--- !u!65 &6545225282677274686
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -378,10 +378,10 @@ BoxCollider:
   m_GameObject: {fileID: 5795770743788303379}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.79559326, y: 6, z: 0.7090759}
-  m_Center: {x: -0.0026245117, y: 1.352297, z: -0.022331238}
+  m_Size: {x: 1.6147649, y: 3.241783, z: 1.5433655}
+  m_Center: {x: -0.024110436, y: 0.75514853, z: 0.045573354}
 --- !u!1001 &353137385
 PrefabInstance:
   m_ObjectHideFlags: 0

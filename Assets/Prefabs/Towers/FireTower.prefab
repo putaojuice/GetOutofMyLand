@@ -89,6 +89,7 @@ MonoBehaviour:
   rotatingPart: {fileID: 1292184605588119890}
   bulletPrefab: {fileID: 5612069337144356243, guid: b05239f157d734f02b3c810b91f7bc7b, type: 3}
   firePoint: {fileID: 186961893558975087}
+  rangeCollider: {fileID: 0}
 --- !u!208 &-1715655193056845728
 NavMeshObstacle:
   m_ObjectHideFlags: 0

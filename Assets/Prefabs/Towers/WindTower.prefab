@@ -58,6 +58,7 @@ MonoBehaviour:
   rotatingPart: {fileID: 1008119151988360022}
   bulletPrefab: {fileID: 1865603112017772757, guid: 0f059e5d480c814408dc615079587fad, type: 3}
   firePoint: {fileID: 1837068005686474853}
+  RangeDetector: {fileID: 2906347277069756832, guid: 149f1b655e8dd134b9328d38251d5465, type: 3}
   shootDirection: {x: 0, y: 0, z: 0}
 --- !u!208 &2124510973289789385
 NavMeshObstacle:

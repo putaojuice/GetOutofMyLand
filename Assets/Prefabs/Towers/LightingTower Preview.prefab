@@ -170,6 +170,7 @@ MonoBehaviour:
   buildableColor: {r: 0.77254903, g: 1, b: 0.38431373, a: 0}
   unbuildableColor: {r: 0.5568628, g: 0.101960786, b: 0.101960786, a: 0}
   buildPrefab: {fileID: 6515295890651682670, guid: 8b30f9037fda64265a150863ba4b3420, type: 3}
+  rangeDetectorPrefab: {fileID: 2906347277069756832, guid: 149f1b655e8dd134b9328d38251d5465, type: 3}
 --- !u!4 &6848473920206263458 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6515295890651682669, guid: 8b30f9037fda64265a150863ba4b3420, type: 3}
