@@ -17,6 +17,7 @@ public class Scout : MonoBehaviour
     {
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.destination = goal.position;
+        Destroy(gameObject, 3);
     }
 
     // Update is called once per frame
@@ -48,6 +49,10 @@ public class Scout : MonoBehaviour
                 enemyManager.UpdateSpawnPointTowerCount(indexAssigned);
                 towerList.Add(tower);
             }
+        }
+        if (collider.gameObject.tag == "Endpoint")
+        {
+            Destroy(gameObject);
         }
     }
 }
