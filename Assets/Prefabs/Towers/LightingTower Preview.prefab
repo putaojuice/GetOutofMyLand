@@ -79,6 +79,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingTower Preview
       objectReference: {fileID: 0}
+    - target: {fileID: 6515295890651682670, guid: 8b30f9037fda64265a150863ba4b3420, type: 3}
+      propertyPath: m_TagString
+      value: Undefined
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3461645343279437410, guid: 8b30f9037fda64265a150863ba4b3420, type: 3}
     - {fileID: -5634615623458464725, guid: 8b30f9037fda64265a150863ba4b3420, type: 3}
