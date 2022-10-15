@@ -34,8 +34,18 @@ public class GameManager : MonoBehaviour
         DeckController.DrawRandomTowerCard();
         DeckController.DrawRandomTowerCard();
         DeckController.DrawCard();
+<<<<<<< HEAD
         spawnButton.onClick.AddListener(TaskOnClick);
         wavePauseButton.interactable = false;
+=======
+        Button btn = spawnButton.GetComponent<Button>();
+        btn.onClick.AddListener(TaskOnClick);
+        // wavePauseButton.interactable = false;
+        listOfEnemies.Add(warriorPrefab);
+        listOfEnemies.Add(assassinPrefab);
+        listOfEnemies.Add(healerPrefab);
+        listOfEnemies.Add(tankPrefab);
+>>>>>>> 4ff872c (change spawn calculation sequence)
         waveIndex = 0;
     }
 
@@ -62,12 +72,20 @@ public class GameManager : MonoBehaviour
 
     void TaskOnClick()
     {
+<<<<<<< HEAD
         // get spawnpointlist
         List<GameObject> spawnPointList = gameObject.GetComponent<GridController>().GetPossibleSpawnPointPosition();
         // feed spawnpointlist to enemy manager
         EnemyManager.LoadSpawnPointList(spawnPointList);
         // enemy manager scout for optimal spawn point
         EnemyManager.ScoutSpawnPoints();
+=======
+        generateSpawnPoint();
+        StartCoroutine(SpawnWave());
+        spawnButton.interactable = false;
+        DeckController.disableHand();
+        // wavePauseButton.interactable = true;
+>>>>>>> 4ff872c (change spawn calculation sequence)
 
         StartCoroutine(CountDown(3));
 
