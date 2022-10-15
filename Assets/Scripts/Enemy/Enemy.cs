@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour, IEffectable
     public float lastDOTInterval = 0.0f;
     public float statusCoolDown = 0.0f;
     public float originalSpeed;
-    [SerializeField] public StatusData freezeEffectData;
+    [SerializeField] public StatusData burnEffectData;
     [SerializeField] public StatusData shockEffectData;
 
     [SerializeField] public Material destructionMat;
@@ -140,6 +140,7 @@ public class Enemy : MonoBehaviour, IEffectable
         agent.speed = originalSpeed;
 
         gameObject.transform.Find("ShockEffect").gameObject.SetActive(false);
+        gameObject.transform.Find("BurnEffect").gameObject.SetActive(false);
 
         this._statusData = null;
     }
@@ -182,11 +183,7 @@ public class Enemy : MonoBehaviour, IEffectable
                 }
 
                 else if(_statusData.StatusType == "WaterEffect"){
-                    HandleSteamStatus();
-                }
-
-                else if(_statusData.StatusType == "WindEffect"){
-                    HandleExplosionStatus(newStatusData);
+                    HandleExplosionStatus();
                 }
 
                 break;
@@ -196,9 +193,6 @@ public class Enemy : MonoBehaviour, IEffectable
                     HandleShockStatus();
                 }
 
-                else if(_statusData.StatusType == "WindEffect"){
-                    HandleStormStatus();
-                }
 
                 else if(_statusData.StatusType == "FireEffect"){ // inflict Explosion
                     HandlePlasmaStatus(_statusData);
@@ -208,31 +202,12 @@ public class Enemy : MonoBehaviour, IEffectable
 
             case "WaterEffect":
 
-                if(_statusData.StatusType == "WindEffect"){
-                    HandleFreezeStatus();
-                }
-
-                else if(_statusData.StatusType == "FireEffect"){
-                    HandleSteamStatus();
+                if(_statusData.StatusType == "FireEffect"){
+                    HandleExplosionStatus();
                 }
 
                 else if(_statusData.StatusType == "LightningEffect"){ // inflict Explosion
                     HandleShockStatus(); 
-                }
-
-                break;
-
-            case "WindEffect":
-                if(_statusData.StatusType == "FireEffect"){
-                    HandleExplosionStatus(_statusData);
-                }
-
-                else if(_statusData.StatusType == "LightningEffect"){ // inflict Explosion
-                    HandleStormStatus(); 
-                }
-
-                else if(_statusData.StatusType == "WaterEffect"){
-                    HandleFreezeStatus();
                 }
 
                 break;
@@ -254,11 +229,15 @@ public class Enemy : MonoBehaviour, IEffectable
         gameObject.transform.Find("PlasmaEffect").GetComponent<ParticleSystem>().Play();
     }
 
-    public void HandleExplosionStatus(StatusData burnStatusData){
+    public void HandleExplosionStatus(){
         Debug.Log("EXPLOSION!!");
-        float damage = (burnStatusData.statusDuration/burnStatusData.DOTInterval) * (burnStatusData.DOTPoints);
+        // float damage = (burnStatusData.statusDuration/burnStatusData.DOTInterval) * (burnStatusData.DOTPoints);
+        float damage = 5.0f;
         GetStatusDamaged(damage);
         UndoStatus();
+        ApplyNewStatus(burnEffectData);
+        gameObject.transform.Find("BurnEffect").gameObject.SetActive(true);
+        gameObject.transform.Find("BurnEffect").GetComponent<ParticleSystem>().Play();
 
         float explosionAOE = 5.0f;
         var enemies = GameObject.FindObjectsOfType<Enemy>();
@@ -266,17 +245,15 @@ public class Enemy : MonoBehaviour, IEffectable
             // checks if enemy is not itself and if enemy is within explosionAOE
             if(transform.position != enemy.transform.position && (transform.position - enemy.transform.position).magnitude < explosionAOE){
                 enemy.GetStatusDamaged(damage);
+                enemy.ApplyNewStatus(burnEffectData);
+                enemy.gameObject.transform.Find("BurnEffect").gameObject.SetActive(true);
+                enemy.gameObject.transform.Find("BurnEffect").GetComponent<ParticleSystem>().Play();
             }
         }
 
         gameObject.transform.Find("ExplosionEffect").gameObject.SetActive(true);
         gameObject.transform.Find("ExplosionEffect").GetComponent<ParticleSystem>().Play();
 
-    }
-
-    public void HandleFreezeStatus(){
-        Debug.Log("FREEZE!!");
-        ApplyNewStatus(freezeEffectData);
     }
 
     public void HandleShockStatus(){
@@ -286,11 +263,4 @@ public class Enemy : MonoBehaviour, IEffectable
         gameObject.transform.Find("ShockEffect").GetComponent<ParticleSystem>().Play();
     }
 
-    public void HandleStormStatus(){
-        Debug.Log("STORM!!");
-    }
-
-    public void HandleSteamStatus(){
-        Debug.Log("STEAM!!");
-    }
 }
