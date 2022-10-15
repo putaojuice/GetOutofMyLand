@@ -56,8 +56,7 @@ public class MLEnemyManager : Agent
     }
 
     public void StartWave(int currentIndex)
-    {
-        Debug.Log("StartWave() CALLED");  
+    {  
         this.currentIndex = currentIndex;
         RequestDecision();
         Academy.Instance.EnvironmentStep();
@@ -114,7 +113,7 @@ public class MLEnemyManager : Agent
     }
 
     public void UpdateSpawnPointTowerCount(int index) {
-        Debug.Log("UPDATED FOR SPAWNPOINT: " + index);
+        //Debug.Log("UPDATED FOR SPAWNPOINT: " + index);
         
         if (this.spawnPointTowerCount[index] == 0)
         {

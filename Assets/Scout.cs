@@ -27,7 +27,7 @@ public class Scout : MonoBehaviour
 
     public void SpawnAt(GameObject spawnPoint, int input)
     {
-        Debug.Log("Scout spawned with index " + indexAssigned);
+        //Debug.Log("Scout spawned with index " + indexAssigned);
         this.indexAssigned = input;
         Vector3 spawnPosition = new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, spawnPoint.transform.position.z);
         Instantiate(this.transform, spawnPosition, spawnPoint.transform.rotation);
@@ -35,9 +35,8 @@ public class Scout : MonoBehaviour
 
 
     void OnTriggerEnter(Collider collider)
-    {
-
-        if (collider.gameObject.tag == "Tower")
+    {    
+        if (collider.gameObject.tag == "TowerRangeIndicator")
         {
             Debug.Log("Scout " + indexAssigned + " detected a tower");
             GameObject tower = collider.gameObject;

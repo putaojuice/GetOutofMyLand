@@ -17,6 +17,7 @@ public class Turret : MonoBehaviour
     [SerializeField] public Transform rotatingPart;
     [SerializeField] public GameObject bulletPrefab;
     [SerializeField] public Transform firePoint;
+    [SerializeField] public GameObject rangeDetector;
 
     /*  For pause wave function
      *  [SerializeField]

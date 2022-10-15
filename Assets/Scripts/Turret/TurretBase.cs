@@ -12,7 +12,6 @@ public class TurretBase : MonoBehaviour
 	[SerializeField] private Color buildableColor;
 	[SerializeField] private Color unbuildableColor;
 	[SerializeField] private GameObject buildPrefab;
-	[SerializeField] private GameObject rangeDetectorPrefab;
 
 	private bool buildable = false;
 	private bool rotated = false;
@@ -20,6 +19,8 @@ public class TurretBase : MonoBehaviour
 	private void Start()
 	{
 		UpdateBuildStatus();
+		//Physics.IgnoreLayerCollision(0, 7);
+
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -81,8 +82,6 @@ public class TurretBase : MonoBehaviour
 		{
 			floor[i].SetSelectionColor();
 		}
-		float range = buildPrefab.GetComponent<Turret>().range;
-		rangeDetectorPrefab.GetComponent<RangeDetector>().SpawnAt(transform.position, transform.rotation, range);
 		Instantiate(buildPrefab, transform.position, transform.rotation);
 		Destroy(gameObject);
 	}

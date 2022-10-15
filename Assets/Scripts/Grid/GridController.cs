@@ -30,7 +30,7 @@ public class GridController : MonoBehaviour
 		// BuildNavMesh on start up
 		surf.BuildNavMesh();
 		DeckController = gameObject.GetComponent<DeckController>();
-    }
+	}
 
     private void Update()
 	{
@@ -98,8 +98,8 @@ public class GridController : MonoBehaviour
 	{
 		Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-		if (Physics.Raycast(ray, out hit, layer))
-		{	
+		if (Physics.Raycast(cam.transform.position, ray.direction, out hit, Mathf.Infinity, layer))
+		{
 			PositionObj(hit.point);
 		}
 		surf.UpdateNavMesh(surf.navMeshData);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RangeDetector : MonoBehaviour
 {
-    [SerializeField] CapsuleCollider collider;
+    [SerializeField] public CapsuleCollider collider;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +21,13 @@ public class RangeDetector : MonoBehaviour
     public void UpdateColliderRadius(float input) {
         this.collider.radius = input;
     }
-
+    
+    /*
     public void SpawnAt(Vector3 v3Input, Quaternion rotationInput, float range)
     {
-        Debug.Log("range detector spawned");
+        Debug.Log("range detector spawned with range: " + range);
         Instantiate(this.transform, v3Input, rotationInput);
         UpdateColliderRadius(range);
     }
+    */
 }

@@ -93,10 +93,11 @@ public class TurretController : MonoBehaviour
 	{
 		Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-		if (Physics.Raycast(ray, out hit, layer))
-		{	
+		//if (Physics.Raycast(ray, out hit, layer))
+		if (Physics.Raycast(cam.transform.position, ray.direction, out hit, Mathf.Infinity, layer))
+		{
 			GameObject go = hit.transform.gameObject;
-			PositionObj(go.transform.position); 
+			PositionObj(go.transform.position);
 		}
 		   
 	}
