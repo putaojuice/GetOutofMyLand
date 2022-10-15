@@ -34,7 +34,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.barracuda": {
-      "version": "2.0.0",
+      "version": "3.0.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -139,22 +139,22 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ml-agents": {
-      "version": "2.1.0-exp.1",
-      "depth": 1,
+      "version": "2.3.0-exp.2",
+      "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.barracuda": "2.0.0-pre.3",
+        "com.unity.barracuda": "3.0.0",
         "com.unity.modules.imageconversion": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.ml-agents.extensions": {
-      "version": "file:C:/Users/gordo/Desktop/ml-agents-release_18_branch/com.unity.ml-agents.extensions",
+      "version": "file:D:/CS4350/ml-agents/com.unity.ml-agents.extensions",
       "depth": 0,
       "source": "local",
       "dependencies": {
-        "com.unity.ml-agents": "2.1.0-exp.1",
+        "com.unity.ml-agents": "2.2.1-exp.1",
         "com.unity.modules.physics": "1.0.0"
       }
     },
