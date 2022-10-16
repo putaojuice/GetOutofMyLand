@@ -10,6 +10,7 @@ public class FireTower : Turret
         range = 7.5f;
         firingRate = 1f;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        towerLevel = 1;
     }
 
     // Update is called once per frame
@@ -38,6 +39,7 @@ public class FireTower : Turret
     {
         GameObject currBullet = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = currBullet.GetComponent<Bullet>();
+        bullet.towerLevel = towerLevel;
         
         if(bullet != null)
         {

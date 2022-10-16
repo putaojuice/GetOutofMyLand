@@ -40,7 +40,7 @@ public class LightningBall : Bullet
     public override void HitTarget()
     {
         Enemy currEnemy = target.GetComponent<Enemy>();
-        currEnemy.GetDamaged(attackPoints);
+        currEnemy.GetDamaged(attackPoints * towerLevel);
         currEnemy.ApplyStatus(_statusData);
         Destroy(this.gameObject);
 

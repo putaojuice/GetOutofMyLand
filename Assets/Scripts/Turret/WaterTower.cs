@@ -14,6 +14,7 @@ public class WaterTower : Turret
         range = 1.5f;
         firingRate = 0.2f;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        towerLevel = 1;
     }
 
     public override void UpdateTarget()

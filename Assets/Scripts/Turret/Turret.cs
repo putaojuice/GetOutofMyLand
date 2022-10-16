@@ -17,6 +17,7 @@ public class Turret : MonoBehaviour
     [SerializeField] public Transform rotatingPart;
     [SerializeField] public GameObject bulletPrefab;
     [SerializeField] public Transform firePoint;
+    [SerializeField] public float towerLevel;
 
 /*  For pause wave function
  *  [SerializeField]
@@ -28,6 +29,7 @@ public class Turret : MonoBehaviour
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         /* canvas = GameObject.Find("Canvas (1)"); */
+        towerLevel = 3;
     }
 
     public virtual void UpdateTarget()
@@ -85,10 +87,15 @@ public class Turret : MonoBehaviour
         fireCountdown -= Time.deltaTime;
     }
 
+    public virtual void UpgradeLevel(){
+        towerLevel ++;
+    }
+
     public virtual void Shoot()
     {
         GameObject currBullet = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = currBullet.GetComponent<Bullet>();
+        bullet.towerLevel = towerLevel;
         
         if(bullet != null)
         {

@@ -11,6 +11,7 @@ public class LightningTower : Turret
         range = 7.5f;
         firingRate = 1f;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        towerLevel = 1;
     }
 
     // Update is called once per frame
@@ -42,6 +43,7 @@ public class LightningTower : Turret
         LightningBoltScript lightning = currBullet.GetComponent<LightningBoltScript>();
         lightning.StartPosition = firePoint.transform.position;
         lightning.EndPosition = target.transform.position;
+        bullet.towerLevel = towerLevel;
         
         if(bullet != null)
         {

@@ -8,6 +8,7 @@ public class FireBall : Bullet
     [SerializeField] public float burnDamage = 1.0f;
     [SerializeField] public StatusData _statusData;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +41,7 @@ public class FireBall : Bullet
     public override void HitTarget()
     {
         Enemy currEnemy = target.GetComponent<Enemy>();
-        currEnemy.GetDamaged(attackPoints);
+        currEnemy.GetDamaged(attackPoints * towerLevel);
         currEnemy.ApplyStatus(_statusData);
         Destroy(this.gameObject);
 
@@ -51,7 +52,7 @@ public class FireBall : Bullet
         // CollisionHandler.HandleCollision(gameObject, col);
         if(col.gameObject == target){
             Enemy currEnemy = target.GetComponent<Enemy>();
-            currEnemy.GetDamaged(attackPoints);
+            currEnemy.GetDamaged(attackPoints * towerLevel);
             currEnemy.ApplyStatus(_statusData);
             Destroy(this.gameObject);
         }
