@@ -18,13 +18,16 @@ public class Enemy : MonoBehaviour, IEffectable
 
     
     [Header("Status Data")]
-    public StatusData _statusData;
+    // public StatusData _statusData;
+    public Status _statusData;
     public float currentStatusDuration = 0.0f;
     public float lastDOTInterval = 0.0f;
     public float statusCoolDown = 0.0f;
     public float originalSpeed;
-    [SerializeField] public StatusData burnEffectData;
-    [SerializeField] public StatusData shockEffectData;
+    // [SerializeField] public StatusData burnEffectData;
+    // [SerializeField] public StatusData shockEffectData;
+    [SerializeField] public ShockStatus shockStatus;
+    [SerializeField] public Status burnStatus;
 
     [SerializeField] public Material destructionMat;
 
@@ -104,7 +107,7 @@ public class Enemy : MonoBehaviour, IEffectable
 
     public virtual void GetStatusDamaged(float damage)
     {
-            hp -= damage;
+        hp -= damage;
 
     }
 
@@ -117,18 +120,26 @@ public class Enemy : MonoBehaviour, IEffectable
         return;
     }
 
-    public void ApplyStatus (StatusData _statusData){
+    // public void ApplyStatus (StatusData _statusData){
+        
+    //     if(statusCoolDown <= 0.0f){
+    //         if(this._statusData == null){
+    //             this._statusData = _statusData;
+    //         } else {
+                
+    //             HandleStatus(_statusData);
+    //         }
+    //     }
+    // }
+        public void ApplyStatus (Status _statusData){
         
         if(statusCoolDown <= 0.0f){
             if(this._statusData == null){
                 this._statusData = _statusData;
             } else {
-                
                 HandleStatus(_statusData);
             }
         }
-        
-        
     }
 
     public void UndoStatus () {
@@ -146,7 +157,13 @@ public class Enemy : MonoBehaviour, IEffectable
         this._statusData = null;
     }
 
-    public void ApplyNewStatus(StatusData newStatusData){
+    // public void ApplyNewStatus(StatusData newStatusData){
+    //     currentStatusDuration = 0.0f;
+    //     lastDOTInterval = 0.0f;
+    //     this._statusData = newStatusData;
+    // }
+
+    public void ApplyNewStatus(Status newStatusData){
         currentStatusDuration = 0.0f;
         lastDOTInterval = 0.0f;
         this._statusData = newStatusData;
@@ -167,63 +184,47 @@ public class Enemy : MonoBehaviour, IEffectable
 
         if(_statusData.slowDebuff != 0.0f){
             UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-            agent.speed = originalSpeed / _statusData.slowDebuff;
+            agent.speed = originalSpeed * _statusData.slowDebuff;
         }
 
-        if(_statusData.isFreeze){
-            UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-            agent.speed = 0.0f;
-        }
     }
 
-    public void HandleStatus(StatusData newStatusData) {
+    public void HandleStatus(Status newStatusData) {
         switch(newStatusData.StatusType) {
             case "FireEffect":
                 if(_statusData.StatusType == "LightningEffect"){ // inflict Explosion
-                    HandlePlasmaStatus(newStatusData);
+                    HandlePlasmaStatus(newStatusData, _statusData);
                 }
-
                 else if(_statusData.StatusType == "WaterEffect"){
                     HandleExplosionStatus();
                 }
-
                 break;
 
             case "LightningEffect":
                 if(_statusData.StatusType == "WaterEffect"){
-                    HandleShockStatus();
+                    HandleShockStatus(_statusData, newStatusData);
                 }
-
-
                 else if(_statusData.StatusType == "FireEffect"){ // inflict Explosion
-                    HandlePlasmaStatus(_statusData);
+                    HandlePlasmaStatus(_statusData, newStatusData);
                 }
-                
                 break;
-
             case "WaterEffect":
 
                 if(_statusData.StatusType == "FireEffect"){
                     HandleExplosionStatus();
                 }
-
                 else if(_statusData.StatusType == "LightningEffect"){ // inflict Explosion
-                    HandleShockStatus(); 
+                    HandleShockStatus(newStatusData, _statusData); 
                 }
-
                 break;
-
             default:
                 break;
-
         }
-
-
     }
 
-    public void HandlePlasmaStatus(StatusData burnStatusData){  //requires the burnstatusdata to calculate the damage points
+    public void HandlePlasmaStatus(Status fireStatusData, Status lightningStatusData){  //requires the fireStatusData to calculate the damage points
         Debug.Log("PLASMA!");
-        float damage = (burnStatusData.statusDuration/burnStatusData.DOTInterval) * burnStatusData.DOTPoints;
+        float damage = (fireStatusData.statusDuration/fireStatusData.DOTInterval) * fireStatusData.DOTPoints;
         GetStatusDamaged(damage);
         UndoStatus();
         gameObject.transform.Find("PlasmaEffect").gameObject.SetActive(true);
@@ -235,7 +236,7 @@ public class Enemy : MonoBehaviour, IEffectable
         float damage = 5.0f;
         GetStatusDamaged(damage);
         UndoStatus();
-        ApplyNewStatus(burnEffectData);
+        ApplyNewStatus(burnStatus);
         gameObject.transform.Find("BurnEffect").gameObject.SetActive(true);
         gameObject.transform.Find("BurnEffect").GetComponent<ParticleSystem>().Play();
 
@@ -245,7 +246,7 @@ public class Enemy : MonoBehaviour, IEffectable
             // checks if enemy is not itself and if enemy is within explosionAOE
             if(transform.position != enemy.transform.position && (transform.position - enemy.transform.position).magnitude < explosionAOE){
                 enemy.GetStatusDamaged(damage);
-                enemy.ApplyNewStatus(burnEffectData);
+                enemy.ApplyNewStatus(burnStatus);
                 enemy.gameObject.transform.Find("BurnEffect").gameObject.SetActive(true);
                 enemy.gameObject.transform.Find("BurnEffect").GetComponent<ParticleSystem>().Play();
             }
@@ -256,9 +257,13 @@ public class Enemy : MonoBehaviour, IEffectable
 
     }
 
-    public void HandleShockStatus(){
+    public void HandleShockStatus(Status waterStatusData, Status lightningStatusData){
         Debug.Log("SHOCK!!");
-        ApplyNewStatus(shockEffectData);
+
+        shockStatus.setSlowDebuff(lightningStatusData.damage);
+        shockStatus.setSlowDuration(waterStatusData.statusDuration);
+        ApplyNewStatus(shockStatus);
+
         gameObject.transform.Find("ShockEffect").gameObject.SetActive(true);
         gameObject.transform.Find("ShockEffect").GetComponent<ParticleSystem>().Play();
     }

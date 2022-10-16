@@ -5,7 +5,10 @@ using UnityEngine;
 public class WaterTower : Turret
 {
 
-    [SerializeField] public StatusData acidRainStatusEffect;
+    [SerializeField] public StatusData rainStatusLevel1;
+    [SerializeField] public StatusData rainStatusLevel2;
+    [SerializeField] public StatusData rainStatusLevel3;
+    [SerializeField] public Status waterStatus;
     [SerializeField] LineRenderer line;
 
     // Start is called before the first frame update
@@ -14,7 +17,7 @@ public class WaterTower : Turret
         range = 1.5f;
         firingRate = 0.2f;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
-        towerLevel = 1;
+        towerLevel = 3;
     }
 
     public override void UpdateTarget()
@@ -24,7 +27,19 @@ public class WaterTower : Turret
         foreach(Enemy enemy in enemies) {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
             if(distance < range){
-                enemy.ApplyStatus(acidRainStatusEffect);
+                switch (towerLevel){
+                    case 1:
+                        enemy.ApplyStatus(waterStatus);
+                        break;
+                    case 2:
+                        enemy.ApplyStatus(waterStatus);
+                        break;
+                    default:
+                        enemy.ApplyStatus(waterStatus);
+                        break;
+
+                }
+
             }
         }
 
@@ -34,27 +49,27 @@ public class WaterTower : Turret
     void Update()
     {
 
-        DoRenderer(128, range); // to draw range around the tower
+        // DoRenderer(128, range); // to draw range around the tower
 
     }
 
-    // Renders a circle around the tower to indicate range
-    public void DoRenderer (int steps, float radius) {
+    // // Renders a circle around the tower to indicate range
+    // public void DoRenderer (int steps, float radius) {
 
-        line.positionCount = steps;
-        for(int currStep = 0; currStep < steps; currStep ++){
-            float circumferenceProgress = (float)currStep/steps;
-            float currRadian = circumferenceProgress * 2 * Mathf.PI;
-            float xScaled = Mathf.Cos(currRadian);
-            float yScaled = Mathf.Sin(currRadian);
+    //     line.positionCount = steps;
+    //     for(int currStep = 0; currStep < steps; currStep ++){
+    //         float circumferenceProgress = (float)currStep/steps;
+    //         float currRadian = circumferenceProgress * 2 * Mathf.PI;
+    //         float xScaled = Mathf.Cos(currRadian);
+    //         float yScaled = Mathf.Sin(currRadian);
 
-            float x = xScaled * radius;
-            float y = yScaled * radius;
+    //         float x = xScaled * radius;
+    //         float y = yScaled * radius;
 
-            Vector3 currPosition = transform.position + new Vector3(x,0,y); 
-            line.SetPosition(currStep, currPosition);
+    //         Vector3 currPosition = transform.position + new Vector3(x,0,y); 
+    //         line.SetPosition(currStep, currPosition);
 
-        }
-    }
+    //     }
+    // }
 
 }

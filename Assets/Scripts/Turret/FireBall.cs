@@ -6,7 +6,8 @@ public class FireBall : Bullet
 {
 
     [SerializeField] public float burnDamage = 1.0f;
-    [SerializeField] public StatusData _statusData;
+    // [SerializeField] public StatusData _statusData;
+    [SerializeField] public Status _statusData;
 
 
     // Start is called before the first frame update

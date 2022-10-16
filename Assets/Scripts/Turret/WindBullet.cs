@@ -5,7 +5,7 @@ using UnityEngine;
 public class WindBullet : Bullet
 {
 
-    [SerializeField] public StatusData _statusData;
+    [SerializeField] public Status _statusData;
     [SerializeField] public Vector3 origin;
     [SerializeField] public Vector3 direction;
     [SerializeField] public float range;

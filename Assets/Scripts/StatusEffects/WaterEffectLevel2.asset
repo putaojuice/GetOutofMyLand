@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f3e1c27905b5483998f2bc0deba56d1, type: 3}
-  m_Name: WaterEffect
+  m_Name: WaterEffectLevel2
   m_EditorClassIdentifier: 
-  DOTPoints: 1
+  DOTPoints: 2
   slowDebuff: 0
   isFreeze: 0
-  statusDuration: 5
+  statusDuration: 7
   DOTInterval: 1
   StatusType: WaterEffect
+  towerLevel: 2
