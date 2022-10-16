@@ -34,7 +34,7 @@ public class Healer : Enemy
             UpdateStatusEffects();
         }
 
-        DoRenderer(numSegments, range);
+        // DoRenderer(numSegments, range);
 
         if(hp <= 0.0f){
             Destroy(gameObject);
@@ -52,23 +52,23 @@ public class Healer : Enemy
         statusCoolDown -= Time.deltaTime;
     }
 
-    public void DoRenderer (int steps, float radius) {
+    // public void DoRenderer (int steps, float radius) {
 
-        line.positionCount = steps;
-        for(int currStep = 0; currStep < steps; currStep ++){
-            float circumferenceProgress = (float)currStep/steps;
-            float currRadian = circumferenceProgress * 2 * Mathf.PI;
-            float xScaled = Mathf.Cos(currRadian);
-            float yScaled = Mathf.Sin(currRadian);
+    //     line.positionCount = steps;
+    //     for(int currStep = 0; currStep < steps; currStep ++){
+    //         float circumferenceProgress = (float)currStep/steps;
+    //         float currRadian = circumferenceProgress * 2 * Mathf.PI;
+    //         float xScaled = Mathf.Cos(currRadian);
+    //         float yScaled = Mathf.Sin(currRadian);
 
-            float x = xScaled * radius;
-            float y = yScaled * radius;
+    //         float x = xScaled * radius;
+    //         float y = yScaled * radius;
 
-            Vector3 currPosition = transform.position + new Vector3(x,0,y);
-            line.SetPosition(currStep, currPosition);
+    //         Vector3 currPosition = transform.position + new Vector3(x,0,y);
+    //         line.SetPosition(currStep, currPosition);
 
-        }
-    }
+    //     }
+    // }
 
     public override void UseSkill() {
         var enemies = GameObject.FindObjectsOfType<Enemy>();

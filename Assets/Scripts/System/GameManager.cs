@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]public Transform tankPrefab;
     [SerializeField]public GameObject MusicControl;
     [SerializeField]private GameObject scoreText;
+    [SerializeField]private Transform endPoint;
     private List<Transform> listOfEnemies = new List<Transform>();
 
     [SerializeField]
@@ -98,7 +99,12 @@ public class GameManager : MonoBehaviour
     void SpawnEnemy()
     {
         int randIndex = Random.Range(0, 3);
-        Instantiate(listOfEnemies[randIndex], currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
+        Vector3 spawnDirection = endPoint.transform.position - currentSpawnPoint.transform.position;
+        Vector3 upVector = new Vector3(0f, currentSpawnPoint.transform.rotation.y, 0f);
+        Quaternion finalRotation = Quaternion.LookRotation(spawnDirection, upVector);
+
+        // Instantiate(listOfEnemies[randIndex], currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
+        Instantiate(listOfEnemies[randIndex], currentSpawnPoint.transform.position, finalRotation );
     }
 
     public void UpdateEnemy() {

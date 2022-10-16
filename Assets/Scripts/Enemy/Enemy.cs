@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour, IEffectable
     void Start()
     {
         AudioSource = GetComponent<AudioSource>();
+        Physics.IgnoreLayerCollision(7,9, true);  // ignores all the enemies
     }
 
     // Update is called once per frame
@@ -231,7 +232,6 @@ public class Enemy : MonoBehaviour, IEffectable
 
     public void HandleExplosionStatus(){
         Debug.Log("EXPLOSION!!");
-        // float damage = (burnStatusData.statusDuration/burnStatusData.DOTInterval) * (burnStatusData.DOTPoints);
         float damage = 5.0f;
         GetStatusDamaged(damage);
         UndoStatus();
