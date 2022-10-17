@@ -1969,11 +1969,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 785445423797092929, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000021454225
+      value: 0.000000021454223
       objectReference: {fileID: 0}
     - target: {fileID: 785445423797092929, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000011481952
+      value: -0.000000011481951
       objectReference: {fileID: 0}
     - target: {fileID: 1093093049020216896, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1986,6 +1986,14 @@ PrefabInstance:
     - target: {fileID: 1461694562832591105, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_Name
       value: CameraSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696929161613966400, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
+      propertyPath: translateSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696929161613966400, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
+      propertyPath: enableMouseDrag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2696929161613966400, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: zoomDistanceMax
@@ -2017,11 +2025,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6034549901478517501, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000021454225
+      value: 0.000000021454223
       objectReference: {fileID: 0}
     - target: {fileID: 6034549901478517501, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000011481952
+      value: -0.000000011481951
       objectReference: {fileID: 0}
     - target: {fileID: 8500851291982029270, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_RootOrder
@@ -2982,6 +2990,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1747886762 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1032325500262521025, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+  m_PrefabInstance: {fileID: 459199819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1755004084
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,7 +3135,7 @@ MonoBehaviour:
   ZLandQtyText: {fileID: 1229177431}
   SquareLandQtyText: {fileID: 3483292}
   WaterTowerQtyText: {fileID: 2045324992}
-  LightningTowerQtyText: {fileID: 1763464799}
+  LightningTowerQtyText: {fileID: 1747886762}
   FireTowerQtyText: {fileID: 963396387}
 --- !u!114 &1755004093
 MonoBehaviour:
