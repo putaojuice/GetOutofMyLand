@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DeckController : MonoBehaviour
 {   
@@ -21,6 +22,23 @@ public class DeckController : MonoBehaviour
     public Card currentCard;
     private int currentHandSize = 0;
 
+    private int ILandQty = 0;
+    [SerializeField] private Text ILandQtyText;
+    private int LLandQty = 0;
+    [SerializeField] private Text LLandQtyText;
+    private int TLandQty = 0;
+    [SerializeField] private Text TLandQtyText;
+    private int ZLandQty = 0;
+    [SerializeField] private Text ZLandQtyText;
+    private int SquareLandQty = 0;
+    [SerializeField] private Text SquareLandQtyText;
+    private int WaterTowerQty = 0;
+    [SerializeField] private Text WaterTowerQtyText;
+    private int LightningTowerQty = 0;
+    [SerializeField] private Text LightningTowerQtyText;
+    private int FireTowerQty = 0;
+    [SerializeField] private Text FireTowerQtyText;
+
     void Awake()
     {
 
@@ -38,6 +56,8 @@ public class DeckController : MonoBehaviour
         canvas = GameObject.FindWithTag("canvas");
         LootOverlay = canvas.transform.Find("AddCardPanel").gameObject;
         LootDisplay = LootOverlay.transform.Find("CardDisplay").gameObject;
+
+        SetInitCardQty();
     }
 
     // Update is called once per frame
@@ -172,7 +192,7 @@ public class DeckController : MonoBehaviour
 
     public void DrawRandomTowerCard()
     {
-        List<string> towerArray = new List<string> { "WindTowerCard", "WaterTowerCard", "LightningTowerCard", "FireTowerCard" };
+        List<string> towerArray = new List<string> { "WaterTowerCard", "LightningTowerCard", "FireTowerCard" };
         System.Random r = new System.Random();
 
         // Fisher-Yates Shuffle
@@ -187,13 +207,13 @@ public class DeckController : MonoBehaviour
         int cardIndex = -1;
         int towerIndex = 0;
 
-        while (cardIndex == -1 && towerIndex != 4)
+        while (cardIndex == -1 && towerIndex != towerArray.Count)
         {
             cardIndex = deck.FindIndex(gameObject => gameObject.name.Contains(towerArray[towerIndex]));
             towerIndex++;
         }
 
-        if (cardIndex == -1 && towerIndex == 4) // zero tower cards in deck bruh
+        if (cardIndex == -1 && towerIndex == towerArray.Count) // zero tower cards in deck bruh
         {
             return;
         }
@@ -205,4 +225,63 @@ public class DeckController : MonoBehaviour
         currentHandSize++;
     }
 
+    private void SetInitCardQty()
+    {
+        AddILandQty();
+        AddLLandQty();
+        AddTLandQty();
+        AddZLandQty();
+        AddSquareLandQty();
+        AddLightningTowerQty();
+        AddFireTowerQty();
+        AddWaterTowerQty();
+    }
+
+    public void AddILandQty()
+    {
+        ILandQty += 1;
+        ILandQtyText.text = "x " + ILandQty.ToString();
+    }
+
+    public void AddLLandQty()
+    {
+        LLandQty += 1;
+        LLandQtyText.text = "x " + LLandQty.ToString();
+    }
+
+    public void AddTLandQty()
+    {
+        TLandQty += 1;
+        TLandQtyText.text = "x " + TLandQty.ToString();
+    }
+
+    public void AddZLandQty()
+    {
+        ZLandQty += 1;
+        ZLandQtyText.text = "x " + ZLandQty.ToString();
+    }
+
+    public void AddSquareLandQty()
+    {
+        SquareLandQty += 1;
+        SquareLandQtyText.text = "x " + SquareLandQty.ToString();
+    }
+
+    public void AddFireTowerQty()
+    {
+        FireTowerQty += 1;
+        FireTowerQtyText.text = "x " + FireTowerQty.ToString();
+    }
+
+    public void AddLightningTowerQty()
+    {
+        LightningTowerQty += 1;
+        LightningTowerQtyText.text = "x " + LightningTowerQty.ToString();
+    }
+
+    public void AddWaterTowerQty()
+    {
+        WaterTowerQty += 1;
+        WaterTowerQtyText.text = "x " + WaterTowerQty.ToString();
+    }
 }

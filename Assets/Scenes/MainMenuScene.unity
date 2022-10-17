@@ -5133,7 +5133,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The fire tower card is added to your existing hand for the next round
+  m_text: The fire tower card is added to your existing deck in the next round
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
@@ -8740,6 +8740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: d3ccbb7e3d6e9a74588128bbf48b1f58, type: 2}
+  slider: {fileID: 176977793}
 --- !u!1 &1291999863
 GameObject:
   m_ObjectHideFlags: 0
