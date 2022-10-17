@@ -546,11 +546,12 @@ GameObject:
   - component: {fileID: 5808512353645273033}
   - component: {fileID: 5893580916499492453}
   - component: {fileID: 5893580916499492452}
+  - component: {fileID: 7128861682922443836}
+  - component: {fileID: 4903048375904833739}
   - component: {fileID: 5893580916499492454}
   - component: {fileID: 2247355359462784000}
   - component: {fileID: 4903048376265168937}
   - component: {fileID: 615238482449245343}
-  - component: {fileID: 4903048375904833739}
   - component: {fileID: -4044322572995640024}
   m_Layer: 0
   m_Name: TankBeetle
@@ -658,6 +659,55 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7128861682922443836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5893580916499492449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda04b8927a5a44d4bcab849b4d1bc5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myEnemyObject: {fileID: 4903048375904833739}
+  currentStatusDuration: 0
+  lastDOTInterval: 0
+  statusCoolDown: 0
+  originalSpeed: 0
+  currentStatus: 
+  DOT: 0
+  DOTInterval: 0
+  statusDuration: 0
+  baseDamage: 0
+  slowDebuff: 0
+  towerLevel: 0
+--- !u!114 &4903048375904833739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5893580916499492449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 407be69b7c2714b4ea72910365a975fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 0}
+  volume: 0.5
+  maxHp: 1200
+  hp: 1200
+  skillCoolDown: 5
+  defence: 0
+  currRound: 1
+  destructionMat: {fileID: 2100000, guid: b74884b5f6bed4f2482d69909f6aee3e, type: 2}
+  skillDuration: 2
+  skillToggled: 0
+  rend: {fileID: 0}
+  aggroMat: {fileID: 2100000, guid: d0a563a6676074448afd2fdf63370245, type: 2}
+  originalMat: {fileID: 0}
 --- !u!114 &5893580916499492454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,38 +762,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4903048375904833739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5893580916499492449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 407be69b7c2714b4ea72910365a975fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioSource: {fileID: 0}
-  volume: 0.5
-  maxHp: 1200
-  hp: 1200
-  skillCoolDown: 5
-  defence: 0
-  currRound: 1
-  _statusData: {fileID: 0}
-  currentStatusDuration: 0
-  lastDOTInterval: 0
-  statusCoolDown: 0
-  originalSpeed: 0
-  freezeEffectData: {fileID: 11400000, guid: 47ba0491509ed4f1697adc6a7745d704, type: 2}
-  shockEffectData: {fileID: 11400000, guid: eb8933d247d6141d8a51c9a4814aae76, type: 2}
-  destructionMat: {fileID: 2100000, guid: b74884b5f6bed4f2482d69909f6aee3e, type: 2}
-  skillDuration: 2
-  skillToggled: 0
-  rend: {fileID: 0}
-  aggroMat: {fileID: 2100000, guid: d0a563a6676074448afd2fdf63370245, type: 2}
-  originalMat: {fileID: 0}
 --- !u!82 &-4044322572995640024
 AudioSource:
   m_ObjectHideFlags: 0
