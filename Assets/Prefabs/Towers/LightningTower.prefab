@@ -307,6 +307,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4518832672385981795}
     m_Modifications:
+    - target: {fileID: 4840709871523979, guid: 162d2f8f57192a14ab9278fc56faf57e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 531d8fdcdbee44019a82523ca9d0829c, type: 2}
     - target: {fileID: 1092910722396494324, guid: 162d2f8f57192a14ab9278fc56faf57e, type: 3}
       propertyPath: m_Name
       value: Tile Bot 1
@@ -590,6 +594,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 4172201787302145859, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 531d8fdcdbee44019a82523ca9d0829c, type: 2}
     - target: {fileID: 5114996075067899094, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
       propertyPath: m_RootOrder
       value: 1

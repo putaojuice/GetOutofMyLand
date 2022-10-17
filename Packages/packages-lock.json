@@ -150,7 +150,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ml-agents.extensions": {
-      "version": "file:C:/Users/gordo/Desktop/ml-agents-release_18_branch/com.unity.ml-agents.extensions",
+      "version": "file:/Users/yuan/Desktop/ml-agents-release_18_branch/com.unity.ml-agents.extensions",
       "depth": 0,
       "source": "local",
       "dependencies": {
