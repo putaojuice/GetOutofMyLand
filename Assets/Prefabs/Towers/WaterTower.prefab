@@ -242,7 +242,10 @@ MonoBehaviour:
   rotatingPart: {fileID: 6333204248786813040}
   bulletPrefab: {fileID: 0}
   firePoint: {fileID: 0}
-  acidRainStatusEffect: {fileID: 11400000, guid: 389d881b428ee4e8584e5c7733119add, type: 2}
+  towerLevel: 0
+  rainStatusLevel1: {fileID: 11400000, guid: 389d881b428ee4e8584e5c7733119add, type: 2}
+  rainStatusLevel2: {fileID: 11400000, guid: 8ffa65bec0aec4c7dbf98c3b1fea31b0, type: 2}
+  rainStatusLevel3: {fileID: 11400000, guid: 10b06e3755d7e4817b437ef5d7e63870, type: 2}
   line: {fileID: 4507485369844437222}
 --- !u!208 &-6274350280932613119
 NavMeshObstacle:
