@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 713059682}
-  m_IndirectSpecularColor: {r: 0.28300804, g: 0.60441977, b: 0.9477975, a: 1}
+  m_IndirectSpecularColor: {r: 0.28300822, g: 0.6044199, b: 0.9477975, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1649,6 +1649,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2408335853564092049, guid: a87a20628fba24428ae6796329828910, type: 3}
   m_PrefabInstance: {fileID: 1920183594}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1158085611 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2408335853564092077, guid: a87a20628fba24428ae6796329828910, type: 3}
+  m_PrefabInstance: {fileID: 1920183594}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1172482859 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4656475334368768816, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
@@ -1919,17 +1924,6 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!114 &1621336504 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2723128228814133021, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
-  m_PrefabInstance: {fileID: 459199819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e048374dc8d2374cbe2ea405ca3daca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1634568623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5614825271538413222, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
@@ -2327,7 +2321,6 @@ MonoBehaviour:
   Deck: {fileID: 590188042}
   maxHandSize: 5
   deck:
-  - {fileID: 1621336504}
   - {fileID: 1790373384}
   - {fileID: 1312975077}
   - {fileID: 1834203175}
@@ -2337,7 +2330,6 @@ MonoBehaviour:
   - {fileID: 1059237351}
   - {fileID: 760644386}
   lootDeck:
-  - {fileID: 2747059604024587592, guid: de7e727cbf546ee43a6692a6c04c0fe7, type: 3}
   - {fileID: 2747059604024587592, guid: 10508ff3d0720c143840f8b69c709f8c, type: 3}
   - {fileID: 2747059604024587592, guid: c1128e83c8e1d544a8b78aa5c55143a7, type: 3}
   - {fileID: 2747059604024587592, guid: 273f1e4845a2b1d4094d0994c8574357, type: 3}
@@ -2363,6 +2355,7 @@ MonoBehaviour:
   assassinPrefab: {fileID: 7771414917279186535, guid: a353c2663ad41440ea536a2db101f278, type: 3}
   healerPrefab: {fileID: 5652554327356069852, guid: 87cf9c83b7b4e4d588309280e672e574, type: 3}
   tankPrefab: {fileID: 5899606315313437279, guid: 39d21b1751f724feab671dd05d4bc413, type: 3}
+  endPoint: {fileID: 1158085611}
 --- !u!114 &1790373384 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1771974095492433532, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
