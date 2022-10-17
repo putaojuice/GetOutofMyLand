@@ -5274,6 +5274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1573089061671121476}
   - component: {fileID: 1481925828687411154}
+  - component: {fileID: 7520024392033738719}
   - component: {fileID: 8630446652980266971}
   - component: {fileID: 1567556252654110334}
   - component: {fileID: 1567556252654110335}
@@ -5348,6 +5349,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7520024392033738719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567556252654110330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda04b8927a5a44d4bcab849b4d1bc5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myEnemyObject: {fileID: 8630446652980266971}
+  currentStatusDuration: 0
+  lastDOTInterval: 0
+  statusCoolDown: 0
+  originalSpeed: 0
+  currentStatus: 
+  DOT: 0
+  DOTInterval: 0
+  statusDuration: 0
+  baseDamage: 0
+  slowDebuff: 0
+  towerLevel: 0
 --- !u!114 &8630446652980266971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5367,17 +5392,11 @@ MonoBehaviour:
   skillCoolDown: 5
   defence: 0
   currRound: 1
-  _statusData: {fileID: 0}
-  currentStatusDuration: 0
-  lastDOTInterval: 0
-  statusCoolDown: 0
-  originalSpeed: 0
-  burnEffectData: {fileID: 11400000, guid: 9007d709f3e9e43a1a69c3117f0d9391, type: 2}
-  shockEffectData: {fileID: 11400000, guid: eb8933d247d6141d8a51c9a4814aae76, type: 2}
   destructionMat: {fileID: 2100000, guid: b74884b5f6bed4f2482d69909f6aee3e, type: 2}
   chargeSpeed: 3
   skillDuration: 0.5
   skillToggled: 0
+  originalSpeed: 0
 --- !u!143 &1567556252654110334
 CharacterController:
   m_ObjectHideFlags: 0

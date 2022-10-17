@@ -23,9 +23,6 @@ public class Tank : Enemy
         skillCoolDown = 2f;
         defence = 2f;
 
-        // Finding necesary objects
-        UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        originalSpeed = agent.speed;
 
         rend = GetComponentInChildren<Renderer>();
         originalMat = rend.material;
@@ -35,9 +32,6 @@ public class Tank : Enemy
     // Update is called once per frame
     void Update()
     {
-        if(_statusData != null){
-            UpdateStatusEffects();
-        }
 
         if(hp <= 0.0f){
             Destroy(gameObject);
@@ -62,7 +56,6 @@ public class Tank : Enemy
 
         // to be changed to scheduler
         skillCoolDown -= Time.deltaTime;
-        statusCoolDown -= Time.deltaTime;
     }
 
     // Charge Skill will be called

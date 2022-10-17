@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour, IEffectable
+public class Enemy : MonoBehaviour
 {
     private GameManager gameManager;
 
@@ -15,19 +15,6 @@ public class Enemy : MonoBehaviour, IEffectable
     public float skillCoolDown = 5f;
     public float defence = 0f;
     public float currRound = 1f;
-
-    
-    [Header("Status Data")]
-    // public StatusData _statusData;
-    public Status _statusData;
-    public float currentStatusDuration = 0.0f;
-    public float lastDOTInterval = 0.0f;
-    public float statusCoolDown = 0.0f;
-    public float originalSpeed;
-    // [SerializeField] public StatusData burnEffectData;
-    // [SerializeField] public StatusData shockEffectData;
-    [SerializeField] public ShockStatus shockStatus;
-    [SerializeField] public Status burnStatus;
 
     [SerializeField] public Material destructionMat;
 
@@ -47,11 +34,6 @@ public class Enemy : MonoBehaviour, IEffectable
             return;
         }
 
-        if(_statusData != null){
-            UpdateStatusEffects();
-        }
-
-        statusCoolDown -= Time.deltaTime;
     }
 
     IEnumerator PlayDissolve(float duration) 
@@ -118,154 +100,6 @@ public class Enemy : MonoBehaviour, IEffectable
 
     public virtual void UseSkill() {
         return;
-    }
-
-    // public void ApplyStatus (StatusData _statusData){
-        
-    //     if(statusCoolDown <= 0.0f){
-    //         if(this._statusData == null){
-    //             this._statusData = _statusData;
-    //         } else {
-                
-    //             HandleStatus(_statusData);
-    //         }
-    //     }
-    // }
-        public void ApplyStatus (Status _statusData){
-        
-        if(statusCoolDown <= 0.0f){
-            if(this._statusData == null){
-                this._statusData = _statusData;
-            } else {
-                HandleStatus(_statusData);
-            }
-        }
-    }
-
-    public void UndoStatus () {
-        currentStatusDuration = 0.0f;
-        lastDOTInterval = 0.0f;
-        statusCoolDown = 2.0f;
-        
-        //Used to reset the speed after slow / freeze debuff
-        UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        agent.speed = originalSpeed;
-
-        gameObject.transform.Find("ShockEffect").gameObject.SetActive(false);
-        gameObject.transform.Find("BurnEffect").gameObject.SetActive(false);
-
-        this._statusData = null;
-    }
-
-    // public void ApplyNewStatus(StatusData newStatusData){
-    //     currentStatusDuration = 0.0f;
-    //     lastDOTInterval = 0.0f;
-    //     this._statusData = newStatusData;
-    // }
-
-    public void ApplyNewStatus(Status newStatusData){
-        currentStatusDuration = 0.0f;
-        lastDOTInterval = 0.0f;
-        this._statusData = newStatusData;
-    }
-
-    public void UpdateStatusEffects (){
-        currentStatusDuration += Time.deltaTime;
-
-        if(currentStatusDuration > _statusData.statusDuration) UndoStatus();
-
-        if(_statusData == null) return;
-
-        if(_statusData.DOTPoints != 0.0f && currentStatusDuration > lastDOTInterval)
-        {
-            GetStatusDamaged(_statusData.DOTPoints);
-            lastDOTInterval += _statusData.DOTInterval;
-        }
-
-        if(_statusData.slowDebuff != 0.0f){
-            UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-            agent.speed = originalSpeed * _statusData.slowDebuff;
-        }
-
-    }
-
-    public void HandleStatus(Status newStatusData) {
-        switch(newStatusData.StatusType) {
-            case "FireEffect":
-                if(_statusData.StatusType == "LightningEffect"){ // inflict Explosion
-                    HandlePlasmaStatus(newStatusData, _statusData);
-                }
-                else if(_statusData.StatusType == "WaterEffect"){
-                    HandleExplosionStatus();
-                }
-                break;
-
-            case "LightningEffect":
-                if(_statusData.StatusType == "WaterEffect"){
-                    HandleShockStatus(_statusData, newStatusData);
-                }
-                else if(_statusData.StatusType == "FireEffect"){ // inflict Explosion
-                    HandlePlasmaStatus(_statusData, newStatusData);
-                }
-                break;
-            case "WaterEffect":
-
-                if(_statusData.StatusType == "FireEffect"){
-                    HandleExplosionStatus();
-                }
-                else if(_statusData.StatusType == "LightningEffect"){ // inflict Explosion
-                    HandleShockStatus(newStatusData, _statusData); 
-                }
-                break;
-            default:
-                break;
-        }
-    }
-
-    public void HandlePlasmaStatus(Status fireStatusData, Status lightningStatusData){  //requires the fireStatusData to calculate the damage points
-        Debug.Log("PLASMA!");
-        float damage = (fireStatusData.statusDuration/fireStatusData.DOTInterval) * fireStatusData.DOTPoints;
-        GetStatusDamaged(damage);
-        UndoStatus();
-        gameObject.transform.Find("PlasmaEffect").gameObject.SetActive(true);
-        gameObject.transform.Find("PlasmaEffect").GetComponent<ParticleSystem>().Play();
-    }
-
-    public void HandleExplosionStatus(){
-        Debug.Log("EXPLOSION!!");
-        float damage = 5.0f;
-        GetStatusDamaged(damage);
-        UndoStatus();
-        ApplyNewStatus(burnStatus);
-        gameObject.transform.Find("BurnEffect").gameObject.SetActive(true);
-        gameObject.transform.Find("BurnEffect").GetComponent<ParticleSystem>().Play();
-
-        float explosionAOE = 5.0f;
-        var enemies = GameObject.FindObjectsOfType<Enemy>();
-        foreach(var enemy in enemies) {
-            // checks if enemy is not itself and if enemy is within explosionAOE
-            if(transform.position != enemy.transform.position && (transform.position - enemy.transform.position).magnitude < explosionAOE){
-                enemy.GetStatusDamaged(damage);
-                enemy.ApplyNewStatus(burnStatus);
-                enemy.gameObject.transform.Find("BurnEffect").gameObject.SetActive(true);
-                enemy.gameObject.transform.Find("BurnEffect").GetComponent<ParticleSystem>().Play();
-            }
-        }
-
-        gameObject.transform.Find("ExplosionEffect").gameObject.SetActive(true);
-        gameObject.transform.Find("ExplosionEffect").GetComponent<ParticleSystem>().Play();
-
-    }
-
-    public void HandleShockStatus(Status waterStatusData, Status lightningStatusData){
-        Debug.Log("SHOCK!!");
-
-        shockStatus.setSlowDebuff(lightningStatusData.damage);
-        shockStatus.setSlowDuration(waterStatusData.statusDuration);
-        ApplyNewStatus(shockStatus);
-
-        gameObject.transform.Find("ShockEffect").gameObject.SetActive(true);
-        gameObject.transform.Find("ShockEffect").GetComponent<ParticleSystem>().Play();
     }
 
 }

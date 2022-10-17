@@ -5,12 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Status Effect")]
 public class StatusData : ScriptableObject
 {
-    [SerializeField] public float DOTPoints;
-    [SerializeField] public float slowDebuff;
-    [SerializeField] public bool isFreeze;
+    [SerializeField] public string statusType;
     [SerializeField] public float statusDuration;
+    [SerializeField] public float DOT;
     [SerializeField] public float DOTInterval;
-    [SerializeField] public string StatusType;
+    [SerializeField] public float slowDebuff;
+    [SerializeField] public float damage;
     [SerializeField] public float towerLevel;
     
 }

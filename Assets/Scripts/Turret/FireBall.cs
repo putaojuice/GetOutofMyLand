@@ -7,13 +7,15 @@ public class FireBall : Bullet
 
     [SerializeField] public float burnDamage = 1.0f;
     // [SerializeField] public StatusData _statusData;
-    [SerializeField] public Status _statusData;
+    [SerializeField] public StatusData fireStatusLevel1;
+    [SerializeField] public StatusData fireStatusLevel2;
+    [SerializeField] public StatusData fireStatusLevel3;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        attackPoints = 2.0f;
         speed = 5.0f;
         
     }
@@ -41,9 +43,22 @@ public class FireBall : Bullet
 
     public override void HitTarget()
     {
+        EnemyStatus currEnemyStatus = target.GetComponent<EnemyStatus>();
         Enemy currEnemy = target.GetComponent<Enemy>();
-        currEnemy.GetDamaged(attackPoints * towerLevel);
-        currEnemy.ApplyStatus(_statusData);
+        switch(towerLevel){
+            case 1:
+                currEnemy.GetDamaged(fireStatusLevel1.damage * towerLevel);
+                currEnemyStatus.ApplyStatus(fireStatusLevel1);
+                break;
+            case 2:
+                currEnemy.GetDamaged(fireStatusLevel2.damage * towerLevel);
+                currEnemyStatus.ApplyStatus(fireStatusLevel2);
+                break;
+            default:
+                currEnemy.GetDamaged(fireStatusLevel3.damage * towerLevel);
+                currEnemyStatus.ApplyStatus(fireStatusLevel3);
+                break;
+        }
         Destroy(this.gameObject);
 
     }
@@ -52,9 +67,22 @@ public class FireBall : Bullet
     {
         // CollisionHandler.HandleCollision(gameObject, col);
         if(col.gameObject == target){
+            EnemyStatus currEnemyStatus = target.GetComponent<EnemyStatus>();
             Enemy currEnemy = target.GetComponent<Enemy>();
-            currEnemy.GetDamaged(attackPoints * towerLevel);
-            currEnemy.ApplyStatus(_statusData);
+            switch(towerLevel){
+                case 1:
+                    currEnemy.GetDamaged(fireStatusLevel1.damage * towerLevel);
+                    currEnemyStatus.ApplyStatus(fireStatusLevel1);
+                    break;
+                case 2:
+                    currEnemy.GetDamaged(fireStatusLevel2.damage * towerLevel);
+                    currEnemyStatus.ApplyStatus(fireStatusLevel2);
+                    break;
+                default:
+                    currEnemy.GetDamaged(fireStatusLevel3.damage * towerLevel);
+                    currEnemyStatus.ApplyStatus(fireStatusLevel3);
+                    break;
+            }
             Destroy(this.gameObject);
         }
 

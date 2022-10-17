@@ -5,7 +5,7 @@ using UnityEngine;
 public class WindBullet : Bullet
 {
 
-    [SerializeField] public Status _statusData;
+    [SerializeField] public StatusData _statusData;
     [SerializeField] public Vector3 origin;
     [SerializeField] public Vector3 direction;
     [SerializeField] public float range;
@@ -19,7 +19,7 @@ public class WindBullet : Bullet
     // Start is called before the first frame update
     void Start()
     {
-        attackPoints = 4.0f;
+        // attackPoints = 4.0f;
         speed = 5.0f;
         origin = transform.position;
         
@@ -44,9 +44,10 @@ public class WindBullet : Bullet
    public void OnTriggerEnter(Collider collider)
    {
         Enemy currEnemy = collider.gameObject.GetComponent<Enemy>();
+        EnemyStatus currEnemyStatus = collider.gameObject.GetComponent<EnemyStatus>();
         if(currEnemy != null){
-            currEnemy.GetDamaged(attackPoints);
-            currEnemy.ApplyStatus(_statusData);
+            // currEnemy.GetDamaged(attackPoints);
+            currEnemyStatus.ApplyStatus(_statusData);
         }
         
    }
