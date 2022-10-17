@@ -510,6 +510,7 @@ GameObject:
   - component: {fileID: 7771414917279186535}
   - component: {fileID: 7682572701467081713}
   - component: {fileID: 7767641185132825181}
+  - component: {fileID: 1796535209479458720}
   - component: {fileID: 9082951876049885628}
   - component: {fileID: 7767641185132825180}
   - component: {fileID: 7767641185132825182}
@@ -601,6 +602,30 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1796535209479458720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7767641185132825177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda04b8927a5a44d4bcab849b4d1bc5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myEnemyObject: {fileID: 0}
+  currentStatusDuration: 0
+  lastDOTInterval: 0
+  statusCoolDown: 0
+  originalSpeed: 0
+  currentStatus: 
+  DOT: 0
+  DOTInterval: 0
+  statusDuration: 0
+  baseDamage: 0
+  slowDebuff: 0
+  towerLevel: 0
 --- !u!114 &9082951876049885628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,13 +645,6 @@ MonoBehaviour:
   skillCoolDown: 5
   defence: 0
   currRound: 1
-  _statusData: {fileID: 0}
-  currentStatusDuration: 0
-  lastDOTInterval: 0
-  statusCoolDown: 0
-  originalSpeed: 0
-  burnEffectData: {fileID: 11400000, guid: 9007d709f3e9e43a1a69c3117f0d9391, type: 2}
-  shockEffectData: {fileID: 11400000, guid: eb8933d247d6141d8a51c9a4814aae76, type: 2}
   destructionMat: {fileID: 2100000, guid: 7151259e6d0e24e37a9e5d5998bb1c95, type: 2}
   hiddenMat: {fileID: 2100000, guid: 90ce2012e238d4b9cbdb9ac93971d159, type: 2}
   originalMat: {fileID: 0}

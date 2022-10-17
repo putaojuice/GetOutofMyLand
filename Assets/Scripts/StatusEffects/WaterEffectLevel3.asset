@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WaterEffectLevel3
   m_EditorClassIdentifier: 
   statusType: WaterEffect
-  statusDuration: 1
+  statusDuration: 10
   DOT: 3
   DOTInterval: 1
   slowDebuff: 0

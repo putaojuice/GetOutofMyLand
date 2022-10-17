@@ -41,8 +41,6 @@ public class EnemyStatus : MonoBehaviour, IEffectable
     }
 
    public void ApplyStatus (StatusData _statusData){
-        Debug.Log("Calling ApplyStatus");
-        Debug.Log(myEnemyObject);
         if(statusCoolDown <= 0.0f){
             if(this.currentStatus == ""){ // fit in the current set of data first 
                 this.currentStatus = _statusData.statusType;
@@ -85,6 +83,7 @@ public class EnemyStatus : MonoBehaviour, IEffectable
 
     // replace old status with updated status
     public void ApplyNewStatus(string _newStatus, float _DOT, float _DOTInterval, float _statusDuration, float _damage, float _slowDebuff, float _towerLevel){  
+        Debug.Log(_newStatus);
         lastDOTInterval = 0.0f;
         currentStatusDuration = 0.0f;
         this.currentStatus = _newStatus;
@@ -106,7 +105,6 @@ public class EnemyStatus : MonoBehaviour, IEffectable
 
         if(DOT > 0.0f && currentStatusDuration > lastDOTInterval)
         {
-            // Debug.Log(myEnemyObject);
             myEnemyObject.GetStatusDamaged(DOT);
             lastDOTInterval += DOTInterval;
         }
@@ -125,7 +123,7 @@ public class EnemyStatus : MonoBehaviour, IEffectable
                     HandlePlasmaStatusIfCurrentLightning(newStatusData);
                 }
                 else if(currentStatus == "WaterEffect"){
-                    // HandleExplosionStatusIfCurrentFire(newStatusData);
+                    HandleExplosionStatusIfCurrentWater(newStatusData);
                 }
                 break;
 
@@ -140,12 +138,13 @@ public class EnemyStatus : MonoBehaviour, IEffectable
             case "WaterEffect":
 
                 if(currentStatus == "FireEffect"){
-                    // HandleExplosionStatusIfCurrentWater(newStatusData);
+                    HandleExplosionStatusIfCurrentFire(newStatusData);
                 }
                 else if(currentStatus == "LightningEffect"){ // inflict Explosion
                     HandleShockStatusIfCurrentLightning(newStatusData); 
                 }
                 break;
+                
             default:
                 break;
         }
@@ -171,33 +170,65 @@ public class EnemyStatus : MonoBehaviour, IEffectable
         gameObject.transform.Find("PlasmaEffect").GetComponent<ParticleSystem>().Play();
     }
 
-    // public void HandleExplosionStatus(){
-    //     Debug.Log("EXPLOSION!!");
-    //     float damage = 5.0f;
-    //     myEnemyObject.GetStatusDamaged(damage);
-    //     UndoStatus();
-    //     ApplyNewStatus(burnStatus);
-    //     gameObject.transform.Find("BurnEffect").gameObject.SetActive(true);
-    //     gameObject.transform.Find("BurnEffect").GetComponent<ParticleSystem>().Play();
+    //string newStatus, float DOT, float DOTInterval, float statusDuration, float damage, float slowDebuff, float towerLevel
+    public void HandleExplosionStatusIfCurrentWater(StatusData fireStatusData){
+        Debug.Log("EXPLOSION!!");
+        myEnemyObject.GetStatusDamaged(fireStatusData.damage);
+        // UndoStatus();
 
-    //     float explosionAOE = 5.0f;
-    //     var enemies = GameObject.FindObjectsOfType<Enemy>();
-    //     foreach(var enemy in enemies) {
-    //         // checks if enemy is not itself and if enemy is within explosionAOE
-    //         if(transform.position != enemy.transform.position && (transform.position - enemy.transform.position).magnitude < explosionAOE){
-    //             enemy.GetStatusDamaged(damage);
-    //             enemy.ApplyNewStatus(burnStatus);
-    //             enemy.gameObject.transform.Find("BurnEffect").gameObject.SetActive(true);
-    //             enemy.gameObject.transform.Find("BurnEffect").GetComponent<ParticleSystem>().Play();
-    //         }
-    //     }
+        float burnDOT = DOT + fireStatusData.towerLevel;
+        float burnStatusDuration = Mathf.Min(statusDuration, fireStatusData.statusDuration);
+        ApplyNewStatus("BurnEffect", burnDOT, DOTInterval, burnStatusDuration, 0.0f, 0.0f, towerLevel);
 
-    //     gameObject.transform.Find("ExplosionEffect").gameObject.SetActive(true);
-    //     gameObject.transform.Find("ExplosionEffect").GetComponent<ParticleSystem>().Play();
+        gameObject.transform.Find("BurnEffect").gameObject.SetActive(true);
+        gameObject.transform.Find("BurnEffect").GetComponent<ParticleSystem>().Play();
 
-    // }
+        float explosionAOE = 4.0f + Mathf.Min(towerLevel, fireStatusData.towerLevel);
+        var enemies = GameObject.FindObjectsOfType<EnemyStatus>();
+
+        foreach(var enemy in enemies) {
+            // checks if enemy is not itself and if enemy is within explosionAOE
+            if(transform.position != enemy.transform.position && (transform.position - enemy.transform.position).magnitude < explosionAOE){
+                enemy.ApplyNewStatus("BurnEffect", burnDOT, DOTInterval, burnStatusDuration, 0.0f, 0.0f, towerLevel);
+                enemy.gameObject.transform.Find("BurnEffect").gameObject.SetActive(true);
+                enemy.gameObject.transform.Find("BurnEffect").GetComponent<ParticleSystem>().Play();
+            }
+        }
+
+        gameObject.transform.Find("ExplosionEffect").gameObject.SetActive(true);
+        gameObject.transform.Find("ExplosionEffect").GetComponent<ParticleSystem>().Play();
+
+    }
 
     //string newStatus, float DOT, float DOTInterval, float statusDuration, float damage, float slowDebuff, float towerLevel
+    public void HandleExplosionStatusIfCurrentFire(StatusData waterStatusData){
+        Debug.Log("EXPLOSION!!");
+        myEnemyObject.GetStatusDamaged(baseDamage);
+        // UndoStatus();
+        float burnDOT = waterStatusData.DOT + towerLevel;
+        float burnStatusDuration = Mathf.Min(statusDuration, waterStatusData.statusDuration);
+        ApplyNewStatus("BurnEffect", burnDOT, waterStatusData.DOTInterval, burnStatusDuration, 0.0f, 0.0f, towerLevel);
+        gameObject.transform.Find("BurnEffect").gameObject.SetActive(true);
+        gameObject.transform.Find("BurnEffect").GetComponent<ParticleSystem>().Play();
+
+        float explosionAOE = 4.0f + Mathf.Min(towerLevel, waterStatusData.towerLevel);
+        var enemies = GameObject.FindObjectsOfType<EnemyStatus>();
+
+        foreach(var enemy in enemies) {
+            // checks if enemy is not itself and if enemy is within explosionAOE
+            if(transform.position != enemy.transform.position && (transform.position - enemy.transform.position).magnitude < explosionAOE){
+                enemy.ApplyNewStatus("BurnEffect", burnDOT, waterStatusData.DOTInterval, burnStatusDuration, 0.0f, 0.0f, towerLevel);
+                enemy.gameObject.transform.Find("BurnEffect").gameObject.SetActive(true);
+                enemy.gameObject.transform.Find("BurnEffect").GetComponent<ParticleSystem>().Play();
+            }
+        }
+
+        gameObject.transform.Find("ExplosionEffect").gameObject.SetActive(true);
+        gameObject.transform.Find("ExplosionEffect").GetComponent<ParticleSystem>().Play();
+
+    }
+
+    
     public void HandleShockStatusIfCurrentLightning(StatusData waterStatusData){
         Debug.Log("SHOCK!!");
 
