@@ -35,6 +35,7 @@ public class Card : MonoBehaviour
         if (isLootCard)
         {
             DeckController.AddCard(this);
+            AddCardQty(this.gameObject.name);
             return;
         }
         // currentCard.gameObject.SetActive(false);
@@ -48,6 +49,40 @@ public class Card : MonoBehaviour
             DeckController.PlayTurretCard(this, prefabPreview);
         } else {
             Debug.Log("Error: Please assign type to card!");
+        }
+    }
+
+    private void AddCardQty(string cardName)
+    {
+        switch (cardName)
+        {
+            case string a when a.Contains("ILandCard"):
+                DeckController.AddILandQty();
+                break;
+            case string a when a.Contains("LLandCard"):
+                DeckController.AddLLandQty();
+                break;
+            case string a when a.Contains("TLandCard"):
+                DeckController.AddTLandQty();
+                break;
+            case string a when a.Contains("ZLandCard"):
+                DeckController.AddZLandQty();
+                break;
+            case string a when a.Contains("SquareLandCard"):
+                DeckController.AddSquareLandQty();
+                break;
+            case string a when a.Contains("LightningTowerCard"):
+                DeckController.AddLightningTowerQty();
+                break;
+            case string a when a.Contains("FireTowerCard"):
+                DeckController.AddFireTowerQty();
+                break;
+            case string a when a.Contains("WaterTowerCard"):
+                DeckController.AddWaterTowerQty();
+                break;
+            default:
+                Debug.Log("ERROR: UNKNOWN CARD");
+                break;
         }
     }
 }
