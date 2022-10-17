@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f3e1c27905b5483998f2bc0deba56d1, type: 3}
-  m_Name: FreezeEffect
+  m_Name: LightningEffectLevel2
   m_EditorClassIdentifier: 
-  DOTPoints: 0
+  statusType: LightningEffect
+  statusDuration: 7
+  DOT: 0
+  DOTInterval: 0
   slowDebuff: 0
-  isFreeze: 1
-  statusDuration: 3
-  DOTInterval: 1
-  StatusType: FreezeEffect
+  damage: 10
+  towerLevel: 2

@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]public Transform assassinPrefab;
     [SerializeField]public Transform healerPrefab;
     [SerializeField]public Transform tankPrefab;
+    [SerializeField]private Transform endPoint;
 
     private List<Transform> listOfEnemies = new List<Transform>();
     private int currentEnemies;
@@ -40,11 +41,13 @@ public class EnemyManager : MonoBehaviour
 
     IEnumerator SpawnEnemy(int currentIndex)
     {   
-
         currentEnemies = currentIndex;
         int randIndex = Random.Range(0, 3);
         for(int i = 0; i < currentIndex; i++){
-            Instantiate(listOfEnemies[randIndex], currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
+            Vector3 spawnDirection = endPoint.transform.position - currentSpawnPoint.transform.position;
+            Vector3 upVector = new Vector3(0f, currentSpawnPoint.transform.rotation.y, 0f);
+            Quaternion finalRotation = Quaternion.LookRotation(spawnDirection, upVector);
+            Instantiate(listOfEnemies[randIndex], currentSpawnPoint.transform.position, finalRotation);
             yield return new WaitForSeconds(1f);
         }
         

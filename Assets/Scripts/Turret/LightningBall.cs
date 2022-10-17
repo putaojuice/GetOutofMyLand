@@ -6,12 +6,14 @@ public class LightningBall : Bullet
 {
 
     [SerializeField] public float burnDamage = 1.0f;
-    [SerializeField] public StatusData _statusData;
+    // [SerializeField] public StatusData _statusData;
+    [SerializeField] public StatusData lightningStatusLevel1;
+    [SerializeField] public StatusData lightningStatusLevel2;
+    [SerializeField] public StatusData lightningStatusLevel3;
 
     // Start is called before the first frame update
     void Start()
     {
-        attackPoints = 5.0f;
         speed = 30.0f;
         
     }
@@ -40,12 +42,24 @@ public class LightningBall : Bullet
     public override void HitTarget()
     {
         Enemy currEnemy = target.GetComponent<Enemy>();
-        currEnemy.GetDamaged(attackPoints);
-        currEnemy.ApplyStatus(_statusData);
+        EnemyStatus currEnemyStatus = target.GetComponent<EnemyStatus>();
+        switch(towerLevel){
+            case 1:
+                currEnemy.GetDamaged(lightningStatusLevel1.damage * towerLevel);
+                currEnemyStatus.ApplyStatus(lightningStatusLevel1);
+                break;
+            case 2:
+                currEnemy.GetDamaged(lightningStatusLevel2.damage * towerLevel);
+                currEnemyStatus.ApplyStatus(lightningStatusLevel2);
+                break;
+            default:
+                currEnemy.GetDamaged(lightningStatusLevel3.damage * towerLevel);
+                currEnemyStatus.ApplyStatus(lightningStatusLevel3);
+                break;
+        }
+
         Destroy(this.gameObject);
 
     }
-
-
 
 }

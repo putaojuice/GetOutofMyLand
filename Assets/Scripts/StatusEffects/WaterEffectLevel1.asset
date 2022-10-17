@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f3e1c27905b5483998f2bc0deba56d1, type: 3}
-  m_Name: ShockEffect
+  m_Name: WaterEffectLevel1
   m_EditorClassIdentifier: 
-  DOTPoints: 0
-  slowDebuff: 5
-  isFreeze: 0
+  statusType: WaterEffect
   statusDuration: 5
+  DOT: 1
   DOTInterval: 1
-  StatusType: ShockEffect
+  slowDebuff: 0
+  damage: 0
+  towerLevel: 1

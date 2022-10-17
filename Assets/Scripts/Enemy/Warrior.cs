@@ -10,6 +10,7 @@ public class Warrior : Enemy
     [SerializeField]private float chargeSpeed = 3.0f;
     [SerializeField]private float skillDuration = 0.5f;
     [SerializeField]private bool skillToggled = false;
+    public float originalSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -23,16 +24,12 @@ public class Warrior : Enemy
         // Finding necesary objects
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         originalSpeed = agent.speed;
-        agent.speed = 0.0f;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_statusData != null){
-            UpdateStatusEffects();
-        }
 
         if(hp <= 0.0f){
             Destroy(gameObject);
@@ -57,7 +54,6 @@ public class Warrior : Enemy
 
         // to be changed to scheduler
         skillCoolDown -= Time.deltaTime;
-        statusCoolDown -= Time.deltaTime;
     }
 
     // Charge Skill will be called

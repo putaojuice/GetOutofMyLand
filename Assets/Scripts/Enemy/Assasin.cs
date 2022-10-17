@@ -24,19 +24,15 @@ public class Assasin : Enemy
         rend = GetComponentInChildren<Renderer>();
         originalMat = rend.material;
 
-        // Finding necesary objects
-        UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        originalSpeed = agent.speed;
-
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if(_statusData != null){
-            UpdateStatusEffects();
-        }
+        // if(_statusData != null){
+        //     UpdateStatusEffects();
+        // }
 
         if(hp <= 0.0f){
             Destroy(gameObject);
@@ -56,7 +52,7 @@ public class Assasin : Enemy
 
         // to be changed to scheduler
         skillCoolDown -= Time.deltaTime;
-        statusCoolDown -= Time.deltaTime;
+        // statusCoolDown -= Time.deltaTime;
     }
 
     public override void GetDamaged(float damage) {
