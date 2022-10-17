@@ -172,7 +172,7 @@ public class DeckController : MonoBehaviour
 
     public void DrawRandomTowerCard()
     {
-        List<string> towerArray = new List<string> { "WindTowerCard", "WaterTowerCard", "LightningTowerCard", "FireTowerCard" };
+        List<string> towerArray = new List<string> { "WaterTowerCard", "LightningTowerCard", "FireTowerCard" };
         System.Random r = new System.Random();
 
         // Fisher-Yates Shuffle
@@ -187,13 +187,13 @@ public class DeckController : MonoBehaviour
         int cardIndex = -1;
         int towerIndex = 0;
 
-        while (cardIndex == -1 && towerIndex != 4)
+        while (cardIndex == -1 && towerIndex != towerArray.Count)
         {
             cardIndex = deck.FindIndex(gameObject => gameObject.name.Contains(towerArray[towerIndex]));
             towerIndex++;
         }
 
-        if (cardIndex == -1 && towerIndex == 4) // zero tower cards in deck bruh
+        if (cardIndex == -1 && towerIndex == towerArray.Count) // zero tower cards in deck bruh
         {
             return;
         }

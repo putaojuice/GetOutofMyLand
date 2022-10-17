@@ -1033,6 +1033,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1718830130800457634, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1805251896577466378, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1242,11 +1246,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 785445423797092929, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000021454225
+      value: 0.000000021454223
       objectReference: {fileID: 0}
     - target: {fileID: 785445423797092929, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000011481952
+      value: -0.000000011481951
       objectReference: {fileID: 0}
     - target: {fileID: 1093093049020216896, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1290,11 +1294,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6034549901478517501, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000021454225
+      value: 0.000000021454223
       objectReference: {fileID: 0}
     - target: {fileID: 6034549901478517501, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000011481952
+      value: -0.000000011481951
       objectReference: {fileID: 0}
     - target: {fileID: 8500851291982029270, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_RootOrder
@@ -1919,17 +1923,6 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!114 &1621336504 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2723128228814133021, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
-  m_PrefabInstance: {fileID: 459199819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e048374dc8d2374cbe2ea405ca3daca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1634568623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5614825271538413222, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
@@ -2327,7 +2320,6 @@ MonoBehaviour:
   Deck: {fileID: 590188042}
   maxHandSize: 5
   deck:
-  - {fileID: 1621336504}
   - {fileID: 1790373384}
   - {fileID: 1312975077}
   - {fileID: 1834203175}
@@ -2337,7 +2329,6 @@ MonoBehaviour:
   - {fileID: 1059237351}
   - {fileID: 760644386}
   lootDeck:
-  - {fileID: 2747059604024587592, guid: de7e727cbf546ee43a6692a6c04c0fe7, type: 3}
   - {fileID: 2747059604024587592, guid: 10508ff3d0720c143840f8b69c709f8c, type: 3}
   - {fileID: 2747059604024587592, guid: c1128e83c8e1d544a8b78aa5c55143a7, type: 3}
   - {fileID: 2747059604024587592, guid: 273f1e4845a2b1d4094d0994c8574357, type: 3}
