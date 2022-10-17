@@ -16,8 +16,9 @@ public class TurretController : MonoBehaviour
 	private DeckController DeckController;
 	private bool isBuilding = false;
 
-    // Start is called before the first frame update
-    void Start()
+
+	// Start is called before the first frame update
+	void Start()
     {
 		// BuildNavMesh on start up
 		surf.BuildNavMesh();
@@ -78,6 +79,7 @@ public class TurretController : MonoBehaviour
 	private void CompleteBuild()
 	{
 		turretBase.Build();
+
 		DeckController.CompleteCard();
 		// update navmesh data in run time
 		surf.UpdateNavMesh(surf.navMeshData);
@@ -85,15 +87,17 @@ public class TurretController : MonoBehaviour
 		StopBuild();
 	}
 
+
 	// This method casts a ray from player's mouse to the position on the screen in order for positioning and snapping of tile to work
 	private void GenerateRay()
 	{
 		Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-		if (Physics.Raycast(ray, out hit, layer))
-		{	
+		//if (Physics.Raycast(ray, out hit, layer))
+		if (Physics.Raycast(cam.transform.position, ray.direction, out hit, Mathf.Infinity, layer))
+		{
 			GameObject go = hit.transform.gameObject;
-			PositionObj(go.transform.position); 
+			PositionObj(go.transform.position);
 		}
 		   
 	}

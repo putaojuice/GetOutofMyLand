@@ -10,14 +10,16 @@ public class WaterTower : Turret
     [SerializeField] public StatusData rainStatusLevel2;
     [SerializeField] public StatusData rainStatusLevel3;
     [SerializeField] LineRenderer line;
+    [SerializeField] public float ActualTowerRange;
 
     // Start is called before the first frame update
     void Start()
     {
-        range = 1.5f;
+        range = ActualTowerRange;
         firingRate = 0.2f;
         InvokeRepeating("UpdateTarget", 0f, 2.0f);
         towerLevel = 3;
+        rangeDetector.GetComponent<RangeDetector>().UpdateColliderRadius(ActualTowerRange);
     }
 
     public override void UpdateTarget()

@@ -36,6 +36,10 @@ public class Enemy : MonoBehaviour
 
     }
 
+    void Spawn() { 
+
+    }
+
     IEnumerator PlayDissolve(float duration) 
     {
         float timeElapsed = 0f;

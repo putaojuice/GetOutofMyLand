@@ -6,12 +6,14 @@ public class WindTower : Turret
 {
 
     [SerializeField] public Vector3 shootDirection;
+    [SerializeField] public float ActualTowerRange;
 
     // Start is called before the first frame update
     void Start()
     {
-        range = 7.5f;
+        range = ActualTowerRange;
         firingRate = 0.5f;
+        rangeDetector.GetComponent<RangeDetector>().UpdateColliderRadius(ActualTowerRange);
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 

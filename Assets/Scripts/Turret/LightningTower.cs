@@ -5,11 +5,14 @@ using DigitalRuby.LightningBolt;
 
 public class LightningTower : Turret
 {
+
+    [SerializeField] public float ActualTowerRange;
     // Start is called before the first frame update
     void Start()
     {
-        range = 7.5f;
+        range = ActualTowerRange;
         firingRate = 1f;
+        rangeDetector.GetComponent<RangeDetector>().UpdateColliderRadius(ActualTowerRange);
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         towerLevel = 1;
     }

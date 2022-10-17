@@ -19,6 +19,8 @@ public class TurretBase : MonoBehaviour
 	private void Start()
 	{
 		UpdateBuildStatus();
+		//Physics.IgnoreLayerCollision(0, 7);
+
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -80,9 +82,20 @@ public class TurretBase : MonoBehaviour
 		{
 			floor[i].SetSelectionColor();
 		}
+		Instantiate(buildPrefab, transform.position, transform.rotation);
+		Destroy(gameObject);
+	}
+
+	public GameObject BuildAndReturnTurret()
+	{
+		for (int i = 0; i < floor.Count; i++)
+		{
+			floor[i].SetSelectionColor();
+		}
 
 		Instantiate(buildPrefab, transform.position, transform.rotation);
 		Destroy(gameObject);
+		return buildPrefab;
 	}
 
 	public void Rotate()

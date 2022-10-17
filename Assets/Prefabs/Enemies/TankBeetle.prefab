@@ -553,6 +553,7 @@ GameObject:
   - component: {fileID: 4903048376265168937}
   - component: {fileID: 615238482449245343}
   - component: {fileID: -4044322572995640024}
+  - component: {fileID: 5884950415364579045}
   m_Layer: 0
   m_Name: TankBeetle
   m_TagString: Enemy
@@ -858,6 +859,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5884950415364579045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5893580916499492449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae01fe944b0e6c43a2b99bbe0382afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5893594830038719939
 GameObject:
   m_ObjectHideFlags: 0
