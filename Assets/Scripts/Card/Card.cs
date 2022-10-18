@@ -24,16 +24,11 @@ public class Card : MonoBehaviour
         currentCard = gameObject.GetComponent<Image>();
         gameObject.GetComponent<Button>().onClick.AddListener(UseCard);
         DeckController = GameManager.instance.gameObject.GetComponent<DeckController>();
-
-        cardImage = GetComponent<Image>();
-        faceSprite = cardImage.sprite;
-        cardImage.sprite = backSprite; // start with card back
-
-        StartCoroutine(RotateCard());
     }
 
     public void UseCard()
     {
+        gameObject.transform.localScale = new Vector3(1, 1, 1);
         DeckController.disableHand();
         if (DeckController.currentCard != null)
         {
@@ -99,6 +94,15 @@ public class Card : MonoBehaviour
                 Debug.Log("ERROR: UNKNOWN CARD");
                 break;
         }
+    }
+
+    public void OpenCard()
+    {
+        cardImage = GetComponent<Image>();
+        faceSprite = cardImage.sprite;
+        cardImage.sprite = backSprite; // start with card back
+
+        StartCoroutine(RotateCard());
     }
 
     private IEnumerator RotateCard()

@@ -79,6 +79,7 @@ public class DeckController : MonoBehaviour
             Card firstCard = GetNextCard();
             firstCard.transform.SetParent(Hand.transform);
             currentHandSize++;
+            firstCard.OpenCard();
         }
 
     }
@@ -156,6 +157,7 @@ public class DeckController : MonoBehaviour
             newCard.GetComponent<Card>().isLootCard = true;
             newCard.transform.SetParent(LootDisplay.transform);
             newCard.SetActive(true);
+            newCard.GetComponent<Card>().OpenCard();
             currentLootDeck.RemoveAt(index);
         }
 
@@ -222,6 +224,7 @@ public class DeckController : MonoBehaviour
         chosenCard.gameObject.SetActive(true);
         deck.Remove(chosenCard);
         chosenCard.transform.SetParent(Hand.transform);
+        chosenCard.OpenCard();
         currentHandSize++;
     }
 
