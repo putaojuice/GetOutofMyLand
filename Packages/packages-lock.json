@@ -150,11 +150,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ml-agents.extensions": {
-      "version": "file:/Users/yuan/Desktop/ml-agents-release_18_branch/com.unity.ml-agents.extensions",
+      "version": "file:../com.unity.ml-agents.extensions",
       "depth": 0,
       "source": "local",
       "dependencies": {
-        "com.unity.ml-agents": "2.1.0-exp.1",
+        "com.unity.ml-agents": "2.2.1-exp.1",
         "com.unity.modules.physics": "1.0.0"
       }
     },
