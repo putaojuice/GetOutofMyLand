@@ -83,7 +83,6 @@ public class EnemyStatus : MonoBehaviour, IEffectable
 
     // replace old status with updated status
     public void ApplyNewStatus(string _newStatus, float _DOT, float _DOTInterval, float _statusDuration, float _damage, float _slowDebuff, float _towerLevel){  
-        Debug.Log(_newStatus);
         lastDOTInterval = 0.0f;
         currentStatusDuration = 0.0f;
         this.currentStatus = _newStatus;
@@ -152,7 +151,6 @@ public class EnemyStatus : MonoBehaviour, IEffectable
 
     public void HandlePlasmaStatusIfCurrentLightning (StatusData fireStatusData)
     {  //requires the fireStatusData to calculate the damage points
-        Debug.Log("PLASMA!");
         float plasmaDamage = fireStatusData.damage + baseDamage;
         myEnemyObject.GetStatusDamaged(plasmaDamage);
         UndoStatus();
@@ -162,7 +160,6 @@ public class EnemyStatus : MonoBehaviour, IEffectable
 
     public void HandlePlasmaStatusIfCurrentFire (StatusData lightningStatusData)
     {
-        Debug.Log("PLASMA!");
         float plasmaDamage = lightningStatusData.damage + baseDamage;
         myEnemyObject.GetStatusDamaged(plasmaDamage);
         UndoStatus();
@@ -172,7 +169,6 @@ public class EnemyStatus : MonoBehaviour, IEffectable
 
     //string newStatus, float DOT, float DOTInterval, float statusDuration, float damage, float slowDebuff, float towerLevel
     public void HandleExplosionStatusIfCurrentWater(StatusData fireStatusData){
-        Debug.Log("EXPLOSION!!");
         myEnemyObject.GetStatusDamaged(fireStatusData.damage);
         // UndoStatus();
 
@@ -202,7 +198,6 @@ public class EnemyStatus : MonoBehaviour, IEffectable
 
     //string newStatus, float DOT, float DOTInterval, float statusDuration, float damage, float slowDebuff, float towerLevel
     public void HandleExplosionStatusIfCurrentFire(StatusData waterStatusData){
-        Debug.Log("EXPLOSION!!");
         myEnemyObject.GetStatusDamaged(baseDamage);
         // UndoStatus();
         float burnDOT = waterStatusData.DOT + towerLevel;
@@ -230,8 +225,6 @@ public class EnemyStatus : MonoBehaviour, IEffectable
 
     
     public void HandleShockStatusIfCurrentLightning(StatusData waterStatusData){
-        Debug.Log("SHOCK!!");
-
         ApplyNewStatus("ShockEffect", 0.0f, 0.0f, waterStatusData.statusDuration, 0.0f, 1.0f/baseDamage, towerLevel);
 
         gameObject.transform.Find("ShockEffect").gameObject.SetActive(true);
@@ -239,8 +232,6 @@ public class EnemyStatus : MonoBehaviour, IEffectable
     }
 
     public void HandleShockStatusIfCurrentWater(StatusData lightningStatusData){
-        Debug.Log("SHOCK!!");
-
         ApplyNewStatus("ShockEffect", 0.0f, 0.0f, statusDuration, 0.0f, 1.0f/lightningStatusData.damage, towerLevel);
 
         gameObject.transform.Find("ShockEffect").gameObject.SetActive(true);
