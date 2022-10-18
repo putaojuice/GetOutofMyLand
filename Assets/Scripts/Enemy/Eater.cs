@@ -18,7 +18,7 @@ public class Eater : Enemy
         hp = maxHp;
         defence = 0f;
 
-        maxChargePoints = 2.0f;
+        maxChargePoints = 3.0f;
         chargePoints = 0.0f;
         skillCoolDown = 2.0f;
         isCharging = false;
@@ -33,15 +33,17 @@ public class Eater : Enemy
             skillCoolDown = 5f;
         }
 
+        if(isCharging){
+            skillCoolDown -= Time.deltaTime;
+        }
+
         if(hp <= 0.0f){
             Destroy(gameObject);
             UpdateNumOfEnemies();
             return;
         }
 
-        if(isCharging){
-            skillCoolDown -= Time.deltaTime;
-        }
+
     }
 
     public virtual void UseSkill()

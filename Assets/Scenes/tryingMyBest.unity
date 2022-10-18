@@ -801,11 +801,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 785445423797092929, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000015170428
+      value: 0.000000015170428
       objectReference: {fileID: 0}
     - target: {fileID: 785445423797092929, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000008118967
+      value: -0.000000008118967
       objectReference: {fileID: 0}
     - target: {fileID: 1093093049020216896, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -849,11 +849,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6034549901478517501, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000015170428
+      value: 0.000000015170428
       objectReference: {fileID: 0}
     - target: {fileID: 6034549901478517501, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000008118967
+      value: -0.000000008118967
       objectReference: {fileID: 0}
     - target: {fileID: 8500851291982029270, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_RootOrder
@@ -1810,6 +1810,10 @@ PrefabInstance:
     - target: {fileID: 8865222829054350541, guid: 5d3fb0610ca1d4a419d6ffb67f185043, type: 3}
       propertyPath: maxHp
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865222829054350541, guid: 5d3fb0610ca1d4a419d6ffb67f185043, type: 3}
+      propertyPath: maxChargePoints
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8869548702755335325, guid: 5d3fb0610ca1d4a419d6ffb67f185043, type: 3}
       propertyPath: m_RootOrder

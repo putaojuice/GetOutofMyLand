@@ -47,7 +47,7 @@ public class MoveTower : MonoBehaviour
     void Update()
     {
         if(eater.isAttacking){
-            if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 2.0f){
+            if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f){
                 eater.StopAttack();
                 Destroy(goal);
                 anim.SetBool("isAttacking", false);
