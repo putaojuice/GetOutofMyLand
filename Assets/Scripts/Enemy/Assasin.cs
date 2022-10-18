@@ -30,10 +30,6 @@ public class Assasin : Enemy
     void Update()
     {
 
-        // if(_statusData != null){
-        //     UpdateStatusEffects();
-        // }
-
         if(hp <= 0.0f){
             Destroy(gameObject);
             UpdateNumOfEnemies();
@@ -49,10 +45,8 @@ public class Assasin : Enemy
                 skillDuration = 3.0f;
             }
         }
-
-        // to be changed to scheduler
         skillCoolDown -= Time.deltaTime;
-        // statusCoolDown -= Time.deltaTime;
+
     }
 
     public override void GetDamaged(float damage) {
