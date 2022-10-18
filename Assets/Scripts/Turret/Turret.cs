@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Turret : MonoBehaviour
-{
-    [Header("Attributes")]
+{   
+    [SerializeField] protected LayerMask layer;
+    protected Camera cam;
+    protected GameObject canvas;
+    protected GameObject statsPanel;
+    [SerializeField] public LineRenderer rangeIndicator;
 
+    [Header("Attributes")]
     [SerializeField] public float lerpSpeed = 10f;
     [SerializeField] public float range = 15f;
     [SerializeField] public float firingRate = 2f;
@@ -27,7 +33,7 @@ public class Turret : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    { 
+    {   
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         /* canvas = GameObject.Find("Canvas (1)"); */
         towerLevel = 3;
@@ -67,8 +73,9 @@ public class Turret : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    private void Update()
+    {   
+
         if(target == null)
         {
             return;
@@ -103,4 +110,6 @@ public class Turret : MonoBehaviour
             bullet.Seek(target);
         }
     }
+
+
 }

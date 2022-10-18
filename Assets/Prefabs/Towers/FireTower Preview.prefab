@@ -132,9 +132,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4304434594298679859, guid: 0be095cbbc9dd4d6085f8ef7b8f04534, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6060749452191326691, guid: 0be095cbbc9dd4d6085f8ef7b8f04534, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6631438814186207655, guid: 0be095cbbc9dd4d6085f8ef7b8f04534, type: 3}
@@ -172,7 +176,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6147649, y: 3.241783, z: 1.5433655}
+  m_Size: {x: 1.25, y: 2.5, z: 1.25}
   m_Center: {x: -0.024110436, y: 0.75514853, z: 0.045573354}
 --- !u!208 &-4306151198291789936
 NavMeshObstacle:

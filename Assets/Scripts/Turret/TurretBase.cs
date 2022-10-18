@@ -32,7 +32,10 @@ public class TurretBase : MonoBehaviour
 			GridBase gridFloor = other.GetComponent<GridBase>();
             floor.Add(gridFloor);
 		} else {
-			obj.Add(other.gameObject);
+			if (other.gameObject.tag != "TowerRangeIndicator" && other.GetType() != typeof(CapsuleCollider)) {
+				obj.Add(other.gameObject);
+			}	
+			
         }
 
 		UpdateBuildStatus();
@@ -46,8 +49,12 @@ public class TurretBase : MonoBehaviour
 		{	
             GridBase gridFloor = other.GetComponent<GridBase>();
             floor.Remove(gridFloor);
+		} else if (other.gameObject.tag == "TowerRangeIndicator") {
+			
 		} else {
-			obj.Remove(other.gameObject);
+			if (other.gameObject.tag != "TowerRangeIndicator" && other.GetType() != typeof(CapsuleCollider)) {
+				obj.Remove(other.gameObject);
+			}
 		}
 
 

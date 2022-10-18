@@ -19,7 +19,8 @@ public class TurretController : MonoBehaviour
 
 	// Start is called before the first frame update
 	void Start()
-    {
+    {	
+		
 		// BuildNavMesh on start up
 		surf.BuildNavMesh();
 		DeckController = gameObject.GetComponent<DeckController>();
@@ -36,7 +37,7 @@ public class TurretController : MonoBehaviour
 		if (Input.GetMouseButton(0) && isBuilding && turretBase.GetBuildable())
 		{	
 			CompleteBuild();
-		}
+		} 
 
 		if (Input.GetMouseButton(1) && isBuilding)
 		{
@@ -108,5 +109,6 @@ public class TurretController : MonoBehaviour
 		int z = Mathf.RoundToInt(position.z);
 		previewPrefab.transform.position = position + new Vector3(0f, 0f, 0f);
 	}
+
 
 }
