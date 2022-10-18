@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class FireTower : Turret
 {
     [SerializeField] public float ActualTowerRange;
-    private bool highlighted = false;
 
     // Start is called before the first frame update
     void Start()
     {   
-        canvas = GameObject.FindGameObjectWithTag("canvas");
-        statsPanel = canvas.transform.Find("StatsPanel").gameObject;
+        type = TurretType.Fire;
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         range = ActualTowerRange;
         firingRate = 1f;
@@ -26,7 +23,7 @@ public class FireTower : Turret
     {
         float Theta = 0f;
         int Size = (int)((1f / 0.01f) + 1f);
-        rangeIndicator.SetVertexCount(Size);
+        rangeIndicator.positionCount = Size;
         for (int i = 0; i < Size; i++) {
             Theta += (2.0f * Mathf.PI * 0.01f);
             float x = radius * Mathf.Cos(Theta);
@@ -39,12 +36,6 @@ public class FireTower : Turret
     void Update()
     {   
         
-        if (Input.GetMouseButtonDown(0)) {  
-            SelectingTurret();
-        } else if (Input.GetMouseButtonDown(1)) {
-            highlighted = false;
-            
-        }
         HandleSelection();
 
         if(target == null)
@@ -79,30 +70,37 @@ public class FireTower : Turret
     }
 
 
-    private void SelectingTurret()
-    {
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);  
-        RaycastHit hit;  
-        if (Physics.Raycast(cam.transform.position, ray.direction, out hit, Mathf.Infinity, layer)) { 
-             // Compare turret hit and the current turret
-            if (GameObject.ReferenceEquals(hit.transform.gameObject, gameObject)) {
-                highlighted = true;
-            } else {
-                highlighted = false;
-            } 
-        } else {
-            highlighted = false;
-        }
-    }
-
     private void HandleSelection() {
         if (highlighted) {
             rangeIndicator.gameObject.SetActive(true);
-            statsPanel.SetActive(true);
         } else {
             rangeIndicator.gameObject.SetActive(false);
-            statsPanel.SetActive(false);
         }
     }
+
+    public override float GetDamage()
+    {
+        return bulletPrefab.GetComponent<FireBall>().GetDamage();
+    }
+
+    public override void UpgradeTower()
+    {
+        if (towerLevel < 3) {
+            towerLevel++;
+            bulletPrefab.GetComponent<Bullet>().UpgradeTower();
+        }
+    }
+
+    public override float GetLevel()
+    {
+        return towerLevel;
+    }
+
+    public override TurretType GetTurretType()
+    {
+        return type;
+    }
+
+
 
 }

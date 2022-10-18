@@ -92,6 +92,10 @@ PrefabInstance:
       value: LightingTower Preview
       objectReference: {fileID: 0}
     - target: {fileID: 6515295890651682670, guid: 8b30f9037fda64265a150863ba4b3420, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515295890651682670, guid: 8b30f9037fda64265a150863ba4b3420, type: 3}
       propertyPath: m_TagString
       value: GridFloor
       objectReference: {fileID: 0}
@@ -177,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30721552649d98544b510e610eea5169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 2
   turretMat: {fileID: 2100000, guid: 552cdad5f7ff4a74e8b6db1a586f96d1, type: 2}
   turretTileMat: {fileID: 2100000, guid: e237576d5a0744848ac17340d4d7a075, type: 2}
   buildableColor: {r: 0.77254903, g: 1, b: 0.38431373, a: 0}

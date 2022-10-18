@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum TurretType
+{
+    Fire,
+    Water,
+    Lightning
+}
+
 public class Turret : MonoBehaviour
 {   
     [SerializeField] protected LayerMask layer;
     protected Camera cam;
-    protected GameObject canvas;
-    protected GameObject statsPanel;
+    public bool highlighted = false;
+    public TurretType type; 
     [SerializeField] public LineRenderer rangeIndicator;
 
     [Header("Attributes")]
@@ -95,8 +102,19 @@ public class Turret : MonoBehaviour
         fireCountdown -= Time.deltaTime;
     }
 
-    public virtual void UpgradeLevel(){
-        towerLevel ++;
+    public virtual float GetDamage() 
+    {
+        return 0;
+    }
+
+    public virtual void UpgradeTower()
+    {
+        
+    }
+
+    public virtual float GetLevel()
+    {
+        return towerLevel;
     }
 
     public virtual void Shoot()
@@ -109,6 +127,11 @@ public class Turret : MonoBehaviour
         {
             bullet.Seek(target);
         }
+    }
+
+    public virtual TurretType GetTurretType()
+    {
+        return type;
     }
 
 

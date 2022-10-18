@@ -62,4 +62,25 @@ public class LightningBall : Bullet
 
     }
 
+    public override void UpgradeTower()
+    {
+        if (towerLevel < 3) {
+            towerLevel++;
+        }
+    }
+
+    public float GetDamage()
+    {
+        switch(towerLevel){
+            case 1:
+                return lightningStatusLevel1.damage;
+            case 2:
+                return lightningStatusLevel2.damage;
+            case 3:
+                return lightningStatusLevel3.damage;
+            default:
+                return lightningStatusLevel1.damage;
+        }
+    }
+
 }

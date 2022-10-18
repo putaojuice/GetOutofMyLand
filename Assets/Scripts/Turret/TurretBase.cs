@@ -7,6 +7,8 @@ public class TurretBase : MonoBehaviour
 	private List<GameObject> detector = new List<GameObject>();
 	private List<GameObject> obj = new List<GameObject>();
 	private List<GridBase> floor = new List<GridBase>();
+	private Turret sameTurret = null; 
+	[SerializeField] private TurretType type;
 	[SerializeField] private Material turretMat;
 	[SerializeField] private Material turretTileMat;
 	[SerializeField] private Color buildableColor;
@@ -14,18 +16,19 @@ public class TurretBase : MonoBehaviour
 	[SerializeField] private GameObject buildPrefab;
 
 	private bool buildable = false;
+	private bool upgradable = false;
 	private bool rotated = false;
 
 	private void Start()
 	{
 		UpdateBuildStatus();
-		//Physics.IgnoreLayerCollision(0, 7);
-
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{	
-		if (other.gameObject.tag == "Detector" && other.GetType() == typeof(CapsuleCollider)) {
+		if (other.gameObject.tag == "Tower" && other.gameObject.GetComponent<Turret>().GetTurretType() == type) {
+			sameTurret = other.gameObject.GetComponent<Turret>();
+		} else if (other.gameObject.tag == "Detector" && other.GetType() == typeof(CapsuleCollider)) {
 			detector.Add(other.gameObject);
 		} else if (other.gameObject.tag == "GridBase")
 		{	
@@ -43,14 +46,14 @@ public class TurretBase : MonoBehaviour
 
 	private void OnTriggerExit(Collider other)
 	{	
-		if (other.gameObject.tag == "Detector" && other.GetType() == typeof(CapsuleCollider)) {
+		if (other.gameObject.tag == "Tower" && other.gameObject.GetComponent<Turret>().GetTurretType() == type) {
+			sameTurret = null;	
+		} else if (other.gameObject.tag == "Detector" && other.GetType() == typeof(CapsuleCollider)) {
 			detector.Remove(other.gameObject);
 		} else if (other.gameObject.tag == "GridBase")
 		{	
             GridBase gridFloor = other.GetComponent<GridBase>();
             floor.Remove(gridFloor);
-		} else if (other.gameObject.tag == "TowerRangeIndicator") {
-			
 		} else {
 			if (other.gameObject.tag != "TowerRangeIndicator" && other.GetType() != typeof(CapsuleCollider)) {
 				obj.Remove(other.gameObject);
@@ -63,16 +66,21 @@ public class TurretBase : MonoBehaviour
 
 	private void UpdateBuildStatus()
 	{	
-        // Check if turret is on top of floor 
-		if (floor.Count >= 1 && obj.Count == 0 && detector.Count > 0)
+		if (sameTurret != null && sameTurret.GetLevel() < 3) {
+			upgradable = true;
+			turretMat.SetColor("_Color", buildableColor);
+			turretTileMat.SetColor("_Color", buildableColor);
+		} else if (floor.Count >= 1 && obj.Count == 0 && detector.Count > 0)
 		{	
 			buildable = true;
+			upgradable = false;
 			turretMat.SetColor("_Color", buildableColor);
 			turretTileMat.SetColor("_Color", buildableColor);
 		}
 		else
 		{	
 			buildable = false;
+			upgradable = false;
 			turretMat.SetColor("_Color", unbuildableColor);
 			turretTileMat.SetColor("_Color", unbuildableColor);
 		}
@@ -83,6 +91,11 @@ public class TurretBase : MonoBehaviour
 		return buildable;
 	}
 
+	public bool GetUpgradable()
+	{
+		return upgradable;
+	}
+
 	public void Build()
 	{
 		for (int i = 0; i < floor.Count; i++)
@@ -90,6 +103,13 @@ public class TurretBase : MonoBehaviour
 			floor[i].SetSelectionColor();
 		}
 		Instantiate(buildPrefab, transform.position, transform.rotation);
+		Destroy(gameObject);
+	}
+
+	public void Upgrade()
+	{
+		sameTurret.UpgradeTower();
+		upgradable = false;
 		Destroy(gameObject);
 	}
 

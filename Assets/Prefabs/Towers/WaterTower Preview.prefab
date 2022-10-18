@@ -193,6 +193,10 @@ PrefabInstance:
       value: WaterTower Preview
       objectReference: {fileID: 0}
     - target: {fileID: 5795770743788303379, guid: a8e6a3b8270fe48529936c46bcb5681d, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795770743788303379, guid: a8e6a3b8270fe48529936c46bcb5681d, type: 3}
       propertyPath: m_TagString
       value: GridFloor
       objectReference: {fileID: 0}
@@ -285,6 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30721552649d98544b510e610eea5169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   turretMat: {fileID: 2100000, guid: 929ddf75e29ea9f46a200f031b97fc01, type: 2}
   turretTileMat: {fileID: 2100000, guid: e237576d5a0744848ac17340d4d7a075, type: 2}
   buildableColor: {r: 0.77254903, g: 1, b: 0.38431373, a: 0}

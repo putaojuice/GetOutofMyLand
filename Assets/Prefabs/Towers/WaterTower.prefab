@@ -562,7 +562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b050fbc43578f476bacd12cbc1bec965, type: 3}
       propertyPath: m_TagString
-      value: Tower
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b050fbc43578f476bacd12cbc1bec965, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -652,7 +652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 77d69999e00164696ba0dbf67a5262de, type: 3}
       propertyPath: m_TagString
-      value: Tower
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 77d69999e00164696ba0dbf67a5262de, type: 3}
       propertyPath: m_StaticEditorFlags

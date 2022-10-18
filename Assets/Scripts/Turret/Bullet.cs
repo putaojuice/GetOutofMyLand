@@ -48,6 +48,12 @@ public class Bullet : MonoBehaviour
 
     }
 
+    public virtual void UpgradeTower()
+    {
+        
+    }
+
+
 
 
 }
