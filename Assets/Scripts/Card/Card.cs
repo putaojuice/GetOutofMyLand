@@ -4,13 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Card : MonoBehaviour
-{   
-    
+{
+
     public Image currentCard;
     public CardEffect cardEffect;
     public GameObject prefabPreview;
     public Type type;
     public bool isLootCard = false;
+
+    private Image cardImage;
+    [SerializeField]
+    private Sprite backSprite;
+    private Sprite faceSprite;
 
     private DeckController DeckController;
 
@@ -19,10 +24,16 @@ public class Card : MonoBehaviour
         currentCard = gameObject.GetComponent<Image>();
         gameObject.GetComponent<Button>().onClick.AddListener(UseCard);
         DeckController = GameManager.instance.gameObject.GetComponent<DeckController>();
+
+        cardImage = GetComponent<Image>();
+        faceSprite = cardImage.sprite;
+        cardImage.sprite = backSprite; // start with card back
+
+        StartCoroutine(RotateCard());
     }
 
     public void UseCard()
-    {   
+    {
         DeckController.disableHand();
         if (DeckController.currentCard != null)
         {
@@ -37,15 +48,21 @@ public class Card : MonoBehaviour
             return;
         }
         // currentCard.gameObject.SetActive(false);
-        if (cardEffect) {
+        if (cardEffect)
+        {
             cardEffect.TriggerEffect();
         }
 
-        if (type == Type.Tile) {
+        if (type == Type.Tile)
+        {
             DeckController.PlayTileCard(this, prefabPreview);
-        } else if (type == Type.Turret) {
+        }
+        else if (type == Type.Turret)
+        {
             DeckController.PlayTurretCard(this, prefabPreview);
-        } else {
+        }
+        else
+        {
             Debug.Log("Error: Please assign type to card!");
         }
     }
@@ -81,6 +98,20 @@ public class Card : MonoBehaviour
             default:
                 Debug.Log("ERROR: UNKNOWN CARD");
                 break;
+        }
+    }
+
+    private IEnumerator RotateCard()
+    {
+        for (float i = 0f; i <= 360f; i += 10f)
+        {
+            yield return new WaitForSeconds(0.01f);
+            transform.rotation = Quaternion.Euler(0f, i, 0f);
+            if (i == 90f)
+            {
+                i += 180f; // to prevent reversed image
+                cardImage.sprite = faceSprite;
+            }
         }
     }
 }

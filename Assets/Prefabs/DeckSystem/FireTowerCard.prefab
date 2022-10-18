@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4065064699291091205}
   - component: {fileID: 6808141410966465189}
   - component: {fileID: 6575015846143116910}
+  - component: {fileID: 4671343833321792844}
   m_Layer: 5
   m_Name: FireTowerCard
   m_TagString: Untagged
@@ -97,6 +98,7 @@ MonoBehaviour:
   prefabPreview: {fileID: 4903733117560789468, guid: 1b4fb87a253c58443b4225ca78a6d9e8, type: 3}
   type: 1
   isLootCard: 0
+  backSprite: {fileID: 21300000, guid: cbaf6fd9c2966664fa19309c30b9dc9a, type: 3}
 --- !u!114 &4065064699291091205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,3 +176,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 310707325050922156}
+--- !u!114 &4671343833321792844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7905774643587174251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: -8, y: -4}
+  m_UseGraphicAlpha: 1

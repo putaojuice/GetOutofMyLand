@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8311454742280083002}
   - component: {fileID: 3596021443944906317}
   - component: {fileID: 1877632371903221183}
+  - component: {fileID: 7353469264249907289}
   m_Layer: 5
   m_Name: LLandCard
   m_TagString: Untagged
@@ -97,6 +98,7 @@ MonoBehaviour:
   prefabPreview: {fileID: 4469003903991582028, guid: fada2d0b2bab5284d890194279cba386, type: 3}
   type: 0
   isLootCard: 0
+  backSprite: {fileID: 21300000, guid: cbaf6fd9c2966664fa19309c30b9dc9a, type: 3}
 --- !u!114 &8311454742280083002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,3 +176,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 2485096733447605450}
+--- !u!114 &7353469264249907289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9152497387678187880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: -8, y: -4}
+  m_UseGraphicAlpha: 1
