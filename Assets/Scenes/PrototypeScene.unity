@@ -1973,11 +1973,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 785445423797092929, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000021454223
+      value: -0.000000021454225
       objectReference: {fileID: 0}
     - target: {fileID: 785445423797092929, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000011481951
+      value: 0.000000011481952
       objectReference: {fileID: 0}
     - target: {fileID: 1093093049020216896, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2033,11 +2033,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6034549901478517501, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000021454223
+      value: -0.000000021454225
       objectReference: {fileID: 0}
     - target: {fileID: 6034549901478517501, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000011481951
+      value: 0.000000011481952
       objectReference: {fileID: 0}
     - target: {fileID: 8500851291982029270, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_RootOrder
@@ -2403,11 +2403,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2408335853564092049, guid: a87a20628fba24428ae6796329828910, type: 3}
   m_PrefabInstance: {fileID: 1920183594}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1158085611 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2408335853564092077, guid: a87a20628fba24428ae6796329828910, type: 3}
-  m_PrefabInstance: {fileID: 1920183594}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1172482859 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4656475334368768816, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
@@ -2439,6 +2434,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e048374dc8d2374cbe2ea405ca3daca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1220282924 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5163677769536080234, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+  m_PrefabInstance: {fileID: 459199819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1229177431 stripped
@@ -3144,7 +3150,7 @@ MonoBehaviour:
   TLandQtyText: {fileID: 1906760888}
   ZLandQtyText: {fileID: 1229177431}
   SquareLandQtyText: {fileID: 3483292}
-  WaterTowerQtyText: {fileID: 2045324992}
+  WaterTowerQtyText: {fileID: 1220282924}
   LightningTowerQtyText: {fileID: 1747886762}
   FireTowerQtyText: {fileID: 963396387}
 --- !u!114 &1755004093
