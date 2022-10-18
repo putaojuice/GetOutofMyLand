@@ -4914,6 +4914,7 @@ GameObject:
   - component: {fileID: 1974155400489906996}
   - component: {fileID: 5264385084345940817}
   - component: {fileID: 1090827890737695651}
+  - component: {fileID: 8374724409747723957}
   m_Layer: 5
   m_Name: PlayerHand
   m_TagString: Untagged
@@ -4939,7 +4940,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -338.88257}
-  m_SizeDelta: {x: -472.0879, y: -677.7651}
+  m_SizeDelta: {x: 0, y: -677.7651}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1974155400489906996
 CanvasRenderer:
@@ -4997,7 +4998,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 50
+  m_Spacing: -50
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -5005,6 +5006,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &8374724409747723957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9126270130826136290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 1
+  m_VerticalFit: 0
 --- !u!1001 &533824360181657702
 PrefabInstance:
   m_ObjectHideFlags: 0

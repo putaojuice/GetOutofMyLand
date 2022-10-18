@@ -14,8 +14,6 @@ public class Card : MonoBehaviour
 
     private DeckController DeckController;
 
-    private int slotIndex;
-
     private void Start()
     {
         currentCard = gameObject.GetComponent<Image>();
