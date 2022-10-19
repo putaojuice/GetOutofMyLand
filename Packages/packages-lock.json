@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.autodesk.fbx": {
+      "version": "4.1.1",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -30,6 +37,16 @@
       "source": "registry",
       "dependencies": {
         "com.unity.modules.ai": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.animation.rigging": {
+      "version": "1.1.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.burst": "1.4.1",
+        "com.unity.test-framework": "1.1.24"
       },
       "url": "https://packages.unity.com"
     },
@@ -83,6 +100,17 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.feature.characters-animation": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.animation.rigging": "1.1.1",
+        "com.unity.timeline": "1.6.4",
+        "com.unity.cinemachine": "2.8.6",
+        "com.unity.formats.fbx": "4.1.2"
+      }
+    },
     "com.unity.feature.development": {
       "version": "1.0.1",
       "depth": 0,
@@ -96,6 +124,16 @@
         "com.unity.test-framework": "1.1.31",
         "com.unity.testtools.codecoverage": "1.0.1"
       }
+    },
+    "com.unity.formats.fbx": {
+      "version": "4.1.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.timeline": "1.5.2",
+        "com.autodesk.fbx": "4.1.1"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
       "version": "3.0.15",
@@ -150,7 +188,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ml-agents.extensions": {
-      "version": "file:/Users/yuan/Desktop/ml-agents-release_18_branch/com.unity.ml-agents.extensions",
+      "version": "file:C:/Users/gordo/Desktop/ml-agents-release_18_branch/com.unity.ml-agents.extensions",
       "depth": 0,
       "source": "local",
       "dependencies": {
