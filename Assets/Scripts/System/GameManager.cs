@@ -77,7 +77,14 @@ public class GameManager : MonoBehaviour
         // enemy manager scout for optimal spawn point
         EnemyManager.ScoutSpawnPoints();
         */
+
         StartCoroutine(CountDown(3));
+
+        // get spawnpointlist
+        List<GameObject> spawnPointList = gameObject.GetComponent<GridController>().GetPossibleSpawnPointPosition();
+        Debug.Log("spawnPointList size: " + spawnPointList.Count);
+        // feed spawnpointlist to enemy manager
+        EnemyManager.LoadSpawnPointList(spawnPointList);
         EnemyManager.ScoutSpawnPoints();
 
 
@@ -100,12 +107,6 @@ public class GameManager : MonoBehaviour
         if (EnemyManager.UpdateEnemy()) {
             WaveEnded();
 
-        
-            // get spawnpointlist
-            List<GameObject> spawnPointList = gameObject.GetComponent<GridController>().GetPossibleSpawnPointPosition();
-            Debug.Log("spawnPointList size: " + spawnPointList.Count);
-            // feed spawnpointlist to enemy manager
-            EnemyManager.LoadSpawnPointList(spawnPointList);
             // enemy manager scout for optimal spawn point
             EnemyManager.SelectSmartSpawnPoint();
             
