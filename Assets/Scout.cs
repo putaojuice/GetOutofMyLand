@@ -39,7 +39,7 @@ public class Scout : MonoBehaviour
     {    
         if (collider.gameObject.tag == "TowerRangeIndicator")
         {
-            Debug.Log("Scout " + indexAssigned + " detected a tower");
+            // Debug.Log("Scout " + indexAssigned + " detected a tower");
             GameObject tower = collider.gameObject;
             if (!towerList.Contains(tower))
             {
