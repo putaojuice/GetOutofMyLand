@@ -6,7 +6,6 @@ using Unity.AI.Navigation;
 public class GridFloor : MonoBehaviour
 {   
     
-    
     [SerializeField] private GameObject blockPrefab;
     [SerializeField] private GameObject spawnPoint;
     private GridController controller;

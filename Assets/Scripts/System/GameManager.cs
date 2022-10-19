@@ -61,7 +61,11 @@ public class GameManager : MonoBehaviour
     }
 
     void TaskOnClick()
-    {
+    {   
+        GameObject[] test = GameObject.FindGameObjectsWithTag("TowerRangeIndicator");
+         foreach (GameObject number in test) {
+            Debug.Log(number.name);
+         }
         // get spawnpointlist
         List<GameObject> spawnPointList = gameObject.GetComponent<GridController>().GetPossibleSpawnPointPosition();
         // feed spawnpointlist to enemy manager
