@@ -15,7 +15,7 @@ public class Healer : Enemy
     void Start()
     {
 
-        maxHp = 500f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        maxHp = 1f * (GameManager.instance.waveIndex + 1) * 0.5f;
         hp = maxHp;
         skillCoolDown = 1.5f;
         defence = 1f;

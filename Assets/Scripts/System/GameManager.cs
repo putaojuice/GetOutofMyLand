@@ -37,7 +37,13 @@ public class GameManager : MonoBehaviour
         spawnButton.onClick.AddListener(TaskOnClick);
         wavePauseButton.interactable = false;
         waveIndex = 0;
+        EnemyManager.initializeFirstSpawnPoint();
     }
+
+    // IEnumerator Wait(){
+    //     yield return new WaitForSeconds (3);
+    //     EnemyManager.SelectSmartSpawnPoint();
+    // }
 
     IEnumerator CountDown (int countDown) {
      int counter = countDown;
@@ -61,19 +67,28 @@ public class GameManager : MonoBehaviour
     }
 
     void TaskOnClick()
+<<<<<<< HEAD
     {   
-        GameObject[] test = GameObject.FindGameObjectsWithTag("TowerRangeIndicator");
-         foreach (GameObject number in test) {
-            Debug.Log(number.name);
-         }
+        
+        /*
         // get spawnpointlist
         List<GameObject> spawnPointList = gameObject.GetComponent<GridController>().GetPossibleSpawnPointPosition();
+        Debug.Log("spawnPointList size: " + spawnPointList.Count);
         // feed spawnpointlist to enemy manager
         EnemyManager.LoadSpawnPointList(spawnPointList);
         // enemy manager scout for optimal spawn point
         EnemyManager.ScoutSpawnPoints();
+        */
 
         StartCoroutine(CountDown(3));
+
+        // get spawnpointlist
+        List<GameObject> spawnPointList = gameObject.GetComponent<GridController>().GetPossibleSpawnPointPosition();
+        Debug.Log("spawnPointList size: " + spawnPointList.Count);
+        // feed spawnpointlist to enemy manager
+        EnemyManager.LoadSpawnPointList(spawnPointList);
+        EnemyManager.ScoutSpawnPoints();
+
 
     }
 
@@ -93,6 +108,13 @@ public class GameManager : MonoBehaviour
          // Delegate wave end event when all the enemies died
         if (EnemyManager.UpdateEnemy()) {
             WaveEnded();
+
+            // enemy manager scout for optimal spawn point
+            EnemyManager.SelectSmartSpawnPoint();
+            
+            // StartCoroutine(Wait());
+            
+
             
             //Music Stuff
             MusicController.PlayAmbient();

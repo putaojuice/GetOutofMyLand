@@ -56,6 +56,12 @@ public class MLEnemyManager : Agent
 
     }
 
+    public void initializeFirstSpawnPoint() {
+        GridFloor grid = GameObject.FindObjectOfType<GridFloor>();
+        GameObject spawnPoint = grid.generateFirstSpawnPoint();
+        this.currentSpawnPoint = spawnPoint;
+    }
+
     public void StartWave(int currentIndex)
     {  
         this.currentIndex = currentIndex;
@@ -81,7 +87,7 @@ public class MLEnemyManager : Agent
         currentSpawnPoint = gridFloor.generateSpawnPoint();
     }
 
-    void SelectSmartSpawnPoint()
+    public void SelectSmartSpawnPoint()
     {
         int minCount = 99999;
         for (int i = 0; i < numberOfSpawnPoints; i++)
@@ -205,7 +211,7 @@ public class MLEnemyManager : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        SelectSmartSpawnPoint();
+        
         StartCoroutine(SpawnEnemy());
     }
 
