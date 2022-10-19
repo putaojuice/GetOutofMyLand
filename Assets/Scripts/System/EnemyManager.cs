@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] public GameObject enemyAssasin;
     [SerializeField] public GameObject enemyHealer;
     [SerializeField] public GameObject enemyTank;
+    [SerializeField] public GameObject enemyEater;
 
     private List<Transform> listOfEnemies = new List<Transform>();
     private List<GameObject> spawnPointList = new List<GameObject>();
@@ -56,13 +57,13 @@ public class EnemyManager : MonoBehaviour
 
     IEnumerator SpawnEnemy(int currentIndex)
     {   
+        if(currentIndex % 5 == 0){
+            enemyEater.GetComponent<EnemySpawnAgent>().SpawnAt(currentSpawnPoint);
+        }
         currentEnemies = currentIndex;
         int randIndex = Random.Range(0, 3);
         for(int i = 0; i < currentIndex; i++){
-            // Vector3 spawnDirection = endPoint.transform.position - currentSpawnPoint.transform.position;
-            // Vector3 upVector = new Vector3(0f, currentSpawnPoint.transform.rotation.y, 0f);
-            // Quaternion finalRotation = Quaternion.LookRotation(spawnDirection, upVector);
-            // Instantiate(listOfEnemies[randIndex], currentSpawnPoint.transform.position, finalRotation);
+
             GameObject enemyToSpawn = listOfEnemyObjects[randIndex];
             //Instantiate(enemyToSpawn.transform, tempPosition, currentSpawnPoint.transform.rotation);
             enemyToSpawn.GetComponent<EnemySpawnAgent>().SpawnAt(currentSpawnPoint);

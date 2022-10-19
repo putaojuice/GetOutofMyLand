@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 633087435}
   - component: {fileID: 633087434}
   - component: {fileID: 633087433}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: WaterBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,6 +247,8 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 2048
+  highlighted: 0
+  type: 0
   rangeIndicator: {fileID: 4672277627532053190}
   lerpSpeed: 10
   range: 15

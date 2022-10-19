@@ -12,6 +12,7 @@ public class MLEnemyManager : Agent
     [SerializeField] public GameObject enemyAssasin;
     [SerializeField] public GameObject enemyHealer;
     [SerializeField] public GameObject enemyTank;
+    [SerializeField] public GameObject enemyEater;
     [SerializeField] public GameObject scout;
     [SerializeField] public BehaviorParameters behaviorParameters;
     [SerializeField] public TurretController turretController;
@@ -132,9 +133,15 @@ public class MLEnemyManager : Agent
     IEnumerator SpawnEnemy()
     {
 
+        int i = 0;
+        if(currentIndex % 5 == 0){
+            enemyEater.GetComponent<EnemySpawnAgent>().SpawnAt(currentSpawnPoint);
+            i ++;
+        }
+
         this.currentEnemies = this.currentIndex;
         int randIndex = Random.Range(0, 3);
-        for (int i = 0; i < this.currentIndex; i++)
+        for (i = i;i < this.currentIndex; i++)
         {
 
             GameObject enemyToSpawn = listOfEnemyObjects[randIndex];
