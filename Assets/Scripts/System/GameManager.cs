@@ -67,7 +67,6 @@ public class GameManager : MonoBehaviour
     }
 
     void TaskOnClick()
-<<<<<<< HEAD
     {   
         
         /*
