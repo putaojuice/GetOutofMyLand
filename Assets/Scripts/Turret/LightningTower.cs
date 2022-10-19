@@ -7,19 +7,40 @@ public class LightningTower : Turret
 {
 
     [SerializeField] public float ActualTowerRange;
+
+
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        type = TurretType.Lightning;
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         range = ActualTowerRange;
         firingRate = 1f;
         rangeDetector.GetComponent<RangeDetector>().UpdateColliderRadius(ActualTowerRange);
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         towerLevel = 1;
+        SetUpRange(ActualTowerRange);
+    }
+
+    void SetUpRange(float radius)
+    {
+        float Theta = 0f;
+        int Size = (int)((1f / 0.01f) + 1f);
+        rangeIndicator.positionCount = Size;
+        for (int i = 0; i < Size; i++) {
+            Theta += (2.0f * Mathf.PI * 0.01f);
+            float x = radius * Mathf.Cos(Theta);
+            float y = radius * Mathf.Sin(Theta);
+            rangeIndicator.SetPosition(i, new Vector3(x, y, 0.8f));
+        }
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+
+        HandleSelection();
+
         if(target == null)
         {
             return;
@@ -53,5 +74,40 @@ public class LightningTower : Turret
             bullet.Seek(target);
         }
     }
+
+
+    private void HandleSelection() {
+        
+        if (highlighted) {
+            rangeIndicator.gameObject.SetActive(true);
+        } else {
+            rangeIndicator.gameObject.SetActive(false);
+        }
+    }
+
+    public override float GetDamage()
+    {
+        return bulletPrefab.GetComponent<LightningBall>().GetDamage();
+    }
+
+    public override void UpgradeTower()
+    {
+        if (towerLevel < 3) {
+            towerLevel++;
+            bulletPrefab.GetComponent<Bullet>().UpgradeTower();
+        }
+    }
+
+    public override float GetLevel()
+    {
+        return towerLevel;
+    }
+
+    public override TurretType GetTurretType()
+    {
+        return type;
+    }
+
+
 
 }
