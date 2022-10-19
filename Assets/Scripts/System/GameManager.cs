@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(CountDown(3));
 
         // get spawnpointlist
+ 
         List<GameObject> spawnPointList = gameObject.GetComponent<GridController>().GetPossibleSpawnPointPosition();
         Debug.Log("spawnPointList size: " + spawnPointList.Count);
         // feed spawnpointlist to enemy manager
@@ -106,6 +107,7 @@ public class GameManager : MonoBehaviour
          // Delegate wave end event when all the enemies died
         if (EnemyManager.UpdateEnemy()) {
             WaveEnded();
+
 
             // enemy manager scout for optimal spawn point
             EnemyManager.SelectSmartSpawnPoint();
