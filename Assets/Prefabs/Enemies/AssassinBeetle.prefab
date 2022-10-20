@@ -652,6 +652,8 @@ MonoBehaviour:
   skillDuration: 3
   skillToggled: 0
   rend: {fileID: 0}
+  hpScaling: 0.55
+  hpBase: 1.1
 --- !u!195 &7767641185132825180
 NavMeshAgent:
   m_ObjectHideFlags: 0

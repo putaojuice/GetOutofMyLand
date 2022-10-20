@@ -709,6 +709,8 @@ MonoBehaviour:
   rend: {fileID: 0}
   aggroMat: {fileID: 2100000, guid: d0a563a6676074448afd2fdf63370245, type: 2}
   originalMat: {fileID: 0}
+  hpScaling: 1.1
+  hpBase: 1.1
 --- !u!114 &5893580916499492454
 MonoBehaviour:
   m_ObjectHideFlags: 0

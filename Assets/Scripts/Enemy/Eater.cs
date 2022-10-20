@@ -13,8 +13,8 @@ public class Eater : Enemy
     void Start()
     {
         // Setting up the stats for Warriors
-        // maxHp = 1000f * (GameManager.instance.waveIndex + 1) * 0.5f;
-        maxHp = 1000f;
+        maxHp = 60.0f * (GameManager.instance.waveIndex + 1);
+        // maxHp = 1000f;
         hp = maxHp;
         defence = 0f;
 

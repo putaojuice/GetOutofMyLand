@@ -12,13 +12,16 @@ public class Tank : Enemy
     [SerializeField]private Renderer rend;
     [SerializeField]public Material aggroMat;
     [SerializeField]private Material originalMat;
+    [SerializeField]private float hpScaling;
+    [SerializeField]private float hpBase;
 
     // Start is called before the first frame update
     void Start()
     {
 
         // Setting up the stats for Warriors
-        maxHp = 3.0f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        // maxHp = 3.0f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        maxHp = 5.0f + 10.0f * Mathf.Pow(hpBase, (hpScaling * GameManager.instance.waveIndex + 1));
         hp = maxHp;
         skillCoolDown = 2f;
         defence = 2f;

@@ -77,11 +77,11 @@ public class WaterTower : Turret
     {
         switch (towerLevel){
             case 1:
-                return rainStatusLevel1.DOT;
+                return rainStatusLevel1.DOT * towerLevel;
             case 2:
-                return rainStatusLevel2.DOT;
+                return rainStatusLevel2.DOT * towerLevel;
             case 3:
-                return rainStatusLevel3.DOT;
+                return rainStatusLevel3.DOT * towerLevel;
             default:
                 return 0;
         }

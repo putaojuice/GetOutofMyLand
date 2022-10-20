@@ -17,5 +17,5 @@ MonoBehaviour:
   DOT: 0
   DOTInterval: 0
   slowDebuff: 0
-  damage: 6
+  damage: 7
   towerLevel: 2

@@ -11,13 +11,16 @@ public class Assasin : Enemy
     [SerializeField]private float skillDuration = 3.0f;
     [SerializeField]private bool skillToggled = false;
     [SerializeField]private Renderer rend;
+    [SerializeField]private float hpScaling;
+    [SerializeField]private float hpBase;
 
 
     // Start is called before the first frame update
     void Start()
     {
         // Setting up the stats for Warriors
-        maxHp = 1f ;
+        // maxHp = 1f ;
+        maxHp = 5.0f + 10.0f * Mathf.Pow(hpBase, (hpScaling * GameManager.instance.waveIndex + 1));
         hp = maxHp;
         skillCoolDown = 1.5f;
         defence = 0f;

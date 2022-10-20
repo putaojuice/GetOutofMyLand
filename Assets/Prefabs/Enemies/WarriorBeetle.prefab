@@ -5398,6 +5398,8 @@ MonoBehaviour:
   skillDuration: 0.5
   skillToggled: 0
   originalSpeed: 0
+  hpScaling: 0.8
+  hpBase: 1.1
 --- !u!143 &1567556252654110334
 CharacterController:
   m_ObjectHideFlags: 0

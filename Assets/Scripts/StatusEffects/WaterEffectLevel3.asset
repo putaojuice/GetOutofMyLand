@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusType: WaterEffect
   statusDuration: 10
-  DOT: 3
+  DOT: 5
   DOTInterval: 1
   slowDebuff: 0
   damage: 0

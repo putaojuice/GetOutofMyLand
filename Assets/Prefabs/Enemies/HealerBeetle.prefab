@@ -410,6 +410,8 @@ MonoBehaviour:
   range: 20
   numSegments: 128
   line: {fileID: 0}
+  hpScaling: 0.65
+  hpBase: 1.1
 --- !u!195 &5648710235057447911
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -198,7 +198,7 @@ MonoBehaviour:
   rangeIndicator: {fileID: 2677332646954373618}
   lerpSpeed: 10
   range: 5
-  firingRate: 2
+  firingRate: 1
   fireCountdown: 0
   target: {fileID: 0}
   enemyTag: Enemy
@@ -207,7 +207,7 @@ MonoBehaviour:
   firePoint: {fileID: 2206060097970509583}
   towerLevel: 0
   rangeDetector: {fileID: 4196013918615174816}
-  ActualTowerRange: 4.5
+  ActualTowerRange: 3
 --- !u!208 &4461771800250285823
 NavMeshObstacle:
   m_ObjectHideFlags: 0
