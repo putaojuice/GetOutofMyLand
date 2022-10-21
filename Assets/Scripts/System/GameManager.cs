@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
      CountDownText.SetActive(true);
      MusicController.fadeAudio();
      MusicController.PlayCountDown();
+     spawnButton.interactable = false;
+     
      while (counter > 0) {
          CountDownText.GetComponent<TMP_Text>().text = counter.ToString();
          yield return new WaitForSeconds (1);
@@ -57,7 +59,7 @@ public class GameManager : MonoBehaviour
      }
      CountDownText.SetActive(false);
      SpawnEnemy();
-     spawnButton.interactable = false;
+     
 
      DeckController.disableHand();
      wavePauseButton.interactable = true;
