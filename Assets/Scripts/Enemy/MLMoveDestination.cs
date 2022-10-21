@@ -61,10 +61,6 @@ public class MLMoveDestination : Agent
             horizontalMovement = 1f;
         }
 
-        // Set animator parameters
-        animator.SetFloat("Vertical", forwardMovement);
-        animator.SetFloat("Horizontal", horizontalMovement);
-
         // Tiny negative reward every step
         AddReward(-0.1f);
     }
@@ -74,7 +70,7 @@ public class MLMoveDestination : Agent
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         Debug.Log("Heuristic IS CALLED IN MLMOVEDESTINATION");
-        animator.SetBool("Walk Forward", true);
+        //animator.SetBool("Walk Forward", true);
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.destination = goal.position;
     }

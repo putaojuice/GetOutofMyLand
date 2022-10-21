@@ -1289,11 +1289,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1573089061671121476, guid: 7c13418046b107944bdc233f3844cb7d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.092
       objectReference: {fileID: 0}
     - target: {fileID: 1573089061671121476, guid: 7c13418046b107944bdc233f3844cb7d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.478
+      value: 0.476
       objectReference: {fileID: 0}
     - target: {fileID: 1573089061671121476, guid: 7c13418046b107944bdc233f3844cb7d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1371,13 +1371,83 @@ PrefabInstance:
       propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2225672855025873813, guid: 7c13418046b107944bdc233f3844cb7d, type: 3}
+    - {fileID: 248200579304763592, guid: 7c13418046b107944bdc233f3844cb7d, type: 3}
+    - {fileID: 8803052821534558350, guid: 7c13418046b107944bdc233f3844cb7d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7c13418046b107944bdc233f3844cb7d, type: 3}
 --- !u!4 &2469678656168749876 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1573089061671121476, guid: 7c13418046b107944bdc233f3844cb7d, type: 3}
   m_PrefabInstance: {fileID: 4004460440661318000}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2473504885834571530 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1567556252654110330, guid: 7c13418046b107944bdc233f3844cb7d, type: 3}
+  m_PrefabInstance: {fileID: 4004460440661318000}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1140769402357669529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473504885834571530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 6
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 2
+      BranchSizes: 
+    VectorActionSize: 02000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 1
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 1
+  m_BehaviorName: My Behavior
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_DeterministicInference: 0
+  m_ObservableAttributeHandling: 0
+--- !u!114 &4284303156629864436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473504885834571530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06097e0f3d6205449a6b03cdd0a21fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  goal: {fileID: 112160195724323389}
+--- !u!114 &8674512091657041567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473504885834571530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 5
+  TakeActionsBetweenDecisions: 1
 --- !u!1001 &4240693829963108727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2776,7 +2846,7 @@ PrefabInstance:
     - target: {fileID: 6694077928927640936, guid: e4a28954bdc60c143b21ee4f3136cbaf, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 3c42b714b905371428555291110142be, type: 2}
+      objectReference: {fileID: 23800000, guid: a80a98b7a35cb0844a13455107f5a28b, type: 2}
     - target: {fileID: 6694077928927640936, guid: e4a28954bdc60c143b21ee4f3136cbaf, type: 3}
       propertyPath: m_UseGeometry
       value: 0
