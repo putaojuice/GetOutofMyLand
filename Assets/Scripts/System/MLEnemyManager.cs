@@ -146,10 +146,10 @@ public class MLEnemyManager : Agent
         }
 
         this.currentEnemies = this.currentIndex;
-        int randIndex = Random.Range(0, 3);
+
         for (i = i;i < this.currentIndex; i++)
         {
-
+            int randIndex = Random.Range(0, 3);
             GameObject enemyToSpawn = listOfEnemyObjects[randIndex];
             //Instantiate(enemyToSpawn.transform, tempPosition, currentSpawnPoint.transform.rotation);
             enemyToSpawn.GetComponent<EnemySpawnAgent>().SpawnAt(currentSpawnPoint);
