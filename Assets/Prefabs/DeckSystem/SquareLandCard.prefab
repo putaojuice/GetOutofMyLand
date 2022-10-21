@@ -96,7 +96,7 @@ MonoBehaviour:
   currentCard: {fileID: 0}
   cardEffect: {fileID: 0}
   prefabPreview: {fileID: 4343139013719010837, guid: 18f8ae6445415bb4297c6a82e1ec24a7, type: 3}
-  type: 1
+  type: 0
   isLootCard: 0
   backSprite: {fileID: 21300000, guid: cbaf6fd9c2966664fa19309c30b9dc9a, type: 3}
 --- !u!114 &8467005347558612495
