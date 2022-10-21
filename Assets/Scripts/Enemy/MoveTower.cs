@@ -16,6 +16,7 @@ public class MoveTower : MonoBehaviour
     {
         anim = gameObject.GetComponent<Animator>();
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        UpdateTarget();
         agent.destination = goal.transform.position;
     }
 
@@ -40,6 +41,7 @@ public class MoveTower : MonoBehaviour
             goal = nearestTower.gameObject;
         }
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        
         agent.destination = goal.transform.position;
     }
 

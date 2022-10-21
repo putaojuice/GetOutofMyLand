@@ -134,6 +134,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3461645343279437410, guid: 8b30f9037fda64265a150863ba4b3420, type: 3}
     - {fileID: -5634615623458464725, guid: 8b30f9037fda64265a150863ba4b3420, type: 3}
+    - {fileID: 4461771800250285823, guid: 8b30f9037fda64265a150863ba4b3420, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8b30f9037fda64265a150863ba4b3420, type: 3}
 --- !u!1 &6848473920206263457 stripped
 GameObject:
@@ -169,38 +170,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.25, y: 2.5, z: 1.25}
   m_Center: {x: -0.024110436, y: 0.75514853, z: 0.045573354}
---- !u!208 &302191394752418015
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6848473920206263457}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.885, y: 0.5, z: 0.885}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 0
-  m_Center: {x: 0, y: 1, z: 0}
-  m_TimeToStationary: 0.5
---- !u!114 &5453552890042331172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6848473920206263457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_IgnoreFromBuild: 1
-  m_AffectedAgents: ffffffff
 --- !u!114 &7188768486700985140
 MonoBehaviour:
   m_ObjectHideFlags: 0
