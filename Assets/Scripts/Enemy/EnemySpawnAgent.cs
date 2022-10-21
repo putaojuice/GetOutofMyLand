@@ -25,7 +25,13 @@ public class EnemySpawnAgent : MonoBehaviour
         GameObject randomGrid = spawnPointList[Random.Range(0, spawnPointList.Count)];
         GridFloor gridFloor = randomGrid.GetComponent<GridFloor>();
         Vector3 spawnPosition = new Vector3(gridFloor.transform.position.x, gridFloor.transform.position.y + 0.6f, gridFloor.transform.position.z);
-        Instantiate(this.transform, spawnPosition, gridFloor.transform.rotation);
+
+        MoveDestination endPoint = gameObject.GetComponent<MoveDestination>();
+        Vector3 spawnDirection = endPoint.transform.position - spawnPoint.transform.position;
+        Vector3 upVector = new Vector3(0f, spawnPoint.transform.rotation.y, 0f);
+        Quaternion finalRotation = Quaternion.LookRotation(spawnDirection, upVector);
+
+        Instantiate(this.transform, spawnPosition, finalRotation);
     }
 
     public void SpawnAt(GameObject spawnPoint)

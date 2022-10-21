@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] public GameObject enemyAssasin;
     [SerializeField] public GameObject enemyHealer;
     [SerializeField] public GameObject enemyTank;
+    [SerializeField] public GameObject enemyEater;
 
     private List<Transform> listOfEnemies = new List<Transform>();
     private List<GameObject> spawnPointList = new List<GameObject>();
@@ -56,7 +57,9 @@ public class EnemyManager : MonoBehaviour
 
     IEnumerator SpawnEnemy(int currentIndex)
     {   
-
+        if(currentIndex % 5 == 0){
+            enemyEater.GetComponent<EnemySpawnAgent>().SpawnAt(currentSpawnPoint);
+        }
         currentEnemies = currentIndex;
         int randIndex = Random.Range(0, 3);
         for(int i = 0; i < currentIndex; i++){

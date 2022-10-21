@@ -12,20 +12,20 @@ public class Tank : Enemy
     [SerializeField]private Renderer rend;
     [SerializeField]public Material aggroMat;
     [SerializeField]private Material originalMat;
+    [SerializeField]private float hpScaling;
+    [SerializeField]private float hpBase;
 
     // Start is called before the first frame update
     void Start()
     {
 
         // Setting up the stats for Warriors
-        maxHp = 1200f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        // maxHp = 3.0f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        maxHp = 5.0f + 10.0f * Mathf.Pow(hpBase, (hpScaling * GameManager.instance.waveIndex + 1));
         hp = maxHp;
         skillCoolDown = 2f;
         defence = 2f;
 
-        // Finding necesary objects
-        UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        originalSpeed = agent.speed;
 
         rend = GetComponentInChildren<Renderer>();
         originalMat = rend.material;
@@ -35,9 +35,6 @@ public class Tank : Enemy
     // Update is called once per frame
     void Update()
     {
-        if(_statusData != null){
-            UpdateStatusEffects();
-        }
 
         if(hp <= 0.0f){
             Destroy(gameObject);
@@ -62,7 +59,6 @@ public class Tank : Enemy
 
         // to be changed to scheduler
         skillCoolDown -= Time.deltaTime;
-        statusCoolDown -= Time.deltaTime;
     }
 
     // Charge Skill will be called

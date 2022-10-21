@@ -10,31 +10,23 @@ public class Healer : Enemy
     [SerializeField] public float range = 7.5f;
     [SerializeField] public int numSegments = 128;
     [SerializeField] LineRenderer line;
+    [SerializeField]private float hpScaling;
+    [SerializeField]private float hpBase;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        maxHp = 500f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        // maxHp = 1f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        maxHp = 5.0f + 10.0f * Mathf.Pow(hpBase, (hpScaling * GameManager.instance.waveIndex + 1));
         hp = maxHp;
         skillCoolDown = 1.5f;
         defence = 1f;
-
-        // Finding necesary objects
-        UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        originalSpeed = agent.speed;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if(_statusData != null){
-            UpdateStatusEffects();
-        }
-
-        DoRenderer(numSegments, range);
 
         if(hp <= 0.0f){
             Destroy(gameObject);
@@ -49,26 +41,8 @@ public class Healer : Enemy
 
         // to be changed to scheduler
         skillCoolDown -= Time.deltaTime;
-        statusCoolDown -= Time.deltaTime;
     }
 
-    public void DoRenderer (int steps, float radius) {
-
-        line.positionCount = steps;
-        for(int currStep = 0; currStep < steps; currStep ++){
-            float circumferenceProgress = (float)currStep/steps;
-            float currRadian = circumferenceProgress * 2 * Mathf.PI;
-            float xScaled = Mathf.Cos(currRadian);
-            float yScaled = Mathf.Sin(currRadian);
-
-            float x = xScaled * radius;
-            float y = yScaled * radius;
-
-            Vector3 currPosition = transform.position + new Vector3(x,0,y);
-            line.SetPosition(currStep, currPosition);
-
-        }
-    }
 
     public override void UseSkill() {
         var enemies = GameObject.FindObjectsOfType<Enemy>();

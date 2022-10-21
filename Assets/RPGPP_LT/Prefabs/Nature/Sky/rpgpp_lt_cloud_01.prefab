@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4675105466496168}
   - component: {fileID: 33802517043899676}
   - component: {fileID: 23261558165955468}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: rpgpp_lt_cloud_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

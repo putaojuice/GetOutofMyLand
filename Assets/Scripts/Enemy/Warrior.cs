@@ -10,12 +10,16 @@ public class Warrior : Enemy
     [SerializeField]private float chargeSpeed = 3.0f;
     [SerializeField]private float skillDuration = 0.5f;
     [SerializeField]private bool skillToggled = false;
+    public float originalSpeed;
+    [SerializeField]private float hpScaling;
+    [SerializeField]private float hpBase;
 
     // Start is called before the first frame update
     void Start()
     {
         // Setting up the stats for Warriors
-        maxHp = 300f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        // maxHp = 2.0f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        maxHp = 5.0f + 10.0f * Mathf.Pow(hpBase, (hpScaling * GameManager.instance.waveIndex + 1));
         hp = maxHp;
         skillCoolDown = 1f;
         defence = 1f;
@@ -23,16 +27,12 @@ public class Warrior : Enemy
         // Finding necesary objects
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         originalSpeed = agent.speed;
-        agent.speed = 0.0f;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_statusData != null){
-            UpdateStatusEffects();
-        }
 
         if(hp <= 0.0f){
             Destroy(gameObject);
@@ -57,7 +57,6 @@ public class Warrior : Enemy
 
         // to be changed to scheduler
         skillCoolDown -= Time.deltaTime;
-        statusCoolDown -= Time.deltaTime;
     }
 
     // Charge Skill will be called

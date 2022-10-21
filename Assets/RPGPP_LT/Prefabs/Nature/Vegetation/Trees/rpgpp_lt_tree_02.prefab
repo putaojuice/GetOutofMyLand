@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4202130902894980}
   - component: {fileID: 33313641749024866}
   - component: {fileID: 23205945808381882}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: rpgpp_lt_tree_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

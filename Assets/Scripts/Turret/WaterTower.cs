@@ -1,61 +1,109 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class WaterTower : Turret
 {
 
-    [SerializeField] public StatusData acidRainStatusEffect;
-    [SerializeField] LineRenderer line;
+    [SerializeField] public StatusData rainStatusLevel1;
+    [SerializeField] public StatusData rainStatusLevel2;
+    [SerializeField] public StatusData rainStatusLevel3;
     [SerializeField] public float ActualTowerRange;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        type = TurretType.Water;
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         range = ActualTowerRange;
         firingRate = 0.2f;
+        InvokeRepeating("UpdateTarget", 0f, 2.0f);
+        towerLevel = 1;
         rangeDetector.GetComponent<RangeDetector>().UpdateColliderRadius(ActualTowerRange);
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        SetUpRange(ActualTowerRange);
+    }
+
+    void SetUpRange(float radius)
+    {
+        float Theta = 0f;
+        int Size = (int)((1f / 0.01f) + 1f);
+        rangeIndicator.positionCount = Size;
+        for (int i = 0; i < Size; i++) {
+            Theta += (2.0f * Mathf.PI * 0.01f);
+            float x = radius * Mathf.Cos(Theta);
+            float y = radius * Mathf.Sin(Theta);
+            rangeIndicator.SetPosition(i, new Vector3(x, y, 0.8f));
+        }
     }
 
     public override void UpdateTarget()
     {
-        var enemies = GameObject.FindObjectsOfType<Enemy>();
+        var enemies = GameObject.FindObjectsOfType<EnemyStatus>();
 
-        foreach(Enemy enemy in enemies) {
+        foreach(EnemyStatus enemy in enemies) {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
             if(distance < range){
-                enemy.ApplyStatus(acidRainStatusEffect);
+                switch (towerLevel){
+                    case 1:
+                        enemy.ApplyStatus(rainStatusLevel1);
+                        break;
+                    case 2:
+                        enemy.ApplyStatus(rainStatusLevel2);
+                        break;
+                    default:
+                        enemy.ApplyStatus(rainStatusLevel3);
+                        break;
+                }
             }
         }
-
     }
 
     // Update is called once per frame
     void Update()
-    {
-
-        DoRenderer(128, range); // to draw range around the tower
-
+    {   
+        HandleSelection();
     }
 
-    // Renders a circle around the tower to indicate range
-    public void DoRenderer (int steps, float radius) {
-
-        line.positionCount = steps;
-        for(int currStep = 0; currStep < steps; currStep ++){
-            float circumferenceProgress = (float)currStep/steps;
-            float currRadian = circumferenceProgress * 2 * Mathf.PI;
-            float xScaled = Mathf.Cos(currRadian);
-            float yScaled = Mathf.Sin(currRadian);
-
-            float x = xScaled * radius;
-            float y = yScaled * radius;
-
-            Vector3 currPosition = transform.position + new Vector3(x,0,y); 
-            line.SetPosition(currStep, currPosition);
-
+    private void HandleSelection() {
+        if (highlighted) {
+            rangeIndicator.gameObject.SetActive(true);
+        } else {
+            rangeIndicator.gameObject.SetActive(false);
         }
     }
+
+    public override float GetDamage()
+    {
+        switch (towerLevel){
+            case 1:
+                return rainStatusLevel1.DOT * towerLevel;
+            case 2:
+                return rainStatusLevel2.DOT * towerLevel;
+            case 3:
+                return rainStatusLevel3.DOT * towerLevel;
+            default:
+                return 0;
+        }
+    }
+
+    public override void UpgradeTower()
+    {
+        if (towerLevel < 3) {
+            towerLevel++;
+        }
+    }
+
+    public override float GetLevel()
+    {
+        return towerLevel;
+    }
+
+    public override TurretType GetTurretType()
+    {
+        return type;
+    }
+
+
 
 }

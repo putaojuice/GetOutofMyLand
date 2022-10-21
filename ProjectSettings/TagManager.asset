@@ -49,6 +49,7 @@ TagManager:
   - Tower
   - TowerRangeDetector
   - TowerRangeIndicator
+  - StatsPanel
   layers:
   - Default
   - TransparentFX
@@ -57,12 +58,12 @@ TagManager:
   - Water
   - UI
   - FireLayer
+  - EnemyLayer
   - TowerRangeIndicator
   - Scout
   - EnvironmentObjects
-  - 
-  - 
-  - 
+  - Tower
+  - Floor
   - 
   - 
   - 

@@ -11,32 +11,27 @@ public class Assasin : Enemy
     [SerializeField]private float skillDuration = 3.0f;
     [SerializeField]private bool skillToggled = false;
     [SerializeField]private Renderer rend;
+    [SerializeField]private float hpScaling;
+    [SerializeField]private float hpBase;
 
 
     // Start is called before the first frame update
     void Start()
     {
         // Setting up the stats for Warriors
-        maxHp = 300f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        // maxHp = 1f ;
+        maxHp = 5.0f + 10.0f * Mathf.Pow(hpBase, (hpScaling * GameManager.instance.waveIndex + 1));
         hp = maxHp;
         skillCoolDown = 1.5f;
         defence = 0f;
         rend = GetComponentInChildren<Renderer>();
         originalMat = rend.material;
 
-        // Finding necesary objects
-        UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        originalSpeed = agent.speed;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if(_statusData != null){
-            UpdateStatusEffects();
-        }
 
         if(hp <= 0.0f){
             Destroy(gameObject);
@@ -53,10 +48,8 @@ public class Assasin : Enemy
                 skillDuration = 3.0f;
             }
         }
-
-        // to be changed to scheduler
         skillCoolDown -= Time.deltaTime;
-        statusCoolDown -= Time.deltaTime;
+
     }
 
     public override void GetDamaged(float damage) {
