@@ -6842,6 +6842,8 @@ MonoBehaviour:
   hp: 0
   enemy: {fileID: 8630446652980266971}
   rect: {fileID: 0}
+  mainCamera: {fileID: 0}
+  mainCanvas: {fileID: 9220459376746376455}
 --- !u!1001 &1681541484
 PrefabInstance:
   m_ObjectHideFlags: 0

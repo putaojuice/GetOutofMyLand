@@ -93,6 +93,8 @@ MonoBehaviour:
   hp: 0
   enemy: {fileID: 4903048375904833739}
   rect: {fileID: 0}
+  mainCamera: {fileID: 0}
+  mainCanvas: {fileID: 4323040533870937372}
 --- !u!1 &5892960842267118223
 GameObject:
   m_ObjectHideFlags: 0

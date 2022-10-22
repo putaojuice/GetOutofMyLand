@@ -93,6 +93,8 @@ MonoBehaviour:
   chargePoints: 0
   eater: {fileID: 8865222829054350541}
   rect: {fileID: 770044344487110411}
+  mainCamera: {fileID: 0}
+  mainCanvas: {fileID: 7983946253993245643}
 --- !u!1 &2068726024310502543
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +467,8 @@ MonoBehaviour:
   hp: 300
   enemy: {fileID: 8865222829054350541}
   rect: {fileID: 1442388486983351040}
+  mainCamera: {fileID: 0}
+  mainCanvas: {fileID: 261838918120835482}
 --- !u!1 &7654050857465811163
 GameObject:
   m_ObjectHideFlags: 0
