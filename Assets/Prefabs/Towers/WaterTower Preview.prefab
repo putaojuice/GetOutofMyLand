@@ -265,6 +265,7 @@ PrefabInstance:
     - {fileID: 3202752408660031418, guid: a8e6a3b8270fe48529936c46bcb5681d, type: 3}
     - {fileID: 5773537828768041476, guid: a8e6a3b8270fe48529936c46bcb5681d, type: 3}
     - {fileID: 6545225282677274686, guid: a8e6a3b8270fe48529936c46bcb5681d, type: 3}
+    - {fileID: -6274350280932613119, guid: a8e6a3b8270fe48529936c46bcb5681d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a8e6a3b8270fe48529936c46bcb5681d, type: 3}
 --- !u!4 &2199712050238850740 stripped
 Transform:
@@ -305,22 +306,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3, y: 3, z: 1.3}
   m_Center: {x: -0.024110436, y: 0.75514853, z: 0.045573354}
---- !u!208 &521944871478957354
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2199712050238850741}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.885, y: 0.5, z: 0.885}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 0
-  m_Center: {x: 0, y: 1, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!114 &-3935833817755542695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,19 +324,3 @@ MonoBehaviour:
   buildableColor: {r: 0.77254903, g: 1, b: 0.38431373, a: 0}
   unbuildableColor: {r: 0.5568628, g: 0.101960786, b: 0.101960786, a: 0}
   buildPrefab: {fileID: 5795770743788303379, guid: a8e6a3b8270fe48529936c46bcb5681d, type: 3}
---- !u!114 &-2032047386894575146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2199712050238850741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_IgnoreFromBuild: 1
-  m_AffectedAgents: ffffffff
