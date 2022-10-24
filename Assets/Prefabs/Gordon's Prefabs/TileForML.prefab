@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1076978155850255879}
   - component: {fileID: 5777776937419116531}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Detector
   m_TagString: Detector
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7046942993527224464}
   - component: {fileID: 1479832198653146439}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Detector (1)
   m_TagString: Detector
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: -8454991299248349193}
   - component: {fileID: 46869660634344245}
   - component: {fileID: 7216608310858718076}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: TileForML
   m_TagString: GridFloor
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3196648517536708714, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3196648517536708714, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
       propertyPath: m_IsActive
@@ -306,7 +306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1092910722396494324, guid: 162d2f8f57192a14ab9278fc56faf57e, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1092910722396494324, guid: 162d2f8f57192a14ab9278fc56faf57e, type: 3}
       propertyPath: m_TagString

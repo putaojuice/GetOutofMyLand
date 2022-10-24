@@ -64,9 +64,9 @@ TagManager:
   - EnvironmentObjects
   - Tower
   - Floor
-  - 
-  - 
-  - 
+  - MLVisionEndPoint
+  - WalkableTile
+  - MLEnemyAgent
   - 
   - 
   - 
