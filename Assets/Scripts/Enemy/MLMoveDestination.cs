@@ -12,30 +12,31 @@ using Random = UnityEngine.Random;
 public class MLMoveDestination : Agent
 {
     [SerializeField] public Transform goal;
+    private Vector3 destination;
     private Animator animator;
     private NavMeshAgent navMeshAgent;
 
     public bool maskActions = true;
+    bool episodeJustBegan = false;
 
-    const int k_NoAction = 0;  // do nothing!
-    const int k_Up = 1;
-    const int k_Down = 2;
-    const int k_Left = 3;
-    const int k_Right = 4;
+    const int k_Up = 0;
+    const int k_Down = 1;
+    const int k_Left = 2;
+    const int k_Right = 3;
 
     public override void Initialize()
     {
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-        getLeftGridPosition();
-
+        Academy.Instance.AutomaticSteppingEnabled = false;
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+        navMeshAgent.updateRotation = false;
+        this.destination = this.transform.localPosition;
 
     }
 
@@ -43,12 +44,49 @@ public class MLMoveDestination : Agent
     void Update()
     {
 
+        if (episodeJustBegan || reachedDestination()) {
+            episodeJustBegan = false;
+            navMeshAgent.isStopped = true;
+            animator.SetBool("Walk Forward", false);
+            Debug.Log("Requesting Decision");
+            RequestDecision();
+            Academy.Instance.EnvironmentStep();
+        } else {
+            if (!CalculateNewPath(navMeshAgent.destination)) {
+                Debug.Log("trying to move to somewhere unaccessible"); 
+                navMeshAgent.isStopped = true;
+                this.destination = this.transform.position;
+                navMeshAgent.destination = this.destination;
+            }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (navMeshAgent.velocity.sqrMagnitude > Mathf.Epsilon)
+        {
+            transform.rotation = Quaternion.LookRotation(navMeshAgent.velocity.normalized);
+        }
+    }
+
+    bool reachedDestination() {
+        double currentX = (double) System.Math.Round(this.transform.localPosition.x, 1);
+        double currentZ = (double) System.Math.Round(this.transform.localPosition.z, 1);
+        double destX = (double)System.Math.Round(this.destination.x, 1);
+        double destZ = (double)System.Math.Round(this.destination.z, 1);
+        if (currentX == destX && currentZ == destZ) {
+            return true;
+        } else {
+            Debug.Log("currentX: " + currentX + " AND destX: " + destX);
+            Debug.Log("currentZ: " + currentZ + " AND destZ: " + destZ);
+            return false;
+        }
     }
 
     Vector3 getCurrentRoundedPosition() {
-        int currentX = (int)Mathf.Round(this.transform.position.x);
-        int currentZ = (int)Mathf.Round(this.transform.position.z);
-        float currentY = this.transform.position.y;
+        int currentX = (int)Mathf.Round(this.transform.localPosition.x);
+        int currentZ = (int)Mathf.Round(this.transform.localPosition.z);
+        float currentY = this.transform.localPosition.y;
         return new Vector3(currentX, currentY, currentZ);
     }
 
@@ -66,14 +104,14 @@ public class MLMoveDestination : Agent
     }
 
     // Get Vector3 of Front grid
-    public Vector3 getFrontGridPosition()
+    public Vector3 getTopGridPosition()
     {
         Vector3 currentPosition = getCurrentRoundedPosition();
         return currentPosition + new Vector3(0, 0, 1);
     }
 
     // Get Vector3 of Hind grid
-    public Vector3 getHindGridPosition()
+    public Vector3 getBottomGridPosition()
     {
         Vector3 currentPosition = getCurrentRoundedPosition();
         return currentPosition - new Vector3(0, 0, 1);
@@ -109,12 +147,12 @@ public class MLMoveDestination : Agent
                 actionMask.SetActionEnabled(0, k_Right, false);
             }
 
-            if (!CalculateNewPath(getHindGridPosition()))
+            if (!CalculateNewPath(getBottomGridPosition()))
             {
                 actionMask.SetActionEnabled(0, k_Down, false);
             }
 
-            if (!CalculateNewPath(getFrontGridPosition()))
+            if (!CalculateNewPath(getTopGridPosition()))
             {
                 actionMask.SetActionEnabled(0, k_Up, false);
             }
@@ -131,20 +169,33 @@ public class MLMoveDestination : Agent
         var targetPos = transform.position;
         switch (action)
         {
-            case k_NoAction:
-                // do nothing
-                break;
             case k_Right:
-                targetPos = transform.position + new Vector3(1f, 0, 0f);
+                Debug.Log("chose to go right");
+                animator.SetBool("Walk Forward", true);
+                this.destination = getRightGridPosition();
+                navMeshAgent.destination = this.destination;
+                navMeshAgent.isStopped = false;
                 break;
             case k_Left:
-                targetPos = transform.position + new Vector3(-1f, 0, 0f);
+                Debug.Log("chose to go left");
+                animator.SetBool("Walk Forward", true);
+                this.destination = getLeftGridPosition();
+                navMeshAgent.destination = this.destination;
+                navMeshAgent.isStopped = false;
                 break;
             case k_Up:
-                targetPos = transform.position + new Vector3(0f, 0, 1f);
+                Debug.Log("chose to go up");
+                animator.SetBool("Walk Forward", true);
+                this.destination = getTopGridPosition();
+                navMeshAgent.destination = this.destination;
+                navMeshAgent.isStopped = false;
                 break;
             case k_Down:
-                targetPos = transform.position + new Vector3(0f, 0, -1f);
+                Debug.Log("chose to go down");
+                animator.SetBool("Walk Forward", true);
+                this.destination = getBottomGridPosition();
+                navMeshAgent.destination = this.destination;
+                navMeshAgent.isStopped = false;
                 break;
             default:
                 throw new ArgumentException("Invalid action value");
@@ -152,20 +203,22 @@ public class MLMoveDestination : Agent
     }
 
     Vector3 getRandomPosition() {
-        return new Vector3(Random.Range(-3f, +3f), this.transform.position.y, Random.Range(-3f, +3f));
+        return new Vector3(Random.Range(-2.0f, +2.0f), this.transform.position.y, Random.Range(-2.0f, 2.03f));
     }
 
     public override void OnEpisodeBegin()
     {
-        Debug.Log("OnEpisodeBegin IS CALLED IN MLMOVEDESTINATION");
+        Debug.Log("Episode Begins");
         transform.localPosition = getRandomPosition();
+        this.destination = this.transform.localPosition;
+        episodeJustBegan = true;
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        Debug.Log("CollectObservations IS CALLED IN MLMOVEDESTINATION");
         sensor.AddObservation(transform.localPosition);
         sensor.AddObservation(goal.localPosition);
+
 
     }
 
@@ -174,7 +227,6 @@ public class MLMoveDestination : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        Debug.Log("Heuristic IS CALLED IN MLMOVEDESTINATION");
         animator.SetBool("Walk Forward", true);
         navMeshAgent.destination = goal.position;
     }
@@ -188,8 +240,7 @@ public class MLMoveDestination : Agent
             SetReward(+1f);
             EndEpisode();
         }
-  
-        // Destroy(gameObject);
     }
+
 
 }

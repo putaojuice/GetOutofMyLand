@@ -3483,7 +3483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layer:
     serializedVersion: 2
-    m_Bits: 383
+    m_Bits: 127
   surf: {fileID: 1705511786}
   cam: {fileID: 1574795947}
 --- !u!114 &1755004092
