@@ -11,12 +11,15 @@ public class Warrior : Enemy
     [SerializeField]private float skillDuration = 0.5f;
     [SerializeField]private bool skillToggled = false;
     public float originalSpeed;
+    [SerializeField]private float hpScaling;
+    [SerializeField]private float hpBase;
 
     // Start is called before the first frame update
     void Start()
     {
         // Setting up the stats for Warriors
-        maxHp = 300f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        // maxHp = 2.0f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        maxHp = 5.0f + 10.0f * Mathf.Pow(hpBase, (hpScaling * GameManager.instance.waveIndex + 1));
         hp = maxHp;
         skillCoolDown = 1f;
         defence = 1f;

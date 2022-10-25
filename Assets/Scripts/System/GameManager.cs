@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]private GameObject scoreText;
     [SerializeField]private DeckController DeckController;
-    [SerializeField]private EnemyManager EnemyManager;
+    [SerializeField]private MLEnemyManager EnemyManager;
     [SerializeField]private Button spawnButton;
     [SerializeField]private Button wavePauseButton;
     [SerializeField]private GameObject gameOverUI;
@@ -37,13 +37,21 @@ public class GameManager : MonoBehaviour
         spawnButton.onClick.AddListener(TaskOnClick);
         wavePauseButton.interactable = false;
         waveIndex = 0;
+        EnemyManager.initializeFirstSpawnPoint();
     }
+
+    // IEnumerator Wait(){
+    //     yield return new WaitForSeconds (3);
+    //     EnemyManager.SelectSmartSpawnPoint();
+    // }
 
     IEnumerator CountDown (int countDown) {
      int counter = countDown;
      CountDownText.SetActive(true);
      MusicController.fadeAudio();
      MusicController.PlayCountDown();
+     spawnButton.interactable = false;
+     
      while (counter > 0) {
          CountDownText.GetComponent<TMP_Text>().text = counter.ToString();
          yield return new WaitForSeconds (1);
@@ -51,7 +59,7 @@ public class GameManager : MonoBehaviour
      }
      CountDownText.SetActive(false);
      SpawnEnemy();
-     spawnButton.interactable = false;
+     
 
      DeckController.disableHand();
      wavePauseButton.interactable = true;
@@ -62,15 +70,33 @@ public class GameManager : MonoBehaviour
 
     void TaskOnClick()
     {   
+        
+        /*
+        // get spawnpointlist
+        List<GameObject> spawnPointList = gameObject.GetComponent<GridController>().GetPossibleSpawnPointPosition();
+        Debug.Log("spawnPointList size: " + spawnPointList.Count);
+        // feed spawnpointlist to enemy manager
+        EnemyManager.LoadSpawnPointList(spawnPointList);
+        // enemy manager scout for optimal spawn point
+        EnemyManager.ScoutSpawnPoints();
+        */
+
         StartCoroutine(CountDown(3));
+
+        // get spawnpointlist
+ 
+        List<GameObject> spawnPointList = gameObject.GetComponent<GridController>().GetPossibleSpawnPointPosition();
+        Debug.Log("spawnPointList size: " + spawnPointList.Count);
+        // feed spawnpointlist to enemy manager
+        EnemyManager.LoadSpawnPointList(spawnPointList);
+        EnemyManager.ScoutSpawnPoints();
+
 
     }
 
     public void SpawnEnemy() {
-        // get a random grid object
-        List<GameObject> spawnPointList = gameObject.GetComponent<GridController>().GetPossibleSpawnPointPosition();
         waveIndex++;
-        EnemyManager.StartWave(waveIndex, spawnPointList);
+        EnemyManager.StartWave(waveIndex);
     }
 
     public void GameOver() {
@@ -84,6 +110,14 @@ public class GameManager : MonoBehaviour
          // Delegate wave end event when all the enemies died
         if (EnemyManager.UpdateEnemy()) {
             WaveEnded();
+
+
+            // enemy manager scout for optimal spawn point
+            EnemyManager.SelectSmartSpawnPoint();
+            
+            // StartCoroutine(Wait());
+            
+
             
             //Music Stuff
             MusicController.PlayAmbient();

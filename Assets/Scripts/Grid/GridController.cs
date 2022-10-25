@@ -15,12 +15,12 @@ public class GridController : MonoBehaviour
 	private GameObject previewPrefab;
 	private GridTile gridTile;
 	private bool isBuilding = false;
-	
-	private bool initialized = false;
 	private float maxNorth = 1f;
 	private float maxSouth = 1f;
-	private float maxEast = 2f;
+	private float maxEast = 1f;
 	private float maxWest = 1f;
+
+	private 
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,8 @@ public class GridController : MonoBehaviour
 		// BuildNavMesh on start up
 		surf.BuildNavMesh();
 		DeckController = gameObject.GetComponent<DeckController>();
-    }
+		initializeBoundary();
+	}
 
     private void Update()
 	{
@@ -96,8 +97,8 @@ public class GridController : MonoBehaviour
 	{
 		Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-		if (Physics.Raycast(ray, out hit, layer))
-		{	
+		if (Physics.Raycast(cam.transform.position, ray.direction, out hit, Mathf.Infinity, layer))
+		{
 			PositionObj(hit.point);
 		}
 		surf.UpdateNavMesh(surf.navMeshData);
@@ -122,19 +123,20 @@ public class GridController : MonoBehaviour
 			}
 
 			if (go.GetComponent<GridFloor>().isOuterFloor) {
-				if (go.transform.position.x > maxEast) {
+				if (go.transform.position.x >= maxEast) {
 					maxEast = go.transform.position.x;
 				} 
 
-				if (go.transform.position.x < maxWest) {
+				if (go.transform.position.x <= maxWest) {
 					maxWest = go.transform.position.x;
 				}
 
-				if (go.transform.position.z > maxNorth) {
+				if (go.transform.position.z >= maxNorth) {
+					Debug.Log(go.transform.position.z);
 					maxNorth = go.transform.position.z;
 				} 
 
-				if (go.transform.position.z < maxSouth) {
+				if (go.transform.position.z <= maxSouth) {
 					maxSouth = go.transform.position.z;
 				}
 
@@ -200,10 +202,6 @@ public class GridController : MonoBehaviour
     }
 
 	public List<GameObject> GetPossibleSpawnPointPosition() {
-		if (!initialized) {
-			initializeBoundary();
-			initialized = true;
-		}
 		
 		return currentOuterFloor;
 	}

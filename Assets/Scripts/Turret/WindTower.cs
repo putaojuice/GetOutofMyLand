@@ -6,12 +6,14 @@ public class WindTower : Turret
 {
 
     [SerializeField] public Vector3 shootDirection;
+    [SerializeField] public float ActualTowerRange;
 
     // Start is called before the first frame update
     void Start()
     {
-        range = 7.5f;
+        range = ActualTowerRange;
         firingRate = 0.5f;
+        rangeDetector.GetComponent<RangeDetector>().UpdateColliderRadius(ActualTowerRange);
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
@@ -58,8 +60,12 @@ public class WindTower : Turret
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    private void Update()
+    {   
+        if (Input.GetMouseButtonDown(0)) {  
+            SelectingTurret();
+        } 
+
         if(shootDirection == Vector3.zero)
         {
             return;
@@ -90,5 +96,19 @@ public class WindTower : Turret
             bullet.Seek(shootDirection, range);
         }
     }
+
+    private void SelectingTurret()
+    {
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);  
+        RaycastHit hit;  
+        if (Physics.Raycast(cam.transform.position, ray.direction, out hit, Mathf.Infinity, layer)) {  
+            //Select stage    
+            if (hit.transform.gameObject.tag == "Tower") {  
+
+            }  
+        } 
+    }
+
+    
 }
 

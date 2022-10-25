@@ -6,7 +6,6 @@ using Unity.AI.Navigation;
 public class GridFloor : MonoBehaviour
 {   
     
-    
     [SerializeField] private GameObject blockPrefab;
     [SerializeField] private GameObject spawnPoint;
     private GridController controller;
@@ -101,6 +100,18 @@ public class GridFloor : MonoBehaviour
     public GameObject generateSpawnPoint() {
         return Instantiate(spawnPoint, new Vector3(transform.position.x, transform.position.y + 0.6f, transform.position.z), transform.rotation);
     }
+
+    public GameObject generateFirstSpawnPoint() {
+        return Instantiate(spawnPoint, new Vector3(3f, 0.6f, 6f), transform.rotation);
+    }
+
+    public GameObject getSpawnPoint()
+    {
+        return spawnPoint;
+    }
+
+
+
 
 
 

@@ -186,10 +186,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockPrefab: {fileID: 2732271029395909584, guid: 39c815b79cd65c646911e9a9994a8adb, type: 3}
   spawnPoint: {fileID: 5220440410661199864, guid: b1f1dcaa7f1d54668a8177fc2cc10c68, type: 3}
-  maxX: 1
-  maxZ: 1
   blockSize: 1
   isOuterFloor: 0
+  isTurretFloor: 0
 --- !u!65 &46869660634344245
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -233,6 +232,10 @@ PrefabInstance:
     - target: {fileID: 3196648517536708714, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196648517536708714, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3196648517536708714, guid: 845ad39e51a0a464a864825f760d85e0, type: 3}
       propertyPath: m_TagString

@@ -10,12 +10,14 @@ public class Healer : Enemy
     [SerializeField] public float range = 7.5f;
     [SerializeField] public int numSegments = 128;
     [SerializeField] LineRenderer line;
+    [SerializeField]private float hpScaling;
+    [SerializeField]private float hpBase;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        maxHp = 500f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        // maxHp = 1f * (GameManager.instance.waveIndex + 1) * 0.5f;
+        maxHp = 5.0f + 10.0f * Mathf.Pow(hpBase, (hpScaling * GameManager.instance.waveIndex + 1));
         hp = maxHp;
         skillCoolDown = 1.5f;
         defence = 1f;

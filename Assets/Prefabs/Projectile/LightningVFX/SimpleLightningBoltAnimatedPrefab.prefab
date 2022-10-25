@@ -241,7 +241,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 300
-  attackPoints: 1
   towerLevel: 1
   burnDamage: 1
   lightningStatusLevel1: {fileID: 11400000, guid: 51503097ca34f4f2eac134d7902b1a9f, type: 2}

@@ -1,11 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+public enum TurretType
+{
+    Fire,
+    Water,
+    Lightning
+}
 
 public class Turret : MonoBehaviour
-{
-    [Header("Attributes")]
+{   
+    [SerializeField] protected LayerMask layer;
+    protected Camera cam;
+    public bool highlighted = false;
+    public TurretType type; 
+    [SerializeField] public LineRenderer rangeIndicator;
 
+    [Header("Attributes")]
     [SerializeField] public float lerpSpeed = 10f;
     [SerializeField] public float range = 15f;
     [SerializeField] public float firingRate = 2f;
@@ -18,15 +31,16 @@ public class Turret : MonoBehaviour
     [SerializeField] public GameObject bulletPrefab;
     [SerializeField] public Transform firePoint;
     [SerializeField] public float towerLevel;
+    [SerializeField] public GameObject rangeDetector;
 
-/*  For pause wave function
- *  [SerializeField]
- *  private GameObject canvas;
- */
+    /*  For pause wave function
+     *  [SerializeField]
+     *  private GameObject canvas;
+     */
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         /* canvas = GameObject.Find("Canvas (1)"); */
         towerLevel = 3;
@@ -59,6 +73,7 @@ public class Turret : MonoBehaviour
 
         if(nearestEnemy != null && shortestDistance <= range)
         {
+            Debug.Log(nearestEnemy);
             target = nearestEnemy;
         } else {
             target = null;
@@ -66,8 +81,9 @@ public class Turret : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    private void Update()
+    {   
+
         if(target == null)
         {
             return;
@@ -87,8 +103,19 @@ public class Turret : MonoBehaviour
         fireCountdown -= Time.deltaTime;
     }
 
-    public virtual void UpgradeLevel(){
-        towerLevel ++;
+    public virtual float GetDamage() 
+    {
+        return 0;
+    }
+
+    public virtual void UpgradeTower()
+    {
+        
+    }
+
+    public virtual float GetLevel()
+    {
+        return towerLevel;
     }
 
     public virtual void Shoot()
@@ -102,4 +129,11 @@ public class Turret : MonoBehaviour
             bullet.Seek(target);
         }
     }
+
+    public virtual TurretType GetTurretType()
+    {
+        return type;
+    }
+
+
 }
