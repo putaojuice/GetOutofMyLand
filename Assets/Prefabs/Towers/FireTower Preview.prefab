@@ -9,11 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 973161718042239767, guid: 4ce2427fcde624ca79b731048a682991, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1706796209442320263, guid: 4ce2427fcde624ca79b731048a682991, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1746051838748374078, guid: 4ce2427fcde624ca79b731048a682991, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e237576d5a0744848ac17340d4d7a075, type: 2}
     - target: {fileID: 2612282147556540357, guid: 4ce2427fcde624ca79b731048a682991, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5948202443062944100, guid: 4ce2427fcde624ca79b731048a682991, type: 3}
       propertyPath: m_RootOrder
@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6479910120568542891, guid: 4ce2427fcde624ca79b731048a682991, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6811756782549359922, guid: 4ce2427fcde624ca79b731048a682991, type: 3}
       propertyPath: m_Name
@@ -77,13 +77,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6811756782549359922, guid: 4ce2427fcde624ca79b731048a682991, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7882423675509278799, guid: 4ce2427fcde624ca79b731048a682991, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2725967991562367516, guid: 4ce2427fcde624ca79b731048a682991, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4ce2427fcde624ca79b731048a682991, type: 3}
 --- !u!1001 &5938547215195623994
 PrefabInstance:

@@ -66,6 +66,7 @@ public class TurretBase : MonoBehaviour
 
 	private void UpdateBuildStatus()
 	{	
+		Debug.Log(floor.Count + " " + obj.Count);
 		if (sameTurret != null && sameTurret.GetLevel() < 3) {
 			upgradable = true;
 			turretMat.SetColor("_Color", buildableColor);
