@@ -15,7 +15,7 @@ Now, your task is to expand the land and build towers to defeat any incoming bea
 </br>
 
 <h4 align=center>Vote for us in 21st STEPS here! 🔥💧⚡</h4>
-<p align=center><a class="button1" href="/">Voting Link</a></p>
+<p align=center><a class="button1" href="https://uvents.nus.edu.sg/event/21st-steps/vote">Voting Link</a></p>
 
 <h4 align=center>☁️⚡ Download Get Out of My Land! here! Or head to our releases! 🔥💧</h4>
 <p align=center><a class="button1" href="https://goml.itch.io/get-out-of-my-land">Download Link</a></p>
