@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16409636, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -92,7 +92,7 @@ MonoBehaviour:
   maxHp: 500
   hp: 500
   enemy: {fileID: 2713546900788216281}
-  rect: {fileID: 0}
+  rect: {fileID: 7932782398363530166}
   mainCamera: {fileID: 0}
   mainCanvas: {fileID: 2616858495767627935}
 --- !u!1 &5648217727553052766
