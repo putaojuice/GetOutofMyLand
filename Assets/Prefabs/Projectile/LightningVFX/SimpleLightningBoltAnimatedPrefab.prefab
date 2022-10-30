@@ -220,11 +220,11 @@ MonoBehaviour:
   StartPosition: {x: 0, y: 0, z: 0}
   EndObject: {fileID: 0}
   EndPosition: {x: 0, y: 0, z: 0}
-  Generations: 3
-  Duration: 0.03
-  ChaosFactor: 0.15
+  Generations: 2
+  Duration: 0.226
+  ChaosFactor: 0.227
   ManualMode: 0
-  Rows: 8
+  Rows: 10
   Columns: 1
   AnimationMode: 3
 --- !u!114 &8749150647587781599

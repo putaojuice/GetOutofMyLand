@@ -30,7 +30,7 @@ public class LightningBall : Bullet
         Vector3 dir = target.transform.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
-        if(dir.magnitude <= distanceThisFrame)
+        if(dir.magnitude <= distanceThisFrame + 5.0f)
         {
             HitTarget();
             return;
