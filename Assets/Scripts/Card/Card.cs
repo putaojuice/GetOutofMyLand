@@ -55,6 +55,10 @@ public class Card : MonoBehaviour
         else if (type == Type.Turret)
         {
             DeckController.PlayTurretCard(this, prefabPreview);
+        } 
+        else if (type == Type.Spell)
+        {
+            DeckController.PlaySpellCard(this, prefabPreview);
         }
         else
         {
@@ -90,6 +94,9 @@ public class Card : MonoBehaviour
             case string a when a.Contains("WaterTowerCard"):
                 DeckController.AddWaterTowerQty();
                 break;
+            case string a when a.Contains("StunSpellCard"):
+                DeckController.AddStunSpellQty();
+                break;
             default:
                 Debug.Log("ERROR: UNKNOWN CARD");
                 break;
@@ -120,4 +127,4 @@ public class Card : MonoBehaviour
     }
 }
 
-public enum Type {Tile, Turret};
+public enum Type {Tile, Turret, Spell};
