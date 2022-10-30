@@ -33,7 +33,7 @@ Now, your task is to expand the land and build towers to defeat any incoming bea
 
 <p align=center><img src="https://imgur.com/u43guVJ.png" alt="[System Requirements" draggable="false"></p>
 
-<h4 align=center style="color:#7D4D37" ><u>Windows (to be updated)</u></h4>
+<h4 align=center style="color:#7D4D37" ><u>Windows</u></h4>
 <table width="100%">
 <tr>
 <td style="vertical-align:top" width="50%">
@@ -41,10 +41,10 @@ Now, your task is to expand the land and build towers to defeat any incoming bea
 <b style="color:#7D4D37" >Minimum:</b><br>
 <i style="color:#7E4E38">OS:</i> Windows 7<br>
 <i style="color:#7E4E38">Processor:</i> x86 <br>
-<i style="color:#7E4E38">Memory:</i> 512 MB RAM.<br>
+<i style="color:#7E4E38">Memory:</i> 512 MB RAM<br>
 <i style="color:#7E4E38">Graphics:</i> DX10 <br>
 <i style="color:#7E4E38">Network:</i> Enough to tell your friends that you're now playing Get Out of My Land!<br>
-<i style="color:#7E4E38">Storage:</i> 800 MB available space.<br>
+<i style="color:#7E4E38">Storage:</i> 800 MB available space<br>
 <i style="color:#7E4E38">Sound Card:</i> If you don't have one, just imagine the sounds of clouds floating and wind gushing<br>
 </td>
 
@@ -53,17 +53,17 @@ Now, your task is to expand the land and build towers to defeat any incoming bea
 <b style="color:#7D4D37" >Recommended:</b><br>
 <i style="color:#7E4E38">OS:</i> Windows 11<br>
 <i style="color:#7E4E38">Processor:</i> x64 <br>
-<i style="color:#7E4E38">Memory:</i> 1024 GB RAM.<br>
+<i style="color:#7E4E38">Memory:</i> 1024 GB RAM<br>
 <i style="color:#7E4E38">Graphics:</i> DX11, DX12 <br>
 <i style="color:#7E4E38">Network:</i> Enough to send your friends copies of Get Out of My Land!<br>
-<i style="color:#7E4E38">Storage:</i> All the space.<br>
+<i style="color:#7E4E38">Storage:</i> All the space<br>
 <i style="color:#7E4E38">Sound Card:</i> If you don't have one, just imagine the sounds of clouds floating and wind gushing<br>
 
 </td>
 </tr>
 </table>
 
-<h4 align=center style="color:#7D4D37" ><u>macOS (to be updated)</u></h4>
+<h4 align=center style="color:#7D4D37" ><u>macOS</u></h4>
 <table width="100%">
 <tr>
 <td style="vertical-align:top" width="50%">
