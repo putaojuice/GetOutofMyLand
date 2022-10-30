@@ -30,6 +30,6 @@ public class HpBar : MonoBehaviour
         mainCanvas.transform.LookAt(transform.position + mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.up);
         hp = enemy.hp;
         maxHp = enemy.maxHp;
-        rect.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, hp/maxHp * 90);
+        rect.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, hp/maxHp * 45);
     }
 }
