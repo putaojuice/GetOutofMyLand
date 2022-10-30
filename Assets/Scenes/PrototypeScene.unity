@@ -3125,6 +3125,8 @@ MonoBehaviour:
   waveIndex: 0
   scoreText: {fileID: 44738492}
   DeckController: {fileID: 1755004092}
+  TurretController: {fileID: 1755004090}
+  GridController: {fileID: 1755004091}
   EnemyManager: {fileID: 1755004093}
   spawnButton: {fileID: 169478315}
   wavePauseButton: {fileID: 1350787710}
