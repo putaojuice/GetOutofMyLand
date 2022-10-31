@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public int waveIndex = 0;
 
     [SerializeField]private GameObject scoreText;
+    [SerializeField]private TextMeshProUGUI gemCount;
     [SerializeField]private DeckController DeckController;
     [SerializeField]private TurretController TurretController;
     [SerializeField]private GridController GridController;
@@ -100,9 +101,15 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver() {
-        int enemiesScore = EnemyManager.GetEnemiesKilled() * (1 + (waveIndex / 50));
-        int landScore = (GameObject.FindGameObjectsWithTag("GridFloor").Length - 45) * (1 + (waveIndex / 50));
+        int enemiesScore = EnemyManager.GetEnemiesKilled() * (1 + (waveIndex / 60));
+        int landScore = (GameObject.FindGameObjectsWithTag("GridFloor").Length - 13) * (1 + (waveIndex / 60));
         scoreText.GetComponent<TMP_Text>().text = "Score: " + (enemiesScore + landScore); 
+        gemCount.text = "X " + (int) ((enemiesScore + landScore) / 30);
+        if ((enemiesScore + landScore) / 30 >= 1)
+        {
+            UpgradeManager.instance.data.upgradePoint += (enemiesScore + landScore) / 30;
+            UpgradeManager.instance.Save();
+        }
         gameOverUI.SetActive(true);
     }
 
