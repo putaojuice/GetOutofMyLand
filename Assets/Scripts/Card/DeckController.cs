@@ -41,6 +41,8 @@ public class DeckController : MonoBehaviour
     [SerializeField] private Text FireTowerQtyText;
     private int StunSpellQty = 0;
     [SerializeField] private Text StunSpellQtyText;
+    private int ExplosionSpellQty = 0;
+    [SerializeField] private Text ExplosionSpellQtyText;
 
     void Awake()
     {
@@ -201,10 +203,35 @@ public class DeckController : MonoBehaviour
         Hand.SetActive(true);
     }
 
+    public void DrawExplosionSpellCard(){
+
+        int cardIndex = deck.FindIndex(gameObject => gameObject.name.Contains("ExplosionSpellCard"));
+        Debug.Log("Index of explosion : " + cardIndex);
+
+        Card chosenCard = deck[cardIndex];
+        chosenCard.gameObject.SetActive(true);
+        // deck.Remove(chosenCard);
+        chosenCard.transform.SetParent(Hand.transform);
+        chosenCard.OpenCard();
+        currentHandSize++;
+    }
+
+    public void DrawStunSpellCard(){
+
+        int cardIndex = deck.FindIndex(gameObject => gameObject.name.Contains("StunSpellCard"));
+        Debug.Log("Index of stun : " + cardIndex);
+
+        Card chosenCard = deck[cardIndex];
+        chosenCard.gameObject.SetActive(true);
+        // deck.Remove(chosenCard);
+        chosenCard.transform.SetParent(Hand.transform);
+        chosenCard.OpenCard();
+        currentHandSize++;
+    }
+
     public void DrawRandomTowerCard()
     {
-        // List<string> towerArray = new List<string> { "WaterTowerCard", "LightningTowerCard", "FireTowerCard" };
-        List<string> towerArray = new List<string> { "StunSpellCard"};
+        List<string> towerArray = new List<string> { "WaterTowerCard", "LightningTowerCard", "FireTowerCard" };
         System.Random r = new System.Random();
 
         // Fisher-Yates Shuffle
@@ -249,6 +276,7 @@ public class DeckController : MonoBehaviour
         AddFireTowerQty();
         AddWaterTowerQty();
         // AddStunSpellQty();
+        // AddExplosionSpellQty();
     }
 
     public void AddILandQty()
@@ -303,5 +331,11 @@ public class DeckController : MonoBehaviour
     {
         StunSpellQty += 1;
         StunSpellQtyText.text = "x " + StunSpellQty.ToString();
+    }
+
+    public void AddExplosionSpellQty()
+    {
+        ExplosionSpellQty += 1;
+        ExplosionSpellQtyText.text = "x " + ExplosionSpellQty.ToString();
     }
 }

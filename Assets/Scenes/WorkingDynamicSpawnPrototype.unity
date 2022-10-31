@@ -427,6 +427,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &219065914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2190798762367221346, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+  m_PrefabInstance: {fileID: 1462691291}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e048374dc8d2374cbe2ea405ca3daca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &223163375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1987,6 +1998,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 287967050594886628, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 385143013787408618, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3089,9 +3104,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
---- !u!114 &1462691292 stripped
+--- !u!114 &1462691293 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5212459724389325255, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3460339150079232784, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
   m_PrefabInstance: {fileID: 1462691291}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -3605,7 +3620,8 @@ MonoBehaviour:
   - {fileID: 1244733605}
   - {fileID: 1371356420}
   - {fileID: 1093472385}
-  - {fileID: 1462691292}
+  - {fileID: 219065914}
+  - {fileID: 1462691293}
   lootDeck:
   - {fileID: 2747059604024587592, guid: 10508ff3d0720c143840f8b69c709f8c, type: 3}
   - {fileID: 2747059604024587592, guid: c1128e83c8e1d544a8b78aa5c55143a7, type: 3}
@@ -3625,6 +3641,7 @@ MonoBehaviour:
   LightningTowerQtyText: {fileID: 646638943}
   FireTowerQtyText: {fileID: 889002825}
   StunSpellQtyText: {fileID: 889002825}
+  ExplosionSpellQtyText: {fileID: 646638943}
 --- !u!114 &1755004093
 MonoBehaviour:
   m_ObjectHideFlags: 0

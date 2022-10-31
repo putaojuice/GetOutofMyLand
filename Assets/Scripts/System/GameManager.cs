@@ -31,8 +31,10 @@ public class GameManager : MonoBehaviour
 
     void Start() {
         DeckController.ShuffleCard();
-        DeckController.DrawRandomTowerCard();
-        DeckController.DrawRandomTowerCard();
+        // DeckController.DrawRandomTowerCard();
+        // DeckController.DrawRandomTowerCard();
+        DeckController.DrawExplosionSpellCard();
+        DeckController.DrawStunSpellCard();
         DeckController.DrawCard();
         spawnButton.onClick.AddListener(TaskOnClick);
         wavePauseButton.interactable = false;

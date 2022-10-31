@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5000886848645267416}
   - component: {fileID: 1005235254773119358}
   m_Layer: 0
-  m_Name: stunspell
+  m_Name: StunSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
