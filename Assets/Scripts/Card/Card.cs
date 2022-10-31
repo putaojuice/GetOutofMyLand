@@ -11,7 +11,6 @@ public class Card : MonoBehaviour
     public GameObject prefabPreview;
     public Type type;
     public bool isLootCard = false;
-    public bool isDiscardCard = false;
 
     private Image cardImage;
     [SerializeField]
@@ -34,12 +33,6 @@ public class Card : MonoBehaviour
         if (DeckController.currentCard != null)
         {
             Debug.Log("block card");
-            return;
-        }
-
-        if (isDiscardCard)
-        {
-            DeckController.UseDiscardCard();
             return;
         }
 
