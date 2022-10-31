@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]private GameObject scoreText;
     [SerializeField]private DeckController DeckController;
+    [SerializeField]private TurretController TurretController;
+    [SerializeField]private GridController GridController;
     [SerializeField]private MLEnemyManager EnemyManager;
     [SerializeField]private Button spawnButton;
     [SerializeField]private Button wavePauseButton;
@@ -60,8 +62,6 @@ public class GameManager : MonoBehaviour
      CountDownText.SetActive(false);
      SpawnEnemy();
      
-
-     DeckController.disableHand();
      wavePauseButton.interactable = true;
 
      //Music Stuff
@@ -121,9 +121,24 @@ public class GameManager : MonoBehaviour
             
             //Music Stuff
             MusicController.PlayAmbient();
+
+            //UI Stuff
             spawnButton.interactable = true;
-            DeckController.enableHand();
             wavePauseButton.interactable = false;
+            
+            //Card Stuff
+            if (DeckController.currentCard != null) //still building
+            {
+                Card currentCard = DeckController.currentCard;
+                if (currentCard.type == Type.Turret)
+                {
+                    TurretController.StopBuild();
+                } else if (currentCard.type == Type.Tile)
+                {
+                    GridController.StopBuild();
+                }
+            }
+            
         }
     }
     
