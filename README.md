@@ -8,10 +8,16 @@ Developed by Team GOML for NUS CS4350: Game Development Project. Developed with 
   Since the dawn of time, the humans and the beasts have been fighting over the land of Fetora, a floating continent. There were countless lives taken from this war. However, the beasts retreated 30 years ago and no one knows why.
 </br>
 <br>
-The king of Cayesh, the city of the humans. knows that the beasts are planning something huge, and the scout spotted traces of beast trails left behind at the battlefront a while ago. You, being part of the family that serves alongside the king since the start of the war, has volunteered to be the first line of defence of Cayesh. The king gave you a sacred task to expand the territory at the border at the ancient battlefront to prepare for a war against the beasts.
+The King of Cayesh, the city of the humans, knows that the beasts are planning something huge, and the scout spotted traces of beast trails left behind at the battlefront a while ago. You, being part of the family that serves alongside the king since the start of the war, has volunteered to be the first line of defence of Cayesh. The King gave you a sacred task to expand the territory at the border at the ancient battlefront to prepare for a war against the beasts.
 </br>
 <br>
 Now, your task is to expand the land and build towers to defeat any incoming beasts that try to infiltrate into the territory of Cayesh.</p>
+</br>
+<br>
+Experience the tangy thrill of battling against the enemies by making sure they don't reach your land end point as you strategise your defense plan against the battle powered using Machine Learning, using a variety of towers, lands, spells and elemental reactions.</p>
+</br>
+<br>
+Tower upgrades? Infinite waves of enemies? Strategise your cards? Get Out of My Land! has them all.</p>
 </br>
 
 <h4 align=center>Vote for us in 21st STEPS here! 🔥💧⚡</h4>
