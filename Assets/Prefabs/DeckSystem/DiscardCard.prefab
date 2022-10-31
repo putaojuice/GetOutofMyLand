@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6399822502246504401
+--- !u!1 &8257900214190014637
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,28 +8,28 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8135393825960812767}
-  - component: {fileID: 2390200240503557523}
-  - component: {fileID: 3216756782581534431}
-  - component: {fileID: 5355595915281001500}
-  - component: {fileID: 848860114927265691}
-  - component: {fileID: -1917960575253673708}
-  - component: {fileID: -2808257483431757803}
-  - component: {fileID: 1503819402489154247}
+  - component: {fileID: 1972817372840684394}
+  - component: {fileID: 4618587767593976745}
+  - component: {fileID: 7615990679545067833}
+  - component: {fileID: 4120939340082920078}
+  - component: {fileID: 2829670787061845699}
+  - component: {fileID: 7299075999328579081}
+  - component: {fileID: 6138422031422859911}
+  - component: {fileID: 1850972397853234245}
   m_Layer: 5
-  m_Name: ILandCard
+  m_Name: DiscardCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &8135393825960812767
+  m_IsActive: 1
+--- !u!224 &1972817372840684394
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6399822502246504401}
+  m_GameObject: {fileID: 8257900214190014637}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1.3094482}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,24 +40,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 623.3601, y: 193.1206}
+  m_AnchoredPosition: {x: 923.3601, y: 193.1206}
   m_SizeDelta: {x: 210, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2390200240503557523
+--- !u!222 &4618587767593976745
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6399822502246504401}
+  m_GameObject: {fileID: 8257900214190014637}
   m_CullTransparentMesh: 1
---- !u!114 &3216756782581534431
+--- !u!114 &7615990679545067833
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6399822502246504401}
+  m_GameObject: {fileID: 8257900214190014637}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 113b1b9300636ab49b299aec215c74e4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d081df1f46c88364e87b5f927b7dcebb, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -81,13 +81,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5355595915281001500
+--- !u!114 &4120939340082920078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6399822502246504401}
+  m_GameObject: {fileID: 8257900214190014637}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e048374dc8d2374cbe2ea405ca3daca, type: 3}
@@ -95,17 +95,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCard: {fileID: 0}
   cardEffect: {fileID: 0}
-  prefabPreview: {fileID: 5617146422362831570, guid: f3859e5d7ee7f0a4bb047df1d4900588, type: 3}
-  type: 0
+  prefabPreview: {fileID: 0}
+  type: 1
   isLootCard: 0
+  isDiscardCard: 1
   backSprite: {fileID: 21300000, guid: cbaf6fd9c2966664fa19309c30b9dc9a, type: 3}
---- !u!114 &848860114927265691
+--- !u!114 &2829670787061845699
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6399822502246504401}
+  m_GameObject: {fileID: 8257900214190014637}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -139,18 +140,18 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 3216756782581534431}
+  m_TargetGraphic: {fileID: 7615990679545067833}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!95 &-1917960575253673708
+--- !u!95 &7299075999328579081
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6399822502246504401}
+  m_GameObject: {fileID: 8257900214190014637}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f8f85dc2785cad14abeabfe3edf2a228, type: 2}
@@ -163,26 +164,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-2808257483431757803
+--- !u!114 &6138422031422859911
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6399822502246504401}
+  m_GameObject: {fileID: 8257900214190014637}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3b5b62b2cd00e4499098f508386ed75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Button: {fileID: 8135393825960812767}
---- !u!114 &1503819402489154247
+  Button: {fileID: 1972817372840684394}
+--- !u!114 &1850972397853234245
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6399822502246504401}
+  m_GameObject: {fileID: 8257900214190014637}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}

@@ -161,6 +161,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LL Preview
       objectReference: {fileID: 0}
+    - target: {fileID: 4469003903991582028, guid: fada2d0b2bab5284d890194279cba386, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8079022808943513261, guid: fada2d0b2bab5284d890194279cba386, type: 3}
       propertyPath: tileSize
       value: 4

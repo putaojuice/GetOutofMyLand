@@ -109,7 +109,7 @@ public class GridController : MonoBehaviour
 	{
 		int x = Mathf.RoundToInt(position.x);
 		int z = Mathf.RoundToInt(position.z);
-		previewPrefab.transform.position = new Vector3(x, 0, z);
+		previewPrefab.transform.position = new Vector3(x, 0.1f, z);
 		surf.UpdateNavMesh(surf.navMeshData);
 
 	}
