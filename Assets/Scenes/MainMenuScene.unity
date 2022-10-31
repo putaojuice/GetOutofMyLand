@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.28300804, g: 0.60441977, b: 0.9477975, a: 1}
+  m_IndirectSpecularColor: {r: 0.28300837, g: 0.60441995, b: 0.94779736, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6703,7 +6703,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 913978053}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12570,7 +12570,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1116185421}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
