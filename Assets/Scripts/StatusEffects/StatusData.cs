@@ -13,4 +13,8 @@ public class StatusData : ScriptableObject
     [SerializeField] public float damage;
     [SerializeField] public float towerLevel;
     
+    void OnEnable() {
+        damage += UpgradeManager.instance.data.damage;    
+        DOT += UpgradeManager.instance.data.damage / 5f;
+    }
 }
