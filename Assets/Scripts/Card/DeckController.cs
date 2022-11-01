@@ -261,7 +261,7 @@ public class DeckController : MonoBehaviour
     public void DrawRandomTowerCard()
     {
         // List<string> towerArray = new List<string> { "WaterTowerCard", "LightningTowerCard", "FireTowerCard" };
-        List<string> towerArray = new List<string> { "StunSpellCard" };
+        List<string> towerArray = new List<string> {"ExplosionSpellCard", "StunSpellCard"};
         System.Random r = new System.Random();
 
         // Fisher-Yates Shuffle

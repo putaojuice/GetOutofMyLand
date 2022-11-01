@@ -4914,6 +4914,7 @@ GameObject:
   - component: {fileID: 2428879346060618883}
   - component: {fileID: 2523286095284361579}
   - component: {fileID: 2523286095284361578}
+  - component: {fileID: 2382414513889236519}
   m_Layer: 0
   m_Name: ExplosionSpell
   m_TagString: Untagged
@@ -4951,7 +4952,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2428879346060618895}
   serializedVersion: 8
-  lengthInSec: 3
+  lengthInSec: 1.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -9998,7 +9999,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2428879346060618895}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 2
@@ -10019,6 +10020,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2382414513889236519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2428879346060618895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e65eccb420d428695afcf2467ef176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellDuration: 1.5
 --- !u!1 &2428879346301880987
 GameObject:
   m_ObjectHideFlags: 0
