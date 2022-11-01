@@ -57,8 +57,7 @@ public class SpellController : MonoBehaviour
 	public void StartCasting(GameObject obj)
 
 	{
-        Vector3 start = new Vector3(0.0f, 5.0f, 5.0f);
-		previewPrefab = Instantiate(obj, start, Quaternion.identity);
+		previewPrefab = Instantiate(obj, Vector3.zero, Quaternion.identity);
         spellBase = previewPrefab.GetComponent<SpellBase>();
 		isCasting = true;
 	}
