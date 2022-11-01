@@ -16,7 +16,7 @@ public class WaterTower : Turret
     {   
         type = TurretType.Water;
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        range = ActualTowerRange;
+        range = ActualTowerRange + UpgradeManager.instance.data.range;
         firingRate = 0.2f;
         InvokeRepeating("UpdateTarget", 0f, 2.0f);
         towerLevel = 1;

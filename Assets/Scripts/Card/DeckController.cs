@@ -11,10 +11,12 @@ public class DeckController : MonoBehaviour
     public int maxHandSize = 5;
     public List<Card> deck = new List<Card>();
     public List<Card> lootDeck = new List<Card>();
+    public List<DiscardCardCard> discardCards = new List<DiscardCardCard>();
 
     private GameObject canvas;
     private GameObject LootOverlay;
     private GameObject LootDisplay;
+    [SerializeField] private GameObject DiscardOverlay;
 
     private List<Card> usedCards = new List<Card>();
     private GridController GridController;
@@ -23,21 +25,21 @@ public class DeckController : MonoBehaviour
     public Card currentCard;
     private int currentHandSize = 0;
 
-    private int ILandQty = 0;
+    public int ILandQty = 0;
     [SerializeField] private Text ILandQtyText;
-    private int LLandQty = 0;
+    public int LLandQty = 0;
     [SerializeField] private Text LLandQtyText;
-    private int TLandQty = 0;
+    public int TLandQty = 0;
     [SerializeField] private Text TLandQtyText;
-    private int ZLandQty = 0;
+    public int ZLandQty = 0;
     [SerializeField] private Text ZLandQtyText;
-    private int SquareLandQty = 0;
+    public int SquareLandQty = 0;
     [SerializeField] private Text SquareLandQtyText;
-    private int WaterTowerQty = 0;
+    public int WaterTowerQty = 0;
     [SerializeField] private Text WaterTowerQtyText;
-    private int LightningTowerQty = 0;
+    public int LightningTowerQty = 0;
     [SerializeField] private Text LightningTowerQtyText;
-    private int FireTowerQty = 0;
+    public int FireTowerQty = 0;
     [SerializeField] private Text FireTowerQtyText;
     private int StunSpellQty = 0;
     [SerializeField] private Text StunSpellQtyText;
@@ -195,6 +197,59 @@ public class DeckController : MonoBehaviour
         DrawCard();
     }
 
+    public void UseDiscardCard()
+    {
+        foreach (Transform child in LootDisplay.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
+        LootOverlay.SetActive(false);
+        StopPlayCard();
+        DiscardOverlay.SetActive(true);
+        foreach (DiscardCardCard discardButton in discardCards) { discardButton.LoadValues(); }
+    }
+
+    public void DeleteCard(string cardType)
+    {
+        // search through hand first
+        foreach (Transform child in Hand.transform)
+        {
+            if (child.name.Contains(cardType))
+            {
+                GameObject.Destroy(child.gameObject);
+                currentHandSize--;
+                return;
+            }
+        }
+        // search through deck
+        foreach (Card card in deck)
+        {
+            if (card.name.Contains(cardType))
+            {
+                deck.Remove(card);
+                GameObject.Destroy(card.gameObject);
+                return;
+            }
+        }
+        // search through used deck
+        foreach (Card card in usedCards)
+        {
+            if (card.name.Contains(cardType))
+            {
+                usedCards.Remove(card);
+                GameObject.Destroy(card.gameObject);
+                return;
+            }
+        }
+    }
+
+    public void EndDiscardPhase()
+    {
+        DrawCard();
+        DiscardOverlay.SetActive(false);
+    }
+
     public void disableHand() {
         Hand.SetActive(false);
     }
@@ -279,45 +334,73 @@ public class DeckController : MonoBehaviour
         // AddExplosionSpellQty();
     }
 
-    public void AddILandQty()
-    {
+    public void AddILandQty() {
         ILandQty += 1;
         ILandQtyText.text = "x " + ILandQty.ToString();
     }
+    
+    public void ReduceILandQty() {
+        ILandQty -= 1;
+        ILandQtyText.text = "x " + ILandQty.ToString();
+    }
 
-    public void AddLLandQty()
-    {
+    public void AddLLandQty() {
         LLandQty += 1;
         LLandQtyText.text = "x " + LLandQty.ToString();
     }
+    
+    public void ReduceLLandQty() {
+        LLandQty -= 1;
+        LLandQtyText.text = "x " + LLandQty.ToString();
+    }
 
-    public void AddTLandQty()
-    {
+    public void AddTLandQty() {
         TLandQty += 1;
         TLandQtyText.text = "x " + TLandQty.ToString();
     }
+    
+    public void ReduceTLandQty() {
+        TLandQty -= 1;
+        TLandQtyText.text = "x " + TLandQty.ToString();
+    }
 
-    public void AddZLandQty()
-    {
+    public void AddZLandQty() {
         ZLandQty += 1;
+        ZLandQtyText.text = "x " + ZLandQty.ToString();
+    }    
+    
+    public void ReduceZLandQty() {
+        ZLandQty -= 1;
         ZLandQtyText.text = "x " + ZLandQty.ToString();
     }
 
-    public void AddSquareLandQty()
-    {
+    public void AddSquareLandQty() {
         SquareLandQty += 1;
         SquareLandQtyText.text = "x " + SquareLandQty.ToString();
     }
+    
+    public void ReduceSquareLandQty() {
+        SquareLandQty -= 1;
+        SquareLandQtyText.text = "x " + SquareLandQty.ToString();
+    }
 
-    public void AddFireTowerQty()
-    {
+    public void AddFireTowerQty() {
         FireTowerQty += 1;
         FireTowerQtyText.text = "x " + FireTowerQty.ToString();
     }
 
-    public void AddLightningTowerQty()
-    {
+    public void ReduceFireTowerQty() {
+        FireTowerQty -= 1;
+        FireTowerQtyText.text = "x " + FireTowerQty.ToString();
+    }
+
+    public void AddLightningTowerQty() {
         LightningTowerQty += 1;
+        LightningTowerQtyText.text = "x " + LightningTowerQty.ToString();
+    }
+    
+    public void ReduceLightningTowerQty() {
+        LightningTowerQty -= 1;
         LightningTowerQtyText.text = "x " + LightningTowerQty.ToString();
     }
 
@@ -327,9 +410,22 @@ public class DeckController : MonoBehaviour
         WaterTowerQtyText.text = "x " + WaterTowerQty.ToString();
     }
 
+    public void ReduceWaterTowerQty()
+    {
+        WaterTowerQty -= 1;
+        WaterTowerQtyText.text = "x " + WaterTowerQty.ToString();
+    }
+
+
     public void AddStunSpellQty()
     {
         StunSpellQty += 1;
+        StunSpellQtyText.text = "x " + StunSpellQty.ToString();
+    }
+
+    public void ReduceStunSpellQty()
+    {
+        StunSpellQty -= 1;
         StunSpellQtyText.text = "x " + StunSpellQty.ToString();
     }
 
@@ -338,4 +434,11 @@ public class DeckController : MonoBehaviour
         ExplosionSpellQty += 1;
         ExplosionSpellQtyText.text = "x " + ExplosionSpellQty.ToString();
     }
+
+    public void ReduceExplosionSpellQty()
+    {
+        ExplosionSpellQty -= 1;
+        ExplosionSpellQtyText.text = "x " + ExplosionSpellQty.ToString();
+    }
+
 }

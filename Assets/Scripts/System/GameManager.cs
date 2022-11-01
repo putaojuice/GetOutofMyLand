@@ -13,7 +13,10 @@ public class GameManager : MonoBehaviour
     public int waveIndex = 0;
 
     [SerializeField]private GameObject scoreText;
+    [SerializeField]private TextMeshProUGUI gemCount;
     [SerializeField]private DeckController DeckController;
+    [SerializeField]private TurretController TurretController;
+    [SerializeField]private GridController GridController;
     [SerializeField]private MLEnemyManager EnemyManager;
     [SerializeField]private Button spawnButton;
     [SerializeField]private Button wavePauseButton;
@@ -62,8 +65,6 @@ public class GameManager : MonoBehaviour
      CountDownText.SetActive(false);
      SpawnEnemy();
      
-
-     DeckController.disableHand();
      wavePauseButton.interactable = true;
 
      //Music Stuff
@@ -102,9 +103,15 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver() {
-        int enemiesScore = EnemyManager.GetEnemiesKilled() * (1 + (waveIndex / 50));
-        int landScore = (GameObject.FindGameObjectsWithTag("GridFloor").Length - 45) * (1 + (waveIndex / 50));
+        int enemiesScore = EnemyManager.GetEnemiesKilled() * (1 + (waveIndex / 60));
+        int landScore = (GameObject.FindGameObjectsWithTag("GridFloor").Length - 13) * (1 + (waveIndex / 60));
         scoreText.GetComponent<TMP_Text>().text = "Score: " + (enemiesScore + landScore); 
+        gemCount.text = "X " + (int) ((enemiesScore + landScore) / 30);
+        if ((enemiesScore + landScore) / 30 >= 1)
+        {
+            UpgradeManager.instance.data.upgradePoint += (enemiesScore + landScore) / 30;
+            UpgradeManager.instance.Save();
+        }
         gameOverUI.SetActive(true);
     }
 
@@ -123,9 +130,24 @@ public class GameManager : MonoBehaviour
             
             //Music Stuff
             MusicController.PlayAmbient();
+
+            //UI Stuff
             spawnButton.interactable = true;
-            DeckController.enableHand();
             wavePauseButton.interactable = false;
+            
+            //Card Stuff
+            if (DeckController.currentCard != null) //still building
+            {
+                Card currentCard = DeckController.currentCard;
+                if (currentCard.type == Type.Turret)
+                {
+                    TurretController.StopBuild();
+                } else if (currentCard.type == Type.Tile)
+                {
+                    GridController.StopBuild();
+                }
+            }
+            
         }
     }
     
