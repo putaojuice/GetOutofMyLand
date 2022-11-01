@@ -92,9 +92,9 @@ MonoBehaviour:
   maxCharge: 5
   chargePoints: 0
   eater: {fileID: 8865222829054350541}
-  rect: {fileID: 0}
+  rect: {fileID: 1442388486983351040}
   mainCamera: {fileID: 0}
-  mainCanvas: {fileID: 0}
+  mainCanvas: {fileID: 261838918120835482}
 --- !u!1 &3229669938713392840
 GameObject:
   m_ObjectHideFlags: 0
