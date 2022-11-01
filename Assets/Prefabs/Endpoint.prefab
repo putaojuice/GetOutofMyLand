@@ -218,7 +218,6 @@ GameObject:
   - component: {fileID: 1635498964053192177}
   - component: {fileID: 8404029614538088772}
   - component: {fileID: 8502133888959863186}
-  - component: {fileID: 3494052441855354020}
   - component: {fileID: 9145235565942897888}
   m_Layer: 7
   m_Name: HealthBar
@@ -285,24 +284,6 @@ MonoBehaviour:
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3494052441855354020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7632605182790891913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f0c50c8da65d4a16831351fff70a110, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHp: 300
-  hp: 300
-  enemy: {fileID: 0}
-  rect: {fileID: 0}
-  mainCamera: {fileID: 0}
-  mainCanvas: {fileID: 6309306059602915360}
 --- !u!114 &9145235565942897888
 MonoBehaviour:
   m_ObjectHideFlags: 0

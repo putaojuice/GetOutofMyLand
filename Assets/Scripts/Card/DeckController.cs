@@ -21,6 +21,7 @@ public class DeckController : MonoBehaviour
     private List<Card> usedCards = new List<Card>();
     private GridController GridController;
     private TurretController TurretController;
+    private SpellController SpellController;
     public Card currentCard;
     private int currentHandSize = 0;
 
@@ -40,6 +41,10 @@ public class DeckController : MonoBehaviour
     [SerializeField] private Text LightningTowerQtyText;
     public int FireTowerQty = 0;
     [SerializeField] private Text FireTowerQtyText;
+    public int StunSpellQty = 0;
+    [SerializeField] private Text StunSpellQtyText;
+    public int ExplosionSpellQty = 0;
+    [SerializeField] private Text ExplosionSpellQtyText;
 
     void Awake()
     {
@@ -52,6 +57,7 @@ public class DeckController : MonoBehaviour
         // All controllers are components of "GameManager"
         GridController = gameObject.GetComponent<GridController>();
         TurretController = gameObject.GetComponent<TurretController>();
+        SpellController = gameObject.GetComponent<SpellController>();
 
         // subscribing the DrawCard method to the WaveEnd event so that DrawCard will be called once wave ended
         GameManager.WaveEnded += GetRandomLoot;
@@ -90,6 +96,11 @@ public class DeckController : MonoBehaviour
     public void PlayTileCard(Card card, GameObject prefabPreview) {
         currentCard = card;
         GridController.StartBuild(prefabPreview);
+    }
+
+    public void PlaySpellCard(Card card, GameObject prefabPreview) {
+        currentCard = card;
+        SpellController.StartCasting(prefabPreview);
     }
 
     public void StopPlayCard() {
@@ -249,7 +260,8 @@ public class DeckController : MonoBehaviour
 
     public void DrawRandomTowerCard()
     {
-        List<string> towerArray = new List<string> { "WaterTowerCard", "LightningTowerCard", "FireTowerCard" };
+        // List<string> towerArray = new List<string> { "WaterTowerCard", "LightningTowerCard", "FireTowerCard" };
+        List<string> towerArray = new List<string> { "StunSpellCard" };
         System.Random r = new System.Random();
 
         // Fisher-Yates Shuffle
@@ -375,5 +387,29 @@ public class DeckController : MonoBehaviour
     {
         WaterTowerQty -= 1;
         WaterTowerQtyText.text = "x " + WaterTowerQty.ToString();
+    }
+
+    public void AddStunSpellQty()
+    {
+        StunSpellQty += 1;
+        StunSpellQtyText.text = "x " + StunSpellQty.ToString();
+    }
+    
+    public void ReduceStunSpellQty()
+    {
+        StunSpellQty -= 1;
+        StunSpellQtyText.text = "x " + StunSpellQty.ToString();
+    }
+
+    public void AddExplosionSpellQty()
+    {
+        ExplosionSpellQty += 1;
+        ExplosionSpellQtyText.text = "x " + ExplosionSpellQty.ToString();
+    }
+    
+    public void ReduceExplosionSpellQty()
+    {
+        ExplosionSpellQty -= 1;
+        ExplosionSpellQtyText.text = "x " + ExplosionSpellQty.ToString();
     }
 }

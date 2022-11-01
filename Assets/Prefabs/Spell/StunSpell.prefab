@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4110749895586745733}
   - component: {fileID: 2711394177027035705}
   - component: {fileID: 2711394177027035704}
+  - component: {fileID: 3155803125994340510}
   m_Layer: 0
   m_Name: StunSpell
   m_TagString: Untagged
@@ -5033,6 +5034,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3155803125994340510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864776531678593602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a0a94fa91cd4e3db767bb212c6e2b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellDuration: 5
 --- !u!1 &7082694187833537101
 GameObject:
   m_ObjectHideFlags: 0
