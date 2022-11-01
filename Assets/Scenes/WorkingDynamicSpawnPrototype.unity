@@ -2656,7 +2656,7 @@ PrefabInstance:
     - target: {fileID: 2105269262512709491, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: DeckController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1755004092}
     - target: {fileID: 2116944747145772618, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2676,7 +2676,7 @@ PrefabInstance:
     - target: {fileID: 2222654148554755151, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: DeckController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1755004092}
     - target: {fileID: 2316107316786306109, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 413
@@ -2708,11 +2708,11 @@ PrefabInstance:
     - target: {fileID: 2897090037268771748, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: DeckController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1755004092}
     - target: {fileID: 2927236234092956397, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: DeckController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1755004092}
     - target: {fileID: 2988596843520332974, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: prefabPreview
       value: 
@@ -2808,7 +2808,7 @@ PrefabInstance:
     - target: {fileID: 3595763757278393948, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: DeckController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1755004092}
     - target: {fileID: 3681105113072860036, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2972,7 +2972,7 @@ PrefabInstance:
     - target: {fileID: 5365521421848899603, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: DeckController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1755004092}
     - target: {fileID: 5632459835847096541, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3172,7 +3172,7 @@ PrefabInstance:
     - target: {fileID: 7001748382353343530, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: DeckController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1755004092}
     - target: {fileID: 7144282820830070417, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -3180,7 +3180,7 @@ PrefabInstance:
     - target: {fileID: 7248542207423921657, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: DeckController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1755004092}
     - target: {fileID: 7250120660856437758, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -4278,6 +4278,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -3943279360445336222, guid: a87a20628fba24428ae6796329828910, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1755004089}
     - target: {fileID: 2408335853564092048, guid: a87a20628fba24428ae6796329828910, type: 3}
       propertyPath: m_Enabled
       value: 1
