@@ -26,11 +26,6 @@ public class GameManager : MonoBehaviour
     public Transform cardGroup;
     public int currentHandSize;
 
-    public static GameManager instance;
-
-    void Awake() {
-        instance = this;
-    }
 
     void Start() {
         DeckController.ShuffleCard();
@@ -102,12 +97,12 @@ public class GameManager : MonoBehaviour
 
     public void GameOver() {
         int enemiesScore = EnemyManager.GetEnemiesKilled() * (1 + (waveIndex / 60));
-        int landScore = (GameObject.FindGameObjectsWithTag("GridFloor").Length - 13) * (1 + (waveIndex / 60));
+        int landScore = (GameObject.FindGameObjectsWithTag("GridFloor").Length - 12) * (1 + (waveIndex / 60));
         scoreText.GetComponent<TMP_Text>().text = "Score: " + (enemiesScore + landScore); 
         gemCount.text = "X " + (int) ((enemiesScore + landScore) / 30);
         if ((enemiesScore + landScore) / 30 >= 1)
         {
-            UpgradeManager.instance.data.upgradePoint += (enemiesScore + landScore) / 30;
+            UpgradeManager.instance.data.upgradePoint += (enemiesScore + landScore) / 40;
             UpgradeManager.instance.Save();
         }
         gameOverUI.SetActive(true);

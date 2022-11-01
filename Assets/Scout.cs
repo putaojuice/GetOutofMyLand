@@ -10,7 +10,7 @@ public class Scout : MonoBehaviour
 
     private int towerCount;
     private List<GameObject> towerList = new List<GameObject>();
-
+    private GameObject gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,7 @@ public class Scout : MonoBehaviour
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.destination = goal.position;
         Destroy(gameObject, 3);
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
     }
 
     // Update is called once per frame
@@ -44,7 +45,6 @@ public class Scout : MonoBehaviour
             if (!towerList.Contains(tower))
             {
 
-                GameManager gameManager = GameManager.instance;
                 MLEnemyManager enemyManager = gameManager.GetComponent<MLEnemyManager>();
                 enemyManager.UpdateSpawnPointTowerCount(indexAssigned);
                 towerList.Add(tower);

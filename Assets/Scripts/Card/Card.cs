@@ -24,7 +24,7 @@ public class Card : MonoBehaviour
     {
         currentCard = gameObject.GetComponent<Image>();
         gameObject.GetComponent<Button>().onClick.AddListener(UseCard);
-        DeckController = GameManager.instance.gameObject.GetComponent<DeckController>();
+        DeckController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<DeckController>();
     }
 
     public void UseCard()
@@ -63,6 +63,10 @@ public class Card : MonoBehaviour
         {
             DeckController.PlayTurretCard(this, prefabPreview);
         }
+        else if (type == Type.Spell)
+        {
+            DeckController.PlaySpellCard(this, prefabPreview);
+        }
         else
         {
             Debug.Log("Error: Please assign type to card!");
@@ -97,6 +101,12 @@ public class Card : MonoBehaviour
             case string a when a.Contains("WaterTowerCard"):
                 DeckController.AddWaterTowerQty();
                 break;
+            case string a when a.Contains("StunSpellCard"):
+                DeckController.AddStunSpellQty();
+                break;
+            case string a when a.Contains("ExplosionSpellCard"):
+                DeckController.AddExplosionSpellQty();
+                break;
             default:
                 Debug.Log("ERROR: UNKNOWN CARD");
                 break;
@@ -127,4 +137,4 @@ public class Card : MonoBehaviour
     }
 }
 
-public enum Type {Tile, Turret};
+public enum Type {Tile, Turret, Spell};

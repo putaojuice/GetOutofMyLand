@@ -11,9 +11,14 @@ public class UpgradeManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
-        DontDestroyOnLoad(gameObject);
+         if (instance == null) {
+         instance = this;
+         DontDestroyOnLoad(gameObject);
+        } else {
+         DestroyObject(gameObject);
+        }
     }
+    
     // Start is called before the first frame update
     void Start()
     {

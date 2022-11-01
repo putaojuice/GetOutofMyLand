@@ -99,7 +99,7 @@ public class Enemy : MonoBehaviour
 
     public void UpdateNumOfEnemies() {
 
-        GameManager.instance.UpdateWaveInfo();
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().UpdateWaveInfo();
     }
 
     public virtual void UseSkill() {

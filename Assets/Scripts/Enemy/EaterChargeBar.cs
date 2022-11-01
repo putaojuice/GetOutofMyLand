@@ -24,6 +24,6 @@ public class EaterChargeBar : MonoBehaviour
     {
         mainCanvas.transform.LookAt(transform.position + mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.up);
         chargePoints = eater.chargePoints;
-        rect.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, chargePoints/maxCharge * 90);
+        rect.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, chargePoints/maxCharge * 45);
     }
 }
