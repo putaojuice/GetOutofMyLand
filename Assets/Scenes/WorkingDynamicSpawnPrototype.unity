@@ -1146,11 +1146,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 785445423797092929, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000015170428
+      value: -0.000000015170428
       objectReference: {fileID: 0}
     - target: {fileID: 785445423797092929, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000008118967
+      value: 0.000000008118967
       objectReference: {fileID: 0}
     - target: {fileID: 1093093049020216896, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1222,11 +1222,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6034549901478517501, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000015170428
+      value: -0.000000015170428
       objectReference: {fileID: 0}
     - target: {fileID: 6034549901478517501, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000008118967
+      value: 0.000000008118967
       objectReference: {fileID: 0}
     - target: {fileID: 8500851291982029270, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_RootOrder
@@ -3871,11 +3871,11 @@ GameObject:
   - component: {fileID: 1755004092}
   - component: {fileID: 1755004091}
   - component: {fileID: 1755004090}
+  - component: {fileID: 1755004097}
   - component: {fileID: 1755004096}
   - component: {fileID: 1755004094}
   - component: {fileID: 1755004093}
   - component: {fileID: 1755004095}
-  - component: {fileID: 1755004096}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4114,6 +4114,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8dc046dfd3bd2947b503d10ba79cf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1755004097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755004084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4964ff09a68a14989949569bba687b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 10
+  cam: {fileID: 1574795947}
 --- !u!114 &1764366202 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2904762200446661405, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
