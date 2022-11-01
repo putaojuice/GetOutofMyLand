@@ -17,7 +17,6 @@ public class FireBall : Bullet
     void Start()
     {
         speed = 5.0f;
-        Debug.Log("eh fire");
         
     }
 

@@ -26,11 +26,6 @@ public class GameManager : MonoBehaviour
     public Transform cardGroup;
     public int currentHandSize;
 
-    public static GameManager instance;
-
-    void Awake() {
-        instance = this;
-    }
 
     void Start() {
         DeckController.ShuffleCard();

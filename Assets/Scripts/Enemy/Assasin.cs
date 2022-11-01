@@ -20,7 +20,7 @@ public class Assasin : Enemy
     {
         // Setting up the stats for Warriors
         // maxHp = 1f ;
-        maxHp = 5.0f + 10.0f * Mathf.Pow(hpBase, (hpScaling * GameManager.instance.waveIndex + 1));
+        maxHp = 5.0f + 10.0f * Mathf.Pow(hpBase, (hpScaling * GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().waveIndex + 1));
         hp = maxHp;
         skillCoolDown = 1.5f;
         defence = 0f;

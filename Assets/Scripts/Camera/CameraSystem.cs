@@ -22,6 +22,19 @@ public class CameraSystem : MonoBehaviour
     private float targetFieldOfView = 80;
     private float deltaTime;
 
+    public static CameraSystem instance;
+
+    private void Awake()
+    {
+        if (instance == null) {
+         instance = this;
+         DontDestroyOnLoad(gameObject);
+        } else {
+         DestroyObject(gameObject);
+        }
+        
+    }
+
     private void Start()
     {
         deltaTime = Time.deltaTime;

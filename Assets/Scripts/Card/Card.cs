@@ -24,7 +24,7 @@ public class Card : MonoBehaviour
     {
         currentCard = gameObject.GetComponent<Image>();
         gameObject.GetComponent<Button>().onClick.AddListener(UseCard);
-        DeckController = GameManager.instance.gameObject.GetComponent<DeckController>();
+        DeckController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<DeckController>();
     }
 
     public void UseCard()

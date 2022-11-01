@@ -13,7 +13,9 @@ public class DeckController : MonoBehaviour
     public List<Card> lootDeck = new List<Card>();
     public List<DiscardCardCard> discardCards = new List<DiscardCardCard>();
 
+    [SerializeField]
     private GameObject canvas;
+
     private GameObject LootOverlay;
     private GameObject LootDisplay;
     [SerializeField] private GameObject DiscardOverlay;
@@ -46,6 +48,7 @@ public class DeckController : MonoBehaviour
     public int ExplosionSpellQty = 0;
     [SerializeField] private Text ExplosionSpellQtyText;
 
+
     void Awake()
     {
 
@@ -61,7 +64,7 @@ public class DeckController : MonoBehaviour
 
         // subscribing the DrawCard method to the WaveEnd event so that DrawCard will be called once wave ended
         GameManager.WaveEnded += GetRandomLoot;
-        canvas = GameObject.FindWithTag("canvas");
+ 
         LootOverlay = canvas.transform.Find("AddCardPanel").gameObject;
         LootDisplay = LootOverlay.transform.Find("CardDisplay").gameObject;
 

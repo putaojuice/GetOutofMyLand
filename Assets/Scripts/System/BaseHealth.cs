@@ -9,6 +9,8 @@ public class BaseHealth : MonoBehaviour
 
     [SerializeField]
     public int maxHealth;
+    [SerializeField]
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +23,7 @@ public class BaseHealth : MonoBehaviour
     {   
         // Game end condition
         if (Health < 1) {
-            GameManager.instance.GameOver();
+            gameManager.GameOver();
             Destroy(gameObject);
         }
     }
