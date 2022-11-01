@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public static event WaveEnd WaveEnded;
     public int waveIndex = 0;
 
+    [SerializeField]private Text infoWaveText;
     [SerializeField]private GameObject scoreText;
     [SerializeField]private TextMeshProUGUI gemCount;
     [SerializeField]private DeckController DeckController;
@@ -92,6 +93,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnEnemy() {
         waveIndex++;
+        infoWaveText.text = "Wave " + waveIndex.ToString();
         EnemyManager.StartWave(waveIndex);
     }
 
