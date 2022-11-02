@@ -9,6 +9,7 @@ public class GridController : MonoBehaviour
 	[SerializeField] private LayerMask layer;
 	[SerializeField] private NavMeshSurface surf;
 	[SerializeField] private Camera cam;
+	[SerializeField] private SoundEffectsControlScript SoundEffectsController;
 
 	private List<GameObject> currentOuterFloor = new List<GameObject>();
 	private DeckController DeckController;
@@ -85,6 +86,7 @@ public class GridController : MonoBehaviour
 	private void CompleteBuild()
 	{
 		gridTile.Build();
+		SoundEffectsController.PlayLandBuildingSound();
 		DeckController.CompleteCard();
 		// update navmesh data in run time
 		surf.UpdateNavMesh(surf.navMeshData);

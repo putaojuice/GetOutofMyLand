@@ -11,6 +11,7 @@ public class TurretController : MonoBehaviour
 	[SerializeField] private GameObject playerBase;
 	[SerializeField] Camera cam;
 	[SerializeField] GameObject statsPanel;
+	[SerializeField] private SoundEffectsControlScript SoundEffectsController;
 
 	private GameObject previewPrefab;
 	private TurretBase turretBase;
@@ -126,7 +127,7 @@ public class TurretController : MonoBehaviour
 	private void CompleteBuild()
 	{
 		turretBase.Build();
-
+		SoundEffectsController.PlayTurretBuildingSound();
 		DeckController.CompleteCard();
 		// update navmesh data in run time
 		surf.UpdateNavMesh(surf.navMeshData);
