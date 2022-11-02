@@ -101,12 +101,6 @@ public class Card : MonoBehaviour
             case string a when a.Contains("WaterTowerCard"):
                 DeckController.AddWaterTowerQty();
                 break;
-            case string a when a.Contains("StunSpellCard"):
-                DeckController.AddStunSpellQty();
-                break;
-            case string a when a.Contains("ExplosionSpellCard"):
-                DeckController.AddExplosionSpellQty();
-                break;
             default:
                 Debug.Log("ERROR: UNKNOWN CARD");
                 break;

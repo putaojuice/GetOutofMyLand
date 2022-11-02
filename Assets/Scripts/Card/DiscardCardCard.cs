@@ -31,7 +31,8 @@ public class DiscardCardCard : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public enum CardType { 
         ILandCard, LLandCard, TLandCard, ZLandCard, SquareLandCard, 
-        LightningTowerCard, FireTowerCard, WaterTowerCard 
+        LightningTowerCard, FireTowerCard, WaterTowerCard,
+        ExplosionSpellCard, StunSpellCard
     };
 
     public void onClick()
@@ -61,6 +62,12 @@ public class DiscardCardCard : MonoBehaviour, IPointerEnterHandler, IPointerExit
                 break;
             case CardType.WaterTowerCard:
                 DeckController.ReduceWaterTowerQty();
+                break;
+            case CardType.ExplosionSpellCard:
+                DeckController.ReduceExplosionSpellQty();
+                break;
+            case CardType.StunSpellCard:
+                DeckController.ReduceStunSpellQty();
                 break;
             default:
                 Debug.Log("ERROR: UNKNOWN CARD");

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public static event WaveEnd WaveEnded;
     public int waveIndex = 0;
 
+    [SerializeField]private Text infoWaveText;
     [SerializeField]private GameObject scoreText;
     [SerializeField]private TextMeshProUGUI gemCount;
     [SerializeField]private DeckController DeckController;
@@ -92,17 +93,24 @@ public class GameManager : MonoBehaviour
 
     public void SpawnEnemy() {
         waveIndex++;
+        infoWaveText.text = "Wave " + waveIndex.ToString();
         EnemyManager.StartWave(waveIndex);
     }
 
-    public void GameOver() {
+    public int GetScore()
+    {
         int enemiesScore = EnemyManager.GetEnemiesKilled() * (1 + (waveIndex / 60));
         int landScore = (GameObject.FindGameObjectsWithTag("GridFloor").Length - 12) * (1 + (waveIndex / 60));
-        scoreText.GetComponent<TMP_Text>().text = "Score: " + (enemiesScore + landScore); 
-        gemCount.text = "X " + (int) ((enemiesScore + landScore) / 30);
-        if ((enemiesScore + landScore) / 30 >= 1)
+        return (enemiesScore + landScore);
+    }
+    
+    public void GameOver() {
+        int totalScore = GetScore();
+        scoreText.GetComponent<TMP_Text>().text = "Score: " + (totalScore); 
+        gemCount.text = "X " + (int) ((totalScore) / 30);
+        if ((totalScore) / 30 >= 1)
         {
-            UpgradeManager.instance.data.upgradePoint += (enemiesScore + landScore) / 40;
+            UpgradeManager.instance.data.upgradePoint += (totalScore) / 40;
             UpgradeManager.instance.Save();
         }
         gameOverUI.SetActive(true);
