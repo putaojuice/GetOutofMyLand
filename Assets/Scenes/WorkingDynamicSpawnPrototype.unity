@@ -1818,6 +1818,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &984045392 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2196327570784043597, guid: 3b3ecf5b1a923894ea8e26f5aa423d84, type: 3}
+  m_PrefabInstance: {fileID: 1217195100}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14bebe4a5f7067548b42cc38b5bfbfc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &996745992 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6643274094235964522, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
@@ -1940,6 +1951,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 284e11492eb89cf46a9e74aea9c33015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1217195100
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7236485861467197368, guid: 3b3ecf5b1a923894ea8e26f5aa423d84, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236485861467197368, guid: 3b3ecf5b1a923894ea8e26f5aa423d84, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236485861467197368, guid: 3b3ecf5b1a923894ea8e26f5aa423d84, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236485861467197368, guid: 3b3ecf5b1a923894ea8e26f5aa423d84, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236485861467197368, guid: 3b3ecf5b1a923894ea8e26f5aa423d84, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236485861467197368, guid: 3b3ecf5b1a923894ea8e26f5aa423d84, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236485861467197368, guid: 3b3ecf5b1a923894ea8e26f5aa423d84, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236485861467197368, guid: 3b3ecf5b1a923894ea8e26f5aa423d84, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236485861467197368, guid: 3b3ecf5b1a923894ea8e26f5aa423d84, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236485861467197368, guid: 3b3ecf5b1a923894ea8e26f5aa423d84, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236485861467197368, guid: 3b3ecf5b1a923894ea8e26f5aa423d84, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040377562218753737, guid: 3b3ecf5b1a923894ea8e26f5aa423d84, type: 3}
+      propertyPath: m_Name
+      value: SoundEffectsControl
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3b3ecf5b1a923894ea8e26f5aa423d84, type: 3}
 --- !u!114 &1238742593 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1032325500262521025, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
@@ -4093,7 +4161,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: d3ccbb7e3d6e9a74588128bbf48b1f58, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.656
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4363,6 +4431,7 @@ MonoBehaviour:
   playerBase: {fileID: 1158085605}
   cam: {fileID: 1574795947}
   statsPanel: {fileID: 1037968536}
+  SoundEffectsController: {fileID: 984045392}
 --- !u!114 &1755004091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4377,9 +4446,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layer:
     serializedVersion: 2
-    m_Bits: 383
+    m_Bits: 127
   surf: {fileID: 1705511786}
   cam: {fileID: 1574795947}
+  SoundEffectsController: {fileID: 984045392}
 --- !u!114 &1755004092
 MonoBehaviour:
   m_ObjectHideFlags: 0

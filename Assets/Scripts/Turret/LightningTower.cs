@@ -7,6 +7,7 @@ public class LightningTower : Turret
 {
 
     [SerializeField] public float ActualTowerRange;
+    [SerializeField] AudioSource AudioSource;
 
 
     // Start is called before the first frame update
@@ -62,6 +63,7 @@ public class LightningTower : Turret
 
     public override void Shoot()
     {
+        
         GameObject currBullet = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = currBullet.GetComponent<Bullet>();
         LightningBoltScript lightning = currBullet.GetComponent<LightningBoltScript>();
@@ -72,6 +74,7 @@ public class LightningTower : Turret
         if(bullet != null)
         {
             bullet.Seek(target);
+            AudioSource.Play();
         }
     }
 

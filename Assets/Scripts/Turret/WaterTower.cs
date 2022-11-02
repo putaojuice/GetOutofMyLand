@@ -10,6 +10,7 @@ public class WaterTower : Turret
     [SerializeField] public StatusData rainStatusLevel2;
     [SerializeField] public StatusData rainStatusLevel3;
     [SerializeField] public float ActualTowerRange;
+    [SerializeField] AudioSource AudioSource;
 
     // Start is called before the first frame update
     void Start()
