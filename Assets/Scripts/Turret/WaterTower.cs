@@ -11,6 +11,7 @@ public class WaterTower : Turret
     [SerializeField] public StatusData rainStatusLevel3;
     [SerializeField] public float ActualTowerRange;
 
+    private float permanentDamage = 0f;
     // Start is called before the first frame update
     void Start()
     {   
@@ -21,6 +22,9 @@ public class WaterTower : Turret
         InvokeRepeating("UpdateTarget", 0f, 2.0f);
         towerLevel = 1;
         rangeDetector.GetComponent<RangeDetector>().UpdateColliderRadius(ActualTowerRange);
+        if (UpgradeManager.instance != null) {
+            permanentDamage = UpgradeManager.instance.data.damage;
+        } 
         //SetUpRange(ActualTowerRange);
     }
 
@@ -43,16 +47,23 @@ public class WaterTower : Turret
 
         foreach(EnemyStatus enemy in enemies) {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
+            
             if(distance < range){
                 switch (towerLevel){
                     case 1:
-                        enemy.ApplyStatus(rainStatusLevel1);
+                        StatusData tempData1 = Instantiate(rainStatusLevel1);
+                        tempData1.DOT += permanentDamage / 5f;
+                        enemy.ApplyStatus(tempData1);
                         break;
                     case 2:
-                        enemy.ApplyStatus(rainStatusLevel2);
+                        StatusData tempData2 = Instantiate(rainStatusLevel2);
+                        tempData2.DOT += permanentDamage / 5f;
+                        enemy.ApplyStatus(tempData2);
                         break;
                     default:
-                        enemy.ApplyStatus(rainStatusLevel3);
+                        StatusData tempData3 = Instantiate(rainStatusLevel3);
+                        tempData3.DOT += permanentDamage / 5f;
+                        enemy.ApplyStatus(tempData3);
                         break;
                 }
             }
@@ -77,11 +88,11 @@ public class WaterTower : Turret
     {
         switch (towerLevel){
             case 1:
-                return rainStatusLevel1.DOT;
+                return rainStatusLevel1.DOT + (permanentDamage / 5f);
             case 2:
-                return rainStatusLevel2.DOT;
+                return rainStatusLevel2.DOT + (permanentDamage / 5f);
             case 3:
-                return rainStatusLevel3.DOT;
+                return rainStatusLevel3.DOT + (permanentDamage / 5f);
             default:
                 return 0;
         }

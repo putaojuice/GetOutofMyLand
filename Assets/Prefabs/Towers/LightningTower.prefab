@@ -209,8 +209,10 @@ MonoBehaviour:
   towerLevel: 0
   rangeDetector: {fileID: 4196013918615174816}
   AudioSource: {fileID: 4365249349444696235}
-  breakSound: {fileID: 8300000, guid: 143ff7de5de9a584482af9350243baff, type: 3}
   ActualTowerRange: 3
+  lightningStatusLevel1: {fileID: 11400000, guid: 51503097ca34f4f2eac134d7902b1a9f, type: 2}
+  lightningStatusLevel2: {fileID: 11400000, guid: 81ea6e212bcfc4edf9b857fa7046e4d9, type: 2}
+  lightningStatusLevel3: {fileID: 11400000, guid: cfa50cbe558b14898b611c760f7f71ba, type: 2}
 --- !u!208 &4461771800250285823
 NavMeshObstacle:
   m_ObjectHideFlags: 0

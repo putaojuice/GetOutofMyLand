@@ -30,7 +30,7 @@ public class CameraSystem : MonoBehaviour
          instance = this;
          DontDestroyOnLoad(gameObject);
         } else {
-         DestroyObject(gameObject);
+         Object.Destroy(gameObject);
         }
         
     }

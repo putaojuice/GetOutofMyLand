@@ -30,7 +30,7 @@ public class Turret : MonoBehaviour
     [SerializeField] public Transform rotatingPart;
     [SerializeField] public GameObject bulletPrefab;
     [SerializeField] public Transform firePoint;
-    [SerializeField] public float towerLevel;
+    [SerializeField] public int towerLevel;
     [SerializeField] public GameObject rangeDetector;
     [SerializeField] protected AudioSource AudioSource;
 
@@ -46,7 +46,7 @@ public class Turret : MonoBehaviour
     {   
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         /* canvas = GameObject.Find("Canvas (1)"); */
-        towerLevel = 3;
+        towerLevel = 1;
     }
 
     public virtual void UpdateTarget()
@@ -128,14 +128,6 @@ public class Turret : MonoBehaviour
 
     public virtual void Shoot()
     {
-        GameObject currBullet = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Bullet bullet = currBullet.GetComponent<Bullet>();
-        bullet.towerLevel = towerLevel;
-        
-        if(bullet != null)
-        {
-            bullet.Seek(target);
-        }
     }
 
     public virtual TurretType GetTurretType()

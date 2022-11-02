@@ -52,7 +52,7 @@ public class Upgrade : MonoBehaviour
     {
         if (upgradeManager.data.upgradePoint >= 1) 
         {
-            upgradeManager.data.damage += .25f;
+            upgradeManager.data.damage += .2f;
             upgradeManager.data.upgradePoint -= 1;
             damageTextDisplay.text = upgradeManager.data.damage.ToString();
             gemCount.text = upgradeManager.data.upgradePoint.ToString();
