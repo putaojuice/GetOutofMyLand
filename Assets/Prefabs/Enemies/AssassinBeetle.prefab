@@ -2574,6 +2574,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2262966659587544026, guid: 045b9f9dcf1224f57a50775182e4a3fa, type: 3}
+      propertyPath: clearBehavior
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5248127981030918522, guid: 045b9f9dcf1224f57a50775182e4a3fa, type: 3}
       propertyPath: m_Layer
       value: 7
