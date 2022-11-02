@@ -32,6 +32,9 @@ public class Turret : MonoBehaviour
     [SerializeField] public Transform firePoint;
     [SerializeField] public float towerLevel;
     [SerializeField] public GameObject rangeDetector;
+    [SerializeField] protected AudioSource AudioSource;
+
+
 
     /*  For pause wave function
      *  [SerializeField]

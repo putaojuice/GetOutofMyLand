@@ -262,11 +262,12 @@ MonoBehaviour:
   firePoint: {fileID: 0}
   towerLevel: 0
   rangeDetector: {fileID: 5985989787839908925}
+  AudioSource: {fileID: 7101278854184798829}
+  breakSound: {fileID: 8300000, guid: 143ff7de5de9a584482af9350243baff, type: 3}
   rainStatusLevel1: {fileID: 11400000, guid: 389d881b428ee4e8584e5c7733119add, type: 2}
   rainStatusLevel2: {fileID: 11400000, guid: 8ffa65bec0aec4c7dbf98c3b1fea31b0, type: 2}
   rainStatusLevel3: {fileID: 11400000, guid: 10b06e3755d7e4817b437ef5d7e63870, type: 2}
   ActualTowerRange: 3
-  AudioSource: {fileID: 7101278854184798829}
 --- !u!208 &-6274350280932613119
 NavMeshObstacle:
   m_ObjectHideFlags: 0

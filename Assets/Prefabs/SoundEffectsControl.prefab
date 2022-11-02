@@ -144,3 +144,4 @@ MonoBehaviour:
   audioSource: {fileID: 8610766628690581632}
   landBuildSound: {fileID: 8300000, guid: 8b0ca34ee43caaa4e849c64006909180, type: 3}
   turretBuildSound: {fileID: 8300000, guid: 2bc0f1147bf271548a6baa41a75e00ef, type: 3}
+  enemyDeathSound: {fileID: 8300000, guid: b0bc043d08a1f8240b5666d56cf65332, type: 3}

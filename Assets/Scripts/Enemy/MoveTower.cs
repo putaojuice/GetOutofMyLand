@@ -7,6 +7,7 @@ public class MoveTower : MonoBehaviour
     [SerializeField] public GameObject goal;
     [SerializeField] public GameObject originalGoal;
     [SerializeField] public Eater eater;
+    [SerializeField] public AudioSource AudioSource;
 
     private Animator anim;
 
@@ -52,6 +53,7 @@ public class MoveTower : MonoBehaviour
             if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f){
                 eater.StopAttack();
                 goal.GetComponent<Turret>().GetDestroyed();
+                AudioSource.Play();
                 anim.SetBool("isAttacking", false);
             }
             return;

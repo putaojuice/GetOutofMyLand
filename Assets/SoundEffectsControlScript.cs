@@ -7,6 +7,7 @@ public class SoundEffectsControlScript : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip landBuildSound;
     [SerializeField] private AudioClip turretBuildSound;
+    [SerializeField] private AudioClip enemyDeathSound;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,13 @@ public class SoundEffectsControlScript : MonoBehaviour
     public void PlayTurretBuildingSound()
     {
         audioSource.clip = turretBuildSound;
+        audioSource.Play();
+    }
+
+    public void PlayEnemyDeathSound()
+    {
+        Debug.Log("SOUND SHOULD BE PLAYING");
+        audioSource.clip = enemyDeathSound;
         audioSource.Play();
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class FireTower : Turret
 {
     [SerializeField] public float ActualTowerRange;
-    [SerializeField] public AudioSource AudioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +66,7 @@ public class FireTower : Turret
         if(bullet != null)
         {
             bullet.Seek(target);
-            AudioSource.Play();
+            this.AudioSource.Play();
         }
     }
 

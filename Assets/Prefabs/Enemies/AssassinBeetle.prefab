@@ -641,7 +641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639838e5fcdcf4824a871f99368e79cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioSource: {fileID: 0}
   volume: 0.5
   maxHp: 3
   hp: 3
@@ -649,6 +648,8 @@ MonoBehaviour:
   defence: 0
   currRound: 1
   destructionMat: {fileID: 2100000, guid: 7151259e6d0e24e37a9e5d5998bb1c95, type: 2}
+  AudioSource: {fileID: 7458623006499716426}
+  deathSound: {fileID: 8300000, guid: b0bc043d08a1f8240b5666d56cf65332, type: 3}
   hiddenMat: {fileID: 2100000, guid: 90ce2012e238d4b9cbdb9ac93971d159, type: 2}
   originalMat: {fileID: 0}
   skillDuration: 3
@@ -742,7 +743,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b0bc043d08a1f8240b5666d56cf65332, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9295a1de646df854aaf5501cbfc849a0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

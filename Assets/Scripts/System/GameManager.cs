@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]private GameObject gameOverUI;
     [SerializeField]private MusicControlScript MusicController;
     [SerializeField]private GameObject CountDownText;
+    [SerializeField]private SoundEffectsControlScript SoundEffectsController;
     public Transform cardGroup;
     public int currentHandSize;
 
@@ -117,6 +118,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void UpdateWaveInfo() {
+        this.SoundEffectsController.PlayEnemyDeathSound();
          // Delegate wave end event when all the enemies died
         if (EnemyManager.UpdateEnemy()) {
             WaveEnded();

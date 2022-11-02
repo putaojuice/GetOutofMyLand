@@ -208,8 +208,9 @@ MonoBehaviour:
   firePoint: {fileID: 2206060097970509583}
   towerLevel: 0
   rangeDetector: {fileID: 4196013918615174816}
-  ActualTowerRange: 3
   AudioSource: {fileID: 4365249349444696235}
+  breakSound: {fileID: 8300000, guid: 143ff7de5de9a584482af9350243baff, type: 3}
+  ActualTowerRange: 3
 --- !u!208 &4461771800250285823
 NavMeshObstacle:
   m_ObjectHideFlags: 0
