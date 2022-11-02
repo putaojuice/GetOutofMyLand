@@ -21,7 +21,7 @@ public class Upgrade : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI rangeTextDisplay;
     [SerializeField]
-    private TextMeshProUGUI rateTextDisplay;
+    private TextMeshProUGUI healthTextDisplay;
     [SerializeField]
     private UpgradeManager upgradeManager;
 
@@ -45,14 +45,14 @@ public class Upgrade : MonoBehaviour
         gemCount.text = upgradeManager.data.upgradePoint.ToString();
         damageTextDisplay.text = upgradeManager.data.damage.ToString();
         rangeTextDisplay.text = upgradeManager.data.range.ToString();
-        rateTextDisplay.text = upgradeManager.data.rate.ToString();
+        healthTextDisplay.text = upgradeManager.data.health.ToString();
     }
 
     public void UpgradeDamage()
     {
         if (upgradeManager.data.upgradePoint >= 1) 
         {
-            upgradeManager.data.damage += .5f;
+            upgradeManager.data.damage += .25f;
             upgradeManager.data.upgradePoint -= 1;
             damageTextDisplay.text = upgradeManager.data.damage.ToString();
             gemCount.text = upgradeManager.data.upgradePoint.ToString();
@@ -63,20 +63,20 @@ public class Upgrade : MonoBehaviour
     {
         if (upgradeManager.data.upgradePoint >= 1) 
         {
-            upgradeManager.data.range += .5f;
+            upgradeManager.data.range += .2f;
             upgradeManager.data.upgradePoint -= 1;
             rangeTextDisplay.text = upgradeManager.data.range.ToString();
             gemCount.text = upgradeManager.data.upgradePoint.ToString();
         }
     }
 
-    public void UpgradeFireRate()
+    public void UpgradeHealth()
     {
         if (upgradeManager.data.upgradePoint >= 1) 
         {
-            upgradeManager.data.rate += .1f;
+            upgradeManager.data.health += 1;
             upgradeManager.data.upgradePoint -= 1;
-            rateTextDisplay.text = upgradeManager.data.rate.ToString();
+            healthTextDisplay.text = upgradeManager.data.health.ToString();
             gemCount.text = upgradeManager.data.upgradePoint.ToString();
         }
     }

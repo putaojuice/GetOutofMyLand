@@ -7,5 +7,5 @@ public class Stats
     public int upgradePoint = 0;
     public float damage=0f;
     public float range=0f;
-    public float rate=0f;
+    public int health=0;
 }

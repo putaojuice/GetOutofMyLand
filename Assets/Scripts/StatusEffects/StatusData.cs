@@ -16,6 +16,9 @@ public class StatusData : ScriptableObject
     void OnEnable() {
         if (UpgradeManager.instance != null) {
             damage += UpgradeManager.instance.data.damage;
+            if (statusType == "WaterEffect") {
+                DOT += UpgradeManager.instance.data.damage / 5f;
+            }
         } 
     }
 }

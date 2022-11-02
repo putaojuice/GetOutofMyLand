@@ -14,7 +14,8 @@ public class BaseHealth : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        maxHealth += UpgradeManager.instance.data.health;
         Health = maxHealth;
     }
 

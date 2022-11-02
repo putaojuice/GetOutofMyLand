@@ -12,11 +12,11 @@ public class FireTower : Turret
         type = TurretType.Fire;
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         range = ActualTowerRange + UpgradeManager.instance.data.range;
-        firingRate = 1f + UpgradeManager.instance.data.rate;
-        rangeDetector.GetComponent<RangeDetector>().UpdateColliderRadius(ActualTowerRange);
+        firingRate = 1f;
+        rangeDetector.GetComponent<RangeDetector>().UpdateColliderRadius(range);
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         towerLevel = 1;
-        SetUpRange(ActualTowerRange);
+        SetUpRange(range);
     }
 
     void SetUpRange(float radius)

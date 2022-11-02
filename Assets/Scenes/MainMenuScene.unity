@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.28300804, g: 0.60441977, b: 0.9477975, a: 1}
+  m_IndirectSpecularColor: {r: 0.28300822, g: 0.6044199, b: 0.9477975, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1465,7 +1465,7 @@ GameObject:
   - component: {fileID: 135718859}
   - component: {fileID: 135718858}
   m_Layer: 5
-  m_Name: TowerFireRate
+  m_Name: Base Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1511,7 +1511,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tower Fire Rate
+  m_text: 'Base Health
 
 '
   m_isRightToLeft: 0
@@ -8741,7 +8741,7 @@ GameObject:
   - component: {fileID: 865697759}
   - component: {fileID: 865697758}
   m_Layer: 5
-  m_Name: TowerFireRate
+  m_Name: health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9913,7 +9913,7 @@ GameObject:
   - component: {fileID: 1015772810}
   - component: {fileID: 1015772809}
   m_Layer: 5
-  m_Name: RateAdd
+  m_Name: HealthAdd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9986,7 +9986,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1639850074}
         m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
-        m_MethodName: UpgradeFireRate
+        m_MethodName: UpgradeHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15306,7 +15306,7 @@ MonoBehaviour:
   gemCount: {fileID: 1426407717}
   damageTextDisplay: {fileID: 73789283}
   rangeTextDisplay: {fileID: 1420757713}
-  rateTextDisplay: {fileID: 865697758}
+  healthTextDisplay: {fileID: 865697758}
   upgradeManager: {fileID: 1247634463}
 --- !u!1 &1686436965
 GameObject:

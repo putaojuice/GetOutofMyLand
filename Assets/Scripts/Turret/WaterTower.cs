@@ -21,7 +21,7 @@ public class WaterTower : Turret
         InvokeRepeating("UpdateTarget", 0f, 2.0f);
         towerLevel = 1;
         rangeDetector.GetComponent<RangeDetector>().UpdateColliderRadius(ActualTowerRange);
-        SetUpRange(ActualTowerRange);
+        //SetUpRange(ActualTowerRange);
     }
 
     void SetUpRange(float radius)
@@ -77,11 +77,11 @@ public class WaterTower : Turret
     {
         switch (towerLevel){
             case 1:
-                return rainStatusLevel1.DOT * towerLevel;
+                return rainStatusLevel1.DOT;
             case 2:
-                return rainStatusLevel2.DOT * towerLevel;
+                return rainStatusLevel2.DOT;
             case 3:
-                return rainStatusLevel3.DOT * towerLevel;
+                return rainStatusLevel3.DOT;
             default:
                 return 0;
         }
