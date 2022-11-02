@@ -188,7 +188,11 @@ public class DeckController : MonoBehaviour
         currentCard.transform.SetParent(Deck.transform);
         currentCard.gameObject.SetActive(false);
         usedCards.Add(currentCard);
+        EndAddPhase();
+    }
 
+    public void EndAddPhase()
+    {
         foreach (Transform child in LootDisplay.transform)
         {
             GameObject.Destroy(child.gameObject);
@@ -263,8 +267,7 @@ public class DeckController : MonoBehaviour
 
     public void DrawRandomTowerCard()
     {
-        // List<string> towerArray = new List<string> { "WaterTowerCard", "LightningTowerCard", "FireTowerCard" };
-        List<string> towerArray = new List<string> {"ExplosionSpellCard", "StunSpellCard"};
+        List<string> towerArray = new List<string> { "WaterTowerCard", "LightningTowerCard", "FireTowerCard" };
         System.Random r = new System.Random();
 
         // Fisher-Yates Shuffle
@@ -308,6 +311,8 @@ public class DeckController : MonoBehaviour
         AddLightningTowerQty();
         AddFireTowerQty();
         AddWaterTowerQty();
+        ExplosionSpellQtyText.text = "x " + ExplosionSpellQty.ToString();
+        StunSpellQtyText.text = "x " + StunSpellQty.ToString();
     }
 
     public void AddILandQty() {
