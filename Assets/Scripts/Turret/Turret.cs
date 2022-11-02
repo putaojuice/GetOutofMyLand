@@ -103,6 +103,10 @@ public class Turret : MonoBehaviour
         fireCountdown -= Time.deltaTime;
     }
 
+    public void GetDestroyed(){
+        Destroy(gameObject);
+    }
+
     public virtual float GetDamage() 
     {
         return 0;
@@ -112,6 +116,7 @@ public class Turret : MonoBehaviour
     {
         
     }
+
 
     public virtual float GetLevel()
     {
