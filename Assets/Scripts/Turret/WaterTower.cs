@@ -16,12 +16,12 @@ public class WaterTower : Turret
     {   
         type = TurretType.Water;
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        range = ActualTowerRange;
+        range = ActualTowerRange + UpgradeManager.instance.data.range;
         firingRate = 0.2f;
         InvokeRepeating("UpdateTarget", 0f, 2.0f);
         towerLevel = 1;
         rangeDetector.GetComponent<RangeDetector>().UpdateColliderRadius(ActualTowerRange);
-        SetUpRange(ActualTowerRange);
+        //SetUpRange(ActualTowerRange);
     }
 
     void SetUpRange(float radius)
@@ -33,7 +33,7 @@ public class WaterTower : Turret
             Theta += (2.0f * Mathf.PI * 0.01f);
             float x = radius * Mathf.Cos(Theta);
             float y = radius * Mathf.Sin(Theta);
-            rangeIndicator.SetPosition(i, new Vector3(x, y, 0.8f));
+            rangeIndicator.SetPosition(i, new Vector3(x, y, 0));
         }
     }
 
@@ -77,11 +77,11 @@ public class WaterTower : Turret
     {
         switch (towerLevel){
             case 1:
-                return rainStatusLevel1.DOT * towerLevel;
+                return rainStatusLevel1.DOT;
             case 2:
-                return rainStatusLevel2.DOT * towerLevel;
+                return rainStatusLevel2.DOT;
             case 3:
-                return rainStatusLevel3.DOT * towerLevel;
+                return rainStatusLevel3.DOT;
             default:
                 return 0;
         }

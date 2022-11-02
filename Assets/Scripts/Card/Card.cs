@@ -11,6 +11,7 @@ public class Card : MonoBehaviour
     public GameObject prefabPreview;
     public Type type;
     public bool isLootCard = false;
+    public bool isDiscardCard = false;
 
     private Image cardImage;
     [SerializeField]
@@ -23,7 +24,7 @@ public class Card : MonoBehaviour
     {
         currentCard = gameObject.GetComponent<Image>();
         gameObject.GetComponent<Button>().onClick.AddListener(UseCard);
-        DeckController = GameManager.instance.gameObject.GetComponent<DeckController>();
+        DeckController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<DeckController>();
     }
 
     public void UseCard()
@@ -33,6 +34,12 @@ public class Card : MonoBehaviour
         if (DeckController.currentCard != null)
         {
             Debug.Log("block card");
+            return;
+        }
+
+        if (isDiscardCard)
+        {
+            DeckController.UseDiscardCard();
             return;
         }
 
@@ -55,6 +62,10 @@ public class Card : MonoBehaviour
         else if (type == Type.Turret)
         {
             DeckController.PlayTurretCard(this, prefabPreview);
+        }
+        else if (type == Type.Spell)
+        {
+            DeckController.PlaySpellCard(this, prefabPreview);
         }
         else
         {
@@ -120,4 +131,4 @@ public class Card : MonoBehaviour
     }
 }
 
-public enum Type {Tile, Turret};
+public enum Type {Tile, Turret, Spell};

@@ -12,8 +12,12 @@ public class GameManager : MonoBehaviour
     public static event WaveEnd WaveEnded;
     public int waveIndex = 0;
 
+    [SerializeField]private Text infoWaveText;
     [SerializeField]private GameObject scoreText;
+    [SerializeField]private TextMeshProUGUI gemCount;
     [SerializeField]private DeckController DeckController;
+    [SerializeField]private TurretController TurretController;
+    [SerializeField]private GridController GridController;
     [SerializeField]private MLEnemyManager EnemyManager;
     [SerializeField]private Button spawnButton;
     [SerializeField]private Button wavePauseButton;
@@ -23,11 +27,6 @@ public class GameManager : MonoBehaviour
     public Transform cardGroup;
     public int currentHandSize;
 
-    public static GameManager instance;
-
-    void Awake() {
-        instance = this;
-    }
 
     void Start() {
         DeckController.ShuffleCard();
@@ -60,8 +59,6 @@ public class GameManager : MonoBehaviour
      CountDownText.SetActive(false);
      SpawnEnemy();
      
-
-     DeckController.disableHand();
      wavePauseButton.interactable = true;
 
      //Music Stuff
@@ -96,13 +93,26 @@ public class GameManager : MonoBehaviour
 
     public void SpawnEnemy() {
         waveIndex++;
+        infoWaveText.text = "Wave " + waveIndex.ToString();
         EnemyManager.StartWave(waveIndex);
     }
 
+    public int GetScore()
+    {
+        int enemiesScore = EnemyManager.GetEnemiesKilled() * (1 + (waveIndex / 60));
+        int landScore = (GameObject.FindGameObjectsWithTag("GridFloor").Length - 12) * (1 + (waveIndex / 60));
+        return (enemiesScore + landScore);
+    }
+    
     public void GameOver() {
-        int enemiesScore = EnemyManager.GetEnemiesKilled() * (1 + (waveIndex / 50));
-        int landScore = (GameObject.FindGameObjectsWithTag("GridFloor").Length - 45) * (1 + (waveIndex / 50));
-        scoreText.GetComponent<TMP_Text>().text = "Score: " + (enemiesScore + landScore); 
+        int totalScore = GetScore();
+        scoreText.GetComponent<TMP_Text>().text = "Score: " + (totalScore); 
+        gemCount.text = "X " + (int) ((totalScore) / 30);
+        if ((totalScore) / 30 >= 1)
+        {
+            UpgradeManager.instance.data.upgradePoint += (totalScore) / 40;
+            UpgradeManager.instance.Save();
+        }
         gameOverUI.SetActive(true);
     }
 
@@ -121,9 +131,24 @@ public class GameManager : MonoBehaviour
             
             //Music Stuff
             MusicController.PlayAmbient();
+
+            //UI Stuff
             spawnButton.interactable = true;
-            DeckController.enableHand();
             wavePauseButton.interactable = false;
+            
+            //Card Stuff
+            if (DeckController.currentCard != null) //still building
+            {
+                Card currentCard = DeckController.currentCard;
+                if (currentCard.type == Type.Turret)
+                {
+                    TurretController.StopBuild();
+                } else if (currentCard.type == Type.Tile)
+                {
+                    GridController.StopBuild();
+                }
+            }
+            
         }
     }
     

@@ -19,7 +19,7 @@ public class Warrior : Enemy
     {
         // Setting up the stats for Warriors
         // maxHp = 2.0f * (GameManager.instance.waveIndex + 1) * 0.5f;
-        maxHp = 5.0f + 10.0f * Mathf.Pow(hpBase, (hpScaling * GameManager.instance.waveIndex + 1));
+        maxHp = 5.0f + 10.0f * Mathf.Pow(hpBase, (hpScaling * GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().waveIndex + 1));
         hp = maxHp;
         skillCoolDown = 1f;
         defence = 1f;

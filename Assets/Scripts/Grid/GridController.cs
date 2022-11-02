@@ -33,12 +33,16 @@ public class GridController : MonoBehaviour
 	}
 
     private void Update()
-	{
-		BuildLogic();
+	{	
+		if (isBuilding) {
+			BuildLogic();
+		}
+		
 	}
 
 	public void BuildLogic()
-	{
+	{	
+
 		if (Input.GetMouseButton(0) && isBuilding && gridTile.GetBuildable())
 		{
 			CompleteBuild();
@@ -103,17 +107,13 @@ public class GridController : MonoBehaviour
 		{
 			PositionObj(hit.point);
 		}
-		surf.UpdateNavMesh(surf.navMeshData);
-		
 	}
 
 	private void PositionObj(Vector3 position)
 	{
 		int x = Mathf.RoundToInt(position.x);
 		int z = Mathf.RoundToInt(position.z);
-		previewPrefab.transform.position = new Vector3(x, 0, z);
-		surf.UpdateNavMesh(surf.navMeshData);
-
+		previewPrefab.transform.position = new Vector3(x, 0.1f, z);
 	}
 
 	// call once before the start of the game
@@ -134,7 +134,6 @@ public class GridController : MonoBehaviour
 				}
 
 				if (go.transform.position.z >= maxNorth) {
-					Debug.Log(go.transform.position.z);
 					maxNorth = go.transform.position.z;
 				} 
 

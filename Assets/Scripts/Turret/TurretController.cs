@@ -30,7 +30,14 @@ public class TurretController : MonoBehaviour
 
     private void Update()
 	{   
-		BuildLogic();
+		if (isBuilding) {
+			BuildLogic();
+		} else {
+			if (Input.GetMouseButton(0)) {
+				SelectingTurret();
+			}
+		}
+		
 	}
 
 	private void SelectingTurret()
@@ -69,6 +76,11 @@ public class TurretController : MonoBehaviour
         }
     }
 
+	private void SelectLogic()
+	{
+
+	}
+
 	public void BuildLogic()
 	{   
 		
@@ -98,10 +110,6 @@ public class TurretController : MonoBehaviour
 		if (isBuilding)
 		{	
 			GenerateRay();
-		} else {
-			if (Input.GetMouseButton(0)) {
-				SelectingTurret();
-			}
 		}
 	}
 

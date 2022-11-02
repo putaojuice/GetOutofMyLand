@@ -11,33 +11,46 @@ public class DeckController : MonoBehaviour
     public int maxHandSize = 5;
     public List<Card> deck = new List<Card>();
     public List<Card> lootDeck = new List<Card>();
+    public List<DiscardCardCard> discardCards = new List<DiscardCardCard>();
 
+    [SerializeField]
     private GameObject canvas;
+
     private GameObject LootOverlay;
     private GameObject LootDisplay;
+    [SerializeField] private GameObject DiscardOverlay;
+    [SerializeField] private GameObject AddExplosionSpellOverlay;
+    [SerializeField] private GameObject AddStunSpellOverlay;
 
-    private List<Card> usedCards = new List<Card>();
+    public List<Card> usedCards = new List<Card>();
     private GridController GridController;
     private TurretController TurretController;
+    private SpellController SpellController;
+    private GameManager gameManager;
     public Card currentCard;
     private int currentHandSize = 0;
 
-    private int ILandQty = 0;
+    public int ILandQty = 0;
     [SerializeField] private Text ILandQtyText;
-    private int LLandQty = 0;
+    public int LLandQty = 0;
     [SerializeField] private Text LLandQtyText;
-    private int TLandQty = 0;
+    public int TLandQty = 0;
     [SerializeField] private Text TLandQtyText;
-    private int ZLandQty = 0;
+    public int ZLandQty = 0;
     [SerializeField] private Text ZLandQtyText;
-    private int SquareLandQty = 0;
+    public int SquareLandQty = 0;
     [SerializeField] private Text SquareLandQtyText;
-    private int WaterTowerQty = 0;
+    public int WaterTowerQty = 0;
     [SerializeField] private Text WaterTowerQtyText;
-    private int LightningTowerQty = 0;
+    public int LightningTowerQty = 0;
     [SerializeField] private Text LightningTowerQtyText;
-    private int FireTowerQty = 0;
+    public int FireTowerQty = 0;
     [SerializeField] private Text FireTowerQtyText;
+    public int StunSpellQty = 0;
+    [SerializeField] private Text StunSpellQtyText;
+    public int ExplosionSpellQty = 0;
+    [SerializeField] private Text ExplosionSpellQtyText;
+
 
     void Awake()
     {
@@ -50,10 +63,12 @@ public class DeckController : MonoBehaviour
         // All controllers are components of "GameManager"
         GridController = gameObject.GetComponent<GridController>();
         TurretController = gameObject.GetComponent<TurretController>();
+        SpellController = gameObject.GetComponent<SpellController>();
+        gameManager = gameObject.GetComponent<GameManager>();
 
         // subscribing the DrawCard method to the WaveEnd event so that DrawCard will be called once wave ended
-        GameManager.WaveEnded += GetRandomLoot;
-        canvas = GameObject.FindWithTag("canvas");
+        GameManager.WaveEnded += GetLoot;
+ 
         LootOverlay = canvas.transform.Find("AddCardPanel").gameObject;
         LootDisplay = LootOverlay.transform.Find("CardDisplay").gameObject;
 
@@ -68,7 +83,7 @@ public class DeckController : MonoBehaviour
 
     void OnDestroy() 
     {
-        GameManager.WaveEnded -= GetRandomLoot;
+        GameManager.WaveEnded -= GetLoot;
     }
 
 
@@ -88,6 +103,11 @@ public class DeckController : MonoBehaviour
     public void PlayTileCard(Card card, GameObject prefabPreview) {
         currentCard = card;
         GridController.StartBuild(prefabPreview);
+    }
+
+    public void PlaySpellCard(Card card, GameObject prefabPreview) {
+        currentCard = card;
+        SpellController.StartCasting(prefabPreview);
     }
 
     public void StopPlayCard() {
@@ -145,6 +165,20 @@ public class DeckController : MonoBehaviour
         
     }
 
+    public void GetLoot()
+    {
+        if (gameManager.waveIndex % 5 == 0) 
+        {
+            int rnd = Random.Range(0, 2);
+            if (rnd == 0) { AddExplosionSpellOverlay.SetActive(true); }
+            else { AddStunSpellOverlay.SetActive(true); }
+        }
+        else { GetRandomLoot(); }
+
+        // after displaying loot, unsubscribe the GetLoot method from the WaveEnd event to prevent memory leak
+        // TODO handle this in a GameEndManager when player loses
+    }
+
     public void GetRandomLoot()
     {   
         LootOverlay.SetActive(true);
@@ -160,9 +194,6 @@ public class DeckController : MonoBehaviour
             newCard.GetComponent<Card>().OpenCard();
             currentLootDeck.RemoveAt(index);
         }
-
-        // after displaying loot, unsubscribe the GetRandomLoot method from the WaveEnd event to prevent memory leak
-        // TODO handle this in a GameEndManager when player loses
     }
 
     public void AddCard(Card card)
@@ -172,7 +203,11 @@ public class DeckController : MonoBehaviour
         currentCard.transform.SetParent(Deck.transform);
         currentCard.gameObject.SetActive(false);
         usedCards.Add(currentCard);
+        EndAddPhase();
+    }
 
+    public void EndAddPhase()
+    {
         foreach (Transform child in LootDisplay.transform)
         {
             GameObject.Destroy(child.gameObject);
@@ -182,6 +217,59 @@ public class DeckController : MonoBehaviour
         StopPlayCard();
 
         DrawCard();
+    }
+
+    public void UseDiscardCard()
+    {
+        foreach (Transform child in LootDisplay.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
+        LootOverlay.SetActive(false);
+        StopPlayCard();
+        DiscardOverlay.SetActive(true);
+        foreach (DiscardCardCard discardButton in discardCards) { discardButton.LoadValues(); }
+    }
+
+    public void DeleteCard(string cardType)
+    {
+        // search through hand first
+        foreach (Transform child in Hand.transform)
+        {
+            if (child.name.Contains(cardType))
+            {
+                GameObject.Destroy(child.gameObject);
+                currentHandSize--;
+                return;
+            }
+        }
+        // search through deck
+        foreach (Card card in deck)
+        {
+            if (card.name.Contains(cardType))
+            {
+                deck.Remove(card);
+                GameObject.Destroy(card.gameObject);
+                return;
+            }
+        }
+        // search through used deck
+        foreach (Card card in usedCards)
+        {
+            if (card.name.Contains(cardType))
+            {
+                usedCards.Remove(card);
+                GameObject.Destroy(card.gameObject);
+                return;
+            }
+        }
+    }
+
+    public void EndDiscardPhase()
+    {
+        DrawCard();
+        DiscardOverlay.SetActive(false);
     }
 
     public void disableHand() {
@@ -238,47 +326,77 @@ public class DeckController : MonoBehaviour
         AddLightningTowerQty();
         AddFireTowerQty();
         AddWaterTowerQty();
+        ExplosionSpellQtyText.text = "x " + ExplosionSpellQty.ToString();
+        StunSpellQtyText.text = "x " + StunSpellQty.ToString();
     }
 
-    public void AddILandQty()
-    {
+    public void AddILandQty() {
         ILandQty += 1;
         ILandQtyText.text = "x " + ILandQty.ToString();
     }
+    
+    public void ReduceILandQty() {
+        ILandQty -= 1;
+        ILandQtyText.text = "x " + ILandQty.ToString();
+    }
 
-    public void AddLLandQty()
-    {
+    public void AddLLandQty() {
         LLandQty += 1;
         LLandQtyText.text = "x " + LLandQty.ToString();
     }
+    
+    public void ReduceLLandQty() {
+        LLandQty -= 1;
+        LLandQtyText.text = "x " + LLandQty.ToString();
+    }
 
-    public void AddTLandQty()
-    {
+    public void AddTLandQty() {
         TLandQty += 1;
         TLandQtyText.text = "x " + TLandQty.ToString();
     }
+    
+    public void ReduceTLandQty() {
+        TLandQty -= 1;
+        TLandQtyText.text = "x " + TLandQty.ToString();
+    }
 
-    public void AddZLandQty()
-    {
+    public void AddZLandQty() {
         ZLandQty += 1;
+        ZLandQtyText.text = "x " + ZLandQty.ToString();
+    }    
+    
+    public void ReduceZLandQty() {
+        ZLandQty -= 1;
         ZLandQtyText.text = "x " + ZLandQty.ToString();
     }
 
-    public void AddSquareLandQty()
-    {
+    public void AddSquareLandQty() {
         SquareLandQty += 1;
         SquareLandQtyText.text = "x " + SquareLandQty.ToString();
     }
+    
+    public void ReduceSquareLandQty() {
+        SquareLandQty -= 1;
+        SquareLandQtyText.text = "x " + SquareLandQty.ToString();
+    }
 
-    public void AddFireTowerQty()
-    {
+    public void AddFireTowerQty() {
         FireTowerQty += 1;
         FireTowerQtyText.text = "x " + FireTowerQty.ToString();
     }
 
-    public void AddLightningTowerQty()
-    {
+    public void ReduceFireTowerQty() {
+        FireTowerQty -= 1;
+        FireTowerQtyText.text = "x " + FireTowerQty.ToString();
+    }
+
+    public void AddLightningTowerQty() {
         LightningTowerQty += 1;
+        LightningTowerQtyText.text = "x " + LightningTowerQty.ToString();
+    }
+    
+    public void ReduceLightningTowerQty() {
+        LightningTowerQty -= 1;
         LightningTowerQtyText.text = "x " + LightningTowerQty.ToString();
     }
 
@@ -286,5 +404,35 @@ public class DeckController : MonoBehaviour
     {
         WaterTowerQty += 1;
         WaterTowerQtyText.text = "x " + WaterTowerQty.ToString();
+    }
+    
+    public void ReduceWaterTowerQty()
+    {
+        WaterTowerQty -= 1;
+        WaterTowerQtyText.text = "x " + WaterTowerQty.ToString();
+    }
+
+    public void AddStunSpellQty()
+    {
+        StunSpellQty += 1;
+        StunSpellQtyText.text = "x " + StunSpellQty.ToString();
+    }
+    
+    public void ReduceStunSpellQty()
+    {
+        StunSpellQty -= 1;
+        StunSpellQtyText.text = "x " + StunSpellQty.ToString();
+    }
+
+    public void AddExplosionSpellQty()
+    {
+        ExplosionSpellQty += 1;
+        ExplosionSpellQtyText.text = "x " + ExplosionSpellQty.ToString();
+    }
+    
+    public void ReduceExplosionSpellQty()
+    {
+        ExplosionSpellQty -= 1;
+        ExplosionSpellQtyText.text = "x " + ExplosionSpellQty.ToString();
     }
 }

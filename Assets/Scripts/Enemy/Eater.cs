@@ -13,7 +13,7 @@ public class Eater : Enemy
     void Start()
     {
         // Setting up the stats for Warriors
-        maxHp = 60.0f * (GameManager.instance.waveIndex + 1);
+        maxHp = 60.0f * (GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().waveIndex + 1);
         // maxHp = 1000f;
         hp = maxHp;
         defence = 0f;
