@@ -19,11 +19,14 @@ public class DeckController : MonoBehaviour
     private GameObject LootOverlay;
     private GameObject LootDisplay;
     [SerializeField] private GameObject DiscardOverlay;
+    [SerializeField] private GameObject AddExplosionSpellOverlay;
+    [SerializeField] private GameObject AddStunSpellOverlay;
 
-    private List<Card> usedCards = new List<Card>();
+    public List<Card> usedCards = new List<Card>();
     private GridController GridController;
     private TurretController TurretController;
     private SpellController SpellController;
+    private GameManager gameManager;
     public Card currentCard;
     private int currentHandSize = 0;
 
@@ -61,9 +64,10 @@ public class DeckController : MonoBehaviour
         GridController = gameObject.GetComponent<GridController>();
         TurretController = gameObject.GetComponent<TurretController>();
         SpellController = gameObject.GetComponent<SpellController>();
+        gameManager = gameObject.GetComponent<GameManager>();
 
         // subscribing the DrawCard method to the WaveEnd event so that DrawCard will be called once wave ended
-        GameManager.WaveEnded += GetRandomLoot;
+        GameManager.WaveEnded += GetLoot;
  
         LootOverlay = canvas.transform.Find("AddCardPanel").gameObject;
         LootDisplay = LootOverlay.transform.Find("CardDisplay").gameObject;
@@ -79,7 +83,7 @@ public class DeckController : MonoBehaviour
 
     void OnDestroy() 
     {
-        GameManager.WaveEnded -= GetRandomLoot;
+        GameManager.WaveEnded -= GetLoot;
     }
 
 
@@ -161,6 +165,20 @@ public class DeckController : MonoBehaviour
         
     }
 
+    public void GetLoot()
+    {
+        if (gameManager.waveIndex % 5 == 0) 
+        {
+            int rnd = Random.Range(0, 2);
+            if (rnd == 0) { AddExplosionSpellOverlay.SetActive(true); }
+            else { AddStunSpellOverlay.SetActive(true); }
+        }
+        else { GetRandomLoot(); }
+
+        // after displaying loot, unsubscribe the GetLoot method from the WaveEnd event to prevent memory leak
+        // TODO handle this in a GameEndManager when player loses
+    }
+
     public void GetRandomLoot()
     {   
         LootOverlay.SetActive(true);
@@ -176,9 +194,6 @@ public class DeckController : MonoBehaviour
             newCard.GetComponent<Card>().OpenCard();
             currentLootDeck.RemoveAt(index);
         }
-
-        // after displaying loot, unsubscribe the GetRandomLoot method from the WaveEnd event to prevent memory leak
-        // TODO handle this in a GameEndManager when player loses
     }
 
     public void AddCard(Card card)
