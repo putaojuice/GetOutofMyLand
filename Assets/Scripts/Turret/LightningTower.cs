@@ -31,7 +31,7 @@ public class LightningTower : Turret
             Theta += (2.0f * Mathf.PI * 0.01f);
             float x = radius * Mathf.Cos(Theta);
             float y = radius * Mathf.Sin(Theta);
-            rangeIndicator.SetPosition(i, new Vector3(x, y, 0.8f));
+            rangeIndicator.SetPosition(i, new Vector3(x, y, 0));
         }
     }
 
