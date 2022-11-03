@@ -53,7 +53,8 @@ public class GameManager : MonoBehaviour
      MusicController.fadeAudio();
      MusicController.PlayCountDown();
      spawnButton.interactable = false;
-     
+     CountDownText.GetComponent<TextMeshProUGUI>().outlineWidth = 0.2f;
+     CountDownText.GetComponent<TextMeshProUGUI>().outlineColor = new Color32(47, 79, 79, 255);
      while (counter > 0) {
          CountDownText.GetComponent<TMP_Text>().text = counter.ToString();
          yield return new WaitForSeconds (1);
