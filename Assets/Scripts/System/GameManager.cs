@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]private MusicControlScript MusicController;
     [SerializeField]private GameObject CountDownText;
     [SerializeField]private SoundEffectsControlScript SoundEffectsController;
+    [SerializeField]public BaseHealth PlayerBase;
     public Transform cardGroup;
     public int currentHandSize;
 
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
         wavePauseButton.interactable = false;
         waveIndex = 0;
         EnemyManager.initializeFirstSpawnPoint();
+        PlayerBase = GameObject.FindObjectOfType<BaseHealth>();
     }
 
     // IEnumerator Wait(){
@@ -119,8 +121,11 @@ public class GameManager : MonoBehaviour
 
     public void UpdateWaveInfo() {
         this.SoundEffectsController.PlayEnemyDeathSound();
+        int health = PlayerBase.Health;
+        Debug.Log("Health" + health);
          // Delegate wave end event when all the enemies died
-        if (EnemyManager.UpdateEnemy()) {
+        if (EnemyManager.UpdateEnemy() && health>0) {
+            Debug.Log("Next Wave");
             WaveEnded();
 
 

@@ -23,15 +23,16 @@ public class BaseHealth : MonoBehaviour
     void Update()
     {   
         // Game end condition
-        if (Health < 1) {
-            gameManager.GameOver();
-            Destroy(gameObject);
-        }
+
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Enemy") {
             Health--;
+            if (Health < 1) {
+                gameManager.GameOver();
+                Destroy(gameObject);
+            }
         }
     }
 
