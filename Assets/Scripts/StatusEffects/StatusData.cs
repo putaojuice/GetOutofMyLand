@@ -13,12 +13,5 @@ public class StatusData : ScriptableObject
     [SerializeField] public float damage;
     [SerializeField] public float towerLevel;
     
-    void OnEnable() {
-        if (UpgradeManager.instance != null) {
-            damage += UpgradeManager.instance.data.damage;
-            if (statusType == "WaterEffect") {
-                DOT += UpgradeManager.instance.data.damage / 5f;
-            }
-        } 
-    }
+    
 }

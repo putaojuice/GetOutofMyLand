@@ -84,7 +84,6 @@ public class GridController : MonoBehaviour
 		gridTile = null;
 		isBuilding = false;
 		DeckController.StopPlayCard();
-		surf.UpdateNavMesh(surf.navMeshData);
 	}
 
 	private void CompleteBuild()

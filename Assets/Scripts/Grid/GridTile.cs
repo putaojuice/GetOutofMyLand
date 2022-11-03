@@ -89,8 +89,8 @@ public class GridTile : MonoBehaviour
 			ground[i].GetComponent<GridBase>().SetSelectionColor();
 		}
 
-
-		Instantiate(buildPrefab, transform.position, transform.rotation);
+		
+		Instantiate(buildPrefab, new Vector3(transform.position.x, 0, transform.position.z), transform.rotation);
 
 		for (int i = 0; i < ground.Count; i++)
 		{	

@@ -7,8 +7,10 @@ public class LightningTower : Turret
 {
 
     [SerializeField] public float ActualTowerRange;
-    [SerializeField] AudioSource AudioSource;
-
+    [SerializeField] public StatusData lightningStatusLevel1;
+    [SerializeField] public StatusData lightningStatusLevel2;
+    [SerializeField] public StatusData lightningStatusLevel3;
+    private float permanentDamage;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class LightningTower : Turret
         rangeDetector.GetComponent<RangeDetector>().UpdateColliderRadius(range);
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         towerLevel = 1;
+        permanentDamage = UpgradeManager.instance.data.damage;
         SetUpRange(range);
     }
 
@@ -65,16 +68,16 @@ public class LightningTower : Turret
     {
         
         GameObject currBullet = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Bullet bullet = currBullet.GetComponent<Bullet>();
+        LightningBall bullet = currBullet.GetComponent<LightningBall>();
         LightningBoltScript lightning = currBullet.GetComponent<LightningBoltScript>();
         lightning.StartPosition = firePoint.transform.position;
         lightning.EndPosition = target.transform.position;
-        bullet.towerLevel = towerLevel;
+        bullet.SetTowerLevel(towerLevel);
         
         if(bullet != null)
         {
             bullet.Seek(target);
-            AudioSource.Play();
+            this.AudioSource.Play();
         }
     }
 
@@ -90,14 +93,22 @@ public class LightningTower : Turret
 
     public override float GetDamage()
     {
-        return bulletPrefab.GetComponent<LightningBall>().GetDamage();
+       switch (towerLevel) {
+            case 1:
+                return lightningStatusLevel1.damage + permanentDamage;
+            case 2:
+                return lightningStatusLevel2.damage + permanentDamage;
+            case 3:
+                return lightningStatusLevel3.damage + permanentDamage;
+            default:
+                return lightningStatusLevel1.damage + permanentDamage;
+        }
     }
 
     public override void UpgradeTower()
     {
         if (towerLevel < 3) {
             towerLevel++;
-            bulletPrefab.GetComponent<Bullet>().UpgradeTower();
         }
     }
 

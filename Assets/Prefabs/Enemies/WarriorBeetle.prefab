@@ -5386,7 +5386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23af6a4a7abc24dc1a624761b2e6d4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioSource: {fileID: 0}
   volume: 0.5
   maxHp: 300
   hp: 300
@@ -5394,6 +5393,8 @@ MonoBehaviour:
   defence: 0
   currRound: 1
   destructionMat: {fileID: 2100000, guid: b74884b5f6bed4f2482d69909f6aee3e, type: 2}
+  AudioSource: {fileID: 5781383297385623139}
+  deathSound: {fileID: 8300000, guid: b0bc043d08a1f8240b5666d56cf65332, type: 3}
   chargeSpeed: 3
   skillDuration: 0.5
   skillToggled: 0
@@ -5504,7 +5505,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b0bc043d08a1f8240b5666d56cf65332, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9295a1de646df854aaf5501cbfc849a0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -6809,7 +6810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16409636, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7215,6 +7216,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2262966659587544026, guid: 045b9f9dcf1224f57a50775182e4a3fa, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262966659587544026, guid: 045b9f9dcf1224f57a50775182e4a3fa, type: 3}
+      propertyPath: clearBehavior
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5248127981030918522, guid: 045b9f9dcf1224f57a50775182e4a3fa, type: 3}

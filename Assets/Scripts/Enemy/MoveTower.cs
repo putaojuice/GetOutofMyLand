@@ -7,6 +7,7 @@ public class MoveTower : MonoBehaviour
     [SerializeField] public GameObject goal;
     [SerializeField] public GameObject originalGoal;
     [SerializeField] public Eater eater;
+    [SerializeField] public AudioSource AudioSource;
 
     private Animator anim;
 
@@ -51,10 +52,9 @@ public class MoveTower : MonoBehaviour
         if(eater.isAttacking){
             if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f){
                 eater.StopAttack();
-                Destroy(goal);
+                goal.GetComponent<Turret>().GetDestroyed();
+                AudioSource.Play();
                 anim.SetBool("isAttacking", false);
-                
-                Debug.Log("not attacking anymoire");
             }
             return;
         }
@@ -70,7 +70,6 @@ public class MoveTower : MonoBehaviour
                     eater.Charge();
                 } else {
                     if(eater.chargePoints == eater.maxChargePoints){
-                        Debug.Log("Attacking now!");
                         anim.SetBool("isAttacking", true);
                         anim.SetBool("isCharging", false);
                         eater.Attack();
@@ -84,7 +83,6 @@ public class MoveTower : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        Debug.Log(collider);
         // Notify the enemy to get damaged and die instantly
         if(collider.gameObject.tag == "Endpoint"){
             Enemy enemy = gameObject.GetComponent<Enemy>();
@@ -92,13 +90,9 @@ public class MoveTower : MonoBehaviour
         }
 
         if(collider.CompareTag("Fire")){
-            Debug.Log("hitting fire tower");
             anim.SetBool("isAttacking", true);
         } else {
-            Debug.Log("not hitting fire tower");
             anim.SetBool("isAttacking", false);
         }
-
-        // Destroy(gameObject);
     }
 }

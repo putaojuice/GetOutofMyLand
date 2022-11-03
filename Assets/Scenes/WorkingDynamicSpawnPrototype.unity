@@ -1201,11 +1201,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 785445423797092929, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000021454223
+      value: 0.000000021454225
       objectReference: {fileID: 0}
     - target: {fileID: 785445423797092929, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000011481951
+      value: -0.000000011481952
       objectReference: {fileID: 0}
     - target: {fileID: 1093093049020216896, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1229,11 +1229,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2696929161613966400, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: rotateSpeed
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2696929161613966400, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: translateSpeed
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2696929161613966400, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: enableMouseDrag
@@ -1241,7 +1241,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2696929161613966400, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: zoomDistanceMax
-      value: 60
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696929161613966400, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
+      propertyPath: enableEdgeScrolling
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4038314652278985295, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: field of view
@@ -1265,7 +1269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6034549901478517498, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.4164408
+      value: 1.7777778
       objectReference: {fileID: 0}
     - target: {fileID: 6034549901478517501, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1277,11 +1281,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6034549901478517501, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000021454223
+      value: 0.000000021454225
       objectReference: {fileID: 0}
     - target: {fileID: 6034549901478517501, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000011481951
+      value: -0.000000011481952
       objectReference: {fileID: 0}
     - target: {fileID: 8500851291982029270, guid: 983dc441f4cc0e043a20b00b1e6555b1, type: 3}
       propertyPath: m_RootOrder
@@ -2261,8 +2265,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
-  m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: eae0baa535457274089d59a9826c302f, type: 2}
+  m_sharedMaterial: {fileID: 4458982654804885203, guid: eae0baa535457274089d59a9826c302f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4410,6 +4414,7 @@ MonoBehaviour:
   gameOverUI: {fileID: 261258678}
   MusicController: {fileID: 1713796968}
   CountDownText: {fileID: 1927063985}
+  SoundEffectsController: {fileID: 984045392}
   cardGroup: {fileID: 1486504827}
   currentHandSize: 0
 --- !u!114 &1755004090

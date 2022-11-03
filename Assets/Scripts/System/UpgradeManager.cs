@@ -15,7 +15,7 @@ public class UpgradeManager : MonoBehaviour
          instance = this;
          DontDestroyOnLoad(gameObject);
         } else {
-         DestroyObject(gameObject);
+         Object.Destroy(gameObject);
         }
     }
     

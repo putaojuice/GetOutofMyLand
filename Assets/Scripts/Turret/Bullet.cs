@@ -6,7 +6,6 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] public GameObject target;
     [SerializeField] public float speed = 300f;
-    [SerializeField] public float towerLevel;
 
     public virtual void Seek(GameObject _target)
     {

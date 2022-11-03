@@ -5,8 +5,11 @@ using UnityEngine;
 public class FireTower : Turret
 {
     [SerializeField] public float ActualTowerRange;
-    [SerializeField] public AudioSource AudioSource;
+    [SerializeField] public StatusData fireStatusLevel1;
+    [SerializeField] public StatusData fireStatusLevel2;
+    [SerializeField] public StatusData fireStatusLevel3;
 
+    private float permanentDamage;
     // Start is called before the first frame update
     void Start()
     {   
@@ -18,6 +21,7 @@ public class FireTower : Turret
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         towerLevel = 1;
         SetUpRange(range);
+        permanentDamage = UpgradeManager.instance.data.damage;
     }
 
     void SetUpRange(float radius)
@@ -61,13 +65,13 @@ public class FireTower : Turret
     public override void Shoot()
     {
         GameObject currBullet = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Bullet bullet = currBullet.GetComponent<Bullet>();
-        bullet.towerLevel = towerLevel;
+        FireBall bullet = currBullet.GetComponent<FireBall>();
+        bullet.SetTowerLevel(towerLevel);
         
         if(bullet != null)
         {
             bullet.Seek(target);
-            AudioSource.Play();
+            this.AudioSource.Play();
         }
     }
 
@@ -81,15 +85,24 @@ public class FireTower : Turret
     }
 
     public override float GetDamage()
-    {
-        return bulletPrefab.GetComponent<FireBall>().GetDamage();
+    {   
+        Debug.Log(" " + fireStatusLevel1.damage + " " + permanentDamage);
+        switch (towerLevel) {
+            case 1:
+                return fireStatusLevel1.damage + permanentDamage;
+            case 2:
+                return fireStatusLevel2.damage + permanentDamage;
+            case 3:
+                return fireStatusLevel3.damage + permanentDamage;
+            default:
+                return fireStatusLevel1.damage + permanentDamage;
+        }
     }
 
     public override void UpgradeTower()
     {
         if (towerLevel < 3) {
             towerLevel++;
-            bulletPrefab.GetComponent<Bullet>().UpgradeTower();
         }
     }
 
