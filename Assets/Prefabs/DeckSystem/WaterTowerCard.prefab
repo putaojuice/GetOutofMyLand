@@ -71,7 +71,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ebc650b8e5db099489cf689d2ec8265a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dcd8a3bb6fcf74ba8b81b3607ab88990, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -98,6 +98,7 @@ MonoBehaviour:
   prefabPreview: {fileID: 2199712050238850741, guid: a655c15d4eda33148a5f5e89593c866f, type: 3}
   type: 1
   isLootCard: 0
+  isDiscardCard: 0
   backSprite: {fileID: 21300000, guid: cbaf6fd9c2966664fa19309c30b9dc9a, type: 3}
 --- !u!114 &4065064699291091205
 MonoBehaviour:

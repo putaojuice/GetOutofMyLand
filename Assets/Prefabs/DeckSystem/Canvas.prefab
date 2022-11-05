@@ -213,7 +213,7 @@ RectTransform:
   - {fileID: 4163254969006579470}
   - {fileID: 6346903207458421718}
   m_Father: {fileID: 1630920667026113800}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3668,13 +3668,13 @@ RectTransform:
   - {fileID: 605499480490280389}
   - {fileID: 8852670414144491738}
   - {fileID: 4153322116802678667}
+  - {fileID: 1691654662352419500}
   - {fileID: 5717353312740780355}
   - {fileID: 923607118225074308}
   - {fileID: 8904016201721945917}
   - {fileID: 7154171798406937191}
   - {fileID: 6164640071423792109}
   - {fileID: 1330501874424009862}
-  - {fileID: 1691654662352419500}
   - {fileID: 6558134754477871206}
   - {fileID: 5298422661666998672}
   - {fileID: 6542899525786595517}
@@ -4026,7 +4026,7 @@ RectTransform:
   - {fileID: 2496589090242471137}
   - {fileID: 1770962219221530610}
   m_Father: {fileID: 1630920667026113800}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5258,7 +5258,7 @@ RectTransform:
   - {fileID: 3452079862859904634}
   - {fileID: 1301190145567714652}
   m_Father: {fileID: 1630920667026113800}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5580,11 +5580,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Enemy spawns when you press the ''next wave'' button
+  m_text: 'Enemies spawn once you press the ''Next Wave'' button!
 
 
     Keep a look
-    out for our boss monster every 5 waves! '
+    out for boss monsters that spawns every 5 waves! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
@@ -5719,7 +5719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choose a land card to add to your land
+  m_text: Expand your land using land cards!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
@@ -7825,8 +7825,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "You will be given 20 cards at the start and \n5 will be drawn to your
-    hand"
+  m_text: 'At the start of the game, you will be given 20 cards in your deck
+
+    and
+    5 will be added to your hand!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
@@ -8082,7 +8084,7 @@ GameObject:
   - component: {fileID: 4491349988102754038}
   - component: {fileID: 2896872765864249622}
   m_Layer: 5
-  m_Name: Tutorial9Cards
+  m_Name: Tutorial11Cards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8106,7 +8108,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 13, y: 92}
-  m_SizeDelta: {x: 815, y: 260}
+  m_SizeDelta: {x: 260, y: 260}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4491349988102754038
 CanvasRenderer:
@@ -8136,7 +8138,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ccdbb05e1535fe34cb2d3e00ea53366b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 068f391704b407140b334858f9fa7f0d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8158,7 +8160,7 @@ GameObject:
   - component: {fileID: 5060989208328852318}
   - component: {fileID: 3038044034229388290}
   m_Layer: 5
-  m_Name: Tutorial4Picture
+  m_Name: Tutorial5Picture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8212,7 +8214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9860cc324ab606b43a980f7a63b327f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d6014d3c234cd412681089eefddef910, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9026,11 +9028,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Choose a tower card to add to your land
+  m_text: 'Choose a tower card to build beside your land!
 
 
-    Click on the tower to see
-    its statistic'
+    Click on the tower
+    to see its stats!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
@@ -9272,7 +9274,7 @@ RectTransform:
   - {fileID: 9080378324380295538}
   - {fileID: 132551222378768072}
   m_Father: {fileID: 1630920667026113800}
-  m_RootOrder: 22
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10125,8 +10127,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "At the end of the wave, \nyou can choose 1 card (e.g. Fire Tower) to add
-    to your hand"
+  m_text: 'At the end of each wave, you can add loot cards into your deck!
+
+    You
+    can choose to "Skip" if you do not like the selection!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
@@ -11149,7 +11153,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c728c24b8d704fe4fb9eb2bbfe7def29, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 69860024dbbe3478c970841df8d51096, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13300,7 +13304,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click on existing same tower (e.g. Fire Tower) to upgrade
+  m_text: "Build Tower Cards over existing towers of the same type \nto upgrade them!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
@@ -13381,7 +13385,7 @@ GameObject:
   - component: {fileID: 924373276740989904}
   - component: {fileID: 1040002284613986755}
   m_Layer: 5
-  m_Name: Tutorial7Picture
+  m_Name: Tutorial9Picture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13405,7 +13409,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 92}
-  m_SizeDelta: {x: 500, y: 233}
+  m_SizeDelta: {x: 260, y: 260}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &924373276740989904
 CanvasRenderer:
@@ -13435,7 +13439,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9647822da71650e4090bfe7b54149853, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1bb83bef54999ff4fa55c99f55fa60fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13457,7 +13461,7 @@ GameObject:
   - component: {fileID: 7509875241050735828}
   - component: {fileID: 1378651457604707829}
   m_Layer: 5
-  m_Name: Tutorial5Picture
+  m_Name: Tutorial6Picture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13511,7 +13515,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 62f273674703cdf43b18da9fdc0ce631, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 605dd729e5b414415a8c4d3f24959fed, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14234,11 +14238,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The enemy will choose a spawn point on a safer path
+  m_text: 'Enemies can choose to spawn on a safer path!
 
 
-    Build towers
-    in more general places '
+    Strategize where you
+    build your towers!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
@@ -14984,8 +14988,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The fire tower card is added to your existing deck in the next round\n\nClick
-    on the bottom right \u2018card\u2019 button to see your card inventory"
+  m_text: 'Click on the deck button at the bottom right corner of your
+
+    in-game
+    screen to check your current deck!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
@@ -15092,7 +15098,7 @@ RectTransform:
   - {fileID: 7374045374242905099}
   - {fileID: 4559612952590783489}
   m_Father: {fileID: 1630920667026113800}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15203,7 +15209,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9030dfe9c104b1749ba3a407632413e2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 435f34cb4da084a5b80c089ac094048a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15225,7 +15231,7 @@ GameObject:
   - component: {fileID: 8791943629371104588}
   - component: {fileID: 1641645611557552727}
   m_Layer: 5
-  m_Name: Tutorial8Picture
+  m_Name: Tutorial10Picture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15249,7 +15255,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 92}
-  m_SizeDelta: {x: 431, y: 242}
+  m_SizeDelta: {x: 431, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8791943629371104588
 CanvasRenderer:
@@ -15279,7 +15285,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 29b54e8a704cf8d41901e74ecb5f5b8c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 61f360799d610474b99097c57b404ffc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15736,7 +15742,7 @@ GameObject:
   - component: {fileID: 7233950981382612727}
   - component: {fileID: 1570238957465872344}
   m_Layer: 5
-  m_Name: Tutorial3Picture
+  m_Name: Tutorial4Picture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15790,7 +15796,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e76bd37b41defd0469bcb647ce130c80, type: 3}
+  m_Sprite: {fileID: 21300000, guid: be281e20f31a54bc5adc15618702b4b9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16075,8 +16081,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Click on \u2018next wave\u2019 to start a new wave\n\nClick on the \u2018pause\u2019
-    button to pause the wave "
+  m_text: 'Click on the pause button to pause the wave!
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
@@ -17603,7 +17610,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ee1db0d617b81c34ca77d28b40aab79b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 14c1143ec382944c187e6e4cb4b13dbc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18775,7 +18782,7 @@ GameObject:
   - component: {fileID: 4144653516901089849}
   - component: {fileID: 7088572914575341204}
   m_Layer: 5
-  m_Name: Tutorial6Picture
+  m_Name: Tutorial8Picture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18829,7 +18836,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b6123a12245a17f45a0284ab59773f26, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9fd6826ebe4dd4d7faff735f2aec6e15, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18990,7 +18997,7 @@ RectTransform:
   - {fileID: 8195497161317790720}
   - {fileID: 8787156890677424}
   m_Father: {fileID: 1630920667026113800}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19174,7 +19181,7 @@ RectTransform:
   - {fileID: 6779232813343666993}
   - {fileID: 2523840222743182996}
   m_Father: {fileID: 1630920667026113800}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19285,7 +19292,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press R to rotate your land tile
+  m_text: Press R to rotate your land tile when building!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
