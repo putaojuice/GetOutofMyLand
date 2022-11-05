@@ -2510,7 +2510,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: A new spell card is added to your deck
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: eae0baa535457274089d59a9826c302f, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8431,8 +8431,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Choose a card to add to your deck
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
-  m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: eae0baa535457274089d59a9826c302f, type: 2}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12242,7 +12242,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: A new spell card is added to your deck
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: eae0baa535457274089d59a9826c302f, type: 2}
   m_sharedMaterial: {fileID: -2638960915376403233, guid: 2ee1cd369d5d03a438090b0ac79e147a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
