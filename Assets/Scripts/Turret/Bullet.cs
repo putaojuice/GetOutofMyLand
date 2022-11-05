@@ -41,8 +41,7 @@ public class Bullet : MonoBehaviour
     public virtual void HitTarget()
     {
         Enemy currEnemy = target.GetComponent<Enemy>();
-        // currEnemy.GetDamaged(attackPoints * towerLevel);
-        // Debug.Log("Hittarget");
+
         Destroy(this.gameObject);
 
     }

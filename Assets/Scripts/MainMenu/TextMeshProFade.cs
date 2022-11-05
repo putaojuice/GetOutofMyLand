@@ -27,7 +27,7 @@ public class TextMeshProFade : MonoBehaviour
                 yield return null;
             }
             isFadeOut = false;
-            Debug.Log("fade out");
+   
                 continue;
         } else {
             while (currentTime < duration)
@@ -39,7 +39,7 @@ public class TextMeshProFade : MonoBehaviour
             }
 
             isFadeOut = true;
-            Debug.Log("fade in");
+ 
                 continue;
         }
         }

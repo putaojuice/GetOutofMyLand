@@ -3649,7 +3649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7417602404551731758, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7705982200832725532, guid: ff56fbf9ff4368e48a0177dbbe6f0fed, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4461,21 +4461,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9c54e64f6d9d74bbbd8875ba108922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveIndex: 5
   infoWaveText: {fileID: 82716266}
-  scoreText: {fileID: 779941557}
   gemCount: {fileID: 1435882509}
+  scoreText: {fileID: 779941557}
+  spawnButton: {fileID: 2062877931}
+  wavePauseButton: {fileID: 1267857202}
+  gameOverUI: {fileID: 261258678}
+  CountDownText: {fileID: 1927063985}
   DeckController: {fileID: 1755004092}
   TurretController: {fileID: 1755004090}
   GridController: {fileID: 1755004091}
   EnemyManager: {fileID: 1755004093}
-  spawnButton: {fileID: 2062877931}
-  wavePauseButton: {fileID: 1267857202}
-  gameOverUI: {fileID: 261258678}
   MusicController: {fileID: 1713796968}
-  CountDownText: {fileID: 1927063985}
   SoundEffectsController: {fileID: 984045392}
   PlayerBase: {fileID: 1158085605}
+  waveIndex: 5
   cardGroup: {fileID: 1486504827}
   currentHandSize: 0
 --- !u!114 &1755004090

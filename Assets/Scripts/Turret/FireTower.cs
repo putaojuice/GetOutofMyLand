@@ -86,7 +86,6 @@ public class FireTower : Turret
 
     public override float GetDamage()
     {   
-        Debug.Log(" " + fireStatusLevel1.damage + " " + permanentDamage);
         switch (towerLevel) {
             case 1:
                 return fireStatusLevel1.damage + permanentDamage;

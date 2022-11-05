@@ -10,22 +10,29 @@ public class GameManager : MonoBehaviour
 {   
     public delegate void WaveEnd();
     public static event WaveEnd WaveEnded;
-    public int waveIndex = 0;
 
+    [Header("UI")]
     [SerializeField]private Text infoWaveText;
-    [SerializeField]private GameObject scoreText;
     [SerializeField]private TextMeshProUGUI gemCount;
+    [SerializeField]private GameObject scoreText;
+    [SerializeField]private Button spawnButton;
+    [SerializeField]private Button wavePauseButton;
+    [SerializeField]private GameObject gameOverUI;
+    [SerializeField]private GameObject CountDownText;
+
+    [Header("Controllers & Managers")]
     [SerializeField]private DeckController DeckController;
     [SerializeField]private TurretController TurretController;
     [SerializeField]private GridController GridController;
     [SerializeField]private MLEnemyManager EnemyManager;
-    [SerializeField]private Button spawnButton;
-    [SerializeField]private Button wavePauseButton;
-    [SerializeField]private GameObject gameOverUI;
+
+    [Header("Music")]
     [SerializeField]private MusicControlScript MusicController;
-    [SerializeField]private GameObject CountDownText;
     [SerializeField]private SoundEffectsControlScript SoundEffectsController;
+
+    [Header("Game Info")]
     [SerializeField]public BaseHealth PlayerBase;
+    public int waveIndex = 0;
     public Transform cardGroup;
     public int currentHandSize;
 
@@ -123,12 +130,11 @@ public class GameManager : MonoBehaviour
     public void UpdateWaveInfo() {
         this.SoundEffectsController.PlayEnemyDeathSound();
         int health = PlayerBase.Health;
-        Debug.Log("Health" + health);
+
          // Delegate wave end event when all the enemies died
         if (EnemyManager.UpdateEnemy() && health>0) {
             Debug.Log("Next Wave");
             WaveEnded();
-
 
             // enemy manager scout for optimal spawn point
             EnemyManager.SelectSmartSpawnPoint();

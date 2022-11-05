@@ -7,7 +7,8 @@ using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Policies;
 
 public class MLEnemyManager : Agent
-{
+{   
+    [Header("Enemy Prefabs")]
     [SerializeField] public GameObject enemyWarrior;
     [SerializeField] public GameObject enemyAssasin;
     [SerializeField] public GameObject enemyHealer;
