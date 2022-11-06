@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3014881735234108984}
   - component: {fileID: 3014881735234108985}
   - component: {fileID: -6387801470786690771}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ExplosionSpellPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}

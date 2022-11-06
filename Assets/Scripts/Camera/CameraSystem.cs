@@ -7,6 +7,8 @@ using Cinemachine;
 public class CameraSystem : MonoBehaviour
 {   
     [SerializeField] private CinemachineVirtualCamera virtualCam;
+
+    [Header("Camera Attributes")]
     [SerializeField] private float translateSpeed;
     [SerializeField] private float rotateSpeed;
     [SerializeField] private float dragSpeed;

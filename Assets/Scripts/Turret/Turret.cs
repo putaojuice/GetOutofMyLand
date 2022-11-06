@@ -76,7 +76,7 @@ public class Turret : MonoBehaviour
 
         if(nearestEnemy != null && shortestDistance <= range)
         {
-            //Debug.Log(nearestEnemy);
+
             target = nearestEnemy;
         } else {
             target = null;
