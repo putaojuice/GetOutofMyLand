@@ -332,8 +332,7 @@ public class DeckController : MonoBehaviour
 
     public void AddILandQty() {
         ILandQty += 1;
-        ILandQtyText.text = "x " + ILandQty.ToString();
-    }
+        ILandQtyText.text = "x " + ILandQty.ToString();    }
     
     public void ReduceILandQty() {
         ILandQty -= 1;

@@ -93,7 +93,6 @@ public class SpellController : MonoBehaviour
 		Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 		if (Physics.Raycast(cam.transform.position, ray.direction, out hit, Mathf.Infinity, layer))
-
 		{
 			PositionObj(hit.point);
 

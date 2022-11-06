@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7434537384383710349}
   - component: {fileID: 4263897780843797220}
   - component: {fileID: 6098829516081381029}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Smoke 0\xB0"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4915,7 +4915,7 @@ GameObject:
   - component: {fileID: 2523286095284361579}
   - component: {fileID: 2523286095284361578}
   - component: {fileID: 2382414513889236519}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ExplosionSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10044,7 +10044,7 @@ GameObject:
   - component: {fileID: 2428879346301880986}
   - component: {fileID: 2428879346301880988}
   - component: {fileID: 2428879346301880989}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Smoke 180\xB0"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14944,7 +14944,7 @@ GameObject:
   - component: {fileID: 2428879346508261584}
   - component: {fileID: 2428879346508261586}
   - component: {fileID: 2428879346508261587}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rays
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19826,7 +19826,7 @@ GameObject:
   - component: {fileID: 2428879347872738517}
   - component: {fileID: 2428879347872738519}
   - component: {fileID: 2428879347872738516}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Smoke 90\xB0"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24726,7 +24726,7 @@ GameObject:
   - component: {fileID: 2428879347947824825}
   - component: {fileID: 2428879347947824827}
   - component: {fileID: 2428879347947824824}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Smoke 270\xB0"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29626,7 +29626,7 @@ GameObject:
   - component: {fileID: 2682083356712689510}
   - component: {fileID: 2682083356712689508}
   - component: {fileID: 2682083356712689511}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Quick Spikes Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34364,7 +34364,7 @@ GameObject:
   - component: {fileID: 8551670008736272543}
   - component: {fileID: 8402229450370112257}
   - component: {fileID: 3228745576602582444}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Quick Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
