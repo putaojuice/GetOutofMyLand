@@ -842,7 +842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887702af2cac54f83beb9a0c327aec05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioSource: {fileID: 0}
   volume: 0.5
   maxHp: 3
   hp: 3
@@ -850,6 +849,7 @@ MonoBehaviour:
   defence: 0
   currRound: 1
   destructionMat: {fileID: 0}
+  AudioSource: {fileID: 0}
   maxChargePoints: 0
   chargePoints: 0
   isCharging: 0
@@ -916,7 +916,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8863602151965507149}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Speed: 0.5
   m_Acceleration: 8
   avoidancePriority: 50
