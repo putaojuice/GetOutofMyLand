@@ -5394,7 +5394,6 @@ MonoBehaviour:
   currRound: 1
   destructionMat: {fileID: 2100000, guid: b74884b5f6bed4f2482d69909f6aee3e, type: 2}
   AudioSource: {fileID: 5781383297385623139}
-  deathSound: {fileID: 8300000, guid: b0bc043d08a1f8240b5666d56cf65332, type: 3}
   chargeSpeed: 3
   skillDuration: 0.5
   skillToggled: 0
@@ -5428,7 +5427,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1567556252654110330}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.15
   m_Speed: 1
   m_Acceleration: 5
   avoidancePriority: 50

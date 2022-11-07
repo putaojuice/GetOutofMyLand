@@ -31,6 +31,7 @@ public class Card : MonoBehaviour
     {
         gameObject.transform.localScale = new Vector3(1, 1, 1);
         DeckController.disableHand();
+        // prevent re-selection of card
         if (DeckController.currentCard != null)
         {
             Debug.Log("block card");

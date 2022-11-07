@@ -7,6 +7,8 @@ using Cinemachine;
 public class CameraSystem : MonoBehaviour
 {   
     [SerializeField] private CinemachineVirtualCamera virtualCam;
+
+    [Header("Camera Attributes")]
     [SerializeField] private float translateSpeed;
     [SerializeField] private float rotateSpeed;
     [SerializeField] private float dragSpeed;
@@ -37,7 +39,15 @@ public class CameraSystem : MonoBehaviour
 
     private void Start()
     {
-        deltaTime = Time.deltaTime;
+        deltaTime = 1.0f / 4.0f;
+         translateSpeed = 1.5f;
+        rotateSpeed = 1.5f;
+        dragSpeed = 0.5f;
+        zoomSpeed = 4.0f;
+        zoomDistanceMax = 80.0f;
+        zoomDistanceMin = 10.0f;
+        scrollSize = 2;
+
     }
 
     private void Update()
@@ -46,6 +56,8 @@ public class CameraSystem : MonoBehaviour
             HandleCameraTranslation();
             HandleCameraRotation();
             HandleCameraZoom();
+
+       
         }
     }
 

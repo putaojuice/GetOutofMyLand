@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Stats
 {   
+    // Upgrade related stats
     public int upgradePoint = 0;
     public float damage=0f;
     public float range=0f;
