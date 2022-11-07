@@ -27,17 +27,49 @@ Tower upgrades? Infinite waves of enemies? Strategise your cards? Get Out of My 
 <p align=center><a class="button1" href="https://goml.itch.io/get-out-of-my-land">Download Link</a></p>
 
 <h4 align=center> ☀️ Get Out of My Land! | Official Launch Trailer 🌈</h4>
-<p align=center><a class="button1" href="https://www.youtube.com/">Trailer Link</a></p>
+<p align=center><a class="button1" href="https://www.youtube.com/watch?v=jZdiLWZlFNg">Trailer Link</a></p>
 
 <h4 align=center>Follow our dev blog!</h4>
 <p align=center><a class="button1" href="https://goml.itch.io/get-out-of-my-land">Dev Blog Link</a></p>
 
-<p align=center><img src="https://imgur.com/SuJvkZ1.png" alt="Key Features" draggable="false"></p>
+<p align=center><img src="https://imgur.com/2jOET6Q.png" alt="Key Features" draggable="false" width="60%"></p>
+<h4 align=center>Unique genre</h4>
+<p align=center>Some rouge-like tower defence with card deck mechanic</p>
+<p align=center><img src="https://imgur.com/5B9hexZ.png" alt="CULLinary 2 Enemies" draggable="false"><br></p>
 
-<p align=center><img src="https://imgur.com/exViHxo.png " alt="Controls" draggable="false"></p>
+<h4 align=center>Tower defence with expandable land</h4>
+<p align=center><img src="https://imgur.com/vkfdM1c.gif" alt="CULLinary 2 Enemies" draggable="false"><br></p>
+
+<h4 align=center>Challenging enemies</h4>
+<p align=center>4 different enemy types each with their own traits and skills, 1 boss that eats the player’s tower, <br> and enemy gets harder as wave number increases</p>
+<p align=center><img src="https://imgur.com/i5KRabc.gif" alt="CULLinary 2 Enemies" draggable="false"><br></p>
+
+<h4 align=center>Infinite waves with dynamic spawn point</h4>
+<p align=center>Enemies are “smart” to choose their point of attack that maximises damage to the player</p>
+<p align=center><img src="https://imgur.com/wlU1yAk.png" alt="CULLinary 2 Enemies" draggable="false"><br></p>
+
+<h4 align=center>Unique towers, spells, upgrades</h4>
+<p align=center><img src="https://imgur.com/cYiOsJS.png" alt="CULLinary 2 Enemies" draggable="false"><br></p>
+
+<h4 align=center>Elemental reaction mechanic</h4>
+<p align=center>3 elements with 3 additional reactions that has special effects like shock or deals massive single target damage</p>
+<p align=center><img src="https://imgur.com/sNSt1UW.png" alt="CULLinary 2 Enemies" draggable="false" width="60%"><br></p>
+
+<h4 align=center>Player progression</h4>
+<p align=center>Player will be rewarded with powerful spell cards when defeating boss wave</p>
+<p align=center><img src="https://imgur.com/9SX73wl.gif" alt="CULLinary 2 Enemies" draggable="false"><br></p>
+<p align=center>When the player dies and loses the game, there will be in-game currencies rewarded to the player to upgrade tower stats permanently, <br> incentivises the player for replayability</p>
+<p align=center><img src="https://imgur.com/9mj0ivj.png" alt="CULLinary 2 Enemies" draggable="false" width="60%"><br></p>
+
+<h4 align=center>Aesthetically pleasing game</h4>
+<p align=center>With our self-build environment, you can imagine you are high up in the sky!</p>
+<p align=center><img src="https://imgur.com/3IHGCIi.png" alt="CULLinary 2 Enemies" draggable="false" width="60%"><br></p>
+
+
+<p align=center><img src="https://imgur.com/nK1MxJw.png " alt="Controls" draggable="false" width="60%"></p>
 <p align=center><img src="https://imgur.com/bej0lqe.png " alt="Get Out of My Land! Controls" draggable="false"></p>
 
-<p align=center><img src="https://imgur.com/u43guVJ.png" alt="[System Requirements" draggable="false"></p>
+<p align=center><img src="https://imgur.com/28Jauj8.png" alt="[System Requirements" draggable="false" width="60%"></p>
 
 <h4 align=center style="color:#7D4D37" ><u>Windows</u></h4>
 <table width="100%">
