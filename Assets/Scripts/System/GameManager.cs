@@ -108,8 +108,8 @@ public class GameManager : MonoBehaviour
     public void GameOver() {
         int totalScore = GetScore();
         scoreText.GetComponent<TMP_Text>().text = "Score: " + (totalScore); 
-        gemCount.text = "X " + (int) ((totalScore) / 30);
-        if ((totalScore) / 30 >= 1)
+        gemCount.text = "X " + (int) ((totalScore) / 40);
+        if ((totalScore) / 40 >= 1)
         {
             UpgradeManager.instance.data.upgradePoint += (totalScore) / 40;
             UpgradeManager.instance.Save();
