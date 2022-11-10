@@ -37,8 +37,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 2}
-  m_SizeDelta: {x: 0, y: 4}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 0, y: 10}
+  m_Pivot: {x: 0.5, y: 0.2}
 --- !u!222 &7754612998268723221
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16409636, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.009791374, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -132,8 +132,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 2.000002}
-  m_SizeDelta: {x: 0, y: 4}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 0, y: 10}
+  m_Pivot: {x: 0.5, y: 0.2}
 --- !u!222 &7399012740338313223
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -210,7 +210,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 2.54}
-  m_SizeDelta: {x: 44.6424, y: 10.1097}
+  m_SizeDelta: {x: 45, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &142011173566308644
 Canvas:
@@ -641,7 +641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639838e5fcdcf4824a871f99368e79cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioSource: {fileID: 0}
   volume: 0.5
   maxHp: 3
   hp: 3
@@ -649,6 +648,7 @@ MonoBehaviour:
   defence: 0
   currRound: 1
   destructionMat: {fileID: 2100000, guid: 7151259e6d0e24e37a9e5d5998bb1c95, type: 2}
+  AudioSource: {fileID: 7458623006499716426}
   hiddenMat: {fileID: 2100000, guid: 90ce2012e238d4b9cbdb9ac93971d159, type: 2}
   originalMat: {fileID: 0}
   skillDuration: 3
@@ -665,7 +665,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7767641185132825177}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.15
   m_Speed: 1
   m_Acceleration: 10000
   avoidancePriority: 50
@@ -742,7 +742,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b0bc043d08a1f8240b5666d56cf65332, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9295a1de646df854aaf5501cbfc849a0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2572,6 +2572,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2262966659587544026, guid: 045b9f9dcf1224f57a50775182e4a3fa, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262966659587544026, guid: 045b9f9dcf1224f57a50775182e4a3fa, type: 3}
+      propertyPath: clearBehavior
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5248127981030918522, guid: 045b9f9dcf1224f57a50775182e4a3fa, type: 3}

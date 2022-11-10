@@ -6,7 +6,6 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] public GameObject target;
     [SerializeField] public float speed = 300f;
-    [SerializeField] public float towerLevel;
 
     public virtual void Seek(GameObject _target)
     {
@@ -42,8 +41,7 @@ public class Bullet : MonoBehaviour
     public virtual void HitTarget()
     {
         Enemy currEnemy = target.GetComponent<Enemy>();
-        // currEnemy.GetDamaged(attackPoints * towerLevel);
-        // Debug.Log("Hittarget");
+
         Destroy(this.gameObject);
 
     }

@@ -11,17 +11,21 @@ public class WaterTower : Turret
     [SerializeField] public StatusData rainStatusLevel3;
     [SerializeField] public float ActualTowerRange;
 
+    private float permanentDamage = 0f;
     // Start is called before the first frame update
     void Start()
     {   
         type = TurretType.Water;
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        range = ActualTowerRange;
+        range = ActualTowerRange + UpgradeManager.instance.data.range;
         firingRate = 0.2f;
         InvokeRepeating("UpdateTarget", 0f, 2.0f);
         towerLevel = 1;
         rangeDetector.GetComponent<RangeDetector>().UpdateColliderRadius(ActualTowerRange);
-        SetUpRange(ActualTowerRange);
+        if (UpgradeManager.instance != null) {
+            permanentDamage = UpgradeManager.instance.data.damage;
+        } 
+        //SetUpRange(ActualTowerRange);
     }
 
     void SetUpRange(float radius)
@@ -33,7 +37,7 @@ public class WaterTower : Turret
             Theta += (2.0f * Mathf.PI * 0.01f);
             float x = radius * Mathf.Cos(Theta);
             float y = radius * Mathf.Sin(Theta);
-            rangeIndicator.SetPosition(i, new Vector3(x, y, 0.8f));
+            rangeIndicator.SetPosition(i, new Vector3(x, y, 0));
         }
     }
 
@@ -43,16 +47,23 @@ public class WaterTower : Turret
 
         foreach(EnemyStatus enemy in enemies) {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
+            
             if(distance < range){
                 switch (towerLevel){
                     case 1:
-                        enemy.ApplyStatus(rainStatusLevel1);
+                        StatusData tempData1 = Instantiate(rainStatusLevel1);
+                        tempData1.DOT += permanentDamage / 5f;
+                        enemy.ApplyStatus(tempData1);
                         break;
                     case 2:
-                        enemy.ApplyStatus(rainStatusLevel2);
+                        StatusData tempData2 = Instantiate(rainStatusLevel2);
+                        tempData2.DOT += permanentDamage / 5f;
+                        enemy.ApplyStatus(tempData2);
                         break;
                     default:
-                        enemy.ApplyStatus(rainStatusLevel3);
+                        StatusData tempData3 = Instantiate(rainStatusLevel3);
+                        tempData3.DOT += permanentDamage / 5f;
+                        enemy.ApplyStatus(tempData3);
                         break;
                 }
             }
@@ -77,11 +88,11 @@ public class WaterTower : Turret
     {
         switch (towerLevel){
             case 1:
-                return rainStatusLevel1.DOT * towerLevel;
+                return rainStatusLevel1.DOT + (permanentDamage / 5f);
             case 2:
-                return rainStatusLevel2.DOT * towerLevel;
+                return rainStatusLevel2.DOT + (permanentDamage / 5f);
             case 3:
-                return rainStatusLevel3.DOT * towerLevel;
+                return rainStatusLevel3.DOT + (permanentDamage / 5f);
             default:
                 return 0;
         }

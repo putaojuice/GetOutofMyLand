@@ -13,4 +13,5 @@ public class StatusData : ScriptableObject
     [SerializeField] public float damage;
     [SerializeField] public float towerLevel;
     
+    
 }

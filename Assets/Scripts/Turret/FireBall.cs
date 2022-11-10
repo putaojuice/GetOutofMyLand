@@ -10,15 +10,23 @@ public class FireBall : Bullet
     [SerializeField] public StatusData fireStatusLevel1;
     [SerializeField] public StatusData fireStatusLevel2;
     [SerializeField] public StatusData fireStatusLevel3;
-
+    
+    private int towerLevel = 1;
+    private float permanentDamage = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
         speed = 5.0f;
-        Debug.Log("eh fire");
-        
+        if (UpgradeManager.instance != null) {
+            permanentDamage = UpgradeManager.instance.data.damage;
+        } 
+    }
+
+    public void SetTowerLevel(int towerLevel)
+    {
+        this.towerLevel = towerLevel;
     }
 
     // Update is called once per frame
@@ -48,15 +56,15 @@ public class FireBall : Bullet
         Enemy currEnemy = target.GetComponent<Enemy>();
         switch(towerLevel){
             case 1:
-                currEnemy.GetDamaged(fireStatusLevel1.damage * towerLevel);
+                currEnemy.GetDamaged(fireStatusLevel1.damage + permanentDamage);
                 currEnemyStatus.ApplyStatus(fireStatusLevel1);
                 break;
             case 2:
-                currEnemy.GetDamaged(fireStatusLevel2.damage * towerLevel);
+                currEnemy.GetDamaged(fireStatusLevel2.damage + permanentDamage);
                 currEnemyStatus.ApplyStatus(fireStatusLevel2);
                 break;
             default:
-                currEnemy.GetDamaged(fireStatusLevel3.damage * towerLevel);
+                currEnemy.GetDamaged(fireStatusLevel3.damage + permanentDamage);
                 currEnemyStatus.ApplyStatus(fireStatusLevel3);
                 break;
         }
@@ -72,15 +80,15 @@ public class FireBall : Bullet
             Enemy currEnemy = target.GetComponent<Enemy>();
             switch(towerLevel){
                 case 1:
-                    currEnemy.GetDamaged(fireStatusLevel1.damage * towerLevel);
+                    currEnemy.GetDamaged(fireStatusLevel1.damage + permanentDamage);
                     currEnemyStatus.ApplyStatus(fireStatusLevel1);
                     break;
                 case 2:
-                    currEnemy.GetDamaged(fireStatusLevel2.damage * towerLevel);
+                    currEnemy.GetDamaged(fireStatusLevel2.damage + permanentDamage);
                     currEnemyStatus.ApplyStatus(fireStatusLevel2);
                     break;
                 default:
-                    currEnemy.GetDamaged(fireStatusLevel3.damage * towerLevel);
+                    currEnemy.GetDamaged(fireStatusLevel3.damage + permanentDamage);
                     currEnemyStatus.ApplyStatus(fireStatusLevel3);
                     break;
             }
@@ -96,19 +104,7 @@ public class FireBall : Bullet
         }
     }
 
-    public float GetDamage()
-    {
-        switch(towerLevel){
-            case 1:
-                return fireStatusLevel1.damage;
-            case 2:
-                return fireStatusLevel2.damage;
-            case 3:
-                return fireStatusLevel3.damage;
-            default:
-                return fireStatusLevel1.damage;
-        }
-    }
+
 
 
 

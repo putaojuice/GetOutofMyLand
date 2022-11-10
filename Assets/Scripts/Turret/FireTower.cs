@@ -5,18 +5,23 @@ using UnityEngine;
 public class FireTower : Turret
 {
     [SerializeField] public float ActualTowerRange;
+    [SerializeField] public StatusData fireStatusLevel1;
+    [SerializeField] public StatusData fireStatusLevel2;
+    [SerializeField] public StatusData fireStatusLevel3;
 
+    private float permanentDamage;
     // Start is called before the first frame update
     void Start()
     {   
         type = TurretType.Fire;
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        range = ActualTowerRange;
+        range = ActualTowerRange + UpgradeManager.instance.data.range;
         firingRate = 1f;
-        rangeDetector.GetComponent<RangeDetector>().UpdateColliderRadius(ActualTowerRange);
+        rangeDetector.GetComponent<RangeDetector>().UpdateColliderRadius(range);
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         towerLevel = 1;
-        SetUpRange(ActualTowerRange);
+        SetUpRange(range);
+        permanentDamage = UpgradeManager.instance.data.damage;
     }
 
     void SetUpRange(float radius)
@@ -28,7 +33,7 @@ public class FireTower : Turret
             Theta += (2.0f * Mathf.PI * 0.01f);
             float x = radius * Mathf.Cos(Theta);
             float y = radius * Mathf.Sin(Theta);
-            rangeIndicator.SetPosition(i, new Vector3(x, y, 0.8f));
+            rangeIndicator.SetPosition(i, new Vector3(x, y, 0));
         }
     }
 
@@ -60,12 +65,13 @@ public class FireTower : Turret
     public override void Shoot()
     {
         GameObject currBullet = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Bullet bullet = currBullet.GetComponent<Bullet>();
-        bullet.towerLevel = towerLevel;
+        FireBall bullet = currBullet.GetComponent<FireBall>();
+        bullet.SetTowerLevel(towerLevel);
         
         if(bullet != null)
         {
             bullet.Seek(target);
+            this.AudioSource.Play();
         }
     }
 
@@ -79,15 +85,23 @@ public class FireTower : Turret
     }
 
     public override float GetDamage()
-    {
-        return bulletPrefab.GetComponent<FireBall>().GetDamage();
+    {   
+        switch (towerLevel) {
+            case 1:
+                return fireStatusLevel1.damage + permanentDamage;
+            case 2:
+                return fireStatusLevel2.damage + permanentDamage;
+            case 3:
+                return fireStatusLevel3.damage + permanentDamage;
+            default:
+                return fireStatusLevel1.damage + permanentDamage;
+        }
     }
 
     public override void UpgradeTower()
     {
         if (towerLevel < 3) {
             towerLevel++;
-            bulletPrefab.GetComponent<Bullet>().UpgradeTower();
         }
     }
 

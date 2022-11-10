@@ -11,10 +11,16 @@ public class LightningBall : Bullet
     [SerializeField] public StatusData lightningStatusLevel2;
     [SerializeField] public StatusData lightningStatusLevel3;
 
+    private int towerLevel = 1;
+    private float permanentDamage = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
         speed = 30.0f;
+        if (UpgradeManager.instance != null) {
+            permanentDamage = UpgradeManager.instance.data.damage;
+        } 
         
     }
 
@@ -39,21 +45,26 @@ public class LightningBall : Bullet
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
 
+    public void SetTowerLevel(int towerLevel)
+    {
+        this.towerLevel = towerLevel;
+    }
+
     public override void HitTarget()
     {
         Enemy currEnemy = target.GetComponent<Enemy>();
         EnemyStatus currEnemyStatus = target.GetComponent<EnemyStatus>();
         switch(towerLevel){
             case 1:
-                currEnemy.GetDamaged(lightningStatusLevel1.damage * towerLevel);
+                currEnemy.GetDamaged(lightningStatusLevel1.damage + permanentDamage);
                 currEnemyStatus.ApplyStatus(lightningStatusLevel1);
                 break;
             case 2:
-                currEnemy.GetDamaged(lightningStatusLevel2.damage * towerLevel);
+                currEnemy.GetDamaged(lightningStatusLevel2.damage + permanentDamage);
                 currEnemyStatus.ApplyStatus(lightningStatusLevel2);
                 break;
             default:
-                currEnemy.GetDamaged(lightningStatusLevel3.damage * towerLevel);
+                currEnemy.GetDamaged(lightningStatusLevel3.damage + permanentDamage);
                 currEnemyStatus.ApplyStatus(lightningStatusLevel3);
                 break;
         }
@@ -69,18 +80,5 @@ public class LightningBall : Bullet
         }
     }
 
-    public float GetDamage()
-    {
-        switch(towerLevel){
-            case 1:
-                return lightningStatusLevel1.damage;
-            case 2:
-                return lightningStatusLevel2.damage;
-            case 3:
-                return lightningStatusLevel3.damage;
-            default:
-                return lightningStatusLevel1.damage;
-        }
-    }
 
 }

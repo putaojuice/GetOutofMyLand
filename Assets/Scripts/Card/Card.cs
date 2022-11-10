@@ -24,13 +24,14 @@ public class Card : MonoBehaviour
     {
         currentCard = gameObject.GetComponent<Image>();
         gameObject.GetComponent<Button>().onClick.AddListener(UseCard);
-        DeckController = GameManager.instance.gameObject.GetComponent<DeckController>();
+        DeckController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<DeckController>();
     }
 
     public void UseCard()
     {
         gameObject.transform.localScale = new Vector3(1, 1, 1);
         DeckController.disableHand();
+        // prevent re-selection of card
         if (DeckController.currentCard != null)
         {
             Debug.Log("block card");
@@ -62,6 +63,10 @@ public class Card : MonoBehaviour
         else if (type == Type.Turret)
         {
             DeckController.PlayTurretCard(this, prefabPreview);
+        }
+        else if (type == Type.Spell)
+        {
+            DeckController.PlaySpellCard(this, prefabPreview);
         }
         else
         {
@@ -127,4 +132,4 @@ public class Card : MonoBehaviour
     }
 }
 
-public enum Type {Tile, Turret};
+public enum Type {Tile, Turret, Spell};

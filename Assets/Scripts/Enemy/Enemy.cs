@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
 {
     private GameManager gameManager;
 
-    public AudioSource AudioSource;
     public float volume=0.5f;
     [Header("Enemy Data")]
     public float maxHp = 3f;
@@ -17,11 +16,11 @@ public class Enemy : MonoBehaviour
     public float currRound = 1f;
 
     [SerializeField] public Material destructionMat;
+    [SerializeField] public AudioSource AudioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        AudioSource = GetComponent<AudioSource>();
         Physics.IgnoreLayerCollision(7,9, true);  // ignores all the enemies
     }
 
@@ -66,7 +65,6 @@ public class Enemy : MonoBehaviour
             // Play enemy dissolve animation from dissolve shader
 
             StartCoroutine(PlayDissolve(1f));
-            AudioSource.Play();
             // Destroy after 1 sec delay
             Destroy(gameObject, 1.0f);
 
@@ -99,7 +97,7 @@ public class Enemy : MonoBehaviour
 
     public void UpdateNumOfEnemies() {
 
-        GameManager.instance.UpdateWaveInfo();
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().UpdateWaveInfo();
     }
 
     public virtual void UseSkill() {

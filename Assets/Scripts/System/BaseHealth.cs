@@ -5,14 +5,17 @@ using UnityEngine;
 public class BaseHealth : MonoBehaviour
 {   
     [SerializeField]
-    private int Health;
+    public int Health;
 
     [SerializeField]
-    private int maxHealth;
+    public int maxHealth;
+    [SerializeField]
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        maxHealth += UpgradeManager.instance.data.health;
         Health = maxHealth;
     }
 
@@ -20,15 +23,16 @@ public class BaseHealth : MonoBehaviour
     void Update()
     {   
         // Game end condition
-        if (Health < 1) {
-            GameManager.instance.GameOver();
-            Destroy(gameObject);
-        }
+
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Enemy") {
             Health--;
+            if (Health < 1) {
+                gameManager.GameOver();
+                Destroy(gameObject);
+            }
         }
     }
 
